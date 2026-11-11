@@ -1,7 +1,7 @@
 # Foundation Completion Plan
 
 **Status:** Proposed working plan — not an approval to implement.  
-**Last updated:** 2026-11-11  
+**Last updated:** 2026-11-12  
 **Project stage:** Stage 1 — Core foundation  
 **Operational purpose:** Intentionally undefined  
 **Canonical source:** This repository, branch main.
@@ -12,14 +12,14 @@ Provide an ordered route for completing the purpose-neutral foundation before an
 
 ## 2. Current position
 
-Four review batches examined 20 logical review areas. This is a documentation-review count, not a completion percentage, implementation metric, or verification result.
+Four review batches examined 20 logical review areas; a subsequent static Foundation Consistency Review is recorded separately. These are documentation-review activities, not a completion percentage, implementation metric, or verification result.
 
 | Batch | Areas | Result |
 | --- | --- | --- |
 | 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Proposed designs reviewed; D-005 is approved but broader Core design remains open |
 | 2 | Core identity; configuration; workflow template/index; validation; error/recovery | Workflow template/index exist; validation layers are documented; standalone error/recovery proposal has now been added |
 | 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging and tool governance proposals added; D-006, D-007 and D-008 are approved logical baselines only |
-| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.34.0; validation remains documentation-only |
+| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.35.0; validation remains documentation-only |
 
 ### Confirmed approved baselines
 
@@ -48,7 +48,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Cross-document consistency review | Approved baselines and proposed cross-cutting designs need joint review | Traceable review of ownership, authority, states, evidence, versioning, failure and recovery semantics |
+| P0 | Cross-document consistency review | Static review recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; findings await owner disposition | Resolve documented status conflicts and ambiguities without changing approved baselines |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
 | P1 | Validation strategy | Six validation layers documented; no automated validation exists | Risk-based validation plan, independent evidence, exact-version traceability, separate release approval |
 | P1 | Documentation/version governance | README, decisions and changelog exist; dedicated policy not yet established | Rules for document identity, versioning, immutable baselines, supersession, review and evidence |
@@ -85,7 +85,7 @@ A first implementation proposal must not proceed until applicable items are expl
 
 A successful smoke test is not feature verification, security validation, operational readiness, or release approval.
 
-## 6. D-012 open questions — retained
+## 6. Consistency review findings\n\nThe static review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. It identified status conflicts between D-012 and the in-document status wording of its three approved artifacts; stale status statements in the Joint Contract Review and Implementation Readiness documents; an unresolved Core instruction-document boundary; and a future PEP/tool-adapter boundary requiring clarification. Findings are not silently resolved here. Exact approved baselines remain unchanged pending explicit owner disposition.\n\n## 7. D-012 open questions — retained
 
 The following remain unresolved and are not closed by the new proposals:
 
@@ -95,7 +95,7 @@ The following remain unresolved and are not closed by the new proposals:
 4. Independent verification evidence and thresholds.
 5. Tombstone and audit retention after deletion.
 
-## 7. Durable handover
+## 8. Durable handover
 
 At the start of a future repository task:
 
@@ -106,7 +106,7 @@ At the start of a future repository task:
 5. Make one atomic commit for the task; re-fetch and verify every changed file, commit, branch head, workflow runs, and status checks.
 6. Keep the project in Stage 1 until the owner explicitly approves a change in scope.
 
-## 8. Status vocabulary
+## 9. Status vocabulary
 
 - **Proposed:** under consideration; not approved.
 - **Approved:** explicitly accepted by the owner for a defined scope/version.

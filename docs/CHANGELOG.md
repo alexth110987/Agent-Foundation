@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.35.0 — 2026-11-12
+
+### Added
+- Recorded a static Foundation Consistency Review covering cross-system ownership, identity/authorization, lifecycle/provenance, error handling/logging/recovery, validation, tools, workflow governance, and documentation status.
+
+### Updated
+- Linked the review from README, Project Status, and Foundation Completion Plan.
+- Recorded three confirmed status/planning inconsistencies and two design/governance ambiguities for explicit owner disposition.
+
+### Clarifications
+- The review does not amend exact approved baselines, resolve D-012 open questions, approve proposals, or authorize implementation, runtime, integrations, testing, validation, or release.
+- No runtime or tests were executed; findings are limited to static documentation review.
+
 ## 0.34.0 — 2026-11-11
 
 ### Added

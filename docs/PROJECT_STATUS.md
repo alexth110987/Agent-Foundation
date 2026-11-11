@@ -1,6 +1,6 @@
 # Project Status
 
-**Last updated:** 2026-11-11  
+**Last updated:** 2026-11-12  
 **Overall stage:** Stage 1 — Core foundation  
 **Operational purpose:** Not defined  
 **Runtime:** Not selected  
@@ -36,7 +36,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Tool registry and governance | Proposed governance design | No tools registered, approved, configured, validated, active, or connected; see docs/TOOL_GOVERNANCE.md |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
-| Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
+| Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |\n| Foundation consistency review | Review completed; findings pending owner disposition | docs/FOUNDATION_CONSISTENCY_REVIEW.md; static documentation review only; no runtime/tests |
 
 ## Approved baseline
 
@@ -72,7 +72,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
 - Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.
-- Expand validation strategy and define documentation/version governance.
+- Disposition findings in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; do not amend exact approved baselines without explicit owner authorization.\n- Expand validation strategy and define documentation/version governance.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
@@ -80,7 +80,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, and D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, each as documentation-only logical contract baselines. D-012 approves the exact Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) source blobs as documentation-only logical baselines. These decisions do not authorize implementation, runtime, services, integrations, operational use, testing, validation, or release. The Joint Contract Review refinement register remains Proposed and pending owner review. D-012 open questions and the proposed implementation-readiness framework remain unresolved.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, and D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, each as documentation-only logical contract baselines. D-012 approves the exact Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) source blobs as documentation-only logical baselines. These decisions do not authorize implementation, runtime, services, integrations, operational use, testing, validation, or release. The Joint Contract Review refinement register remains Proposed and pending owner review. The Foundation Consistency Review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; its findings await owner disposition. D-012 open questions and the proposed implementation-readiness framework remain unresolved.
 
 ## Evidence discipline
 
@@ -117,3 +117,8 @@ This registration does not amend D-006 through D-011 or R-01–R-07 and does not
 Three purpose-neutral logical proposals were added: Error Handling and Recovery (docs/ERROR_HANDLING_ARCHITECTURE.md), Logging (systems/logging/LOGGING_ARCHITECTURE.md), and Tool Governance (docs/TOOL_GOVERNANCE.md). They define design constraints and future evidence requirements only. They do not select technology, activate tools, resolve D-012 open questions, authorize implementation, or establish runtime functionality.
 
 The Tool Registry remains empty. Logging remains unimplemented. No runtime tests, integrations, or operational actions were performed. All three proposals require owner review; Stage 1 and the undefined operational purpose remain unchanged.
+
+
+## Foundation consistency review — 2026-11-12
+
+A static review of the live foundation documentation recorded three confirmed status/planning inconsistencies and two design/governance ambiguities in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. The review does not amend any approved baseline, resolve D-012 open questions, or authorize implementation. Findings await owner disposition. No runtime or tests were executed.
