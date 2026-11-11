@@ -33,10 +33,10 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Shared Lifecycle Contract | Approved logical contract baseline | D-012; exact approved source blob `c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`; documentation only; no lifecycle implementation |
 | Object-Specific Lifecycle Tables | Approved logical design | D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`; documentation only; no state machines or lifecycle runtime |
 | Cross-System Interface & Ownership Matrix | Approved logical coordination baseline | D-012; exact approved source blob `98b4559d42a21bc769617a0cf2d0cce80f257d40`; documentation only; no interfaces or services implemented |
-| Tool registry | Placeholder | No tools approved or connected |
+| Tool registry and governance | Proposed governance design | No tools registered, approved, configured, validated, active, or connected; see docs/TOOL_GOVERNANCE.md |
 | Validation / tests | Documentation only | No runtime tests exist |
-| Logging | Placeholder | No runtime implementation |
-| Error handling | Placeholder | No standalone architecture yet; conceptual requirements only |
+| Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
+| Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
 
 ## Approved baseline
 
@@ -71,7 +71,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
-- Defining error-handling and validation architecture.
+- Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures; resolve remaining D-012 questions.\n- Expand validation strategy and define documentation/version governance.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
@@ -109,3 +109,10 @@ The review count is a documentation-review count, not a completion percentage or
 D-012 records the owner's approval of the exact pre-approval source blobs for the Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) as documentation-only logical baselines. The current documents remain tied to those exact approved source versions; later annotations do not alter the baselines.
 
 This registration does not amend D-006 through D-011 or R-01–R-07 and does not approve the Joint Contract Review register. Open questions remain: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed, duplicate, and conflicting cross-system events; independent verification evidence; and tombstone/audit retention after deletion. No technology, schema, protocol, service, or runtime is selected. No implementation, ingestion, integration, operational use, tests, validation, or release is authorized. The project remains Stage 1, with purpose and runtime undefined.
+
+
+## Proposed cross-cutting foundation architectures — 2026-11-11
+
+Three purpose-neutral logical proposals were added: Error Handling and Recovery (docs/ERROR_HANDLING_ARCHITECTURE.md), Logging (systems/logging/LOGGING_ARCHITECTURE.md), and Tool Governance (docs/TOOL_GOVERNANCE.md). They define design constraints and future evidence requirements only. They do not select technology, activate tools, resolve D-012 open questions, authorize implementation, or establish runtime functionality.
+
+The Tool Registry remains empty. Logging remains unimplemented. No runtime tests, integrations, or operational actions were performed. All three proposals require owner review; Stage 1 and the undefined operational purpose remain unchanged.

@@ -2,6 +2,23 @@
 
 All notable project changes are recorded here.
 
+## 0.34.0 — 2026-11-11
+
+### Added
+- Added a proposed purpose-neutral Error Handling and Recovery Architecture covering failure taxonomy, typed outcomes, fail-closed behavior, retry/replay safety, uncertain side effects, reconciliation, recovery, escalation, and future validation.
+- Added a proposed Logging Architecture covering event taxonomy, correlation/causation, integrity, access separation, privacy, retention, logging failure, and future validation.
+- Added proposed Tool Governance lifecycle and review controls; clarified that the Tool Registry is empty and technical availability does not authorize invocation.
+
+### Updated
+- Replaced the Logging placeholder with a pointer to the proposed logical architecture.
+- Updated the Tool Registry to state its empty status and link proposed governance controls.
+- Aligned Project Status, Foundation Completion Plan, and README with the new proposals and current D-012 registration.
+
+### Clarifications
+- All three architectures remain Proposed and require owner review. No tool was selected, registered, approved, configured, connected, validated, or activated.
+- These are documentation-only changes. They do not resolve D-012 open questions, select technology, authorize runtime, implementation, integration, ingestion, operational use, tests, validation, or release.
+- No runtime tests or production actions were performed.
+
 ## 0.33.0 — 2026-11-11
 
 ### Corrected

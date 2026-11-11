@@ -1,111 +1,113 @@
 # Foundation Completion Plan
 
 **Status:** Proposed working plan — not an approval to implement.  
-**Created:** 2026-11-11  
+**Last updated:** 2026-11-11  
 **Project stage:** Stage 1 — Core foundation  
 **Operational purpose:** Intentionally undefined  
-**Canonical source:** This repository, branch `main`.
+**Canonical source:** This repository, branch main.
 
-## 1. Purpose
+## 1. Purpose and boundaries
 
-Provide a durable handover and an ordered route from the current foundation work to a separately authorized first implementation. This document preserves review progress and identifies what must be closed before implementation planning can be considered complete.
-
-This plan does not select the agent's purpose, model, runtime, language, hosting, technology, provider, or deployment model. It does not authorize executable code, services, integrations, credentials, ingestion, operational use, tests against production, or release.
+Provide an ordered route for completing the purpose-neutral foundation before any future bounded implementation proposal. This plan does not select an operational purpose, users, runtime, model, language, hosting, provider, or deployment model. It does not authorize executable code, infrastructure, integrations, credentials, ingestion, operational use, production testing, or release.
 
 ## 2. Current position
 
-Twenty logical review areas have been reviewed in four batches. This is a documentation review count, not a completion percentage or verification result.
+Four review batches examined 20 logical review areas. This is a documentation-review count, not a completion percentage, implementation metric, or verification result.
 
 | Batch | Areas | Result |
 | --- | --- | --- |
-| 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Drafts and proposed architecture reviewed; Core includes approved D-005 but broader design remains open |
-| 2 | Core identity; configuration; workflow template/index; validation; standalone error/recovery architecture | Documentation reviewed; workflow template/index exist; no standalone error/recovery architecture was located |
-| 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging is a placeholder; Tool Registry exists at `tools/TOOL_REGISTRY.md`; D-006, D-007 and D-008 are approved logical baselines only |
-| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-011 recorded; changelog through 0.30.0; validation layers documented; error/recovery architecture remains a gap |
+| 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Proposed designs reviewed; D-005 is approved but broader Core design remains open |
+| 2 | Core identity; configuration; workflow template/index; validation; error/recovery | Workflow template/index exist; validation layers are documented; standalone error/recovery proposal has now been added |
+| 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging and tool governance proposals added; D-006, D-007 and D-008 are approved logical baselines only |
+| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.34.0; validation remains documentation-only |
 
 ### Confirmed approved baselines
 
 - D-005: Core read-only during normal operation; owner-led changes only.
-- D-006: MMS logical architecture, exact approved blob `197ac0974f5ceea357f6ad846a299304dd13da9c`.
-- D-007: KMS logical architecture, exact approved blob `c1dda460a8d02939db9ca9b16611be79e12019b6`.
-- D-008: Permission logical architecture, exact approved baseline blob `9e754143c289fd1e454de6ee3f61bec0e90f3305`.
-- D-009: Object-specific lifecycle tables, exact approved blob `473598af630b44b78910ab1df3b7f53bbc1a0802`.
-- D-010: Identity Contract, exact approved blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`.
-- D-011: Authorization Contract, exact approved blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`.
+- D-006: MMS logical architecture, exact approved blob 197ac0974f5ceea357f6ad846a299304dd13da9c.
+- D-007: KMS logical architecture, exact approved blob c1dda460a8d02939db9ca9b16611be79e12019b6.
+- D-008: Permission logical architecture, exact approved baseline blob 9e754143c289fd1e454de6ee3f61bec0e90f3305.
+- D-009: Object-specific lifecycle tables, exact approved blob 473598af630b44b78910ab1df3b7f53bbc1a0802.
+- D-010: Identity Contract, exact approved blob b01e5ff7c99f9a208c4424878e87ded5e4c4629d.
+- D-011: Authorization Contract, exact approved blob 49e03d3d60f06ebf4b4ba8db92ac41349f09bc39.
+- D-012: Provenance Contract (c7c3e93e3a14633f0400cd66a63172e4825dcd1a), Shared Lifecycle Contract (c8b9b5012c537cca2f99a2f9f3b80041cd4372bf), and Cross-System Interface & Ownership Matrix (98b4559d42a21bc769617a0cf2d0cce80f257d40).
 
-These approvals are limited to their exact documentation baselines. They do not authorize implementation or runtime use.
+These approvals apply only to exact documentation baselines. They do not authorize implementation, technology selection, runtime use, data ingestion, integration, testing, validation, or release.
 
-### Owner approval awaiting repository registration
+### Current proposed designs
 
-The owner approved the exact reviewed logical contract versions for D-012:
-- `docs/PROVENANCE_CONTRACT.md` — pre-approval blob `c7c3e93e3a14633f0400cd66a63172e4825dcd1a`.
-- `docs/LIFECYCLE_CONTRACT.md` — pre-approval blob `c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`.
-- `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md` — pre-approval blob `98b4559d42a21bc769617a0cf2d0cce80f257d40`.
+- docs/ERROR_HANDLING_ARCHITECTURE.md — cross-system failure, outcome, retry, recovery, reconciliation, and escalation design.
+- systems/logging/LOGGING_ARCHITECTURE.md — event, integrity, access, privacy, retention, and failure design.
+- docs/TOOL_GOVERNANCE.md — candidate registration, review, activation, suspension, and revocation lifecycle.
+- docs/IMPLEMENTATION_READINESS.md — readiness framework, pending owner review.
+- docs/JOINT_CONTRACT_REVIEW.md — proposed refinement register, pending owner review.
 
-D-012 registration in `docs/DECISIONS.md`, status, and changelog is pending. This plan does not itself register D-012 or change the three documents' recorded status. Its exact scope and unresolved questions must be retained during registration. The GitHub commit-tree route was previously blocked by missing tree metadata in the connector wrapper; a direct Git reference/tree API route is now available for a safe atomic update and can be used in a separate registration task.
+The Tool Registry remains empty. No tools are approved, configured, validated, active, or connected.
 
 ## 3. Outstanding foundation work
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Register D-012 | Owner approval exists in conversation; repository record is pending | Exact baseline SHAs recorded in decision log, status and changelog; post-commit verification |
-| P0 | Error handling and recovery architecture | Requirements are scattered across WMS, MMS, KMS and Permissions; no standalone cross-system design found | Purpose-neutral architecture covering typed failures, safe stops, retry/idempotency, uncertain side effects, reconciliation, recovery and escalation |
-| P0 | Logging architecture | `systems/logging/README.md` is a placeholder | Logical architecture for event taxonomy, correlation, integrity, access, minimization, retention, failure behavior and evidence |
-| P1 | Tool governance review | `tools/TOOL_REGISTRY.md` exists; no tools registered or approved | Registry and governance reviewed against identity, authorization, lifecycle, validation and logging contracts |
-| P1 | Architecture consistency review | Several proposed documents and approved contracts must be checked together | Traceable cross-document review with conflicts, owners and unresolved questions |
-| P1 | Implementation-readiness framework | `docs/IMPLEMENTATION_READINESS.md` is proposed and owner review pending | Criteria for purpose/context, design, permissions, threat analysis, isolated tests, evidence and separate authorization |
-| P2 | Documentation/version policy | README and changelog exist; dedicated versioning policy was not located | Clear rules for document IDs, versioning, immutable baselines, supersession, changelog and decision references |
-| P2 | Validation strategy expansion | Six validation layers are documented; no automated validation exists | Risk-based evidence plan and independent validation requirements, kept separate from smoke tests and release approval |
+| P0 | Cross-document consistency review | Approved baselines and proposed cross-cutting designs need joint review | Traceable review of ownership, authority, states, evidence, versioning, failure and recovery semantics |
+| P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
+| P1 | Validation strategy | Six validation layers documented; no automated validation exists | Risk-based validation plan, independent evidence, exact-version traceability, separate release approval |
+| P1 | Documentation/version governance | README, decisions and changelog exist; dedicated policy not yet established | Rules for document identity, versioning, immutable baselines, supersession, review and evidence |
+| P1 | Core and architecture review | Conceptual architecture, component model and broader Core design remain proposed | Authority/dependency/ownership review and explicit owner disposition |
+| P1 | Workflow framework review | Shared template/index exist; WMS remains proposed | Validate lifecycle, execution authority, cancellation, partial outcomes and recovery consistency |
+| P2 | D-012 unresolved questions | Five questions remain open | Explicit decisions or documented deferral; no assumptions |
+| Deferred | Purpose and operating context | Intentionally undefined | Owner selects purpose, intended users, prohibited uses and context before purpose-specific design |
+| Deferred | Implementation | No bounded implementation scope approved | Separate explicit authorization after readiness gates |
 
 ## 4. Recommended execution order
 
-1. **Secure the decision record:** register D-012 exactly as approved; do not expand its scope or close its listed open questions.
-2. **Complete safety-critical cross-cutting designs:** write proposed Error Handling & Recovery and Logging architectures. Review them against WMS, MMS, KMS, Permission, Identity, Authorization, Provenance and Lifecycle contracts.
-3. **Review tool governance:** clarify registration, review, activation, revocation, version pinning, permission scope, secret handling, side effects and tool-specific validation. No tool is enabled by this review.
-4. **Run a foundation consistency review:** check ownership, authority, lifecycle, event/evidence semantics, failure recovery and validation across documents.
-5. **Complete the readiness and documentation framework:** define artifact states, version/baseline rules, evidence requirements, and the owner review path.
-6. **Prepare a bounded implementation proposal:** only after the purpose and operating context are explicitly selected. Identify one small first capability, dependencies, threat model, acceptance criteria, isolated test environment, rollback/recovery and operational owner.
-7. **Obtain separate implementation authorization:** approval of this plan or any logical architecture is not implementation approval.
+1. Conduct a foundation-wide consistency review across approved and proposed documents without changing approved baselines.
+2. Identify and record conflicts, missing definitions, ambiguous ownership, stale status statements, and unresolved decisions.
+3. Refine proposed validation and document/version governance frameworks.
+4. Obtain owner decisions on proposals and unresolved cross-system questions.
+5. Only after purpose and operating context are selected, prepare a bounded implementation proposal.
+6. Obtain separate explicit authorization for that exact implementation scope.
 
 ## 5. Minimum gate before first implementation
 
-The first implementation proposal should not proceed until all applicable items below are explicit:
+A first implementation proposal must not proceed until applicable items are explicit:
 
-- Operational purpose, intended users, operating context and prohibited use are owner-approved.
-- The first capability has a stable scope and named owner.
-- Its architecture and interfaces are reviewed against approved Core, Identity, Authorization, Permission and relevant data/lifecycle contracts.
-- Required inputs, outputs, data classification, provenance and retention are defined.
-- Initiator, executor and approver roles are separated; least-privilege authorization is specified at the action boundary.
-- External side effects, reversibility, idempotency, uncertain outcomes and recovery are documented.
-- Threat analysis and privacy/security considerations are recorded.
-- Acceptance criteria and isolated test strategy exist before implementation.
-- Logging, evidence, access, retention and incident/escalation behavior are defined.
-- Dependencies, deferred items, compatibility constraints and rollback are documented.
-- The owner explicitly authorizes the specific implementation scope.
+- Operational purpose, intended users, operating context, prohibited use, and accountable owner are approved.
+- The first capability has a stable bounded scope and measurable acceptance criteria.
+- Architecture and interfaces are reviewed against approved Core, Identity, Authorization, Permission, and relevant data/lifecycle contracts.
+- Inputs, outputs, data classification, provenance, privacy, retention, and deletion requirements are defined.
+- Initiator, executor, and approver roles are separated; least-privilege authorization is specified at the action boundary.
+- External side effects, reversibility, idempotency, uncertain outcomes, and recovery are documented.
+- Threat analysis, security, privacy, licensing, and supply-chain considerations are recorded.
+- Isolated test strategy and acceptance criteria exist before implementation.
+- Logging, evidence, access, retention, incident response, and escalation behavior are defined.
+- Dependencies, compatibility, deferred items, rollback, suspension, and retirement are documented.
+- The owner explicitly authorizes the specific implementation scope, version, and environment.
 
-A successful smoke test is not feature verification, security validation or release approval. These remain separate gates.
+A successful smoke test is not feature verification, security validation, operational readiness, or release approval.
 
-## 6. Durable progress and handover
+## 6. D-012 open questions — retained
 
-At the start of a future session:
-1. Read `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md` from live `main`, in that order.
+The following remain unresolved and are not closed by the new proposals:
+
+1. Provenance requiredness by artifact, operation, and risk.
+2. Concrete lifecycle transitions and deletion/recovery criteria.
+3. Handling delayed, duplicate, reordered, and conflicting cross-system events.
+4. Independent verification evidence and thresholds.
+5. Tombstone and audit retention after deletion.
+
+## 7. Durable handover
+
+At the start of a future repository task:
+
+1. Read AGENT.md, AGENTS.md, then docs/PROJECT_STATUS.md from live main, in that order.
 2. Read this plan and the latest changelog entry.
-3. Confirm the live branch head and check for concurrent changes before repository edits.
-4. Continue with the first outstanding P0 item; do not repeat the completed 20-area review unless new changes require it.
-5. Keep the project in Stage 1 until the owner approves the transition.
+3. Confirm the live branch head and base tree before preparing changes.
+4. Inspect affected files and preserve exact approved baseline blobs.
+5. Make one atomic commit for the task; re-fetch and verify every changed file, commit, branch head, workflow runs, and status checks.
+6. Keep the project in Stage 1 until the owner explicitly approves a change in scope.
 
-### Current handover snapshot
+## 8. Status vocabulary
 
-- Four review batches completed; 20 logical areas examined.
-- No implementation or runtime test has been performed as part of these reviews.
-- No operational purpose, runtime or technology has been selected.
-- D-012 owner approval is awaiting repository registration.
-- Next work: register D-012; then prepare Error Handling & Recovery and Logging architecture proposals.
-- Preserve all existing approved baselines, exclusions, unresolved questions and separate authorization gates.
-
-## 7. Status vocabulary
-
-Use the repository's established terms precisely:
 - **Proposed:** under consideration; not approved.
 - **Approved:** explicitly accepted by the owner for a defined scope/version.
 - **Implemented:** present in the repository or intended execution environment.
@@ -113,4 +115,4 @@ Use the repository's established terms precisely:
 - **Deferred / On hold:** intentionally inactive.
 - **Rejected:** not selected.
 
-A document may be implemented as documentation while its design remains proposed. Neither state proves executable functionality.
+A document may be implemented as documentation while its design remains Proposed. Neither state proves executable functionality.

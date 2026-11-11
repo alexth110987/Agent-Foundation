@@ -1,7 +1,9 @@
-# Logging — Design Placeholder
+# Logging
 
-**Status:** Not implemented. No logging framework or storage destination has been selected.
+**Status:** Proposed logical architecture; no runtime implementation.
 
-Future logs should support troubleshooting and accountability while collecting the minimum information necessary. Consider recording event time and correlation ID, workflow or component identifier and version, action category and outcome, validation result, error category and recovery outcome, and approval reference where relevant.
+The project has not selected a logging framework, storage destination, transport, or retention policy. The detailed proposal is in [Logging Architecture](LOGGING_ARCHITECTURE.md).
 
-Never log passwords, tokens, API keys, private keys, recovery codes, or unnecessary sensitive personal data. Define access controls and retention periods before enabling persistent logs.
+Logging is intended to support accountability, troubleshooting, security review, and evidence traceability. It must apply least privilege and data minimization. Never log passwords, tokens, API keys, private keys, recovery codes, or unnecessary sensitive payloads. Event acknowledgement does not prove durable persistence, and a log record does not prove the underlying assertion is true.
+
+The architecture remains Proposed and requires owner review. No runtime, integration, or automated logging tests have been implemented or executed.
