@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.15.0 — 2026-11-11
+
+### Added
+- Drafted a purpose-neutral shared Provenance Contract covering source attribution, acquisition, actor separation, transformation lineage, integrity references, lifecycle continuity, access/privacy boundaries, failure handling, and validation.
+- Linked the proposed contract from the repository overview and the Knowledge, Memory, and Permissions system overviews.
+- Updated project status and the next milestone to include joint review of the proposed Identity, Authorization, and Provenance Contracts.
+
+### Clarifications
+- Provenance records origin and handling lineage; it does not establish truth, correctness, source trust, memory confidence, identity authentication, or authorization.
+- The Provenance Contract is proposed and pending owner review; no schema, protocol, storage, service, provider, runtime, or implementation was selected.
+- No existing approval or implementation authority changed. D-006, D-007, and D-008 remain limited to their exact approved logical architecture documents.
+- No executable functionality or runtime tests were added.
+
 ## 0.14.0 — 2026-11-11
 
 ### Added

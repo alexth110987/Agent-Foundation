@@ -12,6 +12,7 @@ The Permission System defines how a future agent evaluates and enforces authoriz
 - [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md) — approved logical architecture (D-008); implementation not authorized.
 - [Identity Contract](IDENTITY_CONTRACT.md) — proposed; pending owner review.
 - [Authorization Contract](AUTHORIZATION_CONTRACT.md) — proposed; pending owner review.
+- [Shared Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) — proposed; records origin and handling lineage only; it does not authenticate actors or grant permission.
 
 The contracts refine identity and authorization boundaries but do not amend D-008 or authorize implementation.
 
