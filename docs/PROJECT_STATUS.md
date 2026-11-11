@@ -31,6 +31,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Authorization Contract | Proposed logical contract | `systems/permissions/AUTHORIZATION_CONTRACT.md`; owner review pending; no PDP, approval, or PEP implementation |
 | Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
 | Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
+| Object-Specific Lifecycle Tables | Proposed design artifact | `docs/OBJECT_LIFECYCLE_TABLES.md`; owner review pending; no state machines or lifecycle runtime |
 | Cross-System Interface & Ownership Matrix | Proposed coordination artifact | `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; owner review pending; no interfaces or services implemented |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -56,15 +57,15 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 
 ## Proposed for review
 
-- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review; records cross-document refinements without approving the underlying contracts.
-- Cross-System Interface & Ownership Matrix in `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; proposed coordination artifact, pending owner review.
-
+- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
+- Object-Specific Lifecycle Transition Tables in `docs/OBJECT_LIFECYCLE_TABLES.md`; proposed, pending owner review.
+- Cross-System Interface & Ownership Matrix in `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; proposed, pending owner review.
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
-- Component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
-- Remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
+- Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
+- Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
-- Identity Contract and Authorization Contract in `systems/permissions/`; both remain pending owner review and authorize no implementation.
-- Provenance Contract in `docs/PROVENANCE_CONTRACT.md`; proposed shared contract, pending owner review, no implementation authority.
+- Identity and Authorization Contracts in `systems/permissions/`.
+- Provenance and Shared Lifecycle Contracts in `docs/`.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
 Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logical architectures are approved design baselines; implementation remains separately unauthorized.
@@ -73,9 +74,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Owner review and approval of the proposed Identity, Authorization, and Provenance Contracts.
-- Owner review of the proposed shared Lifecycle Contract and reconciliation of object-specific lifecycle requirements.
-- Owner review of the proposed Cross-System Interface & Ownership Matrix, including open ownership and handoff questions.
+- Owner review and approval of the proposed Identity, Authorization, Provenance, Lifecycle, Object-Specific Lifecycle, and Cross-System Interface documents.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -84,7 +83,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Owner review of the Joint Contract Review refinement register and the five underlying proposed contracts; resolve object-specific transition tables and remaining interface questions before defining error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Owner review of the Joint Contract Review refinement register, the five underlying proposed contracts, and the Object-Specific Lifecycle Transition Tables; resolve object taxonomy, allowed transitions, ownership, evidence and recovery semantics before defining error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
