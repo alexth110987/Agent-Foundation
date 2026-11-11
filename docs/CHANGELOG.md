@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.17.0 — 2026-11-11
+
+### Added
+- Drafted the proposed Cross-System Interface & Ownership Matrix for canonical ownership, handoffs, lifecycle dependencies, invariants, and open interface questions.
+- Linked the matrix from the repository overview and project status.
+
+### Clarifications
+- The matrix is pending owner review and is documentation only. It does not change D-006, D-007, or D-008, approve proposed contracts, select technology, or authorize implementation.
+- No interfaces, services, integrations, runtime, or tests were implemented.
+
 ## 0.16.0 — 2026-11-11
 
 ### Added
