@@ -36,7 +36,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Tool registry and governance | Proposed governance design | No tools registered, approved, configured, validated, active, or connected; see docs/TOOL_GOVERNANCE.md |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
-| Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |\n| Foundation consistency review | Review completed; findings pending owner disposition | docs/FOUNDATION_CONSISTENCY_REVIEW.md; static documentation review only; no runtime/tests |
+| Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
+| Foundation consistency review | Review completed; findings pending owner disposition | docs/FOUNDATION_CONSISTENCY_REVIEW.md; static documentation review only; no runtime/tests |
 
 ## Approved baseline
 
@@ -72,7 +73,8 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
 - Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.
-- Disposition findings in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; do not amend exact approved baselines without explicit owner authorization.\n- Expand validation strategy and define documentation/version governance.
+- Disposition findings in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; do not amend exact approved baselines without explicit owner authorization.
+- Expand validation strategy and define documentation/version governance.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.

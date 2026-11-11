@@ -85,7 +85,11 @@ A first implementation proposal must not proceed until applicable items are expl
 
 A successful smoke test is not feature verification, security validation, operational readiness, or release approval.
 
-## 6. Consistency review findings\n\nThe static review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. It identified status conflicts between D-012 and the in-document status wording of its three approved artifacts; stale status statements in the Joint Contract Review and Implementation Readiness documents; an unresolved Core instruction-document boundary; and a future PEP/tool-adapter boundary requiring clarification. Findings are not silently resolved here. Exact approved baselines remain unchanged pending explicit owner disposition.\n\n## 7. D-012 open questions — retained
+## 6. Consistency review findings
+
+The static review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. It identified status conflicts between D-012 and the in-document status wording of its three approved artifacts; stale status statements in the Joint Contract Review and Implementation Readiness documents; an unresolved Core instruction-document boundary; and a future PEP/tool-adapter boundary requiring clarification. Findings are not silently resolved here. Exact approved baselines remain unchanged pending explicit owner disposition.
+
+## 7. D-012 open questions — retained
 
 The following remain unresolved and are not closed by the new proposals:
 
