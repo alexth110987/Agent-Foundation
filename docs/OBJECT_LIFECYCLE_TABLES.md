@@ -36,7 +36,7 @@ Every transition row is subject to all applicable controls below:
 
 ## 2A. State, transaction outcome and verification are separate
 
-The candidate tables use compact transition labels for readability. They must not be interpreted as one shared lifecycle state machine. Three independent dimensions are required:
+The candidate tables identify transition activity without defining one shared lifecycle state machine. Three independent dimensions are required and must remain separate in every owner table: object lifecycle/process state (where applicable), transaction outcome for the individual request, and verification result against explicit criteria. A row describing a process stage must not encode a transaction outcome or verification result as the object's next state. Before implementation, each owner must define explicit fields and allowed values for these dimensions; the tables below are review prompts, not a final taxonomy.
 
 | Dimension | Meaning | Illustrative values |
 | --- | --- | --- |
@@ -44,7 +44,7 @@ The candidate tables use compact transition labels for readability. They must no
 | **Transaction outcome** | Result of a particular request or attempted transition | Accepted, Rejected, Applied, Failed, Partial |
 | **Verification result** | Result of checking a stated property against criteria and evidence | Verified, Failed verification, Inconclusive, Not verified |
 
-A transaction can be Applied while the resulting object remains Suspended; an object can be Active while a particular transaction Failed; and an Applied transaction is not necessarily Verified. “Succeeded”, “completed”, “failed”, “verified”, “queued”, and “running” are not universal object lifecycle states. Where a table uses such terms in a from/to column, read them as object-class-specific process states or transaction/verification outcomes as classified below. Before implementation, each owner must use explicit object-state, transaction-outcome and verification-result fields.
+A transaction can be Applied while the resulting object remains Suspended; an object can be Active while a particular transaction Failed; and an Applied transaction is not necessarily Verified. “Succeeded”, “completed”, “failed”, “verified”, “queued”, and “running” are not universal object lifecycle states. Where a table below still uses a compact from/to label, treat it only as a shorthand for the activity named in that row, not as a combined state transition. Each owner must represent process/object state, transaction outcome, and verification result independently; a row's outcome or verification must never be written as an object lifecycle state.
 
 ### Object-specific vocabulary mapping
 
@@ -85,13 +85,13 @@ Canonical ownership is logical and does not imply an implemented component:
 
 Where applicable and permitted, evidence must identify:
 
-1. Initiating principal and authenticated executor separately; approver and authority basis where required.
+1. Initiating principal and authenticated executor separately; approver and authority basis where required. For each authentication result relied upon, include the issuer and verifier, principal/assertion identifier and version, intended audience/PEP, authentication time, validity start/end or maximum age, current revocation/status evidence, and relevant assurance context. Identify the evidence reference and its freshness; missing or unverifiable elements remain unknown and block where required.
 2. Exact object identifier/class, canonical owner, version and requested operation.
 3. Scope: project, tenant, subject, purpose, environment, resource and destination/recipient where relevant.
 4. PDP decision identifier and typed outcome; policy and relevant context version; decision validity, expiry and current revocation/status evidence.
 5. Intended PEP/audience and the PEP comparison of actual operation/context against every applicable Permit constraint immediately before the side effect.
 6. Actual enforcement result, separately from actual transaction outcome (including partial or uncertain side effects).
-7. Independent verification result, criteria/version, evidence references and limitations where required by risk.
+7. Independent verification result, criteria/version, evidence references and limitations where required by risk. Independence is risk-based: where the producing or executing component cannot independently establish a critical property of its own action, verification must use a distinct responsible party or an independent evidence path capable of establishing that property. If neither is available, record the limitation and leave the result inconclusive/not verified; do not self-certify the critical property.
 8. Correlation/causation and idempotency references, event/effective/observed/recorded times, and reconciliation references for partial or cross-owner work.
 
 Keep evidence classes distinct: **approval is not a Permit; a Permit is not execution evidence; execution evidence is not independent verification.** Missing mandatory evidence remains unknown and blocks the transition where required. Minimize sensitive data; retain references rather than credentials or unnecessary payloads.
@@ -131,10 +131,10 @@ No workflow, tool, memory, knowledge item, model output, or ordinary task may in
 | --- | --- | --- | --- | --- |
 | Create run | Absent → queued | Active exact workflow version; trigger and required inputs identified | Run ID, pinned definition/version, trigger, initiator and scope | Ineligible version or missing inputs rejects run |
 | Admit / authorize | Queued → admitted / blocked | Fresh bounded authorization; executor identity established; preconditions and resource limits checked | PDP decision reference, executor identity context, admission result | Deny/indeterminate/stale context blocks admission |
-| Start | Admitted → running | PEP confirms actual run/action matches Permit immediately before execution | Start event, executor, exact version and context | Context drift requires fresh evaluation; no execution |
-| Complete | Running → succeeded / failed / partial | Defined steps reached terminal outcomes; no hidden partial side effects | Per-step outcomes, output references, errors, evidence | Partial side effects trigger reconciliation; never label partial as succeeded |
+| Start | Process status: admitted → running; transaction outcome: recorded separately | PEP confirms actual run/action matches Permit immediately before execution | Start event, executor, exact version and context | Context drift requires fresh evaluation; no execution |
+| Complete | Process status: running → terminal; transaction outcome: applied / failed / partial (record separately) | Defined steps reached terminal outcomes; no hidden partial side effects | Per-step outcomes, output references, errors, evidence | Partial side effects trigger reconciliation; never label partial as succeeded |
 | Cancel | Queued/admitted/running → cancelled / cancellation pending | Authorized cancellation request; executor/owner confirms safe stopping boundary | Requester, cancellation point, completed side effects | If stop cannot be confirmed, report cancellation pending and reconcile |
-| Validate | Terminal run → verified / inconclusive / rejected | Independent criteria and evidence path appropriate to risk | Exact run/version, criteria, evidence, result and limitations | Missing/ambiguous evidence is inconclusive, not pass |
+| Validate | Object/process status: terminal run remains terminal; verification result: verified / inconclusive / failed (separate record) | Independent criteria and evidence path appropriate to risk | Exact run/version, criteria, evidence, result and limitations | Missing/ambiguous evidence is inconclusive, not pass |
 | Retain / dispose | Retained → disposal pending → disposed (policy-defined) | Approved run-log retention/disposal policy and authorization | Scope, stores/derivatives checked, disposal evidence | Unchecked stores remain pending; no universal retention period |
 
 A workflow definition's activation does not authorize any run. A run's authorization does not approve the definition or its outputs.
@@ -162,7 +162,7 @@ A workflow definition's activation does not authorize any run. A run's authoriza
 | Create/update passage or index entry | Absent/stale → current candidate | Exact source/version and extraction/transformation lineage available or explicitly incomplete; KMS authorization | Passage locator, transformation version, index build reference and source status | Missing lineage prevents promotion to eligible retrieval |
 | Make searchable | Candidate → eligible | Source and passage remain eligible; scope and access restrictions enforced | Eligibility evidence tied to exact source version | Uncertain source status suppresses result |
 | Invalidate / rebuild | Current → stale/invalid → rebuilt candidate | Source change/withdrawal or index consistency trigger; owner-controlled rebuild | Old/new index version, affected source set, reconciliation evidence | Partial rebuild remains degraded; do not report consistency |
-| Delete index entry | Pending removal → removed/verified | Source owner policy and KMS authorization; exact source/version mapping | Deletion evidence and reconciliation of replicas/caches | Unchecked replicas/caches keep removal pending |
+| Delete index entry | Index-entry state: removal pending → absent or tombstoned; transaction outcome and verification result recorded separately | Source owner policy and KMS authorization; exact source/version mapping | Deletion evidence and reconciliation of replicas/caches | Unchecked replicas/caches keep removal pending |
 
 ## 6. Memory Management System objects
 
@@ -237,7 +237,7 @@ Provenance does not establish truth, correctness, trust, identity, authenticatio
 | Activate/disclose derivative | Candidate → eligible | Current source status and derivative policy rechecked; fresh authorization for actual disclosure | Exact derivative/source version, recipient/destination, purpose and PEP result | Unknown source eligibility blocks disclosure |
 | Update after source change | Current → stale/restricted → updated candidate | Versioned source-owner notice; derivative owner identifies affected items | Impact assessment, old/new links and update evidence | Unidentified affected set remains pending; disclosure blocked where eligibility unknown |
 | Withdraw / quarantine derivative | Eligible → restricted/quarantined | Authorized derivative owner or validated source restriction trigger | Local state change and downstream notices | No global completion claim until downstream owners verify |
-| Delete derivative | Pending deletion → deleted/verified | Owner-specific disposal authorization and retention rules | Local store/cache/replica/export checks and evidence | Unchecked copy or backup remains pending |
+| Delete derivative | Derivative state: deletion pending → deleted or retained-under-approved-rule; transaction outcome and verification result recorded separately | Owner-specific disposal authorization and retention rules | Local store/cache/replica/export checks and evidence | Unchecked copy or backup remains pending |
 
 ## 11. Logging and audit objects
 

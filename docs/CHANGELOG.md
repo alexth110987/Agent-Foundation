@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.21.0 — 2026-11-11
+
+### Updated
+- Completed the second consistency-review refinement of the proposed object-specific lifecycle tables: expanded authentication evidence, separated process/object state from transaction outcomes and verification results in the identified mixed-dimension rows, and made risk-based independent verification explicit.
+- Updated the project milestone to record the completed consistency review and identify formal owner review as the next step.
+
+### Clarifications
+- The lifecycle tables remain Proposed and pending owner review. These changes do not approve the tables or underlying contracts, amend D-006/D-007/D-008, or authorize implementation.
+- No runtime, state machine, service, integration, or test was implemented or executed.
+
+
 ## 0.20.0 — 2026-11-11
 
 ### Updated
