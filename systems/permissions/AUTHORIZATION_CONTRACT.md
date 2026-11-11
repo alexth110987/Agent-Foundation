@@ -18,7 +18,7 @@ This document refines the authorization request and decision concepts in the app
 
 It does not select a policy model, policy language, API, wire format, schema, token format, cryptographic mechanism, identity provider, approval provider, storage, service topology, runtime, or deployment. It does not define operational roles or domain-specific permissions.
 
-The Identity Contract is separately proposed and pending owner review. Until an identity mechanism is separately approved, a caller must not treat an asserted principal reference as authenticated evidence. This document does not approve or depend on implementation of that proposed contract.
+The Identity Contract is separately approved as a logical contract under D-010, limited to its exact approved baseline. This Authorization Contract consumes references to independently validated authentication results under that contract; it does not amend D-010, select or implement an identity mechanism, or treat a principal label or caller assertion as authentication evidence. The receiving PDP and PEP remain responsible for validating the result's issuer/verifier context, principal and assertion version, audience, authentication time, validity/freshness, current status/revocation evidence, and applicable assurance context. Missing, stale, unverifiable, or audience-incompatible required evidence is non-permissive.
 
 ## 3. Governing rules
 
@@ -55,7 +55,7 @@ A future normalized request must represent the following logical information whe
 
 - **Request identity:** unique request identifier and correlation identifier.
 - **Principal context:** principal reference, issuer/authority reference, and reference to independently validated authentication evidence/result. Raw credentials are prohibited.
-- **Initiator/executor context:** initiating principal and requesting/executing component identity kept distinct; any delegation reference must be separately validated.
+- **Initiator/executor context:** initiating principal, independently authenticated executing principal/component, and any delegating principal kept distinct; any delegation reference must be separately validated and bounded. The executor must not inherit authentication merely from the initiator, workflow, or component association.
 - **Requesting component:** component or workflow identifier and exact version, plus intended PEP/audience.
 - **Operation:** one unambiguous action/operation identifier and declared side-effect class.
 - **Target:** resource identifier and type, including relevant owner/project/tenant/subject boundary.
@@ -84,7 +84,7 @@ A response must be unambiguous and attributable. It should include, as applicabl
 - unique decision identifier and original request identifier;
 - correlation reference;
 - outcome and stable reason category;
-- principal and requesting component references;
+- initiating principal, independently authenticated executor, and requesting component references, with approver kept separate;
 - exact action and resource scope;
 - purpose, project/tenant/subject and environment boundaries;
 - constraints and mandatory conditions;
@@ -100,7 +100,7 @@ The contract defines logical fields, not a concrete serialization or token.
 
 ## 7. Permit scope and non-transferability
 
-A Permit is limited to the conjunction of its principal, executor, operation, resource, purpose, project/tenant/subject, environment, constraints, PEP/audience, policy context, and validity.
+A Permit is limited to the conjunction of its exact initiating principal, independently authenticated executor, operation, resource and authoritative owner boundary, purpose, project/tenant/subject, environment, constraints, intended PEP/audience, policy version, relevant context/attribute versions, and validity.
 
 - It cannot be reused for another operation, resource, principal, project, tenant, subject, purpose, or PEP.
 - It cannot be widened by a workflow, adapter, caller, or local cache.
@@ -145,13 +145,15 @@ A check performed by one component does not authorize a later operation at anoth
 - Permit validity must be bounded by explicit expiry or maximum age; no default duration is selected here.
 - The PEP must reject expired, withdrawn, revoked, stale, or unverifiable decisions.
 - Revocation must prevent subsequent protected operations according to a future defined propagation and enforcement contract.
-- Long-running operations must define re-check points and safe behavior when authorization expires or is revoked.
+- Long-running, paused, resumed, or retried operations must define re-check points and safe behavior when authorization expires or is revoked. A prior Permit does not automatically authorize a resumed or materially changed operation.
 - Policy changes must be versioned. A decision must remain attributable to the policy/context used when issued.
 - A withdrawn, incompatible, or no-longer-applicable policy/context requires fresh evaluation.
-- Material changes to principal status, authentication evidence, resource ownership/classification, project boundary, purpose, environment, or constraints require re-evaluation.
+- Material changes to initiator or executor identity/status, authentication result freshness or revocation, delegation, resource ownership/classification/version, project boundary, purpose, environment, policy or trusted attributes, and constraints require fresh PDP evaluation. The PEP must independently revalidate the actual executor at the protected boundary.
 - Caches cannot extend validity or conceal revocation. Cache semantics, maximum age, invalidation, and consistency must be defined before implementation.
 
-No cache duration, revocation interval, or long-running operation policy is selected by this proposal.
+A cached decision or cached authentication result is usable only if a future approved design establishes that its age, status, audience, policy/context version, and revocation guarantees satisfy the current operation. If required freshness or revocation state cannot be established, block.
+
+No cache technology, duration, revocation interval, propagation guarantee, or long-running operation policy is selected by this proposal.
 
 ## 11. Failure, retry, and recovery
 
@@ -159,7 +161,10 @@ No cache duration, revocation interval, or long-running operation policy is sele
 | --- | --- |
 | PDP unavailable, timeout, or transport failure | Indeterminate/non-permit; block protected action |
 | Authentication evidence missing or invalid | Block; preserve distinction from policy denial |
+| Authentication status, revocation, freshness, issuer, audience, or assurance cannot be validated where required | Indeterminate/non-permit; block and require valid identity evidence |
+| Initiator, executor, or approver identity is conflated or executor is not independently authenticated | Reject request/approval; block |
 | Required attribute missing, stale, untrusted, or conflicting | Indeterminate/non-permit; do not infer permissive value |
+| Policy or attribute source is unavailable, withdrawn, or has an unknown current version | Indeterminate/non-permit; block pending authoritative current context |
 | Response malformed, unknown, unsigned/unverifiable, or mismatched to request | Reject and block |
 | Scope, audience, principal, executor, or resource mismatch | Reject and block; obtain fresh decision |
 | Permit expired, revoked, withdrawn, or too old | Reject; re-evaluate if safe and appropriate |
@@ -167,6 +172,7 @@ No cache duration, revocation interval, or long-running operation policy is sele
 | PEP cannot enforce a constraint | Block; do not partially apply a broader grant |
 | Policy version unavailable or incompatible | Block pending valid re-evaluation |
 | Decision recorder unavailable | Follow separately approved event-class rules; never bypass authorization. Consequential operations default to block where required evidence cannot be preserved |
+| Approval authority, approval status, or approval lifecycle evidence is unavailable or ambiguous | Approval is not established; block and do not infer consent |
 | Operation result uncertain or partially applied | Stop blind retries; reconcile actual side effects and report uncertainty |
 
 Retry behavior must distinguish transport retries from re-submitting or repeating the protected operation. A request may be retried only under bounded, defined conditions. The implementation design must define idempotency, duplicate suppression, correlation preservation, retry limits, timeout behavior, and recovery. An authorization retry never implies permission to repeat an action.
@@ -178,6 +184,7 @@ The logical record should allow later reconstruction of which request was evalua
 Record references and minimal metadata rather than raw credentials, secrets, full task content, or unnecessary sensitive attributes. Access, integrity, retention, correction, and deletion requirements remain to be designed.
 
 Maintain distinct records/states for:
+- authentication result reference and its validation outcome (without duplicating raw credentials);
 - request received and validated;
 - decision outcome;
 - approval requested and resolved;
@@ -217,13 +224,15 @@ Prompt content, model output, workflow metadata, memory, and knowledge records m
 ## 15. Validation requirements
 
 Before implementation authorization, define isolated tests and acceptance criteria for:
-- all four outcomes and unknown outcome handling;
+- all four outcomes, stable reason categories, and unknown outcome handling;
+- unavailable, stale, revoked, or audience-incompatible identity evidence and independent executor authentication;
 - required request fields, provenance, validation, and malformed input;
 - principal, executor, action, resource, purpose, audience, and scope mismatches;
 - narrow Permit enforcement and attempts to broaden or reuse it;
 - approval authority, explicitness, exact scope, expiry, revocation, and re-evaluation;
 - expired, revoked, stale, forged, replayed, substituted, and withdrawn decisions;
-- policy/context version changes and material context mutation;
+- policy/context/attribute version changes, withdrawal, and material context mutation;
+- cache freshness, revocation uncertainty, paused/resumed operations, and revalidation boundaries;
 - PDP, identity, attribute-source, approval, and audit-recorder outages;
 - PEP bypass attempts and direct component/adapter invocation;
 - time-of-check/time-of-use races and long-running operations;
@@ -237,9 +246,9 @@ Tests must use isolated environments and synthetic or explicitly authorized data
 ## 16. Deferred decisions and readiness gates
 
 Still unresolved:
-- owner approval of this Authorization Contract and the separate Identity Contract;
+- owner approval of this Authorization Contract;
 - future purpose, users, operating context, and protected operation catalogue;
-- identity proofing, principal taxonomy, authentication assurance, and delegation;
+- identity proofing, principal taxonomy, authentication assurance profiles, and any delegation model;
 - exact request/response schema, API/protocol, and compatibility/versioning rules;
 - policy model, policy language, policy administration, and policy conflict precedence;
 - approval authority, authentication strength, emergency handling, and separation of duties;
