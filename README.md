@@ -29,15 +29,18 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `AGENT.md` | Highest-authority project and agent-development instructions |
 | `AGENTS.md` | Repository-maintenance conventions subordinate to `AGENT.md` |
 | `core/` | Neutral identity, operating rules, and configuration principles |
-| `workflows/` | Workflow index and reusable workflow template |
-| `systems/` | Design notes for memory, permissions, logging, and validation |
-| `knowledge/` | Curated, sourced knowledge; empty until needed |
-| `tools/` | Tool registry and integration controls |
-| `tests/` | Testing strategy and future test organization |
-| `docs/` | Architecture, implementation-readiness framework, decisions, status, and development process |
+| `workflows/` | Workflow index, reusable workflow template, and proposed Workflow Management System |
+| `systems/memory/` | Approved logical Memory Management System architecture; not implemented |
+| `systems/knowledge/` | Approved logical Knowledge Management System architecture; not implemented |
+| `systems/permissions/` | Proposed central authorization and local enforcement architecture |
+| `systems/validation/` | Validation principles and future evidence requirements |
+| `systems/logging/` | Logging principles and future audit requirements |
+| `tools/` | Tool registry and integration controls; no tools approved or connected |
+| `tests/` | Testing policy and future test organization |
+| `docs/` | Conceptual architecture, component model, readiness framework, decisions, status, and development process |
 
 ## Current milestone
 
 **Stage 1 — Core foundation.** Establish governance, architecture, and reusable workflow standards. No agent runtime, integrations, automated actions, or domain-specific workflows are implemented in this stage.
 
-See [Project Status](docs/PROJECT_STATUS.md), [Architecture](docs/ARCHITECTURE.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).
+See [Project Status](docs/PROJECT_STATUS.md), [Architecture](docs/ARCHITECTURE.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).

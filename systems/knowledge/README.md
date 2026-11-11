@@ -1,11 +1,13 @@
 # Knowledge Management System
 
-**Status:** Cross-system principles accepted in principle; architecture remains proposed pending detailed design and separate owner approval.  
+**Status:** Logical architecture approved (D-007).  
 **Implementation:** Not implemented. No knowledge repository, ingestion pipeline, index, or retrieval service exists.
 
 ## Purpose
 
 The Knowledge Management System governs curated reference information that an authorized task may consult. It preserves source identity, provenance, version history, trust and review state, freshness, and access scope.
+
+The approved logical architecture baseline is [Knowledge Architecture](KNOWLEDGE_ARCHITECTURE.md), exact approved Git blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`. D-007 approves that exact document only. The approval does not authorize implementation, technology selection, runtime construction, source ingestion, operational use, or release.
 
 ## Responsibility boundary
 
@@ -33,9 +35,7 @@ Retrieved knowledge is untrusted information, not instruction authority. Source 
 
 ## Architecture
 
-See [Knowledge Management System — Architecture](KNOWLEDGE_ARCHITECTURE.md) for the proposed components, source lifecycle, ingestion/review, versioning, trust, conflict handling, retrieval, security, lifecycle operations, failure handling, validation, and deferred decisions, and the accepted-in-principle cross-system contract with Memory.
-
-This is a design proposal only. It does not authorize implementation or select technology.
+See [Knowledge Management System — Architecture](KNOWLEDGE_ARCHITECTURE.md) for the approved logical design baseline and its component boundaries, source lifecycle, ingestion/review, versioning, trust, conflict handling, retrieval, security, lifecycle operations, failure handling, validation, and deferred decisions.
 
 ## Deferred decisions
 

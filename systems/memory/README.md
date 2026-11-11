@@ -1,13 +1,13 @@
 # Memory Management System
 
-**Status:** Cross-system principles accepted in principle; architecture remains proposed pending detailed design and separate owner approval.  
+**Status:** Logical architecture approved (D-006).  
 **Implementation:** Not implemented. No memory technology has been selected.
 
 ## Purpose
 
 The Memory Management System governs information deliberately retained across tasks. It is separate from temporary task context, project records, workflow execution state, operational logs, and curated knowledge.
 
-See [Memory Architecture](MEMORY_ARCHITECTURE.md) for the proposed component model, record lifecycle, access boundaries, retention, deletion, failure handling, and validation requirements, and the accepted-in-principle cross-system contract with Knowledge.
+The approved logical architecture baseline is [Memory Architecture](MEMORY_ARCHITECTURE.md), exact approved Git blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`. D-006 approves that exact document only. The approval does not authorize implementation, technology selection, runtime construction, data ingestion, operational use, or release.
 
 ## Baseline categories
 
@@ -33,5 +33,3 @@ These categories must remain distinct and have separate ownership and lifecycle 
 ## Deferred decisions
 
 No database, vector store, embedding model, retrieval algorithm, memory provider, retention period, or deployment approach is selected.
-
-The design remains a proposal. No operational memory functionality has been introduced.

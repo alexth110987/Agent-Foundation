@@ -2,6 +2,20 @@
 
 All notable project changes are recorded here.
 
+## 0.11.0 — 2026-11-11
+
+### Added
+- Drafted the purpose-neutral Permission System logical architecture, including central policy decision authority, local enforcement, bounded approvals, revocation, failure behavior, threat considerations, and validation requirements.
+
+### Corrected
+- Aligned the MMS and KMS overview documents with the formal D-006 and D-007 approvals, preserving the exact approved architecture document versions.
+- Updated the project status and repository map to distinguish approved logical architectures from proposed architecture work.
+
+### Clarifications
+- Permission architecture is proposed and pending owner review; no permission service, identity provider, policy engine, or enforcement adapter exists.
+- No runtime, policy language, identity model, provider, technology, integration, or implementation authority was selected.
+- No runtime tests were executed.
+
 ## 0.10.0 — 2026-11-11
 
 ### Added
