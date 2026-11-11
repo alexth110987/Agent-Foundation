@@ -1,6 +1,6 @@
-# Object-Specific Lifecycle Transition Tables — Proposed
+# Object-Specific Lifecycle Transition Tables — Approved logical design (D-009)
 
-**Status:** Proposed design artifact — pending owner review.  
+**Status:** Approved logical design — D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`.  
 **Implementation:** Documentation only. No state machine, lifecycle engine, event service, retention service, reconciliation worker, or runtime is implemented or authorized.  
 **Authority:** Subordinate to `AGENT.md`, approved Core rules, and the exact approved logical architecture baselines D-006, D-007, and D-008. This document does not amend those decisions or approve the proposed Identity, Authorization, Provenance, Lifecycle, or Cross-System Interface contracts.
 
@@ -305,7 +305,7 @@ Any future test record must identify exact artifact/version, context, criteria/v
 
 ## 15. Status and related records
 
-This document is **Proposed**, pending owner review. It does not approve the shared Lifecycle Contract or any underlying contract, change D-006/D-007/D-008, select technologies, define runtime policy, or authorize implementation, integration, ingestion, operational use, or release.
+This document is an **Approved logical design baseline under D-009**, limited to the exact source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`. It does not approve the shared Lifecycle Contract or any underlying contract, change D-006/D-007/D-008, select technologies, define runtime policy, or authorize implementation, integration, ingestion, operational use, or release.
 
 Related:
 - [Shared Lifecycle Contract](LIFECYCLE_CONTRACT.md)

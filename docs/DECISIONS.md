@@ -67,3 +67,11 @@ The approved baselines remain the exact Git blob SHAs recorded in their respecti
 - D-008: `9e754143c289fd1e454de6ee3f61bec0e90f3305`
 
 The current MMS and KMS architecture files retain the exact approved blobs; their status headers are corrected to reflect the already-recorded decisions. The current Permission Architecture file is a post-approval status/readiness annotation derived from the D-008 baseline. This annotation does not replace the exact approved artifact, revise its logical design, or expand D-008. Any substantive change to an approved architecture requires a separate explicit owner decision and a new exact baseline reference.
+
+
+## D-009 — Object-Specific Lifecycle Transition Tables logical design approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve `docs/OBJECT_LIFECYCLE_TABLES.md`, exact Git blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`, as the logical design baseline for the object-specific lifecycle transition tables.
+- **Rationale:** The owner approved the completed consistency-reviewed lifecycle tables as a documentation-level logical design.
+- **Impact:** Approval is limited to the exact artifact identified above. It does not approve the Shared Lifecycle Contract, Identity Contract, Authorization Contract, Provenance Contract, Cross-System Interface Matrix, or Joint Contract Review; amend D-006, D-007, D-008, or accepted principles R-01–R-07; finalize unresolved object-class policies or taxonomies; select technologies; authorize implementation, runtime, services, integrations, ingestion, operational use, tests, validation, or release. The approved source blob remains the baseline; subsequent status annotations do not alter its scope. Any substantive design change requires a separate explicit owner decision and a new exact baseline reference.

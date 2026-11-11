@@ -37,7 +37,7 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `systems/logging/` | Logging principles and future audit requirements |
 | `tools/` | Tool registry and integration controls; no tools approved or connected |
 | `tests/` | Testing policy and future test organization |
-| `docs/` | Architecture, component model, contract review, object lifecycle tables, cross-system matrix, provenance/lifecycle contracts, readiness, decisions, status, and development process |
+| `docs/` | Architecture, component model, approved object lifecycle logical design (D-009), proposed contract review and cross-system matrix, provenance/lifecycle contracts, readiness, decisions, status, and development process |
 
 ## Current milestone
 

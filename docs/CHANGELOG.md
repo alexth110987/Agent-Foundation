@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.24.0 — 2026-11-11
+
+### Approved
+- Recorded D-009: the exact pre-approval blob `473598af630b44b78910ab1df3b7f53bbc1a0802` of `docs/OBJECT_LIFECYCLE_TABLES.md` is approved as a documentation-only logical design baseline.
+
+### Clarifications
+- D-009 does not approve the underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies, select technology, or authorize implementation, runtime, integrations, operational use, testing, validation, or release.
+- The approved source blob is retained as the exact baseline; the current document header/status annotation records the decision without changing the approved scope.
+
+# Changelog
+
+All notable project changes are recorded here.
+
 ## 0.23.0 — 2026-11-11
 
 ### Updated

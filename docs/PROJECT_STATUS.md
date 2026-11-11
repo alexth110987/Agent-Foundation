@@ -31,7 +31,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Authorization Contract | Proposed logical contract | `systems/permissions/AUTHORIZATION_CONTRACT.md`; owner review pending; no PDP, approval, or PEP implementation |
 | Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
 | Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
-| Object-Specific Lifecycle Tables | Proposed design artifact | `docs/OBJECT_LIFECYCLE_TABLES.md`; owner review pending; no state machines or lifecycle runtime |
+| Object-Specific Lifecycle Tables | Approved logical design | D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`; documentation only; no state machines or lifecycle runtime |
 | Cross-System Interface & Ownership Matrix | Proposed coordination artifact | `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; owner review pending; no interfaces or services implemented |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -58,7 +58,6 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 ## Proposed for review
 
 - Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
-- Object-Specific Lifecycle Transition Tables in `docs/OBJECT_LIFECYCLE_TABLES.md`; proposed, pending owner review.
 - Cross-System Interface & Ownership Matrix in `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; proposed, pending owner review.
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
@@ -74,7 +73,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Owner review and approval of the proposed Identity, Authorization, Provenance, Lifecycle, Object-Specific Lifecycle, and Cross-System Interface documents.
+- Owner review and approval of the proposed Identity, Authorization, Provenance, Shared Lifecycle, and Cross-System Interface documents.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -83,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-The final consistency review of the Proposed Object-Specific Lifecycle Transition Tables is complete. The four dimensions—object lifecycle state, process status, transaction outcome and verification result—are now explicitly distinguished in the common model and the remaining mixed-dimension rows identified in WMS run creation/admission, KMS review and provenance-lineage registration have been clarified. Cross-checks against the proposed Shared Lifecycle, Provenance, Identity, Authorization, Cross-System Interface and Joint Review documents found no conflict with D-006, D-007, D-008 or accepted principles R-01–R-07. Next milestone: formal owner review of the lifecycle tables alongside the Joint Contract Review refinement register and five underlying proposed contracts. The lifecycle tables remain Proposed; owner review must resolve object taxonomy, allowed transitions, ownership, protected-transition evidence, independent verification responsibilities and owner-local deletion/reconciliation semantics before any approval or implementation proposal. The implementation-readiness framework remains proposed and owner review pending.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the five underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. Remaining owner-review work includes the Joint Contract Review refinement register and proposed contracts, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
