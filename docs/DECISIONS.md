@@ -75,3 +75,11 @@ The current MMS and KMS architecture files retain the exact approved blobs; thei
 - **Decision:** Approve `docs/OBJECT_LIFECYCLE_TABLES.md`, exact Git blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`, as the logical design baseline for the object-specific lifecycle transition tables.
 - **Rationale:** The owner approved the completed consistency-reviewed lifecycle tables as a documentation-level logical design.
 - **Impact:** Approval is limited to the exact artifact identified above. It does not approve the Shared Lifecycle Contract, Identity Contract, Authorization Contract, Provenance Contract, Cross-System Interface Matrix, or Joint Contract Review; amend D-006, D-007, D-008, or accepted principles R-01–R-07; finalize unresolved object-class policies or taxonomies; select technologies; authorize implementation, runtime, services, integrations, ingestion, operational use, tests, validation, or release. The approved source blob remains the baseline; subsequent status annotations do not alter its scope. Any substantive design change requires a separate explicit owner decision and a new exact baseline reference.
+
+
+## D-010 — Identity Contract logical design approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve `systems/permissions/IDENTITY_CONTRACT.md`, exact Git blob SHA `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, as the purpose-neutral logical identity contract baseline.
+- **Rationale:** The owner approved the refined contract after review of authentication-result context and freshness, independent executor authentication, actor separation, identity lifecycle changes, revocation, and revalidation requirements.
+- **Impact:** Approval is limited to the exact logical contract artifact identified above. It does not amend D-008 or approve a final principal taxonomy, identity proofing/assurance model, provider, protocol, credential, trust-anchor or key-management design, registry, storage, session mechanism, delegation technology, runtime, or implementation. It does not authorize credentials, integrations, operational identity services, testing, validation, or release. All deferred decisions remain open; implementation requires separate explicit authorization. Any substantive design change requires a separate owner decision and a new exact baseline reference.

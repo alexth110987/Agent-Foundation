@@ -2,6 +2,15 @@
 
 All notable project changes are recorded here.
 
+## 0.26.0 — 2026-11-11
+
+### Approved
+- Recorded D-010: the exact pre-approval blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d` of `systems/permissions/IDENTITY_CONTRACT.md` is approved as a documentation-only logical contract baseline.
+
+### Clarifications
+- D-010 is limited to that exact logical contract version. It does not amend D-008, select identity technology, or authorize credentials, services, integrations, runtime, implementation, testing, validation, or release. Deferred identity decisions remain open.
+- The current Identity Contract header records approval and points to the exact approved source blob; the annotation does not change the approved baseline or its scope.
+
 ## 0.25.0 — 2026-11-11
 
 ### Updated
