@@ -30,7 +30,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Identity Contract | Proposed logical contract | `systems/permissions/IDENTITY_CONTRACT.md`; owner review pending; no identity/authentication implementation |
 | Authorization Contract | Proposed logical contract | `systems/permissions/AUTHORIZATION_CONTRACT.md`; owner review pending; no PDP, approval, or PEP implementation |
 | Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
-| Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |\n| Cross-System Interface & Ownership Matrix | Proposed coordination artifact | `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; owner review pending; no interfaces or services implemented |
+| Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
+| Cross-System Interface & Ownership Matrix | Proposed coordination artifact | `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; owner review pending; no interfaces or services implemented |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -73,7 +74,8 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Owner review and approval of the proposed Identity, Authorization, and Provenance Contracts.
-- Owner review of the proposed shared Lifecycle Contract and reconciliation of object-specific lifecycle requirements.\n- Owner review of the proposed Cross-System Interface & Ownership Matrix, including open ownership and handoff questions.
+- Owner review of the proposed shared Lifecycle Contract and reconciliation of object-specific lifecycle requirements.
+- Owner review of the proposed Cross-System Interface & Ownership Matrix, including open ownership and handoff questions.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
