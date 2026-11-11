@@ -1,4 +1,4 @@
-# Identity Contract — Proposed Logical Contract
+# Identity Contract — Approved Logical Contract
 
 **Status:** Approved logical contract — D-010.  
 **Approved baseline:** Exact Git blob SHA `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`; this approval is limited to that exact logical contract version.  

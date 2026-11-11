@@ -63,7 +63,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
-- Identity and Authorization Contracts in `systems/permissions/`.
+- Authorization Contract in `systems/permissions/`.
 - Provenance and Shared Lifecycle Contracts in `docs/`.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
