@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.7.0 — 2026-11-11
+
+### Added
+- Joint architectural consistency review of the proposed Memory Management System and Knowledge Management System.
+- Recorded cross-system recommendations for knowledge-to-memory references, lifecycle ownership, provenance interoperability, authorization enforcement, trust/confidence separation, conflict handling, index consistency, and combined validation.
+
+### Clarifications
+- The review found the proposed responsibility boundaries broadly consistent; several cross-system interface and lifecycle contracts remain open.
+- The review does not approve either architecture or authorize implementation.
+- Owner disposition of the review recommendations is the next milestone.
+
 ## 0.6.0 — 2026-11-11
 
 ### Added
