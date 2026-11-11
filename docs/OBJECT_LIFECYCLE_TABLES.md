@@ -34,13 +34,14 @@ Every transition row is subject to all applicable controls below:
 11. If authority, current eligibility, owner state, or required evidence is unknown, block protected use/disclosure and report pending, indeterminate, or degraded.
 12. Deletion, retention, legal holds, backup treatment, and tombstone retention require separately approved object-class policy; no duration is implied here.
 
-## 2A. State, transaction outcome and verification are separate
+## 2A. Object state, process status, transaction outcome and verification are separate
 
 The candidate tables identify transition activity without defining one shared lifecycle state machine. Four independent dimensions are required and must remain separate in every owner table: object lifecycle state, process status (where applicable), transaction outcome for the individual request, and verification result against explicit criteria. A row describing a process stage must not encode a transaction outcome or verification result as the object's next state. Process status, object lifecycle state, transaction outcome and verification result must be represented as separate fields or records wherever applicable. Before implementation, each owner must define explicit fields and allowed values for these dimensions; the tables below are review prompts, not a final taxonomy.
 
 | Dimension | Meaning | Illustrative values |
 | --- | --- | --- |
 | **Object lifecycle state** | Current authoritative status of the object itself | Active, Suspended, Quarantined, Superseded, Expired, Withdrawn, Deleted |
+| **Process status** | Progress of an activity or run, not the object's lifecycle state | Not started, Queued, Admitted, Running, Stop requested, Stopped, Terminal |
 | **Transaction outcome** | Result of a particular request or attempted transition | Accepted, Rejected, Applied, Failed, Partial |
 | **Verification result** | Result of checking a stated property against criteria and evidence | Verified, Failed verification, Inconclusive, Not verified |
 
@@ -129,8 +130,8 @@ No workflow, tool, memory, knowledge item, model output, or ordinary task may in
 
 | Transition | Candidate from → to | Preconditions / authorization | Required evidence and effects | Failure / recovery |
 | --- | --- | --- | --- | --- |
-| Create run | Absent → queued | Active exact workflow version; trigger and required inputs identified | Run ID, pinned definition/version, trigger, initiator and scope | Ineligible version or missing inputs rejects run |
-| Admit / authorize | Queued → admitted / blocked | Fresh bounded authorization; executor identity established; preconditions and resource limits checked | PDP decision reference, executor identity context, admission result | Deny/indeterminate/stale context blocks admission |
+| Create run | Run process status: Absent → Queued; run record creation outcome recorded separately | Active exact workflow version; trigger and required inputs identified | Run ID, pinned definition/version, trigger, initiator and scope | Ineligible version or missing inputs rejects run |
+| Admit / authorize | Process status: Queued → Admitted only after successful admission; blocked/rejected is the admission transaction outcome, recorded separately | Fresh bounded authorization; executor identity established; preconditions and resource limits checked | PDP decision reference, executor identity context, admission result | Deny/indeterminate/stale context blocks admission |
 | Start | Process status: admitted → running; transaction outcome: recorded separately | PEP confirms actual run/action matches Permit immediately before execution | Start event, executor, exact version and context | Context drift requires fresh evaluation; no execution |
 | Complete | Process status: running → terminal; transaction outcome: applied / failed / partial (record separately) | Defined steps reached terminal outcomes; no hidden partial side effects | Per-step outcomes, output references, errors, evidence | Partial side effects trigger reconciliation; never label partial as succeeded |
 | Cancel | Process status: queued/admitted/running → stop requested → stopped (only after the safe stop boundary is confirmed); run outcome: cancelled or partial, recorded separately | Authorized cancellation request; executor/owner confirms the safe stopping boundary | Requester, cancellation point, completed side effects, process-status evidence and terminal outcome | If stop cannot be confirmed, retain stop-requested/pending process status; do not record a cancelled terminal outcome; reconcile actual side effects |
@@ -147,7 +148,7 @@ A workflow definition's activation does not authorize any run. A run's authoriza
 | --- | --- | --- | --- | --- |
 | Source registration | Absent → candidate | Authorized registration request; source identity and acquisition context recorded where available | Canonical source reference, submitter/acquisition actor, time, declared restrictions; registration is not trust | Unknown origin stays explicit; incomplete source remains candidate |
 | Ingest source version | Source lifecycle: Candidate → Candidate (until separately reviewed); ingestion process: not started → completed/failed; validation status: pending review (separate) | Source scope and handling authority checked; exact source version captured or marked unavailable | Source/version reference, acquisition method, integrity result, provenance and restrictions; ingestion transaction outcome recorded separately | Integrity/provenance uncertainty quarantines or blocks ordinary use; failed/partial ingestion is reconciled before retry |
-| Validate / review | Pending validation → eligible / rejected / quarantined | Defined criteria and reviewer authority; independent check for critical properties | Criteria/version, reviewer, evidence, source trust/review result and limitations | Inconclusive remains pending or quarantined |
+| Validate / review | Source lifecycle: Pending validation → Eligible or Quarantined after owner decision; verification/review result (pass/reject/inconclusive) and transaction outcome are recorded separately | Defined criteria and reviewer authority; independent check for critical properties | Criteria/version, reviewer, evidence, source trust/review result and limitations | Inconclusive remains pending or quarantined |
 | Publish for retrieval | Eligible → retrievable | Current authorization, scope, freshness and restrictions checked | Retrieval eligibility and version reference | Unknown current status blocks retrieval |
 | Correct / version | Current version → superseded; new version → candidate | Owner-approved source correction or new acquisition; exact lineage captured | Old/new version links, changed content locator, provenance and review reset as required | Conflicting concurrent versions remain unresolved; no silent overwrite |
 | Suspend / quarantine | Eligible/retrievable → suspended/quarantined | Authorized owner action or defined integrity/trust trigger; trigger evidence recorded | Restriction signal and affected index/reference scope | If index eligibility cannot be confirmed, block affected retrieval |
@@ -219,7 +220,7 @@ Approval is not Permit. A Permit is not evidence that an action occurred. Enforc
 
 | Transition | Candidate from → to | Preconditions / authorization | Required evidence and effects | Failure / recovery |
 | --- | --- | --- | --- | --- |
-| Establish lineage reference | Absent → recorded / incomplete | Artifact owner can identify source and processing event; missing elements explicitly unknown | Artifact/version, source/version, locator, transformation, actor roles, times and integrity status | Incomplete lineage remains labelled; never fabricate |
+| Establish lineage reference | Lineage record: Absent → Recorded; lineage completeness: complete/incomplete (separate attribute); record-write outcome recorded separately | Artifact owner can identify source and processing event; missing elements explicitly unknown | Artifact/version, source/version, locator, transformation, actor roles, times and integrity status | Incomplete lineage remains labelled; never fabricate |
 | Append transformation | Current lineage → extended lineage | Authorized artifact owner; input/output versions identifiable | Transformation/version, initiator, executor, tool/component reference and result | Untraceable transformation marks lineage incomplete |
 | Correct lineage | Current → corrected version; prior retained as policy allows | Owner-authorized correction with evidence and reason | Before/after references, correction actor and rationale | Disputed lineage quarantined from claims requiring certainty |
 | Mark source restriction/withdrawal | Current → restriction signal recorded | Source owner signal validated and versioned | Source/version, status, effective time, notification references | Signal does not prove derivative updates |

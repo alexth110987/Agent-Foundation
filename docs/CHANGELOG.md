@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.23.0 — 2026-11-11
+
+### Updated
+- Completed the final consistency review of the proposed lifecycle tables and made the four dimensions explicit in the common model: object lifecycle state, process status, transaction outcome and verification result.
+- Clarified remaining mixed-dimension rows for WMS run creation/admission, KMS source review and provenance-lineage registration.
+- Cross-checked lifecycle semantics against the proposed Shared Lifecycle, Provenance, Identity, Authorization, Cross-System Interface and Joint Review documents; no conflict with D-006/D-007/D-008 or accepted R-01–R-07 principles was identified.
+- Updated the project milestone to formal owner review.
+
+### Clarifications
+- The lifecycle tables and related contracts remain Proposed pending explicit owner decisions. This review does not approve them, amend D-006/D-007/D-008, or authorize implementation.
+- No runtime, state machine, service, integration, or test was implemented or executed.
+
 ## 0.22.0 — 2026-11-11
 
 ### Updated
