@@ -111,7 +111,7 @@ Identity assertions are not authorization. Identity suspension, revocation, attr
 
 A decision authorizes only the bounded operation; it does not prove the transition occurred or succeeded. If authorization, approval, identity, scope, policy version, or revocation status cannot be established, block the protected transition.
 
-This section refines the proposed Identity and Authorization Contracts and remains subordinate to D-008. It does not approve either proposed contract or implement the PDP/PEP model.
+This section aligns this proposal with the approved logical Identity Contract (D-010) and Authorization Contract (D-011), while remaining subordinate to D-008 and those exact approved baselines. It does not amend D-008, D-010, or D-011, nor implement the PDP/PEP model.
 
 ## 9. Provenance, versioning, and event evidence
 
@@ -175,7 +175,7 @@ Unresolved: purpose/users/context; object-specific state machines and transition
 
 Readiness sequence:
 1. Owner review of this shared logical contract.
-2. Reconcile object-specific lifecycle tables with approved architectures and proposed Identity, Authorization, and Provenance Contracts.
+2. Reconcile object-specific lifecycle tables with approved architectures and the approved logical Identity (D-010) and Authorization (D-011) Contracts, alongside the proposed Provenance Contract.
 3. Define data ownership, event/evidence, retention, deletion, and recovery rules for each object class.
 4. Define threat model, acceptance criteria, and isolated validation plan.
 5. Prepare a bounded implementation proposal.

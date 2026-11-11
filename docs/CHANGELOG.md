@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.30.0 — 2026-11-11
+
+### Updated
+- Corrected cross-document status references: D-010 Identity and D-011 Authorization are approved logical contract baselines; the Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface Matrix remain Proposed.
+- Aligned the Lifecycle Contract and Cross-System Interface Matrix references with the exact approved D-010/D-011 baselines without amending those decisions.
+- Updated the Joint Contract Review scope, owner checklist, and status wording to distinguish approved baselines from proposals awaiting owner approval.
+- Recorded the consistency review in project status.
+
+### Clarifications
+- No approved baseline was amended, no proposed contract was approved, and no technology or implementation was selected or authorized.
+- No runtime tests or operational validation were performed.
+
 ## 0.29.0 — 2026-11-11
 
 ### Updated

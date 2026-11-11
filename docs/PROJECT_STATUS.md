@@ -92,3 +92,8 @@ A document being present means only that it is implemented as documentation. It 
 The proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix received a coordinated documentation refinement. The changes align stable references, actor separation, event/effective/observed/recorded time, typed outcomes, source-version lineage, KMS-to-MMS write boundaries, owner-local derivative actions, idempotency/replay/concurrency, partial outcomes, reconciliation, recovery, and independent validation.
 
 **Status remains Proposed and pending owner review** for all three documents. This refinement does not amend D-006, D-007, D-008, D-009, D-010, or D-011; approve any proposed contract; select schema, protocol, storage, service, or runtime technology; or authorize implementation, integration, ingestion, testing, operational use, or release. No runtime or tests were executed.
+
+
+## Joint contract consistency review — 2026-11-11
+
+A coordinated consistency review identified and corrected status wording that incorrectly grouped the approved Identity Contract (D-010) and Authorization Contract (D-011) with the three proposed shared documents. The Lifecycle Contract and Cross-System Interface Matrix now explicitly reference D-010 and D-011 as approved logical baselines without amending them. The Joint Contract Review register distinguishes those approved baselines from the proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface Matrix. All three shared documents and the refinement register remain Proposed pending owner review. No implementation, integration, testing, or operational use was authorized; no runtime tests were executed.
