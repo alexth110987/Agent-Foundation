@@ -50,7 +50,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
 - The Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`, including workflow definition lifecycle, run lifecycle, version pinning, permission coordination, and recovery boundaries.
 - The revised Memory Management System architecture in `systems/memory/MEMORY_ARCHITECTURE.md`, including accepted-in-principle cross-system contracts. Logical architecture approved; implementation remains unauthorized.
-- The revised Knowledge Management System architecture in `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, including accepted-in-principle cross-system contracts. Separate owner approval remains pending.
+- The revised Knowledge Management System architecture in `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, including accepted-in-principle cross-system contracts. Logical architecture approved; implementation remains unauthorized.
 
 Cross-system principles R-01–R-07 are accepted in principle. Both logical architectures are approved design baselines. Implementation remains separately unauthorized.
 

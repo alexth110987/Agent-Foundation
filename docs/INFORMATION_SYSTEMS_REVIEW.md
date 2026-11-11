@@ -1,7 +1,7 @@
 # Memory and Knowledge Architecture — Joint Review
 
 **Review status:** Joint review completed; both exact logical architecture versions formally approved by the owner on 2026-11-11 (D-006 and D-007).  
-**Review scope:** Proposed Memory Management System and Knowledge Management System documents on `main`.  
+**Review scope:** Owner-approved logical architecture versions on `main`, identified by D-006 and D-007.  
 **Implementation status:** Documentation only. Logical architecture approval does not authorize implementation, technology selection, runtime construction, or operational use.
 
 ## 1. Review objective
@@ -148,7 +148,7 @@ On 2026-11-11, the owner accepted all seven recommendations in principle and aut
 | Conflict handling | Compatible responsibilities; cross-system references pending |
 | Validation | Substantial independent coverage; add cross-system acceptance cases |
 
-**Both logical architectures are Approved at the exact versions recorded in D-006 and D-007.** Approval is limited to the logical design baseline. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate and unauthorized. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
+**Both logical architectures are Approved at the exact versions recorded in D-006 and D-007.** Approval is limited to the logical design baseline. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate and unauthorized.
 
 ## 9. Next work
 
