@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.13.0 — 2026-11-11
+
+### Added
+- Drafted a purpose-neutral Identity Contract covering principal references, authentication evidence boundaries, delegation constraints, lifecycle, privacy, failure behavior, and validation requirements.
+- Linked the proposed Identity Contract from the permissions overview and aligned project status.
+
+### Clarifications
+- Identity Contract is proposed and pending owner review. No principal registry, identity provider, authenticator, credential store, or runtime exists.
+- No principal taxonomy, identifier format, authentication protocol, trust anchor, or implementation approach was selected.
+- No executable functionality or runtime tests were added.
+
 ## 0.12.0 — 2026-11-11
 
 ### Approved

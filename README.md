@@ -32,7 +32,7 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `workflows/` | Workflow index, reusable workflow template, and proposed Workflow Management System |
 | `systems/memory/` | Approved logical Memory Management System architecture; not implemented |
 | `systems/knowledge/` | Approved logical Knowledge Management System architecture; not implemented |
-| `systems/permissions/` | Approved logical authorization and local enforcement architecture; not implemented |
+| `systems/permissions/` | Approved permission architecture and proposed identity contract; documentation only, not implemented |
 | `systems/validation/` | Validation principles and future evidence requirements |
 | `systems/logging/` | Logging principles and future audit requirements |
 | `tools/` | Tool registry and integration controls; no tools approved or connected |

@@ -1,13 +1,13 @@
 # Permissions and Authorization
 
-**Status:** Logical architecture proposed — pending owner review.  
+**Status:** Permission architecture approved (D-008); Identity Contract proposed — pending owner review.  
 **Implementation:** Not implemented. No permission service, policy engine, identity provider, or enforcement adapter exists.
 
 ## Purpose
 
 The Permission System defines how a future agent evaluates and enforces authorization for bounded actions. It applies least privilege, deny by default, central policy decisions, and local enforcement at protected component boundaries.
 
-See [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md) for proposed components, authority boundaries, request/decision contracts, approval lifecycle, enforcement, revocation, failure handling, security considerations, validation requirements, and deferred decisions.
+See [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md) and the [Identity Contract](IDENTITY_CONTRACT.md) for proposed components, authority boundaries, request/decision contracts, approval lifecycle, enforcement, revocation, failure handling, security considerations, validation requirements, and deferred decisions.
 
 ## Baseline safeguards
 
@@ -24,6 +24,6 @@ See [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md) for
 
 ## Deferred decisions
 
-No identity provider, principal model, policy language, policy store, service topology, approval provider, decision-token format, cache/revocation interval, runtime, or deployment approach has been selected.
+No identity provider, final principal taxonomy, authentication protocol, policy language, policy store, service topology, approval provider, decision-token format, cache/revocation interval, runtime, or deployment approach has been selected.
 
 This is a design proposal only. It does not authorize implementation, integrations, tool access, or operational use.

@@ -26,7 +26,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Workflow Management System | Proposed | Logical architecture documented; owner review pending |
 | Memory Management System | Approved logical architecture | D-006; exact approved document blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`; documentation only; implementation not authorized |
 | Knowledge Management System | Approved logical architecture | D-007; exact approved document blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`; documentation only; implementation not authorized |
-| Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |
+| Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |\n| Identity Contract | Proposed logical contract | Drafted under `systems/permissions/IDENTITY_CONTRACT.md`; owner review pending; no identity/authentication implementation |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -63,7 +63,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Defining identity/principal model, authentication, policy language, approval authority, and permission enforcement contracts.
+- Approving the proposed identity/principal and authentication contract; defining authorization, provenance, and lifecycle contracts.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
@@ -71,7 +71,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Define shared identity, authorization, provenance, and lifecycle contracts against the approved permission architecture. Then address error handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Review the proposed Identity Contract, then define authorization, provenance, and lifecycle contracts against the approved permission architecture. Then address error handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
