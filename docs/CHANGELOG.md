@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.27.0 — 2026-11-11
+
+### Updated
+- Refined the proposed Authorization Contract to consume D-010-approved logical authentication-result references, require independent executor authentication, and keep initiator, executor, and approver identities distinct.
+- Tightened Permit binding to exact operation/resource/owner, purpose, project/tenant/subject, environment, constraints, PEP/audience, policy/context versions, and validity.
+- Expanded freshness, revocation, cache, paused/resumed operation, policy/attribute-source failure, approval-evidence, recovery, and validation requirements.
+
+### Clarifications
+- The Authorization Contract remains Proposed pending owner review. The refinement does not amend D-008 or D-010, approve the contract, select technology, or authorize implementation, services, credentials, integrations, runtime, testing, validation, or release.
+- No policy engine, approval service, PDP, PEP, runtime, integration, or test was implemented or executed.
+
 ## 0.26.0 — 2026-11-11
 
 ### Approved
