@@ -63,7 +63,7 @@ Cross-system principles R-01–R-07 are accepted in principle. Both logical arch
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1G — Define implementation-readiness requirements without implementing.** Resolve remaining contracts and acceptance criteria; obtain separate authorization before implementation.
+**Stage 1G — Implementation-readiness framework drafted.** Owner review pending; no implementation is authorized.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.

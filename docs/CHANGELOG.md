@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.10.0 — 2026-11-11
+
+### Added
+- Drafted a purpose-neutral implementation-readiness framework covering approval gates, requirements, interfaces, permissions, data governance, validation, operations, auditability, supply chain, and release.
+- Added MMS, KMS, and cross-system readiness checklists that preserve approved logical boundaries and identify unresolved prerequisites.
+
+### Clarifications
+- The framework is proposed for owner review and does not authorize implementation, technology selection, data ingestion, integrations, runtime construction, or release.
+- Outstanding items are planning blockers; no runtime exists and no runtime tests were executed.
+
 ## 0.9.0 — 2026-11-11
 
 ### Approved

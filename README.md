@@ -34,7 +34,7 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `knowledge/` | Curated, sourced knowledge; empty until needed |
 | `tools/` | Tool registry and integration controls |
 | `tests/` | Testing strategy and future test organization |
-| `docs/` | Architecture, decisions, status, and development process |
+| `docs/` | Architecture, implementation-readiness framework, decisions, status, and development process |
 
 ## Current milestone
 
