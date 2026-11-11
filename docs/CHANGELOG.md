@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.5.0 — 2026-11-11
+
+### Added
+- Proposed Memory Management System architecture with distinct task context, durable memory, project records, curated knowledge, workflow state, and operational logs.
+- Defined logical memory components, write and retrieval lifecycles, record metadata, access boundaries, retention, correction, export, deletion, and failure handling.
+- Added an initial Knowledge Management System boundary document.
+
+### Clarifications
+- Memory architecture is pending owner review.
+- Knowledge design is only an initial boundary definition; full architecture remains outstanding.
+- No memory store, knowledge repository, retrieval service, or executable functionality was introduced.
+- No retention period or storage technology was selected.
+
 ## 0.4.0 — 2026-11-11
 
 ### Added

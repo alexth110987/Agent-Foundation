@@ -23,7 +23,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
 | Workflow framework | Implemented as documentation | Shared template and index established; no operational workflows |
 | Workflow Management System | Proposed architecture documented | Registry, selection, validation, orchestration, permission coordination, execution state, and result validation; owner review pending |
-| Memory / knowledge | Placeholder | No storage or retrieval system |
+| Memory Management System | Proposed architecture documented | Task context, durable memory, project records, knowledge, workflow state, and logs separated; owner review pending |
+| Knowledge Management System | Initial boundary documented | Full architecture pending; no knowledge repository or retrieval service |
 | Permissions | Placeholder | No executable permission system or integrations |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -43,19 +44,20 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
 - The Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`, including workflow definition lifecycle, run lifecycle, version pinning, permission coordination, and recovery boundaries.
+- The Memory Management System architecture in `systems/memory/MEMORY_ARCHITECTURE.md`, including information categories, write and retrieval gates, project isolation, retention, correction, deletion, and validation.
 
 These proposals are documented for owner review. They are not approved implementation plans.
 
 ## Not started / deferred
 - Selecting the agent's purpose and target users.
 - Selecting a model, runtime, language, hosting, and deployment approach.
-- Implementing policy enforcement, workflow execution, memory, tools, integrations, logging, or automation.
+- Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1D — Workflow Management System review.** Review the proposed WMS responsibilities, definition and execution lifecycles, permission boundaries, and recovery rules before treating them as binding architecture.
+**Stage 1E — Memory and knowledge boundary review.** Review the proposed memory architecture and confirm the separation between temporary task context, durable memory, project records, curated knowledge, workflow state, and logs. Then design the full Knowledge Management System.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.
