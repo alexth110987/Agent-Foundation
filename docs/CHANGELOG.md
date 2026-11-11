@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.14.0 — 2026-11-11
+
+### Added
+- Drafted a purpose-neutral Authorization Contract defining normalized requests, typed PDP outcomes, bounded permits, approval re-evaluation, PEP enforcement, validity, revocation, failure handling, audit boundaries, and validation requirements.
+- Linked the Authorization Contract from the permissions overview and aligned the repository map and project status.
+- Corrected the malformed Permissions/Identity Contract status-table line in the project status record.
+
+### Clarifications
+- Authorization Contract is proposed and pending owner review; the Identity Contract remains separately proposed and pending owner review.
+- The approved Permission Architecture (D-008) remains the only approved permission design baseline; neither proposed contract authorizes implementation.
+- No policy model, API, schema, token format, identity provider, approval provider, runtime, or deployment was selected.
+- No executable functionality or runtime tests were added.
+
 ## 0.13.0 — 2026-11-11
 
 ### Added
@@ -62,7 +75,7 @@ All notable project changes are recorded here.
 ### Clarifications
 - Approval establishes logical architecture baselines only; it does not authorize implementation, technology selection, runtime construction, source/data ingestion, operational use, or release.
 - Remaining interface contracts, acceptance criteria, and governance prerequisites remain open.
-- No executable functionality or runtime tests were added.
+- No runtime tests were executed; implementation remains deferred.
 
 ## 0.8.2 — 2026-11-11
 

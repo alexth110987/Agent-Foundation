@@ -32,7 +32,7 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `workflows/` | Workflow index, reusable workflow template, and proposed Workflow Management System |
 | `systems/memory/` | Approved logical Memory Management System architecture; not implemented |
 | `systems/knowledge/` | Approved logical Knowledge Management System architecture; not implemented |
-| `systems/permissions/` | Approved permission architecture and proposed identity contract; documentation only, not implemented |
+| `systems/permissions/` | Approved permission architecture; proposed identity and authorization contracts; documentation only, not implemented |
 | `systems/validation/` | Validation principles and future evidence requirements |
 | `systems/logging/` | Logging principles and future audit requirements |
 | `tools/` | Tool registry and integration controls; no tools approved or connected |
@@ -43,4 +43,4 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 
 **Stage 1 — Core foundation.** Establish governance, architecture, and reusable workflow standards. No agent runtime, integrations, automated actions, or domain-specific workflows are implemented in this stage.
 
-See [Project Status](docs/PROJECT_STATUS.md), [Architecture](docs/ARCHITECTURE.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).
+See [Project Status](docs/PROJECT_STATUS.md), [Architecture](docs/ARCHITECTURE.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), [Identity Contract](systems/permissions/IDENTITY_CONTRACT.md), [Authorization Contract](systems/permissions/AUTHORIZATION_CONTRACT.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).

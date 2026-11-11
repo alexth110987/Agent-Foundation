@@ -26,7 +26,9 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Workflow Management System | Proposed | Logical architecture documented; owner review pending |
 | Memory Management System | Approved logical architecture | D-006; exact approved document blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`; documentation only; implementation not authorized |
 | Knowledge Management System | Approved logical architecture | D-007; exact approved document blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`; documentation only; implementation not authorized |
-| Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |\n| Identity Contract | Proposed logical contract | Drafted under `systems/permissions/IDENTITY_CONTRACT.md`; owner review pending; no identity/authentication implementation |
+| Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |
+| Identity Contract | Proposed logical contract | `systems/permissions/IDENTITY_CONTRACT.md`; owner review pending; no identity/authentication implementation |
+| Authorization Contract | Proposed logical contract | `systems/permissions/AUTHORIZATION_CONTRACT.md`; owner review pending; no PDP, approval, or PEP implementation |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -55,6 +57,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
+- Identity Contract and Authorization Contract in `systems/permissions/`; both remain pending owner review and authorize no implementation.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
 Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logical architectures are approved design baselines; implementation remains separately unauthorized.
@@ -63,7 +66,8 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Approving the proposed identity/principal and authentication contract; defining authorization, provenance, and lifecycle contracts.
+- Owner review and approval of the proposed Identity and Authorization Contracts.
+- Defining provenance and lifecycle contracts.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
@@ -71,7 +75,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Review the proposed Identity Contract, then define authorization, provenance, and lifecycle contracts against the approved permission architecture. Then address error handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Review the proposed Identity and Authorization Contracts together for consistency with D-008 and each other. Then define provenance and lifecycle contracts against the approved architecture, followed by error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
