@@ -1,6 +1,7 @@
 # Permission System — Logical Architecture
 
 **Status:** Approved logical architecture — D-008.  
+**Approved baseline:** Exact Git blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`. This file includes post-approval status/readiness annotations; the approval remains limited to the exact baseline identified above and does not extend to new design scope.  
 **Implementation:** Documentation only. No permission service, identity provider, policy engine, or enforcement adapter exists.  
 **Authority:** This design is subordinate to `AGENT.md`, approved Core rules, and recorded owner decisions.
 

@@ -1,6 +1,7 @@
 # Knowledge Management System — Architecture
 
-**Status:** Proposed architecture — prepared for formal owner approval; not yet approved.  
+**Status:** Approved logical architecture — D-007.  
+**Approved baseline:** Exact Git blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`. The status correction does not alter the approved architecture content.  
 **Implementation status:** Documentation only. No knowledge repository, ingestion pipeline, index, or retrieval service exists.
 
 ## 1. Purpose and scope

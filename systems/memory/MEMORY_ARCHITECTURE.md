@@ -1,6 +1,7 @@
 # Memory Management System — Architecture
 
-**Status:** Proposed architecture — prepared for formal owner approval; not yet approved.  
+**Status:** Approved logical architecture — D-006.  
+**Approved baseline:** Exact Git blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`. The status correction does not alter the approved architecture content.  
 **Implementation status:** Documentation only. No memory store, retrieval service, or retention engine exists.
 
 ## 1. Purpose

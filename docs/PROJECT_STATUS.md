@@ -30,6 +30,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Identity Contract | Proposed logical contract | `systems/permissions/IDENTITY_CONTRACT.md`; owner review pending; no identity/authentication implementation |
 | Authorization Contract | Proposed logical contract | `systems/permissions/AUTHORIZATION_CONTRACT.md`; owner review pending; no PDP, approval, or PEP implementation |
 | Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
+| Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -49,7 +50,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 
 - MMS: `systems/memory/MEMORY_ARCHITECTURE.md`, blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c` (D-006).
 - KMS: `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6` (D-007).
-- Permission System: `systems/permissions/PERMISSION_ARCHITECTURE.md`, blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305` (D-008).
+- Permission System: `systems/permissions/PERMISSION_ARCHITECTURE.md`, exact approved baseline blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305` (D-008). The current file includes post-approval status/readiness annotations; D-008 remains scoped to the exact baseline.
 - Approval is limited to those exact logical architecture documents. It does not authorize implementation, technology selection, runtime construction, data/source ingestion, operational use, or release.
 
 ## Proposed for review
@@ -69,7 +70,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Owner review and approval of the proposed Identity, Authorization, and Provenance Contracts.
-- Defining lifecycle contracts against the approved architecture.
+- Owner review of the proposed shared Lifecycle Contract and reconciliation of object-specific lifecycle requirements.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -78,7 +79,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Review the proposed Identity, Authorization, and Provenance Contracts together for consistency with D-008, the approved MMS/KMS logical baselines, and each other. Then define lifecycle contracts, followed by error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Review the proposed Identity, Authorization, Provenance, and Shared Lifecycle Contracts together against D-006, D-007, D-008, and each other; then define error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 

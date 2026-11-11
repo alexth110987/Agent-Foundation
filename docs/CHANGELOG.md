@@ -2,6 +2,22 @@
 
 All notable project changes are recorded here.
 
+## 0.16.0 — 2026-11-11
+
+### Added
+- Drafted a purpose-neutral Shared Lifecycle Contract covering object ownership, lifecycle states/transitions, authorization, provenance/evidence, retention/deletion, cross-system reconciliation, failure recovery, and validation.
+- Linked the proposed Lifecycle Contract from the repository overview and project status.
+
+### Corrected
+- Aligned MMS and KMS architecture status headers with existing D-006 and D-007 approvals; exact approved blob SHAs remain unchanged.
+- Clarified that the current Permission Architecture file contains post-approval status/readiness annotations while D-008 remains limited to exact approved baseline blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`.
+
+### Clarifications
+- These status and record clarifications do not change or expand D-006, D-007, or D-008.
+- The Shared Lifecycle Contract is proposed and pending owner review; no lifecycle engine, event service, retention service, reconciliation worker, schema, technology, or runtime was selected or implemented.
+- No implementation authority, operational capability, or release approval was added.
+- No runtime tests were executed.
+
 ## 0.15.0 — 2026-11-11
 
 ### Added

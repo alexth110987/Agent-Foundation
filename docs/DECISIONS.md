@@ -57,3 +57,13 @@ Record durable project decisions here. Each entry must include a date, status, d
 - **Decision:** Approve `systems/permissions/PERMISSION_ARCHITECTURE.md`, exact Git blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`.
 - **Rationale:** The owner explicitly approved this exact logical architecture version after review.
 - **Impact:** Approval establishes the purpose-neutral logical design baseline only. It does not authorize implementation, technology selection, identity-provider selection, runtime construction, integrations, tool access, operational use, or release. Identity, authorization, provenance, and lifecycle contracts remain to be designed; implementation gates remain separate.
+
+
+## Approval-record clarification — D-006, D-007, and D-008
+
+The approved baselines remain the exact Git blob SHAs recorded in their respective decisions:
+- D-006: `197ac0974f5ceea357f6ad846a299304dd13da9c`
+- D-007: `c1dda460a8d02939db9ca9b16611be79e12019b6`
+- D-008: `9e754143c289fd1e454de6ee3f61bec0e90f3305`
+
+The current MMS and KMS architecture files retain the exact approved blobs; their status headers are corrected to reflect the already-recorded decisions. The current Permission Architecture file is a post-approval status/readiness annotation derived from the D-008 baseline. This annotation does not replace the exact approved artifact, revise its logical design, or expand D-008. Any substantive change to an approved architecture requires a separate explicit owner decision and a new exact baseline reference.
