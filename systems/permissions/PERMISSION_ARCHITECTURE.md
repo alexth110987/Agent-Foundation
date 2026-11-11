@@ -1,6 +1,6 @@
 # Permission System — Logical Architecture
 
-**Status:** Proposed logical architecture — pending owner review.  
+**Status:** Approved logical architecture — D-008.  
 **Implementation:** Documentation only. No permission service, identity provider, policy engine, or enforcement adapter exists.  
 **Authority:** This design is subordinate to `AGENT.md`, approved Core rules, and recorded owner decisions.
 
@@ -10,7 +10,7 @@ Define a purpose-neutral authorization architecture for deciding whether a speci
 
 The Permission System governs authorization decisions. It does not authenticate identities by itself, perform requested actions, define global policy, or grant authority to workflows. Authentication and identity proofing remain separate concerns whose implementation is deferred.
 
-This document proposes logical responsibilities and contracts only. It does not select a policy language, identity provider, service topology, storage system, or runtime.
+This approved document defines logical responsibilities and contracts only. It does not select a policy language, identity provider, service topology, storage system, or runtime.
 
 ## 2. Governing principles
 
@@ -224,7 +224,7 @@ These are design blockers, not defects in an implemented service. No runtime or 
 
 ## 15. Readiness gates
 
-1. Owner review and approval of this logical architecture.
+1. **Completed:** Owner approved this exact logical architecture version under D-008.
 2. Purpose and operating context approval before purpose-dependent policy.
 3. Identity and principal model design.
 4. Detailed authorization, approval, revocation, and enforcement contracts.
@@ -233,7 +233,7 @@ These are design blockers, not defects in an implemented service. No runtime or 
 7. Bounded implementation proposal.
 8. Separate explicit implementation authorization.
 
-No gate is implied by this proposal. No implementation or integration is authorized.
+Approval of this logical architecture does not satisfy the remaining readiness gates. No implementation or integration is authorized.
 
 ## 16. Related records
 

@@ -50,3 +50,10 @@ Record durable project decisions here. Each entry must include a date, status, d
 - **Decision:** Approve `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, exact Git blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`.
 - **Rationale:** The owner formally approved this exact revised logical architecture after review.
 - **Impact:** Approval establishes the logical design baseline only. It does not authorize implementation, technology selection, runtime construction, source ingestion, operational use, or release. Remaining interface, source governance, index consistency, retention, deletion/reconciliation, and validation details remain open.
+
+## D-008 — Permission System logical architecture approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve `systems/permissions/PERMISSION_ARCHITECTURE.md`, exact Git blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`.
+- **Rationale:** The owner explicitly approved this exact logical architecture version after review.
+- **Impact:** Approval establishes the purpose-neutral logical design baseline only. It does not authorize implementation, technology selection, identity-provider selection, runtime construction, integrations, tool access, operational use, or release. Identity, authorization, provenance, and lifecycle contracts remain to be designed; implementation gates remain separate.

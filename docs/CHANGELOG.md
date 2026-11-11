@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.12.0 — 2026-11-11
+
+### Approved
+- Owner formally approved the exact Permission System logical architecture version (D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`).
+
+### Updated
+- Recorded D-008 in the decision log and aligned the Permission Architecture, project status, and repository overview with the approval.
+
+### Clarifications
+- Approval establishes a purpose-neutral logical design baseline only. It does not authorize implementation, technology selection, identity-provider selection, runtime construction, integrations, tool access, operational use, or release.
+- Identity, authorization, provenance, and lifecycle contracts remain to be designed.
+- No executable functionality or runtime tests were added.
+
 ## 0.11.0 — 2026-11-11
 
 ### Added

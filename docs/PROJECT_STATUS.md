@@ -26,7 +26,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Workflow Management System | Proposed | Logical architecture documented; owner review pending |
 | Memory Management System | Approved logical architecture | D-006; exact approved document blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`; documentation only; implementation not authorized |
 | Knowledge Management System | Approved logical architecture | D-007; exact approved document blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`; documentation only; implementation not authorized |
-| Permissions | Proposed logical architecture | New Permission System architecture; owner review pending; no enforcement implementation |
+| Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -46,6 +46,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 
 - MMS: `systems/memory/MEMORY_ARCHITECTURE.md`, blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c` (D-006).
 - KMS: `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6` (D-007).
+- Permission System: `systems/permissions/PERMISSION_ARCHITECTURE.md`, blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305` (D-008).
 - Approval is limited to those exact logical architecture documents. It does not authorize implementation, technology selection, runtime construction, data/source ingestion, operational use, or release.
 
 ## Proposed for review
@@ -54,7 +55,6 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
-- Permission System logical architecture in `systems/permissions/PERMISSION_ARCHITECTURE.md`.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
 Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logical architectures are approved design baselines; implementation remains separately unauthorized.
@@ -71,7 +71,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Complete the purpose-neutral permission architecture review and define shared identity, authorization, provenance, and lifecycle contracts. Then address error handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Define shared identity, authorization, provenance, and lifecycle contracts against the approved permission architecture. Then address error handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
