@@ -73,7 +73,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Owner review and approval of the proposed Identity, Authorization, Provenance, Shared Lifecycle, and Cross-System Interface documents.
+- Owner review and approval of the refined Identity Contract and the proposed Authorization, Provenance, Shared Lifecycle, and Cross-System Interface documents.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -82,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the five underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. Remaining owner-review work includes the Joint Contract Review refinement register and proposed contracts, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. The Identity Contract has received a documentation-only refinement and remains Proposed pending formal owner review. Remaining owner-review work includes the Authorization, Provenance and Shared Lifecycle contracts, Cross-System Interface Matrix, and Joint Contract Review refinement register, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 

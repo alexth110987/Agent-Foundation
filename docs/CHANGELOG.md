@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.25.0 — 2026-11-11
+
+### Updated
+- Refined the proposed Identity Contract authentication result requirements: explicit issuer/verifier, principal/assertion version, audience/scope, authenticated-at and validity boundaries, freshness, current status/revocation evidence, and independent relying-component validation.
+- Clarified independent executor authentication, initiator/executor/approver separation, material identity-context changes, revalidation, and fresh PDP evaluation after relevant identity changes.
+- Expanded failure and validation cases for stale/unavailable status, revocation, executor identity, and long-running or resumed operations.
+- Updated the project status to reflect that the Identity Contract is refined but remains pending formal owner review.
+
+### Clarifications
+- The Identity Contract remains Proposed. This documentation refinement does not amend D-008, approve the contract, select identity technology, or authorize identity services, credentials, integrations, runtime, implementation, testing, validation, or release.
+- No runtime, identity provider, authenticator, policy engine, or test was implemented or executed.
+
 ## 0.24.0 — 2026-11-11
 
 ### Approved

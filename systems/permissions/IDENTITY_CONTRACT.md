@@ -73,18 +73,20 @@ A principal category is descriptive metadata. It must not automatically map to a
 
 ## 7. Authentication contract
 
-A future authentication result presented to a protected component should establish, at minimum:
+A future authentication result presented to a protected component must be a bounded, verifiable statement of authentication, not a free-form caller assertion. It must establish, at minimum:
 
-- the principal reference authenticated;
-- the issuer or verifier responsible for the result;
-- the authentication method or assurance context, at an appropriately abstract level;
-- the time of authentication and validity boundary;
-- the relevant audience or intended relying component/context;
-- session or interaction reference, if applicable;
-- status, revocation, and validation reference;
-- integrity and freshness evidence sufficient for the selected implementation.
+- the exact principal reference authenticated and the identity/assertion version used;
+- the issuer that made the assertion and the verifier or validation authority responsible for the authentication result, where distinct;
+- the authentication method and relevant assurance context at an appropriately abstract level, without prescribing an assurance taxonomy;
+- the time authentication occurred (`authenticated-at`) and any applicable not-before and expiry boundary or maximum permitted age;
+- the intended audience/relying component and applicable project, tenant, or interaction scope;
+- a session or interaction reference, if applicable, without treating possession of that reference as proof by itself;
+- the principal/assertion status and the reference or evidence used to establish current validity and revocation status;
+- integrity and freshness evidence sufficient for the separately approved validation mechanism.
 
-The receiving component must validate issuer trust, audience, integrity, freshness, status, and scope using a separately approved mechanism. It must not accept caller-supplied claims merely because they are syntactically valid.
+The receiving PDP/PEP or other protected relying component must independently validate issuer trust, issuer/verifier authority, audience, integrity, freshness, validity period, current status/revocation, and applicable scope using a separately approved mechanism. It must not rely solely on a caller's statement that validation occurred, nor accept caller-supplied claims merely because they are syntactically valid. The required freshness window and whether status must be checked online or through another bounded mechanism remain implementation decisions; no cache or offline grace period is authorized by this contract.
+
+Where policy or the protected operation requires current status, freshness, or revocation evidence and that property cannot be established, the identity context is invalid or indeterminate and the protected action fails closed. Authentication success does not guarantee that the identity remains valid for the duration of a later operation; long-running or resumed operations must revalidate when the defined validity boundary expires or a material identity-context change is signalled or detected.
 
 Raw passwords, API keys, access tokens, private keys, recovery codes, or other credentials must never be placed in identity references, ordinary logs, or this repository.
 
@@ -101,15 +103,19 @@ If delegation is later required, a separate explicit contract must define:
 - issuer and evidence of delegation authority;
 - revocation and audit semantics.
 
-A component acting for a user must retain the distinction between the initiating principal and the executing component. The executing component must not silently become the user, and the user's identity must not be used to conceal the actual executor.
+A component acting for a user must retain the distinction between the initiating principal and the executing component. The executing component must be authenticated as its own principal for the relevant execution context; the initiator's authentication result does not authenticate the executor. The executing component must not silently become the user, and the user's identity must not be used to conceal the actual executor. An approver, where present, is a separate actor and must not be conflated with either initiator or executor.
+
+Any future delegation must be represented and validated separately from both principals' authentication results. It must not be inferred from a workflow, service relationship, shared session, or permission to execute a component.
 
 ## 9. Lifecycle and status
 
-Identity lifecycle events may include creation/registration, activation, attribute change, suspension, revocation, reactivation, and retirement. Each event must be attributable to an authorized identity authority and recorded with effective time and version/reference.
+Identity lifecycle events may include creation/registration, activation, attribute change, suspension, revocation, reactivation, and retirement. Each event must be attributable to an authorized identity authority and recorded with an effective time, observed/recorded time where available, and an identity/assertion version or stable event reference. The identity authority owns the authoritative identity status; consuming components must not independently invent or override it.
 
-A principal that is suspended, revoked, retired, unknown, or outside its validity period must not be treated as authenticated for new protected actions. Reactivation requires fresh validation; it must not silently restore expired sessions or grants.
+A principal that is suspended, revoked, retired, unknown, or outside its validity period must not be treated as authenticated for new protected actions. Reactivation requires fresh validation; it must not silently restore expired sessions, authentication results, approvals, or grants.
 
-Changes to identity attributes that influence authorization require re-evaluation by the Permission Service. Historical decisions retain the identity assertion and policy context actually used.
+A material identity-context change includes (where applicable) a change to an authorization-relevant attribute, issuer trust or signing-key compromise, suspension/revocation, identity assertion replacement, or session invalidation. Such a change must invalidate or trigger revalidation of affected authentication contexts and require a fresh PDP evaluation before a protected action proceeds. Previously issued authorization decisions must not silently survive a material change to the identity context on which they depended. The applicable detection, notification, and propagation mechanism remains to be separately designed.
+
+Historical decisions retain references to the identity assertion/version, authentication context, and policy/context actually used; a later identity change must not rewrite historical evidence.
 
 ## 10. Privacy and data minimization
 
@@ -126,8 +132,12 @@ Changes to identity attributes that influence authorization require re-evaluatio
 | --- | --- |
 | Unknown issuer or principal | Authentication fails; protected action denied |
 | Invalid, malformed, or tampered evidence | Authentication fails; protected action denied |
-| Expired or stale evidence | Reject and require fresh authentication |
+| Expired, not-yet-valid, or stale evidence | Reject and require fresh authentication |
+| Audience, issuer, verifier, or validity-boundary mismatch | Reject the identity context |
 | Revoked or suspended principal | Reject for new protected actions |
+| Required revocation/status evidence unavailable or stale | Fail closed; return unavailable or indeterminate identity result |
+| Material identity-context change detected | Invalidate/revalidate affected context and require fresh PDP evaluation |
+| Executor identity absent or not independently authenticated | Do not execute the protected operation |
 | Conflicting principal references or claims | Treat as indeterminate; do not select the more permissive claim |
 | Missing required identity attribute | Return a typed failure; do not infer a value |
 | Authentication authority unavailable | Fail closed for protected actions |
@@ -150,7 +160,9 @@ Failures must preserve the distinction between unauthenticated, invalid, unavail
 
 Before implementation authorization, define isolated tests for:
 - uniqueness and namespace separation;
-- issuer trust, signature/integrity, audience, and freshness validation;
+- issuer/verifier authority, signature/integrity, audience, not-before/expiry, authentication age, and freshness validation;
+- current-status and revocation checks, including unavailable/stale status evidence;
+- material identity-context changes, session invalidation, and revalidation during long-running or resumed operations;
 - unknown, malformed, forged, conflicting, expired, suspended, and revoked identities;
 - principal type spoofing and mutable display-name changes;
 - cross-project, cross-tenant, and cross-subject isolation;
@@ -167,6 +179,7 @@ Tests must use synthetic identities and isolated environments. Passing identity 
 Still unresolved:
 - final principal taxonomy and registration authority;
 - identity proofing and authentication assurance requirements;
+- required authentication freshness windows and status/revocation checking semantics;
 - issuer trust and key-management model;
 - identifier syntax, namespace rules, and schema/version strategy;
 - session, refresh, expiry, and revocation semantics;
