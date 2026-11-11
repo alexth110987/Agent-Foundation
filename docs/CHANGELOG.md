@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.3.0 — 2026-11-11
+
+### Added
+- Defined the proposed Core System responsibilities, exclusions, subcomponents, policy boundaries, and change lifecycle.
+- Expanded the purpose-neutral identity specification.
+- Expanded global operating rules for instruction integrity, permissions, information handling, reporting, and failure behavior.
+- Expanded configuration governance requirements.
+
+### Clarifications
+- Core design is proposed and pending owner review.
+- No executable policy enforcement, runtime configuration, or agent behavior was implemented.
+- Agent purpose and runtime remain undefined.
+
 ## 0.2.0 — 2026-11-11
 
 ### Added
