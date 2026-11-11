@@ -71,7 +71,8 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
-- Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.\n- Expand validation strategy and define documentation/version governance.
+- Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.
+- Expand validation strategy and define documentation/version governance.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
