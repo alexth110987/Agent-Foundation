@@ -23,8 +23,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
 | Workflow framework | Implemented as documentation | Shared template and index established; no operational workflows |
 | Workflow Management System | Proposed architecture documented | Registry, selection, validation, orchestration, permission coordination, execution state, and result validation; owner review pending |
-| Memory Management System | Proposed architecture documented | Task context, durable memory, project records, knowledge, workflow state, and logs separated; owner review pending |
-| Knowledge Management System | Proposed architecture documented | Source registry, ingestion/review, provenance, versioning, trust, indexing/retrieval, lifecycle and validation; owner review pending; no executable system |
+| Memory Management System | Proposed architecture revised | Cross-system principles R-01–R-07 accepted in principle; detailed design and separate owner approval pending; no implementation |
+| Knowledge Management System | Proposed architecture revised | Cross-system principles R-01–R-07 accepted in principle; detailed design and separate owner approval pending; no executable system |
 | Permissions | Placeholder | No executable permission system or integrations |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -44,10 +44,10 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
 - The Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`, including workflow definition lifecycle, run lifecycle, version pinning, permission coordination, and recovery boundaries.
-- The Memory Management System architecture in `systems/memory/MEMORY_ARCHITECTURE.md`, including information categories, write and retrieval gates, project isolation, retention, correction, deletion, and validation.
-- The Knowledge Management System architecture in `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, including source registration, ingestion/review, provenance, versioning, trust, conflict handling, scoped retrieval, lifecycle controls, and validation.
+- The revised Memory Management System architecture in `systems/memory/MEMORY_ARCHITECTURE.md`, including accepted-in-principle cross-system contracts. Separate owner approval remains pending.
+- The revised Knowledge Management System architecture in `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, including accepted-in-principle cross-system contracts. Separate owner approval remains pending.
 
-These proposals are documented for owner review. They are not approved implementation plans.
+Cross-system principles R-01–R-07 are accepted in principle. Both full architectures remain proposed and are not approved implementation plans.
 
 ## Not started / deferred
 - Selecting the agent's purpose and target users.
@@ -58,7 +58,7 @@ These proposals are documented for owner review. They are not approved implement
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1E — Memory and knowledge architecture review.** Review the proposed Memory Management System and Knowledge Management System architectures together. Confirm the information boundaries, lifecycle controls, trust/provenance model, access isolation, and validation requirements before considering any implementation design.
+**Stage 1F — Owner review of revised Memory and Knowledge architectures.** Review the updated MMS and KMS documents, including accepted-in-principle cross-system contracts. Approve, amend, or defer each architecture as a whole before any implementation planning.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.

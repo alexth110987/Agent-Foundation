@@ -176,6 +176,48 @@ No storage technology, database, vector store, embedding model, retrieval algori
 
 These decisions require the agent's purpose, user model, data classification, legal context, and runtime environment.
 
+## 15. Cross-system contract with the Knowledge Management System
+
+The owner accepted recommendations R-01 through R-07 in principle on 2026-11-11. These principles establish design direction only; they do not approve this architecture for implementation or select a technical interface.
+
+### Knowledge-to-memory handoff
+- Retrieved knowledge is not automatically eligible for durable memory.
+- Any memory derived from knowledge must independently pass Memory Policy and Write Gate checks for purpose, minimization, provenance, scope, authorization, and retention.
+- KMS retrieval authorization is not MMS write authorization. KMS must not write directly to MMS or cause automatic promotion.
+- Where authorized, a memory record should preserve a stable reference to the exact KMS source and version where available. Unknown provenance remains explicitly unknown.
+
+### Lifecycle ownership
+- MMS owns its durable memory records and MMS-managed derived data. KMS owns source records, source versions, extracted passages, and KMS-managed indexes.
+- Neither system directly edits or deletes the other's authoritative records. Cross-system requests require coordinated, separately authorized operations.
+- Define handling of copied excerpts, caches, replicas, backups, and audit metadata before implementation.
+- A reference to withdrawn, deleted, quarantined, or unavailable knowledge must be marked affected/unavailable. Reconciliation remains pending until each system verifies its own obligations.
+
+### Provenance, trust, and confidence
+- Define a minimal interoperable provenance reference in later interface design: source system, source/record identifier, exact version where available, origin reference, and relevant observation/integrity metadata where available. No schema or serialization is selected.
+- KMS owns source trust/quality. MMS owns confidence or verification state for a retained claim. These are distinct and require separate evidence; neither is mechanically copied from the other.
+
+### Conflict boundaries
+- KMS reports source-level disagreement with provenance. MMS manages conflicts between memory records and may refer to KMS evidence.
+- Neither system silently resolves conflicts solely by ranking, recency, or source trust.
+
+### Authorization and enforcement
+- The Permission Service is the central policy decision authority, subject to Core governance.
+- MMS enforces scoped authorization at its own read, write, export, correction, and deletion boundaries. Local controls may be stricter but cannot broaden a central grant or infer permission from relevance.
+- Denied, unavailable, indeterminate, or out-of-scope authorization fails closed.
+
+### Cross-system validation requirements
+Before implementation approval, define and validate that:
+- KMS retrieval cannot cause an MMS write without a separate authorized decision.
+- Exact source/version references and withdrawal/unavailability states are preserved.
+- Reconciliation covers copies, derived passages, indexes, caches, replicas, backups, and audit metadata under approved policy.
+- Project/subject isolation holds across shared identifiers and retrieval paths.
+- Central permission denial or unavailability blocks protected operations in both systems.
+- Source trust and memory confidence remain distinct.
+- Source-level and memory-record conflicts remain separately traceable.
+- Index lag, failed purge, or incomplete reconciliation is reported as pending/degraded, never complete.
+
+These are proposed acceptance criteria, not executed tests. No runtime exists.
+
 ## 14. Related records
 
 - [Memory Design Placeholder](README.md)

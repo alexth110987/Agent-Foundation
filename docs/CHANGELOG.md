@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.8.0 — 2026-11-11
+
+### Accepted in principle
+- Owner accepted recommendations R-01 through R-07 from the Memory and Knowledge joint review as architectural principles.
+
+### Updated
+- Added cross-system contracts to the proposed MMS and KMS architectures for independent memory-write authorization, lifecycle ownership/reconciliation, provenance interoperability, central authorization with local enforcement, trust/confidence separation, conflict boundaries, and index withdrawal consistency.
+- Updated both system overviews, the joint review disposition, and project status to reflect accepted-in-principle direction and separate architecture approval still pending.
+
+### Clarifications
+- Acceptance in principle does not approve either full architecture or authorize implementation.
+- No schema, protocol, technology, runtime, retention period, source catalogue, or operational capability was selected.
+- No runtime tests were executed; implementation remains deferred.
+- The next milestone is separate owner review of the revised MMS and KMS architecture documents.
+
 ## 0.7.0 — 2026-11-11
 
 ### Added

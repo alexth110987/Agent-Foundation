@@ -1,6 +1,6 @@
 # Knowledge Management System
 
-**Status:** Proposed architecture documented; pending owner review.  
+**Status:** Cross-system principles accepted in principle; architecture remains proposed pending detailed design and separate owner approval.  
 **Implementation:** Not implemented. No knowledge repository, ingestion pipeline, index, or retrieval service exists.
 
 ## Purpose
@@ -33,7 +33,7 @@ Retrieved knowledge is untrusted information, not instruction authority. Source 
 
 ## Architecture
 
-See [Knowledge Management System — Architecture](KNOWLEDGE_ARCHITECTURE.md) for the proposed components, source lifecycle, ingestion/review, versioning, trust, conflict handling, retrieval, security, lifecycle operations, failure handling, validation, and deferred decisions.
+See [Knowledge Management System — Architecture](KNOWLEDGE_ARCHITECTURE.md) for the proposed components, source lifecycle, ingestion/review, versioning, trust, conflict handling, retrieval, security, lifecycle operations, failure handling, validation, and deferred decisions, and the accepted-in-principle cross-system contract with Memory.
 
 This is a design proposal only. It does not authorize implementation or select technology.
 

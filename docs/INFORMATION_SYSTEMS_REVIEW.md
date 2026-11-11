@@ -1,6 +1,6 @@
 # Memory and Knowledge Architecture — Joint Review
 
-**Review status:** Architectural consistency review completed; owner disposition pending.  
+**Review status:** Joint review completed; owner accepted R-01 through R-07 in principle on 2026-11-11. Detailed contracts and separate architecture approval remain pending.  
 **Review scope:** Proposed Memory Management System and Knowledge Management System documents on `main`.  
 **Implementation status:** Documentation only. This review does not approve either architecture for implementation.
 
@@ -122,7 +122,21 @@ A future validation plan should include cross-system cases in addition to each s
 
 These are proposed acceptance requirements, not executed tests. No runtime exists to test them.
 
-## 7. Review disposition
+## 7. Owner disposition
+
+On 2026-11-11, the owner accepted all seven recommendations in principle and authorized preparation of revised architecture documents. This establishes architectural direction only; it does not approve either full architecture, implementation, or technology choices.
+
+| Recommendation | Owner disposition | Remaining work |
+| --- | --- | --- |
+| R-01 — Knowledge-to-memory handoff | Accepted in principle | Define interface only after purpose/context approval; independent memory write gate remains mandatory |
+| R-02 — Cross-system lifecycle ownership | Accepted in principle | Define reconciliation for copies, caches, replicas, backups, and audit metadata |
+| R-03 — Shared provenance reference | Accepted in principle | Define minimal fields and representation; no schema selected |
+| R-04 — Central authorization and local enforcement | Accepted in principle | Define Permission Service contract and local enforcement; fail closed |
+| R-05 — Trust versus confidence | Accepted in principle | Keep separate attributes, evidence, and ownership; no scoring model |
+| R-06 — Conflict boundaries | Accepted in principle | Define references/escalation; no automatic resolution |
+| R-07 — Index consistency and withdrawal | Accepted in principle | Define consistency, invalidation, cache purge, and degraded-state criteria |
+
+## 8. Review disposition
 
 | Item | Review outcome |
 | --- | --- |
@@ -135,13 +149,13 @@ These are proposed acceptance requirements, not executed tests. No runtime exist
 | Conflict handling | Compatible responsibilities; cross-system references pending |
 | Validation | Substantial independent coverage; add cross-system acceptance cases |
 
-**No architecture is marked Approved by this review.** Owner review and explicit disposition are still required. Any later approval should identify the exact document versions and scope approved. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
+**No architecture is marked Approved by this review.** Recommendations are accepted in principle, but revised MMS and KMS documents require separate owner review and explicit approval. Any approval must identify exact document versions and scope. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
 
 ## 8. Next work
 
-1. Owner reviews this assessment and decides whether to accept, amend, defer, or reject each recommendation.
-2. Incorporate only accepted changes into the relevant architecture documents.
-3. Conduct a separate owner review of the resulting MMS and KMS versions.
-4. Keep implementation deferred until the purpose, operating context, and architecture are explicitly approved.
+1. Incorporate accepted-in-principle principles into MMS and KMS architecture documents.
+2. Review revised documents for consistency, completeness, and scope discipline.
+3. Present exact revised versions for separate owner approval.
+4. Keep implementation deferred until purpose, operating context, and architecture are explicitly approved.
 
 No operational workflow, data store, index, retrieval engine, integration, or domain-specific capability is authorized by this review.

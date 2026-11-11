@@ -252,6 +252,52 @@ The following remain deliberately undecided:
 
 Resolve these only after the agent's purpose, users, data classes, operating context, and applicable obligations are defined.
 
+## 16. Cross-system contract with the Memory Management System
+
+The owner accepted recommendations R-01 through R-07 in principle on 2026-11-11. These principles establish design direction only; they do not approve this architecture for implementation or select a technical interface.
+
+### Knowledge-to-memory handoff
+- KMS owns curated sources, versions, extracted passages, provenance, review/trust state, freshness, and retrieval eligibility.
+- Retrieval does not authorize retention. Every downstream memory write must independently pass MMS purpose, minimization, scope, provenance, authorization, and retention controls.
+- Where authorized, MMS may retain a minimal summary/reference and should preserve the exact KMS source/version pointer where available. KMS must not automatically promote content into memory.
+
+### Lifecycle ownership
+- KMS owns source records, versions, extracted passages, and indexes. MMS owns durable memory records and its derived data.
+- Neither system directly edits or deletes the other's authoritative records. Cross-system requests require coordinated, separately authorized operations.
+- Define treatment of copied excerpts, cached results, replicas, backups, and audit metadata before implementation.
+- Withdrawal, quarantine, deletion, or unavailability must affect ordinary retrieval eligibility under the eventual policy. Linked memory references must be flagged and handled under MMS policy.
+- Do not report reconciliation complete until each system verifies its own obligations.
+
+### Provenance and trust/confidence
+- Define a minimal interoperable provenance reference later, identifying source system, record/source ID, exact version where available, origin, and relevant observation/integrity metadata. No schema or protocol is selected.
+- KMS owns source trust/quality; MMS owns confidence/verification state for retained claims. These are distinct and require separate evidence.
+
+### Conflict boundaries
+- KMS preserves source-level disagreement and provenance. MMS owns conflicts between durable memory records and may refer to KMS evidence.
+- Neither system silently resolves the other's conflict class or selects a winner solely by ranking, recency, or trust labels.
+
+### Authorization and enforcement
+- The Permission Service is the central policy decision authority, subject to Core governance.
+- KMS enforces scoped authorization at registration, ingestion, review, search, retrieval, disclosure, and lifecycle boundaries. Local controls may be stricter but cannot broaden central grants or infer permission from relevance.
+- Denied, unavailable, indeterminate, or out-of-scope authorization fails closed. Recheck authorization and source eligibility at result disclosure.
+
+### Derived-index consistency and withdrawal
+- Every derived passage and index entry remains linked to its exact source version and scope.
+- Before implementation, define withdrawal/quarantine propagation, stale-entry invalidation, cache purge, consistency guarantees, and degraded-state reporting.
+- If eligibility or reconciliation is uncertain, block disclosure of affected content. Index membership is never proof of approval, freshness, truth, or authorization.
+
+### Cross-system validation requirements
+Before implementation approval, define and validate that:
+- Retrieval cannot trigger an MMS write without a separate authorized MMS decision.
+- Source/version references and withdrawn/unavailable states remain detectable by memory consumers.
+- Reconciliation accounts for derived passages, indexes, caches, replicas, backups, copied excerpts, and linked memory references.
+- Cross-project and cross-subject isolation holds across shared retrieval paths.
+- Central permission denial or service failure blocks protected access.
+- Source trust and memory confidence remain separate; source and memory conflicts remain distinct.
+- Index lag, stale entries, failed purge, or incomplete deletion is pending/degraded and prevents unauthorized disclosure.
+
+These are proposed acceptance requirements, not executed tests. No runtime exists.
+
 ## 16. Related records
 
 - [Knowledge Management System overview](README.md)

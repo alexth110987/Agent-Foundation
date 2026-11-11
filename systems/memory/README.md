@@ -1,13 +1,13 @@
 # Memory Management System
 
-**Status:** Proposed architecture documented; pending owner review.  
+**Status:** Cross-system principles accepted in principle; architecture remains proposed pending detailed design and separate owner approval.  
 **Implementation:** Not implemented. No memory technology has been selected.
 
 ## Purpose
 
 The Memory Management System governs information deliberately retained across tasks. It is separate from temporary task context, project records, workflow execution state, operational logs, and curated knowledge.
 
-See [Memory Architecture](MEMORY_ARCHITECTURE.md) for the proposed component model, record lifecycle, access boundaries, retention, deletion, failure handling, and validation requirements.
+See [Memory Architecture](MEMORY_ARCHITECTURE.md) for the proposed component model, record lifecycle, access boundaries, retention, deletion, failure handling, and validation requirements, and the accepted-in-principle cross-system contract with Knowledge.
 
 ## Baseline categories
 
