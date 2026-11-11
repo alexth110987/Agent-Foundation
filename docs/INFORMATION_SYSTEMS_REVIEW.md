@@ -1,8 +1,8 @@
 # Memory and Knowledge Architecture — Joint Review
 
-**Review status:** Joint review and documentation corrections completed; MMS and KMS are prepared for separate formal owner approval. Neither architecture is approved.  
+**Review status:** Joint review completed; both exact logical architecture versions formally approved by the owner on 2026-11-11 (D-006 and D-007).  
 **Review scope:** Proposed Memory Management System and Knowledge Management System documents on `main`.  
-**Implementation status:** Documentation only. This review does not approve either architecture for implementation.
+**Implementation status:** Documentation only. Logical architecture approval does not authorize implementation, technology selection, runtime construction, or operational use.
 
 ## 1. Review objective
 
@@ -123,7 +123,7 @@ These are proposed acceptance requirements, not executed tests. No runtime exist
 
 ## 7. Owner disposition
 
-On 2026-11-11, the owner accepted all seven recommendations in principle and authorized preparation of revised architecture documents. This establishes architectural direction only; it does not approve either full architecture, implementation, or technology choices.
+On 2026-11-11, the owner accepted all seven recommendations in principle and authorized preparation of revised architecture documents. The owner subsequently formally approved the exact revised MMS and KMS logical architecture versions recorded in D-006 and D-007. Approval does not authorize implementation or technology choices.
 
 | Recommendation | Owner disposition | Remaining work |
 | --- | --- | --- |
@@ -148,7 +148,7 @@ On 2026-11-11, the owner accepted all seven recommendations in principle and aut
 | Conflict handling | Compatible responsibilities; cross-system references pending |
 | Validation | Substantial independent coverage; add cross-system acceptance cases |
 
-**No architecture is marked Approved by this review.** Recommendations are accepted in principle, but revised MMS and KMS documents require separate owner review and explicit approval. Any approval must identify exact document versions and scope. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
+**Both logical architectures are Approved at the exact versions recorded in D-006 and D-007.** Approval is limited to the logical design baseline. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate and unauthorized. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
 
 ## 9. Next work
 

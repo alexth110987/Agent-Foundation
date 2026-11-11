@@ -2,6 +2,20 @@
 
 All notable project changes are recorded here.
 
+## 0.9.0 — 2026-11-11
+
+### Approved
+- Owner formally approved the exact MMS logical architecture (D-006; blob `197ac0974f5ceea357f6ad846a299304dd13da9c`).
+- Owner formally approved the exact KMS logical architecture (D-007; blob `c1dda460a8d02939db9ca9b16611be79e12019b6`).
+
+### Updated
+- Recorded both approvals in the decision log, project status, and joint architecture review.
+
+### Clarifications
+- Approval establishes logical architecture baselines only; it does not authorize implementation, technology selection, runtime construction, source/data ingestion, operational use, or release.
+- Remaining interface contracts, acceptance criteria, and governance prerequisites remain open.
+- No executable functionality or runtime tests were added.
+
 ## 0.8.2 — 2026-11-11
 
 ### Updated

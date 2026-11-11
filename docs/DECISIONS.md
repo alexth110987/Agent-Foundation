@@ -36,3 +36,17 @@ Record durable project decisions here. Each entry must include a date, status, d
 - **Decision:** The Core System is read-only during normal agent operation. Workflows, tools, memory, retrieved knowledge, and the agent itself cannot modify or rewrite approved core instructions or policy. Only an explicitly authorized owner change through the documented change process may alter the core.
 - **Rationale:** Protect the agent's governing rules from accidental, unauthorized, or self-directed modification while preserving controlled owner-led updates.
 - **Impact:** Core changes require a proposal, impact review, explicit owner approval, version update, and recorded change history. Runtime enforcement remains unimplemented until separately designed and approved.
+
+## D-006 — Memory Management System logical architecture approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve `systems/memory/MEMORY_ARCHITECTURE.md`, exact Git blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`.
+- **Rationale:** The owner formally approved this exact revised logical architecture after review.
+- **Impact:** Approval establishes the logical design baseline only. It does not authorize implementation, technology selection, runtime construction, data ingestion, operational use, or release. Remaining interface, policy, retention, deletion/reconciliation, and validation details remain open.
+
+## D-007 — Knowledge Management System logical architecture approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, exact Git blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`.
+- **Rationale:** The owner formally approved this exact revised logical architecture after review.
+- **Impact:** Approval establishes the logical design baseline only. It does not authorize implementation, technology selection, runtime construction, source ingestion, operational use, or release. Remaining interface, source governance, index consistency, retention, deletion/reconciliation, and validation details remain open.
