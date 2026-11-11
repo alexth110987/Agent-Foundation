@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.8.1 — 2026-11-11
+
+### Added
+- Added the missing root `AGENTS.md` with repository-maintenance instructions subordinate to `AGENT.md`.
+- Documented the required pre-task reading order, scoped repository workflow, post-commit verification, and evidence-based reporting.
+
+### Updated
+- Added `AGENTS.md` to the repository map in the README.
+
+### Clarifications
+- The new file does not change project scope, approved architecture, or implementation status.
+- No runtime functionality or tests were added.
+
 ## 0.8.0 — 2026-11-11
 
 ### Accepted in principle

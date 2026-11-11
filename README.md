@@ -27,6 +27,7 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | Path | Responsibility |
 | --- | --- |
 | `AGENT.md` | Highest-authority project and agent-development instructions |
+| `AGENTS.md` | Repository-maintenance conventions subordinate to `AGENT.md` |
 | `core/` | Neutral identity, operating rules, and configuration principles |
 | `workflows/` | Workflow index and reusable workflow template |
 | `systems/` | Design notes for memory, permissions, logging, and validation |
