@@ -21,7 +21,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Core system design | Documentation updated | Immutability rule approved; remainder of core design pending review |
 | Conceptual architecture | Implemented as documentation | Layer model and dependency rules drafted; owner review pending |
 | Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
-| Workflow framework | Implemented | Index and reusable template; no operational workflows |
+| Workflow framework | Implemented as documentation | Shared template and index established; no operational workflows |
+| Workflow Management System | Proposed architecture documented | Registry, selection, validation, orchestration, permission coordination, execution state, and result validation; owner review pending |
 | Memory / knowledge | Placeholder | No storage or retrieval system |
 | Permissions | Placeholder | No executable permission system or integrations |
 | Tool registry | Placeholder | No tools approved or connected |
@@ -41,16 +42,20 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The conceptual layer model in `docs/ARCHITECTURE.md`.
 - The component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
+- The Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`, including workflow definition lifecycle, run lifecycle, version pinning, permission coordination, and recovery boundaries.
+
+These proposals are documented for owner review. They are not approved implementation plans.
 
 ## Not started / deferred
 - Selecting the agent's purpose and target users.
 - Selecting a model, runtime, language, hosting, and deployment approach.
-- Implementing policy enforcement, memory, tools, integrations, logging, or automation.
+- Implementing policy enforcement, workflow execution, memory, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
+- Enabling workflow composition or concurrent execution.
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1C — Core design review.** Review the remaining proposed Core System responsibilities, boundaries, operating rules, and configuration principles. D-005 is already approved and must not be treated as pending.
+**Stage 1D — Workflow Management System review.** Review the proposed WMS responsibilities, definition and execution lifecycles, permission boundaries, and recovery rules before treating them as binding architecture.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.

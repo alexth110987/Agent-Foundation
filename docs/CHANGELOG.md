@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.4.0 — 2026-11-11
+
+### Added
+- Proposed Workflow Management System architecture covering registry, selection, validation, orchestration, permission coordination, execution state, and result validation.
+- Separate workflow-definition and execution-run lifecycles.
+- Exact workflow version pinning for each run.
+- Permission gates, safe failure handling, recovery boundaries, and activation requirements.
+
+### Clarifications
+- WMS architecture is pending owner review.
+- No operational workflows, workflow engine, or executable behavior were introduced.
+- Workflow composition and concurrent execution remain deferred.
+
 ## 0.3.1 — 2026-11-11
 
 ### Approved
