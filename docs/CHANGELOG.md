@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.3.1 — 2026-11-11
+
+### Approved
+- Recorded D-005: the Core System is read-only during normal agent operation.
+- Established that only an explicitly authorized owner change through the documented change process may modify approved core rules.
+
+### Updated
+- Added the immutability rule to the master instructions, Core System design, and operating rules.
+- Updated project status and decision records.
+
+### Clarifications
+- Core immutability is a governance decision, not an implemented technical control.
+- The broader Core System design remains pending review.
+- No executable agent behavior or policy enforcement was introduced.
+
 ## 0.3.0 — 2026-11-11
 
 ### Added

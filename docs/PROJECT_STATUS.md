@@ -14,11 +14,11 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Area | Status | Notes |
 | --- | --- | --- |
 | Repository baseline | Implemented | Public repository; default branch `main` |
-| Master instructions | Implemented | `AGENT.md` |
-| Core identity | Documentation updated | Purpose-neutral identity fields; owner review pending |
-| Core operating rules | Documentation updated | Proposed global behavior and safety rules; owner review pending |
+| Master instructions | Updated | Includes approved core immutability rule |
+| Core identity | Documentation updated | Purpose-neutral identity fields; broader core design review pending |
+| Core operating rules | Updated | Records approved D-005; policy enforcement not implemented |
 | Core configuration | Documentation updated | Configuration governance only; no runtime settings |
-| Core system design | Implemented as proposal | Responsibilities, exclusions, change lifecycle, and failure boundaries documented |
+| Core system design | Documentation updated | Immutability rule approved; remainder of core design pending review |
 | Conceptual architecture | Implemented as documentation | Layer model and dependency rules drafted; owner review pending |
 | Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
 | Workflow framework | Implemented | Index and reusable template; no operational workflows |
@@ -35,13 +35,12 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The agent's future purpose remains intentionally undefined.
 - Build the foundation before adding capabilities.
 - Apply least privilege and require authorization for consequential actions.
+- **D-005:** The Core System is read-only during normal operation and may only be changed through an explicitly authorized, owner-led change process.
 
 ## Proposed for review
 - The conceptual layer model in `docs/ARCHITECTURE.md`.
 - The component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
-- The Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents.
-
-These proposals are documented for owner review. They are not yet recorded as approved architecture decisions.
+- The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
 
 ## Not started / deferred
 - Selecting the agent's purpose and target users.
@@ -51,7 +50,7 @@ These proposals are documented for owner review. They are not yet recorded as ap
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1C — Core design review.** Review the proposed Core System responsibilities, boundaries, operating rules, and configuration principles. Accept, amend, or reject the proposals before treating them as binding core policy.
+**Stage 1C — Core design review.** Review the remaining proposed Core System responsibilities, boundaries, operating rules, and configuration principles. D-005 is already approved and must not be treated as pending.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.

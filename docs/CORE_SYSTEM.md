@@ -24,7 +24,6 @@ The Core System is responsible for:
 ## 3. Explicit exclusions
 
 The Core System must not:
-
 - perform domain-specific tasks;
 - contain individual workflow instructions;
 - execute tools or external actions;
@@ -48,7 +47,21 @@ These concerns belong to separately governed components.
 
 This is a logical separation. It does not require separate services or processes.
 
-## 5. Instruction authority model
+## 5. Approved core immutability rule
+
+**Decision D-005 is approved.**
+
+The Core System is read-only during normal agent operation:
+
+- Workflows, tools, memory, retrieved knowledge, and ordinary task execution cannot modify or rewrite core instructions or policy.
+- The agent cannot autonomously weaken, replace, or expand its own governing rules or permissions.
+- Core changes must be proposed and handled outside normal operation through an owner-approved change process.
+- Only an explicitly authorized owner change may alter approved core rules.
+- Every approved change must record its rationale, impact review, approval, version, and change history.
+
+This is controlled mutability, not permanent immutability. The owner retains the ability to change the core through an explicit, auditable process.
+
+## 6. Instruction authority model
 
 The exact runtime instruction hierarchy is deferred until the agent's platform and execution environment are selected. The foundation must nevertheless preserve these rules:
 
@@ -61,7 +74,7 @@ The exact runtime instruction hierarchy is deferred until the agent's platform a
 
 Do not invent platform-specific roles or precedence rules before the target runtime is chosen.
 
-## 6. Policy change lifecycle
+## 7. Policy change lifecycle
 
 A proposed change to core policy should follow this sequence:
 
@@ -76,7 +89,7 @@ A proposed change to core policy should follow this sequence:
 
 Core policy changes must not be smuggled into unrelated workflow updates.
 
-## 7. Required inputs and outputs
+## 8. Required inputs and outputs
 
 The Core System is primarily a governing specification rather than a task processor.
 
@@ -95,7 +108,7 @@ The Core System is primarily a governing specification rather than a task proces
 
 The precise schemas are deferred until implementation context is known.
 
-## 8. Failure behavior
+## 9. Failure behavior
 
 The future implementation must define safe behavior for:
 - missing or unreadable core instructions;
@@ -107,10 +120,9 @@ The future implementation must define safe behavior for:
 
 The baseline expectation is to stop the affected protected action and report the problem. No fail-open behavior is assumed.
 
-## 9. Acceptance criteria for this design
+## 10. Acceptance criteria for this design
 
 This core design is ready for owner review when:
-
 - responsibilities and exclusions are explicit;
 - identity, policy, configuration, and workflow concerns are separated;
 - workflows cannot override global safeguards;
@@ -119,7 +131,7 @@ This core design is ready for owner review when:
 - runtime-specific decisions are clearly deferred;
 - failure behavior is described without claiming implementation.
 
-## 10. Deferred decisions
+## 11. Deferred decisions
 
 The following remain open:
 - agent name, persona, and purpose;
