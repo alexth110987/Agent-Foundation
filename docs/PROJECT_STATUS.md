@@ -55,6 +55,9 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 
 ## Proposed for review
 
+- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review; records cross-document refinements without approving the underlying contracts.
+- Cross-System Interface & Ownership Matrix in `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; proposed coordination artifact, pending owner review.
+
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
 - Component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
@@ -79,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Review the proposed Identity, Authorization, Provenance, and Shared Lifecycle Contracts together with the proposed Cross-System Interface & Ownership Matrix against D-006, D-007, D-008, and each other; then define error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Owner review of the Joint Contract Review refinement register and the five underlying proposed contracts; resolve object-specific transition tables and remaining interface questions before defining error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 

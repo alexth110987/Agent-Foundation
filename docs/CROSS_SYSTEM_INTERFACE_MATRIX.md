@@ -89,7 +89,11 @@ These are unresolved design questions, not implementation defects. Resolve purpo
 
 This matrix is **Proposed**, pending owner review. It does not approve or revise D-006, D-007, or D-008; approve any of the four proposed contracts; select technology; authorize ingestion, services, integrations, runtime, operations, or release.
 
-## 9. Related records
+## 9. Joint refinement requirements
+
+The proposed [Joint Contract Review refinement register](JOINT_CONTRACT_REVIEW.md) records additional cross-document requirements for authentication freshness and revocation, independent executor identity, exact PEP scope comparison, KMS-to-MMS provenance completeness, derivative-owner reconciliation, object-specific lifecycle transition tables, event/idempotency semantics, partial-failure recovery, and independent validation. These remain proposals pending owner review; they do not change the authority or status of this matrix or the underlying contracts.
+
+## 10. Related records
 
 - [Component Model](COMPONENT_MODEL.md)
 - [Project Status](PROJECT_STATUS.md)

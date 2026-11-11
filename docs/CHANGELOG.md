@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.18.0 — 2026-11-11
+
+### Added
+- Recorded a proposed joint contract refinement register for identity/authentication freshness, executor identity, bounded PEP enforcement, KMS-to-MMS provenance, derivative lifecycle, owner-specific transition tables, event/recovery semantics, and independent validation.
+- Corrected malformed literal newline escapes in the project status record and aligned the review milestone and documentation map.
+
+### Clarifications
+- The refinement register is pending owner review and does not approve or amend the five proposed contracts or D-006, D-007, or D-008.
+- No implementation, runtime, integration, operational workflow, or test was added.
+
 ## 0.17.0 — 2026-11-11
 
 ### Added
