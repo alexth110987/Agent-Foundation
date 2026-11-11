@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.6.0 — 2026-11-11
+
+### Added
+- Proposed Knowledge Management System architecture covering source registration, ingestion and review, provenance, versioning, freshness, trust, conflicts, indexing/retrieval, access boundaries, lifecycle operations, failure handling, and validation.
+- Expanded the Knowledge Management System overview and its boundary with memory, task context, project records, workflow state, and logs.
+
+### Clarifications
+- Knowledge architecture is pending owner review and is documentation only.
+- No knowledge store, source ingestion pipeline, index, retrieval service, or operational workflow was implemented.
+- No domain, source catalogue, storage technology, indexing method, retrieval algorithm, trust model, freshness interval, or retention period was selected.
+- Memory and knowledge architectures remain proposals; the next milestone is joint owner review of their boundaries and controls.
+
 ## 0.5.0 — 2026-11-11
 
 ### Added

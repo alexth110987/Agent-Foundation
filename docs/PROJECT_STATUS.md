@@ -24,7 +24,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Workflow framework | Implemented as documentation | Shared template and index established; no operational workflows |
 | Workflow Management System | Proposed architecture documented | Registry, selection, validation, orchestration, permission coordination, execution state, and result validation; owner review pending |
 | Memory Management System | Proposed architecture documented | Task context, durable memory, project records, knowledge, workflow state, and logs separated; owner review pending |
-| Knowledge Management System | Initial boundary documented | Full architecture pending; no knowledge repository or retrieval service |
+| Knowledge Management System | Proposed architecture documented | Source registry, ingestion/review, provenance, versioning, trust, indexing/retrieval, lifecycle and validation; owner review pending; no executable system |
 | Permissions | Placeholder | No executable permission system or integrations |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -45,6 +45,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - The remaining Core System responsibilities, exclusions, policy boundaries, and change lifecycle in `docs/CORE_SYSTEM.md`, together with the related `core/` documents. D-005 is approved; this does not constitute approval of the entire core design.
 - The Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`, including workflow definition lifecycle, run lifecycle, version pinning, permission coordination, and recovery boundaries.
 - The Memory Management System architecture in `systems/memory/MEMORY_ARCHITECTURE.md`, including information categories, write and retrieval gates, project isolation, retention, correction, deletion, and validation.
+- The Knowledge Management System architecture in `systems/knowledge/KNOWLEDGE_ARCHITECTURE.md`, including source registration, ingestion/review, provenance, versioning, trust, conflict handling, scoped retrieval, lifecycle controls, and validation.
 
 These proposals are documented for owner review. They are not approved implementation plans.
 
@@ -57,7 +58,7 @@ These proposals are documented for owner review. They are not approved implement
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1E — Memory and knowledge boundary review.** Review the proposed memory architecture and confirm the separation between temporary task context, durable memory, project records, curated knowledge, workflow state, and logs. Then design the full Knowledge Management System.
+**Stage 1E — Memory and knowledge architecture review.** Review the proposed Memory Management System and Knowledge Management System architectures together. Confirm the information boundaries, lifecycle controls, trust/provenance model, access isolation, and validation requirements before considering any implementation design.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.
