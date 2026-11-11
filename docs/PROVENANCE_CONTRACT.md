@@ -273,3 +273,37 @@ Resolve these only after the agent's purpose, users, information classes, operat
 - [Permissions and Authorization](../systems/permissions/README.md)
 - [Identity Contract](../systems/permissions/IDENTITY_CONTRACT.md)
 - [Authorization Contract](../systems/permissions/AUTHORIZATION_CONTRACT.md)
+
+## Joint refinement — interoperable evidence and event semantics
+
+The following requirements apply when provenance is exchanged across component boundaries. They refine this logical contract without selecting a schema, identifier technology, protocol, or implementation.
+
+### Stable references and temporal evidence
+
+- References identify the owning system or namespace and the specific artifact or record. Version-specific references identify the exact version rather than only a mutable current location.
+- Where available, record stable request, event, correlation, and causation references so provenance can be related to the operation that produced it without conflating separate events.
+- Distinguish event time (when an event occurred), effective time (when its asserted state applies), observed/acquired time (when a component learned of it), and recorded time (when evidence was persisted). Preserve unavailable or uncertain times as such; do not imply false precision.
+- Ordering claims must account for clock uncertainty, delayed delivery, duplicate events, and concurrent updates. Arrival order alone does not establish causal order.
+
+### Evidence and outcome semantics
+
+- Distinguish requested, accepted, authorized, attempted, applied, partially applied, failed, reconciled, and independently verified operations. A provenance record attests only to the evidence available for that stage.
+- Link transformation evidence to exact input and output artifact versions, the responsible processing component/version, and the applicable execution-context reference where available and safe.
+- For multi-source derivations, preserve every materially contributing input and its locator/version. Record partial extraction, omitted segments, lossy conversion, and unresolved lineage gaps explicitly.
+- A correlation or authorization reference is contextual evidence only. It is not a reusable Permit, proof of enforcement, or proof that a side effect succeeded.
+
+### Cross-owner change and reconciliation
+
+- A correction, restriction, quarantine, supersession, withdrawal, or deletion notice is a versioned signal from the authoritative owner. It is not proof that a consumer or derivative has already changed.
+- Each derivative owner independently identifies affected artifacts, checks its own current state and applicable authorization, performs its own permitted action, records the outcome, and supplies evidence for its own obligation.
+- A coordinator retains per-owner pending, partial, failed, unknown, and verified outcomes. It must not collapse an unknown response into success or claim global completion from notification delivery alone.
+- If a current source restriction or derivative eligibility cannot be established, disclosure is blocked where applicable policy requires current eligibility. Possession of a historical provenance reference does not establish present access rights.
+
+### Conflicts, retries, and integrity
+
+- Preserve conflicting origin, version, actor, timestamp, and lineage claims with their evidence and status. Reconciliation identifies the authoritative source and rationale under applicable policy; recency alone is not a resolution rule.
+- Duplicate or replayed events must be recognizable through future operation-specific idempotency and event-identity rules. A retry must not silently create a second transformation or erase the original failure.
+- If provenance recording fails during or after a transformation, represent the resulting evidence gap and operation outcome separately. Whether the operation must be blocked, quarantined, or reconciled is determined by approved operation-specific policy.
+- Integrity evidence identifies what content/version was checked, by which method, at what time, and with what result. A fingerprint or integrity pass does not by itself prove source authenticity, factual truth, or authorization.
+
+These requirements remain subject to data minimization, access control, retention, deletion, and the owning component's authority. Sensitive lineage or actor metadata must not be disclosed merely because a reference is interoperable.

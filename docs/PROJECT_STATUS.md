@@ -86,3 +86,9 @@ D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob
 ## Evidence discipline
 
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.
+
+## Three-document joint refinement session — 2026-11-11
+
+The proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix received a coordinated documentation refinement. The changes align stable references, actor separation, event/effective/observed/recorded time, typed outcomes, source-version lineage, KMS-to-MMS write boundaries, owner-local derivative actions, idempotency/replay/concurrency, partial outcomes, reconciliation, recovery, and independent validation.
+
+**Status remains Proposed and pending owner review** for all three documents. This refinement does not amend D-006, D-007, D-008, D-009, D-010, or D-011; approve any proposed contract; select schema, protocol, storage, service, or runtime technology; or authorize implementation, integration, ingestion, testing, operational use, or release. No runtime or tests were executed.

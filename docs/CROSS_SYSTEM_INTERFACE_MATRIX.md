@@ -105,3 +105,46 @@ The proposed [Joint Contract Review refinement register](JOINT_CONTRACT_REVIEW.m
 - [Knowledge Architecture](../systems/knowledge/KNOWLEDGE_ARCHITECTURE.md)
 - [Provenance Contract](PROVENANCE_CONTRACT.md)
 - [Shared Lifecycle Contract](LIFECYCLE_CONTRACT.md)
+
+## Joint refinement — minimum cross-system interaction semantics
+
+The following refinements align the handoff matrix with the proposed Provenance and Shared Lifecycle Contracts and the approved logical Identity and Authorization Contract baselines. They do not create deployed interfaces or amend D-006, D-007, D-008, D-010, or D-011.
+
+### Handoff envelope and evidence boundaries
+
+For a cross-system request or result, the logical exchange should identify, where applicable and permitted:
+
+- owning system/namespace and exact object/version references;
+- request, event, correlation, and causation references;
+- initiating principal, authenticated executor/component, authoritative owner, and approver as distinct roles;
+- requested operation, purpose, project/tenant/subject scope, environment, and relevant constraints;
+- identity/authentication context reference and bounded authorization/approval decision reference;
+- event, effective, observed, and recorded times;
+- provenance, validation, integrity, and lifecycle evidence references;
+- typed outcome, reason, unresolved uncertainty, and next responsible owner.
+
+This is a minimum conceptual envelope, not a selected schema. Omit inapplicable fields rather than inventing values; represent required but unavailable information explicitly as unknown or unavailable.
+
+### Typed outcomes and ownership
+
+Every provider response distinguishes rejection, acceptance for processing, authorization, attempted execution, applied change, partial application, failure, indeterminate outcome, reconciliation, and verification. A transport-level success or acknowledgement is not an application-level success.
+
+The provider remains authoritative for its own records. Consumers may request, reference, and verify within their permissions; they may not mutate another owner's canonical state or infer completion from a notification. Each owner supplies evidence for its own state changes and derivative obligations.
+
+### Cross-system KMS-to-MMS and derivative handling
+
+KMS supplies the exact source/version and permitted provenance, locator, source status/trust/review/freshness, restrictions, and uncertainty/integrity context needed for MMS to assess a candidate input. KMS retrieval remains distinct from MMS write eligibility, authorization, retention, and write execution.
+
+Source correction, restriction, quarantine, withdrawal, and deletion are versioned owner signals. MMS and every other derivative owner independently assess impact, authorize and perform local actions, and report their own outcomes. If current eligibility cannot be established, the consumer applies the relevant disclosure-blocking policy; no global completion is inferred from event delivery.
+
+### Identity and authorization handoff
+
+Identity assertions and authentication results are validated inputs, not permissions. A Permit remains bound to the exact operation context and intended enforcement point. The PEP checks the actual operation and current context immediately before the protected side effect. Initiator, executor, and approver remain distinct; approval is a prerequisite and requires fresh authorization evaluation. Relevant identity, policy, scope, resource-version, or revocation changes invalidate reliance on stale context as defined by D-010/D-011.
+
+### Event delivery, conflicts, and recovery
+
+Before implementation, each interface defines version-conflict behavior, duplicate/replay detection, idempotency scope, ordering expectations, timeout/unknown outcomes, safe retry conditions, partial-side-effect discovery, and reconciliation ownership. Delayed or reordered events cannot silently roll back a newer owner state. Unknown outcomes remain indeterminate until checked against the authoritative owner.
+
+### Independent validation
+
+Where a critical property cannot be established by the producing component, the matrix identifies a separate validation responsibility or evidence path. Validation records identify exact artifact/version, context, criteria/version, evidence, result, and limitations. Validation does not grant permission, prove unrelated properties, or approve release.

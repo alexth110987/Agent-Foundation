@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.29.0 — 2026-11-11
+
+### Updated
+- Jointly refined the proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix.
+- Aligned provenance and lifecycle semantics for stable object/version/event/correlation/causation references; event/effective/observed/recorded times; typed operation outcomes; exact lineage; actor separation; idempotency, replay, ordering, and concurrency; partial/unknown outcomes; owner-local reconciliation and recovery; and independent validation.
+- Clarified that KMS-to-MMS provenance is evidence, not MMS write authority, and that source lifecycle notices do not prove derivative changes or global completion.
+
+### Clarifications
+- All three documents remain Proposed and pending owner review. The refinement does not amend approved D-006 through D-011 baselines, select technology, or authorize implementation, integration, ingestion, testing, runtime, operational use, or release.
+- No executable components or tests were added or run.
+
+
 ## 0.28.0 — 2026-11-11
 
 ### Approved

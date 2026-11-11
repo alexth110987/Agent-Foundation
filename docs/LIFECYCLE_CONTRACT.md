@@ -194,3 +194,44 @@ This proposal does not approve implementation, technology selection, integration
 - [Identity Contract](../systems/permissions/IDENTITY_CONTRACT.md)
 - [Authorization Contract](../systems/permissions/AUTHORIZATION_CONTRACT.md)
 - [Workflow Management System](../workflows/WORKFLOW_MANAGEMENT.md)
+
+## Joint refinement — transition execution, events, and recovery
+
+The common transition contract is refined by the following requirements. They apply as logical semantics only; object-specific transition tables and approved policies remain authoritative.
+
+### Separate state, process, transaction, and verification
+
+A lifecycle implementation must not overload one status field to represent different dimensions. Where applicable, distinguish:
+
+- **Object lifecycle state:** the governed condition of the object (for example Candidate, Active, Suspended, Quarantined, Withdrawn, or Deleted).
+- **Process status:** the progress of the operation (for example not started, running, waiting, or terminated).
+- **Transaction outcome:** whether the requested change was rejected, not applied, applied, partially applied, or has an unknown outcome.
+- **Verification result:** whether actual state and required side effects were independently checked and found to pass, fail, or remain inconclusive.
+
+A successful process termination is not proof of a successful transaction; an applied transaction is not proof that all side effects were verified.
+
+### Event identity, time, ordering, and concurrency
+
+- Use distinct logical references for the object, object version, transition request, lifecycle event, correlation, and causation. Their eventual representation remains undecided.
+- Preserve event, effective, observed, and recorded times separately where available.
+- Define per-object and per-operation duplicate/replay handling, idempotency scope, ordering expectations, and concurrency/version-conflict behavior before implementation.
+- A delayed or out-of-order notification must not overwrite a newer authoritative state. The authoritative owner resolves version conflicts and reports the conflict rather than silently accepting stale state.
+- Unknown event delivery or acknowledgement is indeterminate until the owner checks actual state; retry only after determining whether the original side effect occurred.
+
+### Partial outcomes and owner-local evidence
+
+- Each owner records its own request validation, authorization, attempt, applied state, side effects, and verification evidence.
+- A coordinator records its coordination outcome separately from each owner's transaction and verification result.
+- A multi-owner operation is complete only when every mandatory owner obligation has an attributable result and required verification evidence. Missing, inaccessible, or contradictory owner evidence leaves the aggregate pending, partial, failed, or indeterminate.
+- Notifications and acknowledgements are not proof of mutation, deletion, derivative reconciliation, or disclosure eligibility.
+- A derivative owner independently authorizes and executes its local correction, restriction, quarantine, withdrawal, or deletion. No cross-owner command grants blanket authority.
+
+### Recovery and escalation
+
+- Before retrying after timeout or interruption, inspect the authoritative object/version and known side effects to determine whether the action was not applied, applied, partially applied, or remains unknown.
+- Retry automatically only where the operation has a defined idempotency strategy and its side effects are safe to repeat. Otherwise stop and escalate for controlled reconciliation.
+- Preserve the original event and failure evidence; represent repair or compensation as a separate event linked by causation.
+- Compensation is not assumed to be possible or safe. Destructive, external, irreversible, or privacy-sensitive side effects require the separately authorized recovery path.
+- If required audit, authorization, identity, provenance, or owner evidence is unavailable, apply the operation-specific fail-closed rule; never invent completion evidence.
+
+These refinements do not define universal service levels, retry counts, consistency guarantees, retention periods, legal holds, or recovery objectives. Those remain purpose- and object-specific decisions.
