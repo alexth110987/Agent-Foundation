@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.22.0 — 2026-11-11
+
+### Updated
+- Corrected remaining mixed-dimension lifecycle rows: WMS cancellation, KMS source ingestion and index build/rebuild, Identity principal proofing and authentication attempts, and Logging event recording now distinguish object lifecycle state, process status, transaction outcome and verification result.
+- Aligned the provisional vocabulary mapping with those explicit distinctions and clarified that proofing, authentication, build and recording outcomes do not themselves become object lifecycle states.
+- Updated the project milestone to require a final consistency review before formal owner review.
+
+### Clarifications
+- The lifecycle tables remain Proposed and pending owner review. These documentation changes do not approve the tables or underlying contracts, amend D-006/D-007/D-008, or authorize implementation.
+- No runtime, state machine, service, integration, or test was implemented or executed.
+
 ## 0.21.0 — 2026-11-11
 
 ### Updated
