@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.31.0 — 2026-11-11
+
+### Added
+- Added a proposed Foundation Completion Plan and durable handover snapshot covering four review batches and 20 logical review areas.
+- Recorded the outstanding foundation gaps, recommended work order, minimum implementation-readiness gate, and exact D-012 approval baselines awaiting repository registration.
+- Linked the plan from the README and recorded its scope in project status.
+
+### Clarifications
+- The plan is documentation only. It does not select the operational purpose or technology, approve proposed architecture, register D-012, or authorize implementation, runtime, integrations, tests, operational use, or release.
+- No executable components or tests were added or run.
+
+
 ## 0.30.0 — 2026-11-11
 
 ### Updated

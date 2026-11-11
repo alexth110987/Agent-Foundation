@@ -37,10 +37,10 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `systems/logging/` | Logging principles and future audit requirements |
 | `tools/` | Tool registry and integration controls; no tools approved or connected |
 | `tests/` | Testing policy and future test organization |
-| `docs/` | Architecture, component model, approved object lifecycle logical design (D-009), proposed contract review and cross-system matrix, provenance/lifecycle contracts, readiness, decisions, status, and development process |
+| `docs/` | Architecture, component model, approved object lifecycle logical design (D-009), proposed contract review and cross-system matrix, provenance/lifecycle contracts, readiness, decisions, status, development process, and Foundation Completion Plan |
 
 ## Current milestone
 
 **Stage 1 — Core foundation.** Establish governance, architecture, and reusable workflow standards. No agent runtime, integrations, automated actions, or domain-specific workflows are implemented in this stage.
 
-See [Project Status](docs/PROJECT_STATUS.md), [Architecture](docs/ARCHITECTURE.md), [Component Model](docs/COMPONENT_MODEL.md), [Provenance Contract](docs/PROVENANCE_CONTRACT.md), [Shared Lifecycle Contract](docs/LIFECYCLE_CONTRACT.md), [Object-Specific Lifecycle Tables](docs/OBJECT_LIFECYCLE_TABLES.md), [Cross-System Interface & Ownership Matrix](docs/CROSS_SYSTEM_INTERFACE_MATRIX.md), [Joint Contract Review](docs/JOINT_CONTRACT_REVIEW.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), [Identity Contract](systems/permissions/IDENTITY_CONTRACT.md), [Authorization Contract](systems/permissions/AUTHORIZATION_CONTRACT.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).
+See [Project Status](docs/PROJECT_STATUS.md), [Foundation Completion Plan](docs/FOUNDATION_COMPLETION_PLAN.md), [Architecture](docs/ARCHITECTURE.md), [Component Model](docs/COMPONENT_MODEL.md), [Provenance Contract](docs/PROVENANCE_CONTRACT.md), [Shared Lifecycle Contract](docs/LIFECYCLE_CONTRACT.md), [Object-Specific Lifecycle Tables](docs/OBJECT_LIFECYCLE_TABLES.md), [Cross-System Interface & Ownership Matrix](docs/CROSS_SYSTEM_INTERFACE_MATRIX.md), [Joint Contract Review](docs/JOINT_CONTRACT_REVIEW.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), [Identity Contract](systems/permissions/IDENTITY_CONTRACT.md), [Authorization Contract](systems/permissions/AUTHORIZATION_CONTRACT.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).
