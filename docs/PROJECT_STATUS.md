@@ -58,12 +58,10 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 ## Proposed for review
 
 - Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
-- Cross-System Interface & Ownership Matrix in `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; proposed, pending owner review.
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
-- Provenance and Shared Lifecycle Contracts in `docs/`.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
 Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logical architectures are approved design baselines; implementation remains separately unauthorized.
@@ -72,7 +70,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Owner review and approval of the proposed Provenance, Shared Lifecycle, and Cross-System Interface documents.
+- Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -81,7 +79,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d` as a documentation-only logical contract baseline. D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39` as a documentation-only logical contract baseline. D-011 does not amend D-008 or D-010 and does not authorize policy/identity/approval technology selection, credentials, services, runtime, implementation, testing, validation, or release. Remaining owner-review work includes the Provenance and Shared Lifecycle contracts, Cross-System Interface Matrix, and Joint Contract Review refinement register, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, and D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, each as documentation-only logical contract baselines. D-012 approves the exact Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) source blobs as documentation-only logical baselines. These decisions do not authorize implementation, runtime, services, integrations, operational use, testing, validation, or release. The Joint Contract Review refinement register remains Proposed and pending owner review. D-012 open questions and the proposed implementation-readiness framework remain unresolved.
 
 ## Evidence discipline
 
@@ -89,19 +87,19 @@ A document being present means only that it is implemented as documentation. It 
 
 ## Three-document joint refinement session — 2026-11-11
 
-The proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix received a coordinated documentation refinement. The changes align stable references, actor separation, event/effective/observed/recorded time, typed outcomes, source-version lineage, KMS-to-MMS write boundaries, owner-local derivative actions, idempotency/replay/concurrency, partial outcomes, reconciliation, recovery, and independent validation.
+The Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix received a coordinated documentation refinement before owner approval under D-012. The changes align stable references, actor separation, event/effective/observed/recorded time, typed outcomes, source-version lineage, KMS-to-MMS write boundaries, owner-local derivative actions, idempotency/replay/concurrency, partial outcomes, reconciliation, recovery, and independent validation.
 
-**Status remains Proposed and pending owner review** for all three documents. This refinement does not amend D-006, D-007, D-008, D-009, D-010, or D-011; approve any proposed contract; select schema, protocol, storage, service, or runtime technology; or authorize implementation, integration, ingestion, testing, operational use, or release. No runtime or tests were executed.
+**At the time of this refinement, all three documents were Proposed; D-012 subsequently approved the exact reviewed source blobs as documentation-only baselines.** This refinement and subsequent approval do not amend D-006 through D-011; select schema, protocol, storage, service, or runtime technology; or authorize implementation, integration, ingestion, testing, operational use, or release. No runtime or tests were executed.
 
 
 ## Joint contract consistency review — 2026-11-11
 
-A coordinated consistency review identified and corrected status wording that incorrectly grouped the approved Identity Contract (D-010) and Authorization Contract (D-011) with the three proposed shared documents. The Lifecycle Contract and Cross-System Interface Matrix now explicitly reference D-010 and D-011 as approved logical baselines without amending them. The Joint Contract Review register distinguishes those approved baselines from the proposed Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface Matrix. All three shared documents and the refinement register remain Proposed pending owner review. No implementation, integration, testing, or operational use was authorized; no runtime tests were executed.
+A coordinated consistency review identified and corrected status wording that incorrectly grouped the approved Identity Contract (D-010) and Authorization Contract (D-011) with the three proposed shared documents. The Lifecycle Contract and Cross-System Interface Matrix explicitly reference D-010 and D-011 as approved logical baselines without amending them. The Joint Contract Review register distinguishes approved baselines from proposed shared documents. D-012 subsequently approved the exact reviewed Provenance, Shared Lifecycle, and Cross-System Interface source blobs; the Joint Contract Review register remains Proposed pending owner review. No implementation, integration, testing, or operational use was authorized; no runtime tests were executed.
 
 
 ## Foundation completion planning — 2026-11-11
 
-A durable Foundation Completion Plan is recorded in `docs/FOUNDATION_COMPLETION_PLAN.md`. It captures four review batches (20 logical review areas), confirmed approved baselines D-005 through D-011, D-012 owner approval awaiting repository registration, outstanding foundation gaps, recommended work order, and minimum gates before a first implementation proposal.
+A durable Foundation Completion Plan is recorded in `docs/FOUNDATION_COMPLETION_PLAN.md`. It captures four review batches (20 logical review areas), confirmed approved baselines D-005 through D-012, outstanding foundation gaps, recommended work order, and minimum gates before a first implementation proposal.
 
 The review count is a documentation-review count, not a completion percentage or verification result. No runtime, implementation, integration, or tests were added or executed. The project remains Stage 1; purpose and runtime remain undefined. The plan is Proposed and does not authorize implementation.
 

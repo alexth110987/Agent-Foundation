@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.33.0 — 2026-11-11
+
+### Corrected
+- Aligned historical and current project-status wording with D-012: the exact Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface Matrix blobs are approved documentation baselines; only the Joint Contract Review register remains Proposed.
+- Replaced the stale next milestone with the actual unresolved D-012 questions and remaining foundation work.
+
+### Clarifications
+- This is a status/documentation consistency correction only. It does not change any approved baseline, resolve open design questions, or authorize implementation, runtime, integration, testing, validation, or release.
+- No executable components or tests were added or run.
+
 ## 0.32.0 — 2026-11-11
 
 ### Approved
