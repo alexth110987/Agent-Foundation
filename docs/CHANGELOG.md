@@ -2,6 +2,15 @@
 
 All notable project changes are recorded here.
 
+## 0.28.0 — 2026-11-11
+
+### Approved
+- Recorded D-011: the exact pre-approval blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39` of `systems/permissions/AUTHORIZATION_CONTRACT.md` is approved as a documentation-only logical contract baseline.
+
+### Clarifications
+- D-011 is limited to that exact logical contract version. It does not amend D-008 or D-010, select authorization/identity/approval technology, or authorize credentials, services, integrations, tool access, runtime, implementation, testing, validation, or release. Deferred decisions remain open.
+- The current Authorization Contract header records D-011 and points to the exact approved source blob; the annotation does not change the approved baseline or its scope.
+
 ## 0.27.0 — 2026-11-11
 
 ### Updated

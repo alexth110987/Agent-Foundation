@@ -1,6 +1,7 @@
-# Authorization Contract — Proposed Logical Contract
+# Authorization Contract — Approved Logical Contract
 
-**Status:** Proposed contract — pending owner review.  
+**Status:** Approved logical contract — D-011.  
+**Approved baseline:** Exact pre-approval Git blob SHA `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`.  
 **Implementation:** Documentation only. No Permission Service, policy engine, approval service, decision-token mechanism, or enforcement adapter exists.  
 **Authority:** Subordinate to `AGENT.md`, approved Core rules, D-008, and the approved Permission System logical architecture.
 
@@ -14,7 +15,7 @@ A decision authorizes only the bounded operation described in that decision. It 
 
 ## 2. Scope and exclusions
 
-This document refines the authorization request and decision concepts in the approved Permission System logical architecture (D-008). It remains a proposal and does not amend or extend D-008.
+This document refines the authorization request and decision concepts in the approved Permission System logical architecture (D-008). It is approved as a purpose-neutral logical contract under D-011, limited to the exact approved baseline identified above; it does not amend or extend D-008.
 
 It does not select a policy model, policy language, API, wire format, schema, token format, cryptographic mechanism, identity provider, approval provider, storage, service topology, runtime, or deployment. It does not define operational roles or domain-specific permissions.
 
@@ -153,7 +154,7 @@ A check performed by one component does not authorize a later operation at anoth
 
 A cached decision or cached authentication result is usable only if a future approved design establishes that its age, status, audience, policy/context version, and revocation guarantees satisfy the current operation. If required freshness or revocation state cannot be established, block.
 
-No cache technology, duration, revocation interval, propagation guarantee, or long-running operation policy is selected by this proposal.
+No cache technology, duration, revocation interval, propagation guarantee, or long-running operation policy is selected by this contract.
 
 ## 11. Failure, retry, and recovery
 
@@ -246,7 +247,6 @@ Tests must use isolated environments and synthetic or explicitly authorized data
 ## 16. Deferred decisions and readiness gates
 
 Still unresolved:
-- owner approval of this Authorization Contract;
 - future purpose, users, operating context, and protected operation catalogue;
 - identity proofing, principal taxonomy, authentication assurance profiles, and any delegation model;
 - exact request/response schema, API/protocol, and compatibility/versioning rules;
@@ -258,19 +258,18 @@ Still unresolved:
 - availability, latency, recovery, operational ownership, runtime, and deployment.
 
 Readiness sequence:
-1. Owner review and approval of the exact logical contract.
-2. Reconcile with approved Core rules, D-008, and the separately reviewed Identity Contract.
-3. Define purpose-dependent operations, policy authority, approval model, and trusted attribute sources after purpose selection.
-4. Complete threat model, PEP boundary inventory, acceptance criteria, and isolated test plan.
-5. Prepare a bounded implementation proposal with explicit dependencies and operational safeguards.
-6. Obtain separate explicit implementation authorization.
+1. Reconcile the approved logical contract with approved Core rules, D-008, and D-010; preserve their exact approved baselines.
+2. Define purpose-dependent operations, policy authority, approval model, and trusted attribute sources after purpose selection.
+3. Complete threat model, PEP boundary inventory, acceptance criteria, and isolated test plan.
+4. Prepare a bounded implementation proposal with explicit dependencies and operational safeguards.
+5. Obtain separate explicit implementation authorization.
 
-These are design prerequisites, not defects in an implemented service. This proposal authorizes no implementation, integration, tool access, policy administration, credential handling, runtime, or operational use.
+These are design prerequisites, not defects in an implemented service. This approved logical contract authorizes no implementation, integration, tool access, policy administration, credential handling, runtime, or operational use.
 
 ## 17. Related records
 
 - [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md)
-- [Identity Contract — Proposed](IDENTITY_CONTRACT.md)
+- [Identity Contract — Approved logical contract](IDENTITY_CONTRACT.md)
 - [Permissions overview](README.md)
 - [Core System](../../docs/CORE_SYSTEM.md)
 - [Component Model](../../docs/COMPONENT_MODEL.md)

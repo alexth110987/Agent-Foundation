@@ -28,7 +28,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Knowledge Management System | Approved logical architecture | D-007; exact approved document blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`; documentation only; implementation not authorized |
 | Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |
 | Identity Contract | Approved logical contract | D-010; exact approved source blob SHA `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`; documentation only; no identity/authentication implementation |
-| Authorization Contract | Proposed logical contract — refined | `systems/permissions/AUTHORIZATION_CONTRACT.md`; refined against approved D-010 and joint-review requirements; owner review pending; no PDP, approval, or PEP implementation |
+| Authorization Contract | Approved logical contract | D-011; exact approved source blob SHA `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`; documentation only; no PDP, approval, or PEP implementation |
 | Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
 | Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
 | Object-Specific Lifecycle Tables | Approved logical design | D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`; documentation only; no state machines or lifecycle runtime |
@@ -63,7 +63,6 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
 - Workflow Management System architecture in `workflows/WORKFLOW_MANAGEMENT.md`.
-- Authorization Contract in `systems/permissions/`.
 - Provenance and Shared Lifecycle Contracts in `docs/`.
 - Implementation-readiness framework in `docs/IMPLEMENTATION_READINESS.md`.
 
@@ -73,7 +72,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 - Selecting the agent's purpose, target users, and operating context.
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
-- Owner review and approval of the proposed Authorization, Provenance, Shared Lifecycle, and Cross-System Interface documents.
+- Owner review and approval of the proposed Provenance, Shared Lifecycle, and Cross-System Interface documents.
 - Defining error-handling and validation architecture.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -82,7 +81,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d` as a documentation-only logical contract baseline. This approval does not amend D-008 or authorize identity technology selection, credentials, services, runtime, implementation, testing, validation, or release. The Authorization Contract has received a documentation-only refinement aligned with D-010 authentication-result semantics and the joint-review requirements for executor identity, bounded Permit scope, freshness/revocation, policy/context changes, and fail-closed recovery. It remains Proposed pending owner review; this does not amend D-008 or D-010 and authorizes no implementation. Remaining owner-review work includes the Authorization, Provenance and Shared Lifecycle contracts, Cross-System Interface Matrix, and Joint Contract Review refinement register, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. The approval is limited to that artifact and does not approve the underlying proposed contracts or Cross-System Interface Matrix, finalize unresolved object-class policies/taxonomies, select technology, or authorize implementation, runtime, services, integrations, operational use, testing, validation or release. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d` as a documentation-only logical contract baseline. D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39` as a documentation-only logical contract baseline. D-011 does not amend D-008 or D-010 and does not authorize policy/identity/approval technology selection, credentials, services, runtime, implementation, testing, validation, or release. Remaining owner-review work includes the Provenance and Shared Lifecycle contracts, Cross-System Interface Matrix, and Joint Contract Review refinement register, plus unresolved policy and implementation-readiness questions. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 
