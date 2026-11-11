@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.20.0 — 2026-11-11
+
+### Updated
+- Refined the proposed object-specific lifecycle tables to separate object lifecycle state, transaction outcome and verification result; map object-specific vocabulary; clarify logical ownership; define minimum protected-transition evidence; and strengthen owner-local deletion/reconciliation evidence.
+- Updated the project milestone to require a second consistency review and explicit owner review of the refined tables.
+
+### Clarifications
+- The lifecycle tables remain Proposed. These documentation refinements do not approve the tables or underlying contracts, amend D-006/D-007/D-008, or authorize implementation.
+- No runtime, state machine, service, integration, or test was implemented or executed.
+
 ## 0.19.0 — 2026-11-11
 
 ### Added

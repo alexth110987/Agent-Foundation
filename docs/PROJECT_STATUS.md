@@ -83,7 +83,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-Owner review of the Joint Contract Review refinement register, the five underlying proposed contracts, and the Object-Specific Lifecycle Transition Tables; resolve object taxonomy, allowed transitions, ownership, evidence and recovery semantics before defining error-handling and validation architecture. The implementation-readiness framework remains proposed and owner review pending.
+Second consistency review and explicit owner review of the refined Object-Specific Lifecycle Transition Tables, alongside the Joint Contract Review refinement register and five underlying proposed contracts. The lifecycle tables remain Proposed; resolve object taxonomy, allowed transitions, ownership, protected-transition evidence and owner-local deletion/reconciliation semantics before any approval or implementation proposal. The implementation-readiness framework remains proposed and owner review pending.
 
 ## Evidence discipline
 

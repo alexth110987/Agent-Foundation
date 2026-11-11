@@ -34,6 +34,68 @@ Every transition row is subject to all applicable controls below:
 11. If authority, current eligibility, owner state, or required evidence is unknown, block protected use/disclosure and report pending, indeterminate, or degraded.
 12. Deletion, retention, legal holds, backup treatment, and tombstone retention require separately approved object-class policy; no duration is implied here.
 
+## 2A. State, transaction outcome and verification are separate
+
+The candidate tables use compact transition labels for readability. They must not be interpreted as one shared lifecycle state machine. Three independent dimensions are required:
+
+| Dimension | Meaning | Illustrative values |
+| --- | --- | --- |
+| **Object lifecycle state** | Current authoritative status of the object itself | Active, Suspended, Quarantined, Superseded, Expired, Withdrawn, Deleted |
+| **Transaction outcome** | Result of a particular request or attempted transition | Accepted, Rejected, Applied, Failed, Partial |
+| **Verification result** | Result of checking a stated property against criteria and evidence | Verified, Failed verification, Inconclusive, Not verified |
+
+A transaction can be Applied while the resulting object remains Suspended; an object can be Active while a particular transaction Failed; and an Applied transaction is not necessarily Verified. “Succeeded”, “completed”, “failed”, “verified”, “queued”, and “running” are not universal object lifecycle states. Where a table uses such terms in a from/to column, read them as object-class-specific process states or transaction/verification outcomes as classified below. Before implementation, each owner must use explicit object-state, transaction-outcome and verification-result fields.
+
+### Object-specific vocabulary mapping
+
+| Owner / object class | Vocabulary | Classification |
+| --- | --- | --- |
+| KMS source/version | Candidate, Ingested, Pending validation, Eligible, Retrievable, Suspended, Quarantined, Superseded, Withdrawn, Expired, Deleted | Candidate/Ingested/Pending validation are ingestion or review process states; Eligible/Retrievable are use-eligibility states; remaining terms are lifecycle/restriction states. |
+| KMS passage/index | Candidate, Current, Stale, Invalid, Eligible, Removed | Candidate/Current/Stale/Invalid are build/index process states; Eligible is retrieval eligibility; Removed is a local transaction result unless represented by a retained tombstone. |
+| MMS memory | Candidate, Eligible, Active, Restricted, Quarantined, Superseded, Expired, Deleted | Candidate/Eligible are intake/write eligibility; remaining terms are object lifecycle states. |
+| WMS definition | Draft, Pending review, Approved, Active, Suspended, Withdrawn, Superseded, Retired | Draft/Pending review/Approved are governance/activation states; Active and restriction/retirement terms describe definition lifecycle. Approval does not authorize a run. |
+| WMS run | Queued, Admitted, Running, Succeeded, Failed, Partial, Cancelled, Cancellation pending | Queued/Admitted/Running are execution-process states; Succeeded/Failed/Partial/Cancelled are run outcomes; Cancellation pending is unresolved process status. |
+| Identity principal/assertion | Pending verification, Verified, Active, Suspended, Revoked, Retired | Pending verification/Verified are proofing or assertion-verification results; other terms describe principal/assertion lifecycle. |
+| Authentication context | Authenticated, Rejected, Expired, Revoked, Indeterminate | Authenticated/Rejected/Indeterminate are authentication results; Expired/Revoked describe context validity, not principal lifecycle. |
+| Approval record | Pending, Approved, Denied, Revoked, Expired | Approval workflow/decision status; Approved is not a Permit. |
+| Authorization decision | Permit, Deny, Approval required, Indeterminate, Expired, Revoked, Superseded | PDP outcome and decision validity, not protected-resource lifecycle. |
+| PEP enforcement record | Enforced, Denied, Indeterminate | Enforcement transaction result, not authorization outcome or proof of operation success. |
+| Provenance record | Recorded, Incomplete, Corrected, Retained, Disposal pending, Disposed | Record completeness/version and retention status; Recorded does not imply verified or truthful. |
+| Derivative | Candidate, Eligible, Stale, Restricted, Quarantined, Withdrawn, Deleted | Candidate/Eligible are local readiness; remaining terms describe local derivative status. |
+| Logging/audit event | Recorded, Recording failed, Integrity checked, Inconclusive | Recording transaction and verification outcomes, not originating-object lifecycle. |
+
+These mappings are provisional guidance, not a final state taxonomy or authorization policy. Each owner must define exact semantics, allowed transitions and classification before implementation.
+
+## 2B. Ownership clarifications
+
+Canonical ownership is logical and does not imply an implemented component:
+
+- **Core governance:** owner-controlled governance and the canonical repository retain authority over Core rules, approvals and change history; D-005 remains controlling.
+- **WMS:** proposed logical owner of workflow definitions/versions, activation status and run coordination/state; architecture remains Proposed and unimplemented.
+- **KMS / MMS:** KMS owns source records, versions, passages, indexes and source trust/review/freshness. MMS owns durable memory, memory eligibility/confidence and MMS-managed derivatives. D-007 and D-006 remain limited to their exact approved baselines.
+- **Identity:** a future Identity Authority would own principal records, assertions and identity/authentication status; none is implemented or selected.
+- **Approval versus authorization:** a separately accountable approval responsibility owns approval records and their lifecycle; the future Permission Service owns PDP decisions. The exact organizational/service boundary remains unresolved. Neither record substitutes for the other.
+- **PEP:** each protected boundary owns its local enforcement evidence, not the PDP decision or another system's object.
+- **Provenance:** each artifact owner retains authority over provenance and lineage for its artifacts; a shared contract/facility does not transfer ownership.
+- **Derivatives:** the system operating each copy, index, cache, replica, excerpt or export owns its canonical derivative state and local mutation evidence.
+- **Logging/audit:** a future logging/audit responsibility would own event records within its assigned scope; it is not defined or implemented.
+- **Validation:** the assigned validation responsibility owns its validation result/evidence, not the candidate artifact or authorization decision.
+
+## 2C. Minimum evidence for protected transitions
+
+Where applicable and permitted, evidence must identify:
+
+1. Initiating principal and authenticated executor separately; approver and authority basis where required.
+2. Exact object identifier/class, canonical owner, version and requested operation.
+3. Scope: project, tenant, subject, purpose, environment, resource and destination/recipient where relevant.
+4. PDP decision identifier and typed outcome; policy and relevant context version; decision validity, expiry and current revocation/status evidence.
+5. Intended PEP/audience and the PEP comparison of actual operation/context against every applicable Permit constraint immediately before the side effect.
+6. Actual enforcement result, separately from actual transaction outcome (including partial or uncertain side effects).
+7. Independent verification result, criteria/version, evidence references and limitations where required by risk.
+8. Correlation/causation and idempotency references, event/effective/observed/recorded times, and reconciliation references for partial or cross-owner work.
+
+Keep evidence classes distinct: **approval is not a Permit; a Permit is not execution evidence; execution evidence is not independent verification.** Missing mandatory evidence remains unknown and blocks the transition where required. Minimize sensitive data; retain references rather than credentials or unnecessary payloads.
+
 ## 3. Core governance objects
 
 **Canonical owner:** owner-controlled Core governance and canonical repository. Core rules remain read-only during normal operation under D-005.
@@ -202,6 +264,21 @@ Logging does not grant authority, establish execution success, or justify retain
 | Workflow version withdrawal | WMS marks version unavailable for new admission and identifies active runs | Run owners/executors stop or reconcile according to safe boundary | New runs blocked; existing runs have evidence-backed terminal or pending status |
 
 A coordinator may report **globally reconciled** only when every required owner has supplied evidence for its own obligations and the coordinator has checked the obligation set. Acknowledgement or notification receipt is not completion.
+
+## 12A. Owner-local deletion and reconciliation evidence
+
+Deletion or withdrawal must be evaluated separately for each canonical owner and each derivative owner. A source owner's notification, acknowledgement, or successful source-local deletion does not establish global deletion.
+
+For each owner-local obligation, evidence must identify:
+
+- exact object class, canonical identifier, versions and scope;
+- canonical stores and replicas checked, including relevant indexes, caches, exports, backups and known derivative classes;
+- applicable authorization, approval (if required), retention rule, legal-hold result and any permitted residual metadata/tombstone basis;
+- each affected derivative owner notified, notice/version reference, and that owner's independently authorized local action and outcome;
+- local verification criteria, evidence and limitations, including how the owner established that in-scope copies are no longer available for prohibited use/disclosure;
+- outstanding, inaccessible, unknown or unverified stores/copies and the responsible owner/reconciliation action.
+
+The originating owner may report only its own canonical-store result. A coordinator may report global reconciliation only after the obligation inventory is explicit and every required owner supplies evidence-backed local outcomes. Unknown or unverified backups, replicas, caches or exports keep the relevant obligation pending/degraded; do not claim complete deletion. Any residual tombstone, audit, provenance or legal-hold metadata requires a separately approved purpose, access boundary, retention and disposal rule. No universal deletion guarantee or retention interval is implied.
 
 ## 13. Object-class decisions still required
 
