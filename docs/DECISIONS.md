@@ -91,3 +91,14 @@ The current MMS and KMS architecture files retain the exact approved blobs; thei
 - **Decision:** Approve `systems/permissions/AUTHORIZATION_CONTRACT.md`, exact pre-approval Git blob SHA `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, as the purpose-neutral logical authorization contract baseline.
 - **Rationale:** The owner explicitly approved the refined contract after review of its alignment with D-008 and D-010, independent executor authentication, distinct initiator/executor/approver identities, exact Permit scope, freshness and revocation, approval separation, fail-closed behavior, recovery, and validation requirements.
 - **Impact:** Approval is limited to the exact logical contract artifact identified above. It does not amend D-008 or D-010; select a policy model/language, schema, API/protocol, token or cryptographic mechanism, identity or approval provider, storage, cache technology, service topology, runtime, or deployment; finalize purpose-dependent permissions, roles, principal taxonomy, assurance, delegation, approval authority, or operational policies; or authorize implementation, credentials, services, integrations, tool access, operational use, testing, validation, or release. All deferred decisions remain open; implementation requires separate explicit authorization. Any substantive design change requires a separate owner decision and a new exact baseline reference.
+
+
+## D-012 — Shared provenance, lifecycle, and cross-system coordination baselines approved
+- **Date:** 2026-11-11
+- **Status:** Approved
+- **Decision:** Approve the following exact pre-approval Git blob versions as documentation-only logical contract/coordination baselines:
+  - `docs/PROVENANCE_CONTRACT.md` — `c7c3e93e3a14633f0400cd66a63172e4825dcd1a`
+  - `docs/LIFECYCLE_CONTRACT.md` — `c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`
+  - `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md` — `98b4559d42a21bc769617a0cf2d0cce80f257d40`
+- **Rationale:** The owner explicitly approved these exact reviewed versions as a coordinated, purpose-neutral logical contract and ownership-coordination baseline.
+- **Impact:** Approval is limited to the three exact artifacts and their documentation-level logical scope. It does not amend D-006 through D-011 or accepted principles R-01–R-07; approve `docs/JOINT_CONTRACT_REVIEW.md`; resolve or silently decide the open questions on provenance requiredness by artifact/operation/risk, concrete lifecycle transitions and deletion/recovery criteria, delayed/duplicate/conflicting cross-system events, independent verification evidence, or tombstone/audit retention after deletion; select schemas, protocols, technologies, services, or runtime; or authorize implementation, ingestion, integration, operational use, testing, validation, or release. Any substantive design change requires a separate explicit owner decision and a new exact baseline reference.

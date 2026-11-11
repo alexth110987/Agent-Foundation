@@ -29,10 +29,10 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Permissions | Approved logical architecture | D-008; approved source blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305`; documentation only; no enforcement implementation |
 | Identity Contract | Approved logical contract | D-010; exact approved source blob SHA `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`; documentation only; no identity/authentication implementation |
 | Authorization Contract | Approved logical contract | D-011; exact approved source blob SHA `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`; documentation only; no PDP, approval, or PEP implementation |
-| Provenance Contract | Proposed shared logical contract | `docs/PROVENANCE_CONTRACT.md`; owner review pending; no provenance implementation |
-| Shared Lifecycle Contract | Proposed shared logical contract | `docs/LIFECYCLE_CONTRACT.md`; owner review pending; no lifecycle implementation |
+| Provenance Contract | Approved logical contract baseline | D-012; exact approved source blob `c7c3e93e3a14633f0400cd66a63172e4825dcd1a`; documentation only; no provenance implementation |
+| Shared Lifecycle Contract | Approved logical contract baseline | D-012; exact approved source blob `c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`; documentation only; no lifecycle implementation |
 | Object-Specific Lifecycle Tables | Approved logical design | D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`; documentation only; no state machines or lifecycle runtime |
-| Cross-System Interface & Ownership Matrix | Proposed coordination artifact | `docs/CROSS_SYSTEM_INTERFACE_MATRIX.md`; owner review pending; no interfaces or services implemented |
+| Cross-System Interface & Ownership Matrix | Approved logical coordination baseline | D-012; exact approved source blob `98b4559d42a21bc769617a0cf2d0cce80f257d40`; documentation only; no interfaces or services implemented |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Placeholder | No runtime implementation |
@@ -104,3 +104,10 @@ A coordinated consistency review identified and corrected status wording that in
 A durable Foundation Completion Plan is recorded in `docs/FOUNDATION_COMPLETION_PLAN.md`. It captures four review batches (20 logical review areas), confirmed approved baselines D-005 through D-011, D-012 owner approval awaiting repository registration, outstanding foundation gaps, recommended work order, and minimum gates before a first implementation proposal.
 
 The review count is a documentation-review count, not a completion percentage or verification result. No runtime, implementation, integration, or tests were added or executed. The project remains Stage 1; purpose and runtime remain undefined. The plan is Proposed and does not authorize implementation.
+
+
+## D-012 registration — 2026-11-11
+
+D-012 records the owner's approval of the exact pre-approval source blobs for the Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) as documentation-only logical baselines. The current documents remain tied to those exact approved source versions; later annotations do not alter the baselines.
+
+This registration does not amend D-006 through D-011 or R-01–R-07 and does not approve the Joint Contract Review register. Open questions remain: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed, duplicate, and conflicting cross-system events; independent verification evidence; and tombstone/audit retention after deletion. No technology, schema, protocol, service, or runtime is selected. No implementation, ingestion, integration, operational use, tests, validation, or release is authorized. The project remains Stage 1, with purpose and runtime undefined.

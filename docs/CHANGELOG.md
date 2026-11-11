@@ -2,6 +2,16 @@
 
 All notable project changes are recorded here.
 
+## 0.32.0 — 2026-11-11
+
+### Approved
+- Registered D-012 for the exact owner-approved Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix source blobs.
+- Updated project status to distinguish the three approved documentation baselines from the still-proposed Joint Contract Review register.
+
+### Clarifications
+- D-012 is limited to the three exact logical documentation baselines. It does not amend D-006 through D-011 or R-01–R-07, resolve the listed open questions, approve the Joint Contract Review register, select technology, or authorize implementation, integration, ingestion, runtime, testing, validation, operational use, or release.
+- No executable components or tests were added or run.
+
 ## 0.31.0 — 2026-11-11
 
 ### Added
