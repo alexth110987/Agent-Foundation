@@ -16,7 +16,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Repository baseline | Implemented | Public repository; default branch `main` |
 | Master instructions | Implemented | `AGENT.md` |
 | Core documentation | Implemented | Identity, operating rules, configuration principles |
-| Architecture | Implemented | Conceptual architecture only |
+| Conceptual architecture | Implemented as documentation | Layer model and dependency rules drafted; owner review pending |
+| Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
 | Workflow framework | Implemented | Index and reusable template; no operational workflows |
 | Memory / knowledge | Placeholder | No storage or retrieval system |
 | Permissions | Placeholder | No executable permission system or integrations |
@@ -32,6 +33,12 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Build the foundation before adding capabilities.
 - Apply least privilege and require authorization for consequential actions.
 
+## Proposed for review
+- The conceptual layer model in `docs/ARCHITECTURE.md`.
+- The component responsibilities, dependency direction, interface contracts, and state ownership in `docs/COMPONENT_MODEL.md`.
+
+These proposals are documented for owner review. They are not yet recorded as approved architecture decisions.
+
 ## Not started / deferred
 - Selecting the agent's purpose and target users.
 - Selecting a model, runtime, language, hosting, and deployment approach.
@@ -40,7 +47,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1A — Foundation review.** Review the repository structure and baseline rules. Record accepted refinements. Do not begin purpose-specific implementation until the owner explicitly defines the agent's intended use.
+**Stage 1B — Architecture review.** Review the proposed component model and relationship rules. Accept, amend, or reject the proposals before treating them as binding architecture decisions.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.

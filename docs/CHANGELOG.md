@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.2.0 — 2026-11-11
+
+### Added
+- Expanded the conceptual architecture into governance, coordination, capability, information, and assurance layers.
+- Added component responsibilities, dependency direction, state ownership, and shared interface expectations.
+- Added a component relationship diagram and proposed interface contracts.
+
+### Clarifications
+- The architecture and component model are proposals pending owner review.
+- No runtime, workflow engine, integrations, or executable components were introduced.
+- The agent's operational purpose remains undefined.
+
 ## 0.1.0 — 2026-11-11
 
 ### Added
