@@ -1,6 +1,6 @@
 # Memory Management System — Architecture
 
-**Status:** Proposed architecture — pending owner review.  
+**Status:** Proposed architecture — prepared for formal owner approval; not yet approved.  
 **Implementation status:** Documentation only. No memory store, retrieval service, or retention engine exists.
 
 ## 1. Purpose
@@ -176,7 +176,7 @@ No storage technology, database, vector store, embedding model, retrieval algori
 
 These decisions require the agent's purpose, user model, data classification, legal context, and runtime environment.
 
-## 15. Cross-system contract with the Knowledge Management System
+## 14. Cross-system contract with the Knowledge Management System
 
 The owner accepted recommendations R-01 through R-07 in principle on 2026-11-11. These principles establish design direction only; they do not approve this architecture for implementation or select a technical interface.
 
@@ -218,7 +218,7 @@ Before implementation approval, define and validate that:
 
 These are proposed acceptance criteria, not executed tests. No runtime exists.
 
-## 14. Related records
+## 15. Related records
 
 - [Memory Design Placeholder](README.md)
 - [Architecture](../../docs/ARCHITECTURE.md)

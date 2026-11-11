@@ -2,6 +2,19 @@
 
 All notable project changes are recorded here.
 
+## 0.8.2 — 2026-11-11
+
+### Updated
+- Corrected MMS and KMS architecture section numbering.
+- Updated the joint review to reflect the now-present root `AGENTS.md` and completed documentation revisions.
+- Updated project status to show both logical architectures prepared for separate formal owner decisions.
+
+### Clarifications
+- Neither architecture is approved by this documentation-preparation step.
+- Cross-system interface, deletion/reconciliation, Permission Service, and index-consistency details remain prerequisites to implementation design.
+- Implementation remains on hold; no runtime, technology, integration, or operational capability was added.
+- No runtime tests were executed.
+
 ## 0.8.1 — 2026-11-11
 
 ### Added

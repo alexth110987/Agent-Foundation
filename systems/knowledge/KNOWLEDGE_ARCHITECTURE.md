@@ -1,6 +1,6 @@
 # Knowledge Management System — Architecture
 
-**Status:** Proposed architecture — pending owner review.  
+**Status:** Proposed architecture — prepared for formal owner approval; not yet approved.  
 **Implementation status:** Documentation only. No knowledge repository, ingestion pipeline, index, or retrieval service exists.
 
 ## 1. Purpose and scope
@@ -252,7 +252,7 @@ The following remain deliberately undecided:
 
 Resolve these only after the agent's purpose, users, data classes, operating context, and applicable obligations are defined.
 
-## 16. Cross-system contract with the Memory Management System
+## 15. Cross-system contract with the Memory Management System
 
 The owner accepted recommendations R-01 through R-07 in principle on 2026-11-11. These principles establish design direction only; they do not approve this architecture for implementation or select a technical interface.
 

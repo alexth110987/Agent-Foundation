@@ -1,6 +1,6 @@
 # Memory and Knowledge Architecture — Joint Review
 
-**Review status:** Joint review completed; owner accepted R-01 through R-07 in principle on 2026-11-11. Detailed contracts and separate architecture approval remain pending.  
+**Review status:** Joint review and documentation corrections completed; MMS and KMS are prepared for separate formal owner approval. Neither architecture is approved.  
 **Review scope:** Proposed Memory Management System and Knowledge Management System documents on `main`.  
 **Implementation status:** Documentation only. This review does not approve either architecture for implementation.
 
@@ -19,8 +19,7 @@ Assess whether the proposed Memory Management System (MMS) and Knowledge Managem
 - `docs/DECISIONS.md`
 - `docs/PROJECT_STATUS.md`
 - `AGENT.md`
-
-The root `AGENTS.md` file was not present on `main` (GitHub returned 404). No additional root-level agent instructions were available to apply.
+- `AGENTS.md`
 
 ## 3. Overall assessment
 
@@ -151,11 +150,10 @@ On 2026-11-11, the owner accepted all seven recommendations in principle and aut
 
 **No architecture is marked Approved by this review.** Recommendations are accepted in principle, but revised MMS and KMS documents require separate owner review and explicit approval. Any approval must identify exact document versions and scope. Implementation, feature testing, security/privacy validation, operational smoke testing, and release approval remain separate.
 
-## 8. Next work
+## 9. Next work
 
-1. Incorporate accepted-in-principle principles into MMS and KMS architecture documents.
-2. Review revised documents for consistency, completeness, and scope discipline.
-3. Present exact revised versions for separate owner approval.
-4. Keep implementation deferred until purpose, operating context, and architecture are explicitly approved.
+1. Obtain the owner's separate formal decision on the exact MMS and KMS architecture versions now prepared on `main`.
+2. Record each architecture's approval, amendments, or deferral independently.
+3. Keep implementation deferred until purpose, operating context, and architecture are explicitly approved.
 
 No operational workflow, data store, index, retrieval engine, integration, or domain-specific capability is authorized by this review.

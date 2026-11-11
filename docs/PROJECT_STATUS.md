@@ -23,8 +23,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Component model | Implemented as documentation | Proposed component contracts and relationship map; owner review pending |
 | Workflow framework | Implemented as documentation | Shared template and index established; no operational workflows |
 | Workflow Management System | Proposed architecture documented | Registry, selection, validation, orchestration, permission coordination, execution state, and result validation; owner review pending |
-| Memory Management System | Proposed architecture revised | Cross-system principles R-01–R-07 accepted in principle; detailed design and separate owner approval pending; no implementation |
-| Knowledge Management System | Proposed architecture revised | Cross-system principles R-01–R-07 accepted in principle; detailed design and separate owner approval pending; no executable system |
+| Memory Management System | Prepared for formal owner approval | Revised logical architecture; R-01–R-07 accepted in principle; formal owner decision pending; no implementation |
+| Knowledge Management System | Prepared for formal owner approval | Revised logical architecture; R-01–R-07 accepted in principle; formal owner decision pending; no executable system |
 | Permissions | Placeholder | No executable permission system or integrations |
 | Tool registry | Placeholder | No tools approved or connected |
 | Validation / tests | Documentation only | No runtime tests exist |
@@ -58,7 +58,7 @@ Cross-system principles R-01–R-07 are accepted in principle. Both full archite
 - Defining production and release criteria.
 
 ## Next milestone
-**Stage 1F — Owner review of revised Memory and Knowledge architectures.** Review the updated MMS and KMS documents, including accepted-in-principle cross-system contracts. Approve, amend, or defer each architecture as a whole before any implementation planning.
+**Stage 1F — Formal owner decision on the prepared MMS and KMS architectures.** Decide separately whether to approve, amend, or defer each exact document version before implementation planning.
 
 ## Evidence discipline
 A document being present means only that it is implemented as documentation. It does not prove an executable component exists or works. Record actual checks and evidence before marking anything verified.
