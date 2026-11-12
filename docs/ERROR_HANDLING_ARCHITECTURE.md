@@ -86,6 +86,14 @@ Do not include passwords, API keys, access tokens, private keys, recovery codes,
 9. **Close or escalate:** close only when outcome and evidence are adequate.
 
 ## 7. Retry and replay safety
+## 7.1 Retry-budget governance
+
+Retry eligibility and a bounded retry budget are separate requirements. The existence of a retry budget does not make an operation retryable, and no retry may proceed unless every applicable safety condition in §7 is established.
+
+The following values remain intentionally unresolved until the future purpose, dependency profile, and operating context are approved: maximum attempts, back-off schedule, per-operation and aggregate budgets, timeout values, circuit-breaker thresholds, and escalation thresholds or targets. No default numeric values are implied by this architecture.
+
+Before implementation or operational use, the owner-approved policy for each operation class must set and justify those bounds using, at minimum, operation criticality, idempotency or deduplication guarantees, failure class, uncertainty about side effects, dependency/provider rate limits, cost exposure, and available reconciliation and verification evidence. The policy must also define budget exhaustion behavior and escalation criteria. A timeout or exhausted budget never establishes that an external side effect did not occur and never independently authorizes retry, replay, or compensation.
+
 
 Retry is permitted only when all applicable conditions are established:
 
@@ -110,6 +118,14 @@ Do not blindly replay events, requests, or tool calls. Delayed, duplicate, reord
 - If outcome remains indeterminate, reconcile against the authoritative component before potentially duplicative action.
 
 ## 9. Reconciliation and recovery ownership
+### 9.1 Cross-component recovery responsibility boundaries
+
+The component that owns a resource or operation's canonical state retains authority to reconcile and mutate that canonical state. A workflow coordinator or other orchestrator may coordinate a recovery process, collect outcomes, preserve correlation, and request owner action; it cannot decide that another component's canonical state has changed or direct an owner to accept an unverified state.
+
+Compensation is a new protected action. It must be freshly authorized and executed by the owner of the affected resource or operation, or by a boundary to which that owner has explicitly delegated the relevant authority. The actor, authority, preconditions, scope, and resulting evidence must be recorded and independently verified where risk requires it.
+
+The exact role that approves cross-system recovery, the governance for disputes between owners, and any organizational or technical coordination authority remain unresolved. They must be defined for a future approved operating context. This architecture does not create a central recovery authority, transfer canonical ownership to WMS, or grant a coordinator compensation authority.
+
 
 - Reconciliation is performed by or under the authority of the component owning canonical state.
 - Consumers may request or observe reconciliation but cannot assert another component's canonical state changed.
@@ -119,6 +135,12 @@ Do not blindly replay events, requests, or tool calls. Delayed, duplicate, reord
 - Preserve unresolved conflicts and evidence references; do not silently overwrite one side.
 
 ## 10. Dependency-specific fail-safe behavior
+### 10.1 Ownership of event-class logging policy
+
+Before implementation or operational use, an accountable policy owner must be designated for each event class whose recording is required or whose availability affects a protected action. That policy owner is responsible for defining the event-class recording obligation and the consequence of logging failure in the approved operating context. The producer remains responsible for creating the event; a future logging component remains responsible for handling and preserving it according to the approved policy. These responsibilities are distinct and do not imply a selected organizational structure or technical topology.
+
+The event-class policy must explicitly determine when unavailable or unverified logging evidence requires blocking, pending/buffering, or controlled continuation, and identify the authority accountable for that decision. No blanket shutdown or blanket continuation rule is established here. Exact policy owners, event-class obligations, and technical handling remain unresolved until the operating context is approved.
+
 
 | Dependency or condition | Minimum safe behavior |
 | --- | --- |

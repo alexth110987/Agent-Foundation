@@ -2,6 +2,20 @@
 
 All notable project changes are recorded here.
 
+## 0.45.0 — 2026-11-12
+
+### Corrected
+- Recorded the owner-approved documentation-only dispositions EH-01 through EH-03 in the Foundation Consistency Review.
+- Clarified that retry budgets and numeric retry/timeout/escalation parameters remain context-dependent and require operation-class justification; no defaults were selected.
+- Defined cross-component recovery responsibility boundaries while preserving canonical-state ownership, fresh authorization for compensation, and unresolved cross-system approval responsibility.
+- Required accountable event-class logging policy ownership before implementation or operational use, without assigning a current component or introducing blanket shutdown/continuation behavior.
+- Updated Project Status; Error Handling and Recovery remains Proposed.
+
+### Clarifications
+- Documentation-only refinements. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. EH-03 does not resolve D-012 open question 5 on tombstone/audit retention after deletion.
+- No proposed architecture was approved; no implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
 ## 0.44.0 — 2026-11-12
 
 ### Corrected

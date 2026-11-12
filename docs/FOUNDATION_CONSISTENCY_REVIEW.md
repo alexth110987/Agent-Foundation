@@ -353,3 +353,19 @@ These corrections do not amend D-005 through D-014, R-01–R-07, or any exact ap
 - **Approved correction:** Retain the historical FCR-09 heading and record its limited interpretation: it made the conservative retry/replay safeguards explicit within the Proposed WMS design only. AR-03 remains controlling: the cross-reference does not approve Error Handling or make it generally normative; Error Handling remains Proposed pending separate owner approval.
 
 These dispositions are documentation-only. The Architecture, Component Model, broader Core, WMS, and Error Handling designs remain Proposed. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and the five D-012 open questions remain unchanged. No technology, topology, runtime, service, implementation, integration, operational workflow, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
+## 15. Owner disposition — Error Handling review EH-01 through EH-03 — 2026-11-12
+
+The owner approved all three documentation-only dispositions below. They refine the Proposed Error Handling and Recovery architecture; they do not approve that architecture or make its requirements generally normative.
+
+### EH-01 — Retry-budget values remain context-dependent
+The Error Handling architecture §7.1 now distinguishes retry eligibility from retry-budget governance. Numeric attempt limits, back-off, budgets, timeout and circuit-breaker thresholds, and escalation targets remain unresolved until the purpose and dependency profile are approved. Future values must be justified per operation class using criticality, idempotency/deduplication, failure class, side-effect uncertainty, rate/cost limits, and reconciliation/verification evidence. No numeric defaults are selected.
+
+### EH-02 — Cross-component recovery authority remains owner-local
+The Error Handling architecture §9.1 now distinguishes canonical-state ownership from workflow coordination. A coordinator may organize recovery and collect outcomes but cannot mutate or declare another owner's canonical state. Compensation requires fresh authorization and execution by the affected resource/operation owner or an explicitly delegated authorized boundary, followed by appropriate verification. The precise cross-system recovery approval role and dispute-governance arrangement remain unresolved; no central recovery authority or WMS ownership is created.
+
+### EH-03 — Event-class logging policy ownership must be designated
+The Error Handling architecture §10.1 now requires an accountable policy owner to be designated for each event class before implementation or operational use. It distinguishes policy ownership, event production, and future logging-component handling. The event-class policy must determine blocking, pending/buffering, or controlled continuation when required logging evidence is unavailable. No current component, organizational role, topology, or blanket shutdown/continuation rule is selected.
+
+These are documentation-only refinements. Error Handling and Recovery remains Proposed. No retry values, escalation targets, cross-system approval authority, logging policy owner, event-class policy, runtime, service, integration, or operational procedure has been selected or implemented. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and all five D-012 open questions remain unchanged. In particular, EH-03 does not resolve D-012 open question 5 concerning tombstone and audit retention after deletion. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
