@@ -2,6 +2,15 @@
 
 All notable project changes are recorded here.
 
+## 0.45.1 — 2026-11-12
+
+### Corrected
+- Repositioned the EH-01, EH-02, and EH-03 subsections so each follows the complete existing parent section without interrupting its original lists or tables.
+
+### Clarifications
+- Documentation structure correction only; the approved EH dispositions and all existing scope boundaries are unchanged. Error Handling and Recovery remains Proposed.
+
+
 ## 0.45.0 — 2026-11-12
 
 ### Corrected
