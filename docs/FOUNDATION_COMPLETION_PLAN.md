@@ -41,6 +41,8 @@ These approvals apply only to exact documentation baselines. They do not authori
 - docs/TOOL_GOVERNANCE.md — candidate registration, review, activation, suspension, and revocation lifecycle.
 - docs/IMPLEMENTATION_READINESS.md — readiness framework, pending owner review.
 - docs/JOINT_CONTRACT_REVIEW.md — proposed refinement register, pending owner review.
+- docs/VALIDATION_STRATEGY.md — proposed risk-based validation and evidence policy, pending owner review.
+- docs/DOCUMENTATION_VERSION_GOVERNANCE.md — proposed document identity, versioning, approval and baseline policy, pending owner review.
 
 The Tool Registry remains empty. No tools are approved, configured, validated, active, or connected.
 
@@ -50,8 +52,8 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 | --- | --- | --- | --- |
 | P0 | Cross-document consistency review | Static review and owner dispositions FCR-01–FCR-05 recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; documentation corrections prepared | Verify annotations/status language and preserve exact approved baseline references |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
-| P1 | Validation strategy | Six validation layers documented; no automated validation exists | Risk-based validation plan, independent evidence, exact-version traceability, separate release approval |
-| P1 | Documentation/version governance | README, decisions and changelog exist; dedicated policy not yet established | Rules for document identity, versioning, immutable baselines, supersession, review and evidence |
+| P1 | Validation strategy | Proposed purpose-neutral strategy drafted in `docs/VALIDATION_STRATEGY.md`; pending owner review; no automated validation exists | Owner disposition of exact proposal; retain distinct evidence, feature, compatibility, security, smoke and release gates |
+| P1 | Documentation/version governance | Proposed policy drafted in `docs/DOCUMENTATION_VERSION_GOVERNANCE.md`; pending owner review | Owner disposition of document identity, versioning, immutable baselines, supersession, review and evidence conventions |
 | P1 | Core and architecture review | Conceptual architecture, component model and broader Core design remain proposed | Authority/dependency/ownership review and explicit owner disposition |
 | P1 | Workflow framework review | Shared template/index exist; WMS remains proposed | Validate lifecycle, execution authority, cancellation, partial outcomes and recovery consistency |
 | P2 | D-012 unresolved questions | Five questions remain open | Explicit decisions or documented deferral; no assumptions |
@@ -61,7 +63,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 ## 4. Recommended execution order
 
 1. The static foundation consistency review and owner disposition of FCR-01–FCR-05 are recorded; exact D-012 baseline blobs remain unchanged.
-2. Continue refining validation and documentation/version governance frameworks.
+2. Obtain owner review of the proposed Validation Strategy and Documentation and Version Governance policy; record approval, revision, or deferral without assuming adoption.
 3. Obtain separate owner decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions.
 4. Carry the PEP-at-each-protected-boundary requirement into future detailed interface design without selecting topology or implementation.
 5. Only after purpose and operating context are selected, prepare a bounded implementation proposal.

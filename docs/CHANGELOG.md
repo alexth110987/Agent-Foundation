@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.37.0 — 2026-11-12
+
+### Added
+- Added a proposed purpose-neutral Validation Strategy defining risk-based validation layers, evidence records, result states, independence, revalidation, and separate feature, compatibility, security, smoke, operational-readiness, licensing, and release gates.
+- Added a proposed Documentation and Version Governance policy covering stable document identity, metadata, document versioning, change classes, owner approval, exact baseline integrity, supersession, and repository records.
+
+### Updated
+- Linked both proposals from the README and Foundation Completion Plan.
+- Updated Project Status to record both proposals as pending owner review and corrected the stale next-milestone text to reflect the approved FCR-01–FCR-05 dispositions.
+
+### Clarifications
+- Both policies remain Proposed; no D-014 decision or adoption approval is created.
+- No test runner, automated validation, document registry, CI workflow, runtime, integration, or executable capability was added. No tests were run. Stage 1 remains active.
+
+
 ## 0.36.0 — 2026-11-12
 
 ### Corrected

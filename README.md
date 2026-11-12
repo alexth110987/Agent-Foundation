@@ -33,7 +33,8 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `systems/memory/` | Approved logical Memory Management System architecture; not implemented |
 | `systems/knowledge/` | Approved logical Knowledge Management System architecture; not implemented |
 | `systems/permissions/` | Approved permission architecture and approved logical Identity and Authorization Contracts; documentation only, not implemented |
-| `systems/validation/` | Validation principles and future evidence requirements |
+| `systems/validation/` | Validation principles and future evidence requirements; proposed [Validation Strategy](docs/VALIDATION_STRATEGY.md) |
+| `docs/DOCUMENTATION_VERSION_GOVERNANCE.md` | Proposed document identity, approval, baseline, and version governance |
 | `systems/logging/` | Proposed logging architecture and future audit requirements; no runtime implementation |
 | `tools/` | Tool registry and proposed governance controls; no tools approved or connected |
 | `tests/` | Testing policy and future test organization |
