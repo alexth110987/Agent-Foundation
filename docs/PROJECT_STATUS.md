@@ -128,7 +128,7 @@ A static review of the live foundation documentation recorded three confirmed st
 
 ## Proposed validation and documentation governance — 2026-11-12
 
-Two purpose-neutral proposals have been added: `docs/VALIDATION_STRATEGY.md` and `docs/DOCUMENTATION_VERSION_GOVERNANCE.md`. They define candidate validation layers, evidence requirements, distinct quality/release gates, document identity, versioning, approval, baseline integrity, and change handling. Both remain Proposed and pending owner review. No test system, automation, registry, or runtime has been implemented.
+At the time of this entry, two purpose-neutral proposals had been added: `docs/VALIDATION_STRATEGY.md` and `docs/DOCUMENTATION_VERSION_GOVERNANCE.md`. They define candidate validation layers, evidence requirements, distinct quality/release gates, document identity, versioning, approval, baseline integrity, and change handling. Their subsequent owner approval is recorded under D-014 below. No test system, automation, registry, or runtime has been implemented.
 
 
 ## Owner disposition of Foundation Consistency Review — 2026-11-12

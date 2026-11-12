@@ -110,4 +110,4 @@ No one record substitutes for the others. Keep entries concise and cross-referen
 
 ## 11. Review and change control
 
-Review this proposal alongside the Validation Strategy and before adopting a formal document registry or automated governance checks. D-014 records owner approval of the exact source baseline blob and scope. Any substantive revision after approval requires a new owner decision and exact baseline reference.
+Review this approved policy alongside the Validation Strategy when considering a formal document registry or automated governance checks. D-014 records owner approval of the exact source baseline blob and scope. Any substantive revision after approval requires a new owner decision and exact baseline reference.

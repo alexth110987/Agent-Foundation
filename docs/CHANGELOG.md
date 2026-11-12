@@ -13,6 +13,7 @@ All notable project changes are recorded here.
 
 ### Clarifications
 - Approval is documentation-only. No validation framework, test runner, automated validation, document registry, versioning automation, runtime, integration, or executable capability was implemented. No tests were run.
+- Corrected the policy review wording and clarified the historical pre-approval status entry in Project Status; no policy scope or approved baseline changed.
 - Deferred policy choices and all five D-012 open questions remain open. Stage 1 remains active; purpose and runtime remain undefined. No implementation, production testing, or release is authorized.
 
 
