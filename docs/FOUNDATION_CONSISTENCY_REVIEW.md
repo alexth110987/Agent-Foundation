@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Static review completed; FCR-01 through FCR-15 dispositions approved for documentation-only correction.
+**Status:** Static review completed; FCR-01 through FCR-15 and AR-01 through AR-04 documentation-only dispositions approved.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
 **Reviewed on:** 2026-11-12
@@ -11,7 +11,7 @@
 
 The foundation is broadly aligned on its principal safety boundaries: Core rules remain owner-controlled; identity, authentication and authorization are distinct; permission is checked at protected action boundaries; each system owns its canonical records; memory and knowledge do not create authority; uncertain side effects remain indeterminate; and validation, verification and release approval are separate.
 
-The initial review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. Subsequent follow-up reviews recorded FCR-06–FCR-15; all owner-approved dispositions remain documentation-only. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
+The initial review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. Subsequent follow-up reviews recorded FCR-06–FCR-15 and AR-01–AR-04; all owner-approved dispositions remain documentation-only. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
 
 ## 2. Findings
 
@@ -265,3 +265,60 @@ The stale requests for formal D-006/D-007 approval have been replaced with remai
 The pre-change instructions now require reading live `main` files in this exact order: `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md`. If any required file is inaccessible, repository changes must stop and the exact failure must be reported.
 
 These corrections are documentation-only. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. No new decision record was created; no proposed architecture was approved; and no implementation, runtime, integration, testing, validation execution, production activity, or release was authorized. Stage 1 remains active.
+
+
+## 12. Architecture consistency review — AR-01 through AR-04 — 2026-11-12
+
+**Review type:** Read-only static review of live documentation on `main`.  
+**Reviewed branch head:** `e991cf52170317330ffb145bb1be2a456e9d7c83`  
+**Scope:** `docs/ARCHITECTURE.md`, `docs/COMPONENT_MODEL.md`, `docs/CORE_SYSTEM.md`, `workflows/WORKFLOW_MANAGEMENT.md`, and their approved permission/authorization dependencies.  
+**Disposition at review time:** Four architecture-consistency findings were proposed. The owner subsequently approved the documentation-only corrections recorded in §13. These findings do not approve the proposed architecture documents.
+
+### AR-01 — Initial policy screening must not be confused with action authorization
+- **Severity:** High — protected-action authorization boundary.
+- **Classification:** Architecture lifecycle ambiguity.
+- **Evidence:** `docs/ARCHITECTURE.md` §5 already requires a current authorization result before protected actions and rejects reliance on an upstream check alone. However, §6's conceptual request lifecycle places a generic “Authorize” step before workflow selection and execution without explicitly distinguishing initial request screening from fresh authorization at each protected side effect.
+- **Risk:** A future reader or implementation could treat one early request-level decision as continuing authority for later actions, contrary to the approved D-011 Permit binding and the FCR-05 exact-context PEP requirement.
+- **Proposed disposition:** Rename the early stage as initial policy/scope screening and state that it is not a Permit. Require a fresh PDP evaluation and exact-context PEP enforcement immediately before every protected side effect; downstream independent boundaries enforce their own applicable controls.
+
+### AR-02 — Component Model must distinguish PDP decision from PEP enforcement
+- **Severity:** High — authorization responsibility separation.
+- **Classification:** Component-boundary and diagram ambiguity.
+- **Evidence:** `docs/COMPONENT_MODEL.md` depicts a single “Permission Check” node and its contract combines decision outcomes without a separate PEP responsibility. D-008 defines the Permission Service as central PDP and local enforcement at protected component boundaries; D-011 defines bounded Permit/PEP semantics. FCR-05 requires a named PEP owner at each protected boundary.
+- **Risk:** A future design could conflate policy decision with enforcement, leave the PEP owner unclear, or mistake a central decision for enforcement at a downstream boundary.
+- **Proposed disposition:** Show the PDP and PEP as distinct logical responsibilities, specify their contracts, identify the PEP at each protected boundary, and preserve independent downstream enforcement without selecting a process topology.
+
+### AR-03 — WMS must not grant Proposed Error Handling normative status by reference
+- **Severity:** High — approval and policy-authority boundary.
+- **Classification:** Cross-document status/authority inconsistency.
+- **Evidence:** `workflows/WORKFLOW_MANAGEMENT.md` §10 states that `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 is normative for retry/replay safety. The referenced Error Handling architecture remains Proposed and pending owner review. FCR-09 previously aligned WMS with the shared safety conditions but did not approve the Error Handling proposal itself.
+- **Risk:** A cross-reference could be read as indirect approval of a Proposed architecture, bypassing explicit owner approval and blurring the distinction between a conservative design constraint and an approved policy.
+- **Proposed disposition:** Retain the retry/replay safeguards as conservative, fail-closed constraints for the WMS proposal, but explicitly state that Error Handling remains Proposed and is not made approved or normative by reference. Require separate owner approval of the applicable policy before implementation or operational use.
+
+### AR-04 — WMS execution transitions need explicit guards
+- **Severity:** Medium — execution-state integrity and recovery authority.
+- **Classification:** Incomplete proposed state-transition specification.
+- **Evidence:** `workflows/WORKFLOW_MANAGEMENT.md` §7 lists execution states and an illustrative transition diagram, but explicitly defers exact transition guards and authority to resume or cancel until before implementation.
+- **Risk:** Without transition-specific guards, a future implementation could resume stale work, reuse expired authorization, clear a blocked state without resolving its cause, or mis-handle partial/indeterminate side effects.
+- **Proposed disposition:** Add a proposed transition-guard table covering allowed transitions, preconditions, authorization/approval, revalidation, terminal-state behavior, and blocked/recovery handling. Keep implementation and runtime choices deferred.
+
+All four findings are documentation-level design observations, not runtime defects. They do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; resolve any D-012 open question; approve Architecture, Component Model, WMS, Error Handling, or broader Core proposals; select technology or topology; or authorize implementation, runtime, integration, testing, validation execution, production activity, or release. Stage 1 remains active.
+
+
+## 13. Owner disposition — AR-01 through AR-04 — 2026-11-12
+
+The owner explicitly approved the following documentation-only corrections. This approval records the corrections and their scope; it does not approve any affected proposed architecture.
+
+### AR-01 — Request screening and per-action authorization distinguished
+`docs/ARCHITECTURE.md` now identifies initial policy/scope screening as distinct from a Permit and requires fresh PDP evaluation plus exact-context PEP enforcement immediately before each protected side effect. Independent downstream boundaries retain their own enforcement obligations.
+
+### AR-02 — PDP and PEP responsibilities separated
+`docs/COMPONENT_MODEL.md` now distinguishes the central Permission Service / PDP decision from PEP enforcement at each protected boundary, updates the logical relationship diagram and component contracts, and preserves downstream independent enforcement. No process topology or enforcement implementation is selected.
+
+### AR-03 — Proposed Error Handling status preserved
+`workflows/WORKFLOW_MANAGEMENT.md` now identifies the Error Handling §7 retry/replay conditions as conservative, fail-closed design constraints for the proposed WMS. The reference does not make Error Handling approved or normative; separate owner approval remains required before implementation or operational use.
+
+### AR-04 — WMS transition guards documented
+`workflows/WORKFLOW_MANAGEMENT.md` now includes transition-specific minimum guards for execution states, approval, pause/resume, blocked recovery, cancellation, and terminal states. The table is part of the proposed WMS design and does not authorize an execution engine or runtime.
+
+These corrections do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; close any D-012 open question; approve the Architecture, Component Model, WMS, Error Handling, or broader Core proposals; or authorize implementation, runtime, integrations, operational use, testing, validation execution, production activity, or release. No runtime or tests were executed. Stage 1 remains active.
