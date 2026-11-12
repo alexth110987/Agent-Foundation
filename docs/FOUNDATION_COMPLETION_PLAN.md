@@ -19,7 +19,7 @@ Four review batches examined 20 logical review areas; a subsequent static Founda
 | 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Proposed designs reviewed; D-005 is approved but broader Core design remains open |
 | 2 | Core identity; configuration; workflow template/index; validation; error/recovery | Workflow template/index exist; validation layers are documented; standalone error/recovery proposal has now been added |
 | 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging and tool governance proposals added; D-006, D-007 and D-008 are approved logical baselines only |
-| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.35.0; validation remains documentation-only |
+| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.36.0; validation remains documentation-only |
 
 ### Confirmed approved baselines
 
@@ -48,7 +48,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Cross-document consistency review | Static review recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; findings await owner disposition | Resolve documented status conflicts and ambiguities without changing approved baselines |
+| P0 | Cross-document consistency review | Static review and owner dispositions FCR-01–FCR-05 recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; documentation corrections prepared | Verify annotations/status language and preserve exact approved baseline references |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
 | P1 | Validation strategy | Six validation layers documented; no automated validation exists | Risk-based validation plan, independent evidence, exact-version traceability, separate release approval |
 | P1 | Documentation/version governance | README, decisions and changelog exist; dedicated policy not yet established | Rules for document identity, versioning, immutable baselines, supersession, review and evidence |
@@ -60,10 +60,10 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 ## 4. Recommended execution order
 
-1. Conduct a foundation-wide consistency review across approved and proposed documents without changing approved baselines.
-2. Identify and record conflicts, missing definitions, ambiguous ownership, stale status statements, and unresolved decisions.
-3. Refine proposed validation and document/version governance frameworks.
-4. Obtain owner decisions on proposals and unresolved cross-system questions.
+1. The static foundation consistency review and owner disposition of FCR-01–FCR-05 are recorded; exact D-012 baseline blobs remain unchanged.
+2. Continue refining validation and documentation/version governance frameworks.
+3. Obtain separate owner decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions.
+4. Carry the PEP-at-each-protected-boundary requirement into future detailed interface design without selecting topology or implementation.
 5. Only after purpose and operating context are selected, prepare a bounded implementation proposal.
 6. Obtain separate explicit authorization for that exact implementation scope.
 
@@ -87,7 +87,7 @@ A successful smoke test is not feature verification, security validation, operat
 
 ## 6. Consistency review findings
 
-The static review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. It identified status conflicts between D-012 and the in-document status wording of its three approved artifacts; stale status statements in the Joint Contract Review and Implementation Readiness documents; an unresolved Core instruction-document boundary; and a future PEP/tool-adapter boundary requiring clarification. Findings are not silently resolved here. Exact approved baselines remain unchanged pending explicit owner disposition.
+The static review and owner-approved dispositions are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; and FCR-05 records a future PEP boundary requirement. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
 
 ## 7. D-012 open questions — retained
 
@@ -120,3 +120,8 @@ At the start of a future repository task:
 - **Rejected:** not selected.
 
 A document may be implemented as documentation while its design remains Proposed. Neither state proves executable functionality.
+
+
+## 10. Owner disposition — FCR-01 through FCR-05 — 2026-11-12
+
+The owner approved all five dispositions in the Foundation Consistency Review. The three D-012 artifacts carry post-approval status annotations that preserve their exact approved source blob references. The Joint Contract Review remains Proposed and non-amending. The readiness framework distinguishes approved logical baselines from open implementation choices. The Core authority/document map is recorded, and the PEP owner/exact-context requirement is carried into future interface design. These are documentation-only changes; no implementation, runtime, integration, test execution, validation, or release is authorized.

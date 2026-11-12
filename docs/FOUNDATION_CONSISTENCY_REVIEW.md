@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Completed documentation review; findings recorded, owner disposition pending.
+**Status:** Completed static documentation review; owner dispositions for FCR-01 through FCR-05 approved and recorded below.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
 **Reviewed on:** 2026-11-12
@@ -11,7 +11,7 @@
 
 The foundation is broadly aligned on its principal safety boundaries: Core rules remain owner-controlled; identity, authentication and authorization are distinct; permission is checked at protected action boundaries; each system owns its canonical records; memory and knowledge do not create authority; uncertain side effects remain indeterminate; and validation, verification and release approval are separate.
 
-The review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities** requiring disposition. These are documentation and governance findings, not defects in an implemented system. No runtime exists and no tests were run.
+The review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
 
 ## 2. Findings
 
@@ -93,3 +93,33 @@ Other purpose/runtime-dependent decisions also remain deferred, including princi
 ## 6. Review limitations
 
 This was a static documentation review of the live `main` branch. It did not execute code, validate links automatically, run tests, assess a deployed system, select technologies, or independently verify operational controls. Findings describe the reviewed documentation only. No approved baseline was modified by this review.
+
+
+## 7. Owner disposition — 2026-11-12
+
+The owner explicitly approved the following dispositions for FCR-01 through FCR-05. This is a documentation/governance disposition only; it does not authorize implementation or alter the Stage 1 scope.
+
+### FCR-01 — D-012 baseline status annotations approved
+
+Add non-substantive post-approval status annotations to the three exact D-012 artifacts. Each annotation identifies the artifact as an **Approved logical baseline under D-012**, records the exact approved source blob SHA, and states that the annotation does not alter the baseline content or scope. Legacy Proposed wording is retained as part of the exact approved snapshot and is explicitly superseded for current status interpretation by the annotation. The three approved source blob SHAs remain:
+- Provenance Contract: `c7c3e93e3a14633f0400cd66a63172e4825dcd1a`.
+- Shared Lifecycle Contract: `c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`.
+- Cross-System Interface & Ownership Matrix: `98b4559d42a21bc769617a0cf2d0cce80f257d40`.
+
+### FCR-02 — Joint Contract Review status corrected
+
+The register now distinguishes the approved exact D-012 baselines from the Joint Contract Review register itself, which remains Proposed and non-amending. D-006 through D-012 and R-01–R-07 are not amended.
+
+### FCR-03 — Implementation-readiness blockers corrected
+
+The readiness framework now recognizes the approved logical Permission (D-008), Identity (D-010), Authorization (D-011), Provenance, Shared Lifecycle, and Cross-System Interface baselines (D-012). Provider, principal taxonomy, policy model, schemas/protocols, PEP/PDP deployment, operational policy, detailed provenance requiredness, lifecycle transition/deletion semantics, and independent verification evidence remain open.
+
+### FCR-04 — Core authority/document boundary recorded
+
+`AGENT.md` is the highest-authority project/repository instruction document. Designated Core records (`core/IDENTITY.md`, `core/OPERATING_RULES.md`, and `core/CONFIGURATION.md`) hold their respective agent-level identity, operating-policy, and configuration content under that project authority. `docs/CORE_SYSTEM.md` is a design/map document, not a second instruction authority. Any future Core instruction specification must be subordinate and cross-referenced. Platform/runtime instruction precedence remains deferred until a target is selected.
+
+### FCR-05 — Future PEP boundary requirement recorded
+
+Future detailed interface design must identify the PEP owner at every protected side-effect boundary and require exact-context comparison immediately before the side effect. Any downstream independent boundary enforces its own applicable controls. No process topology, service, or enforcement implementation is selected or authorized.
+
+These dispositions do not close the five D-012 open questions, approve the Joint Contract Review register or other proposed designs, select technology, or authorize runtime, implementation, integration, operational use, testing, validation, or release. The project remains Stage 1.

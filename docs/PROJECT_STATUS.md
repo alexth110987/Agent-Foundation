@@ -37,7 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Documentation only | No runtime tests exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
-| Foundation consistency review | Review completed; findings pending owner disposition | docs/FOUNDATION_CONSISTENCY_REVIEW.md; static documentation review only; no runtime/tests |
+| Foundation consistency review | Static review completed; FCR-01–FCR-05 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
 
 ## Approved baseline
 
@@ -73,7 +73,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Selecting a model, runtime, language, hosting, deployment, and autonomy approach.
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
 - Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.
-- Disposition findings in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; do not amend exact approved baselines without explicit owner authorization.
+- Continue any follow-on review identified by FCR-04/FCR-05 during future Core/interface design; preserve exact approved baselines and the recorded PEP boundary requirement.
 - Expand validation strategy and define documentation/version governance.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
@@ -82,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, and D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, each as documentation-only logical contract baselines. D-012 approves the exact Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) source blobs as documentation-only logical baselines. These decisions do not authorize implementation, runtime, services, integrations, operational use, testing, validation, or release. The Joint Contract Review refinement register remains Proposed and pending owner review. The Foundation Consistency Review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; its findings await owner disposition. D-012 open questions and the proposed implementation-readiness framework remain unresolved.
+D-009 approves the exact Object-Specific Lifecycle Transition Tables source blob `473598af630b44b78910ab1df3b7f53bbc1a0802` as a documentation-only logical design baseline. D-010 approves the exact Identity Contract source blob `b01e5ff7c99f9a208c4424878e87ded5e4c4629d`, and D-011 approves the exact Authorization Contract source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39`, each as documentation-only logical contract baselines. D-012 approves the exact Provenance Contract (`c7c3e93e3a14633f0400cd66a63172e4825dcd1a`), Shared Lifecycle Contract (`c8b9b5012c537cca2f99a2f9f3b80041cd4372bf`), and Cross-System Interface & Ownership Matrix (`98b4559d42a21bc769617a0cf2d0cce80f257d40`) source blobs as documentation-only logical baselines. These decisions do not authorize implementation, runtime, services, integrations, operational use, testing, validation, or release. The Joint Contract Review refinement register remains Proposed and pending owner review. The Foundation Consistency Review is recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; its findings await owner disposition. D-012 open questions remain unresolved. The proposed implementation-readiness framework remains pending owner review; its stale contract-status blockers have been corrected.
 
 ## Evidence discipline
 
@@ -123,4 +123,9 @@ The Tool Registry remains empty. Logging remains unimplemented. No runtime tests
 
 ## Foundation consistency review — 2026-11-12
 
-A static review of the live foundation documentation recorded three confirmed status/planning inconsistencies and two design/governance ambiguities in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. The review does not amend any approved baseline, resolve D-012 open questions, or authorize implementation. Findings await owner disposition. No runtime or tests were executed.
+A static review of the live foundation documentation recorded three confirmed status/planning inconsistencies and two design/governance ambiguities. On 2026-11-12, the owner approved the dispositions FCR-01–FCR-05. Documentation corrections and non-substantive post-approval annotations are recorded in the Foundation Consistency Review and related documents; the exact D-012 baseline blobs remain unchanged. No D-012 open question was resolved. No implementation, runtime, integration, testing, validation, or release was authorized; no runtime or tests were executed.
+
+
+## Owner disposition of Foundation Consistency Review — 2026-11-12
+
+The owner approved FCR-01–FCR-05. The three D-012 exact baselines retain their approved source blob SHAs and now carry non-substantive status annotations. The Joint Contract Review remains Proposed and non-amending. Implementation Readiness distinguishes approved logical baselines from open implementation-level choices. The Core authority/document boundary is mapped, and future interface design must identify each protected-boundary PEP and require exact-context enforcement immediately before side effects. The five D-012 open questions remain open. Stage 1, undefined purpose/runtime, and all implementation/testing/validation/release gates remain unchanged.

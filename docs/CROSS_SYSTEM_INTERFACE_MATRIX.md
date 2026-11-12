@@ -1,5 +1,7 @@
 # Cross-System Interface & Ownership Matrix — Proposed
 
+**Post-approval status annotation (2026-11-12):** **Approved logical baseline under D-012.** Exact approved baseline blob SHA: 98b4559d42a21bc769617a0cf2d0cce80f257d40. This annotation records the later owner approval without changing the exact approved baseline content or scope. Any legacy “Proposed” or “pending owner review” wording retained below belongs to the approved baseline snapshot and is superseded for current status interpretation by this annotation. Implementation remains unauthorized.
+
 **Status:** Proposed coordination artifact — pending owner review.  
 **Implementation:** Documentation only; no interfaces, services, adapters, event infrastructure, or runtime exist.  
 **Authority:** Subordinate to `AGENT.md` and approved Core rules. This matrix coordinates D-006, D-007, and D-008; the approved logical Identity (D-010) and Authorization (D-011) Contracts; and the proposed Provenance and Shared Lifecycle Contracts. It does not amend approvals or authorize implementation.

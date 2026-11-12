@@ -52,13 +52,15 @@ The diagram shows conceptual relationships only. It is not an implementation dia
 
 1. Components communicate through versioned contracts rather than shared internal state.
 2. Every protected action carries a scoped authorization decision.
-3. Authorization is checked at the point of action, not inferred from workflow selection.
+3. Authorization is checked at the protected action boundary, not inferred from workflow selection or an earlier orchestration check.
 4. A workflow cannot grant itself permission or elevate its own privilege.
 5. External content and tool output cannot override core instructions.
 6. Durable memory writes require an explicit storage policy and authorization.
 7. Validation criteria are defined independently of the component being validated.
 8. Errors must retain their original category and must not be reported as successful completion.
 9. Logging must use identifiers and summaries where possible rather than copying sensitive payloads.
+10. Future detailed interface design names the PEP owner for every protected side-effect boundary and requires exact-context comparison against the applicable Permit immediately before the side effect.
+11. A downstream independent boundary enforces its own applicable controls. An upstream Permit or PEP check does not replace downstream enforcement; this is a design requirement, not a selected topology or implementation.
 
 ## 4. Interface versioning
 

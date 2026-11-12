@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.36.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved dispositions for FCR-01 through FCR-05 in the Foundation Consistency Review.
+- Added non-substantive post-approval status annotations to the exact D-012 Provenance, Shared Lifecycle, and Cross-System Interface baselines, preserving their approved source blob SHAs and design content.
+- Corrected Joint Contract Review wording so the three D-012 baselines are approved while the register itself remains Proposed and non-amending.
+- Updated Implementation Readiness to distinguish approved logical Permission, Identity, Authorization, Provenance, Shared Lifecycle, and Cross-System Interface baselines from unresolved implementation choices.
+- Recorded the Core authority/document boundary and the future PEP owner/exact-context requirement in the proposed Core, Architecture, and Component Model documentation.
+- Aligned Project Status, Foundation Completion Plan, README, and Decision Log with the approved dispositions.
+
+### Clarifications
+- D-006 through D-012 and R-01–R-07 are not amended; the exact D-012 baseline blobs are unchanged. The five D-012 open questions remain unresolved.
+- The Joint Contract Review register and other previously proposed designs remain Proposed. No purpose, runtime, technology, process topology, service, or enforcement implementation was selected.
+- Stage 1 remains active. No implementation, runtime, integration, operational use, test execution, validation, or release was authorized or performed.
+
 ## 0.35.0 — 2026-11-12
 
 ### Added

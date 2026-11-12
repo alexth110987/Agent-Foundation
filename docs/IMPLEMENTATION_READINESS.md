@@ -134,7 +134,7 @@ No source catalogue, extraction tool, index technology, retrieval method, trust 
 
 ## 7. Cross-system readiness contracts
 
-Before an MMS/KMS implementation proposal, specify and review:
+Before an MMS/KMS implementation proposal, use the approved logical baselines as the starting point and specify/review the remaining implementation-level detail. The Identity Contract (D-010), Authorization Contract (D-011), Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix (D-012) are approved only as their exact documentation-level logical baselines. Their approval does not select schemas, protocols, providers, services, or runtime, and does not resolve the open questions below.
 1. **Provenance reference:** minimum stable fields, version semantics, unknown/unavailable representation, and integrity expectations.
 2. **Authorization contract:** Permission Service request/response, actor/resource scope, decision expiry, failure semantics, and enforcement responsibilities.
 3. **Memory handoff:** explicit KMS-result-to-MMS-candidate process; retrieval never authorizes retention.
@@ -167,9 +167,9 @@ No approval implies the next. This framework itself grants none of these approva
 
 - Operational purpose, target users, use cases, and operating context are undefined.
 - Runtime, model, language, hosting, deployment, and autonomy are unselected.
-- Permission Service contract and identity model are unspecified.
-- MMS/KMS cross-system schemas, protocols, and lifecycle reconciliation are unresolved.
-- MMS retention/deletion and KMS source governance/index consistency policies are unresolved.
+- Logical Permission, Identity, and Authorization baselines are approved under D-008, D-010, and D-011 respectively. Implementation choices remain open, including provider, principal taxonomy, policy model, schemas/protocols, PEP/PDP deployment, operational policy, and enforcement design.
+- MMS/KMS cross-system schemas, protocols, event delivery, lifecycle reconciliation, and independent verification evidence remain unresolved; D-012’s five open questions remain open.
+- Detailed provenance requiredness, concrete lifecycle transitions and deletion/recovery semantics, MMS retention/deletion, KMS source governance/index consistency, and tombstone/audit retention remain unresolved.
 - Data classes, source catalogue, privacy/legal obligations, and licensing process are not established.
 - Acceptance criteria, test environments, operations, recovery, and release objectives are not defined.
 - WMS, conceptual architecture, component model, and broader Core design remain subject to their own review and approval.
@@ -180,7 +180,7 @@ These are planning blockers, not defects in an implemented system. No runtime ex
 
 1. Owner review of this readiness framework; amend or approve it as a planning standard.
 2. Resolve purpose and operating context before purpose-dependent requirements.
-3. Define shared identity, permission, provenance, and lifecycle contracts.
+3. Resolve remaining implementation-level choices and policy details against the approved Permission, Identity, Authorization, Provenance, Shared Lifecycle, and Cross-System Interface baselines; do not recreate or silently amend those baselines.
 4. Complete MMS/KMS detailed design checklists with explicit policy decisions.
 5. Define component-specific requirements, acceptance criteria, and isolated test strategy.
 6. Prepare a bounded implementation proposal only after prerequisites are satisfied.

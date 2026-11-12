@@ -40,7 +40,7 @@ These concerns belong to separately governed components.
 | Subcomponent | Responsibility | Primary record |
 | --- | --- | --- |
 | Identity | Stable identity and declared scope | `core/IDENTITY.md` |
-| Instruction governance | Authority, precedence, conflict handling | This document and future core instruction specification |
+| Instruction governance | Authority, precedence, conflict handling | AGENT.md for project/repository instruction authority; core/OPERATING_RULES.md and this Core design record for designated agent-level policy; runtime precedence deferred |
 | Operating rules | General behavioral and safety constraints | `core/OPERATING_RULES.md` |
 | Configuration governance | Safe configuration rules | `core/CONFIGURATION.md` |
 | Change control | Approval and versioning of core changes | `AGENT.md`, decision log, changelog |
@@ -63,7 +63,15 @@ This is controlled mutability, not permanent immutability. The owner retains the
 
 ## 6. Instruction authority model
 
-The exact runtime instruction hierarchy is deferred until the agent's platform and execution environment are selected. The foundation must nevertheless preserve these rules:
+The canonical-document boundary is:
+
+- AGENT.md is the highest-authority project/repository instruction document. It governs project identity, scope, development, safety, and change control; it is not a selected platform's complete runtime instruction hierarchy.
+- Agent-level identity and operating policy belong in the designated Core records, principally core/IDENTITY.md and core/OPERATING_RULES.md; configuration governance belongs in core/CONFIGURATION.md.
+- docs/CORE_SYSTEM.md describes the Core's responsibilities and document map. It is not a competing instruction authority.
+- Any future Core instruction specification must be subordinate to AGENT.md, identify its relationship to the designated Core records, and must not silently create a second source of authority.
+- Exact platform/runtime instruction precedence remains deferred until a target platform and execution environment are selected.
+
+The foundation must nevertheless preserve these rules:
 
 - Core project constraints cannot be overridden by an individual workflow.
 - A workflow may add narrower requirements but cannot weaken global safeguards.

@@ -1,5 +1,7 @@
 # Shared Lifecycle Contract — Proposed
 
+**Post-approval status annotation (2026-11-12):** **Approved logical baseline under D-012.** Exact approved baseline blob SHA: c8b9b5012c537cca2f99a2f9f3b80041cd4372bf. This annotation records the later owner approval without changing the exact approved baseline content or scope. Any legacy “Proposed” or “pending owner review” wording retained below belongs to the approved baseline snapshot and is superseded for current status interpretation by this annotation. Implementation remains unauthorized.
+
 **Status:** Proposed shared logical contract — pending owner review.  
 **Implementation:** Documentation only. No lifecycle engine, event service, retention service, reconciliation worker, or runtime exists.  
 **Authority:** Subordinate to `AGENT.md`, approved Core rules, and the exact approved logical architecture baselines D-006, D-007, and D-008. This proposal does not amend those decisions or authorize implementation.

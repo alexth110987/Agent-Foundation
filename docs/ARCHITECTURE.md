@@ -59,11 +59,12 @@ The following rules define the proposed dependency direction:
 2. Intake may request workflow selection; it cannot authorize execution.
 3. The orchestrator may invoke only workflows marked approved for the intended environment.
 4. Workflows request capabilities through tool adapters; they do not access credentials or bypass authorization directly.
-5. Tool adapters must receive an authorization result and scoped parameters before any protected action.
+5. Tool adapters must receive a current authorization result and scoped parameters before any protected action; an upstream check alone is not sufficient to authorize a later side effect.
 6. Memory and knowledge provide information; they do not grant authority.
 7. Validation evaluates results against criteria defined before execution where practical.
 8. Logging records outcomes and references without becoming a source of policy.
 9. Error handling may stop, retry within explicit limits, or escalate; it must not bypass a failed permission or validation gate.
+10. Future detailed interface design must identify every protected side-effect boundary and its Policy Enforcement Point (PEP) owner. That PEP compares the actual operation/context with the applicable Permit immediately before the side effect. A downstream independent boundary enforces its own applicable controls; no process topology or duplicated enforcement implementation is selected here.
 
 A component may depend on a narrower interface, but should not depend on another component's internal implementation.
 

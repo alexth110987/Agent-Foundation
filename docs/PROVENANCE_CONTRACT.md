@@ -1,5 +1,7 @@
 # Provenance Contract — Proposed Shared Contract
 
+**Post-approval status annotation (2026-11-12):** **Approved logical baseline under D-012.** Exact approved baseline blob SHA: c7c3e93e3a14633f0400cd66a63172e4825dcd1a. This annotation records the later owner approval without changing the exact approved baseline content or scope. Any legacy “Proposed” or “pending owner review” wording retained below belongs to the approved baseline snapshot and is superseded for current status interpretation by this annotation. Implementation remains unauthorized.
+
 **Status:** Proposed logical contract — pending owner review.  
 **Implementation:** Documentation only. No provenance service, registry, event store, schema, or runtime exists.  
 **Authority:** Subordinate to `AGENT.md`, approved Core rules, and the approved logical architecture baselines. This contract does not amend D-006, D-007, or D-008 and does not authorize implementation.

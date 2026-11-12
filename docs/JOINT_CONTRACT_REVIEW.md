@@ -1,11 +1,11 @@
 # Joint Contract Review — Refinement Register
 
-**Status:** Proposed refinement record — pending owner review.  
-**Scope:** Documentation review only. This register does not amend the approved logical Identity (D-010) or Authorization (D-011) baselines, approve the proposed Provenance or Shared Lifecycle Contracts or Cross-System Interface Matrix, amend D-006, D-007, or D-008, or authorize implementation.
+**Status:** Proposed refinement register — pending owner review.  
+**Scope:** Documentation review only. D-010 and D-011 remain approved exact logical contract baselines. D-012 also approves the exact Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix baselines recorded in docs/DECISIONS.md. This register remains Proposed and non-amending; it does not revise any approved baseline, amend D-006 through D-012 or R-01–R-07, or authorize implementation.
 
 ## 1. Purpose
 
-Record cross-document refinements so subsequent review and edits remain traceable and consistent. The Identity Contract (D-010) and Authorization Contract (D-011) are approved logical baselines. The Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface Matrix remain Proposed pending separate owner approval.
+Record cross-document refinements so subsequent review and edits remain traceable and consistent. The Identity Contract (D-010), Authorization Contract (D-011), Provenance Contract, Shared Lifecycle Contract, and Cross-System Interface & Ownership Matrix are approved only as their exact documentation-level logical baselines under D-010, D-011, and D-012. This refinement register remains Proposed and does not amend those baselines.
 
 ## 2. Identity and authorization boundary
 
@@ -92,4 +92,4 @@ Validation criteria must be defined by risk and operation class. Where the produ
 
 ## 9. Authority and status
 
-This register remains a proposed review artifact. It does not change the status or scope of any source document. D-010 and D-011 remain approved only as their exact logical contract baselines; the Provenance Contract, Shared Lifecycle Contract, Cross-System Interface Matrix, and this refinement register remain Proposed pending owner review. D-006, D-007, and D-008 remain unchanged and limited to their exact approved logical architecture baselines. Stage 1 remains active. No runtime, service, integration, tool, data ingestion, operational workflow, or implementation is authorized.
+This register remains a Proposed, non-amending review artifact. D-010, D-011, and the three exact D-012 baselines are approved only within their recorded documentation-level logical scope; this register itself remains Proposed pending owner review. D-006, D-007, and D-008 remain unchanged and limited to their exact approved logical architecture baselines. Stage 1 remains active. No runtime, service, integration, tool, data ingestion, operational workflow, or implementation is authorized.
