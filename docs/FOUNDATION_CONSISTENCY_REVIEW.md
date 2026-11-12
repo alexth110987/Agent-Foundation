@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Static review completed; FCR-01 through FCR-05 dispositions approved; follow-up findings FCR-06 through FCR-11 are recorded pending owner disposition.
+**Status:** Static review completed; FCR-01 through FCR-11 dispositions approved for documentation-only correction.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
 **Reviewed on:** 2026-11-12
@@ -130,7 +130,7 @@ These dispositions do not close the five D-012 open questions, approve the Joint
 **Review type:** Read-only static review of live documentation on `main`.  
 **Reviewed branch head:** `5002004f0e5a4724afee1b93ebad0b0874f2dfab`  
 **Scope:** Follow-up review of Core authority mapping, Foundation Completion Plan currency, WMS execution/retry/registry contracts, and Error Handling references to validation.  
-**Disposition:** Findings below are proposed for owner review only. No design document or approved baseline is amended by this review. No D-015 is created.
+**Disposition at review time:** Findings below were proposed for owner review only. The owner subsequently approved all six documentation-only dispositions, recorded in §9. No D-015 is created.
 
 ### FCR-06 — Core authority table conflicts with the approved FCR-04 map
 - **Severity:** High — instruction-authority ambiguity.
@@ -175,3 +175,34 @@ These dispositions do not close the five D-012 open questions, approve the Joint
 - **Proposed disposition:** Refer to the approved Validation Strategy/policy and state that no validation framework or execution capability is implemented. Preserve the distinct test, validation, verification, and release gates.
 
 All six findings are documentation-level observations. They do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; resolve any D-012 open question; approve the proposed Core, WMS, Error Handling, Logging, Tool Governance, or conceptual architecture; or authorize implementation, runtime, integrations, tests, production activity, or release. Stage 1 remains active.
+
+
+## 9. Owner disposition — FCR-06 through FCR-11 — 2026-11-12
+
+The owner explicitly approved all six proposed dispositions. The following documentation corrections are authorized and recorded; they do not approve the affected proposed designs or change any approved baseline.
+
+### FCR-06 — Core authority table aligned
+
+The §4 instruction-governance row now identifies `AGENT.md` as project/repository authority, `core/OPERATING_RULES.md` as the designated agent-level operating-policy record, and `docs/CORE_SYSTEM.md` as a design/map document only. The designated identity and configuration records and deferred platform/runtime precedence remain as previously mapped. No policy content or D-005 scope is changed.
+
+### FCR-07 — Foundation Completion Plan snapshot refreshed
+
+The Batch 4 current-position entry now records D-001–D-014 and changelog 0.39.0 at the time of this correction, and distinguishes the D-014-approved Validation Strategy policy from the absence of validation execution capability. The plan's historical review count remains a documentation-review count, not a completion or verification metric.
+
+### FCR-08 — WMS transaction outcome separated
+
+The WMS run record now requires transaction outcome as a distinct dimension from execution status, verification result, and recovery status. Succeeded, Failed, and Cancelled describe the run's process status; they do not independently establish whether external effects were applied, absent, partial, or indeterminate. The Error Handling taxonomy remains the cross-system reference.
+
+### FCR-09 — Shared retry-safety conditions made normative
+
+WMS retry, replay, and recovery coordination now explicitly applies the conditions in Error Handling §7. WMS remains the coordinator and does not establish an independent retry-safety policy. Retry counts, backoff, timeouts, and runtime behavior remain unresolved.
+
+### FCR-10 — Prohibited actions added to required workflow metadata
+
+The WMS workflow-definition metadata now explicitly requires prohibited actions, restrictions, and scope exclusions. This does not create, register, or approve any operational workflow.
+
+### FCR-11 — Validation terminology corrected
+
+Error Handling now refers to the D-014-approved Validation Strategy policy and explicitly states that no validation framework or execution capability is implemented. Test execution, validation, verification, and release gates remain distinct.
+
+These corrections do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; resolve any D-012 open question; approve the Core, WMS, Error Handling, Logging, Tool Governance, or conceptual architecture proposals; or authorize implementation, runtime, integration, testing, validation execution, production activity, or release. Stage 1 remains active; purpose and runtime remain undefined.

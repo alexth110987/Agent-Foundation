@@ -59,6 +59,7 @@ Every workflow must have:
 - declared input and output contracts;
 - preconditions and dependencies;
 - required capabilities and permission scopes;
+- prohibited actions, restrictions, and scope exclusions;
 - side-effect and approval declarations;
 - execution and failure-handling rules;
 - validation criteria and test references;
@@ -149,7 +150,7 @@ stateDiagram-v2
     Blocked --> Cancelled
 ```
 
-The diagram is illustrative. Exact transition guards, timeout rules, and authority to resume or cancel remain to be specified before implementation.
+The diagram is illustrative. Exact transition guards, timeout rules, and authority to resume or cancel remain to be specified before implementation. The terminal states Succeeded, Failed, and Cancelled describe the run's process status only; they do not by themselves establish whether each external side effect was applied, absent, partial, or indeterminate. Record transaction outcome independently using the shared taxonomy in `docs/ERROR_HANDLING_ARCHITECTURE.md` §4, alongside verification result and recovery status.
 
 ## 8. Permissions and approval gates
 
@@ -171,6 +172,7 @@ A future run record should include:
 - workflow ID and pinned version;
 - request/task reference, minimized to necessary information;
 - execution status and transition history;
+- transaction outcome, recorded separately from execution status, verification result, and recovery status;
 - current step and checkpoint reference, if applicable;
 - input validation result;
 - permission and approval references;
@@ -192,13 +194,13 @@ The orchestrator must classify failures before taking recovery action.
 | Workflow inactive or version unavailable | Do not run; report registry state |
 | Permission denied or indeterminate | Do not perform the protected action |
 | Approval pending | Enter Waiting for approval; do not continue past the gated step |
-| Transient dependency failure | Retry only within an explicitly defined limit and only when safe |
+| Transient dependency failure | Retry only within an explicitly defined limit and only when all applicable retry/replay safety conditions in `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 are established |
 | Non-idempotent action with uncertain outcome | Do not blindly retry; reconcile outcome or escalate |
 | Validation failure | Mark run Failed or Blocked according to the defined recovery policy; retain evidence |
 | State or integrity failure | Stop affected execution and escalate; do not reconstruct authority by guesswork |
 | Cancellation request | Check caller authority, stop safely, and record partial side effects |
 
-Recovery must preserve the original failure and execution history. A retry is not a new success unless the new run independently passes validation.
+Recovery must preserve the original failure and execution history. WMS coordinates retry, replay, and recovery but does not define an independent retry-safety policy; the conditions in `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 are normative. A retry is not a new success unless the new run independently passes validation. Retry counts, backoff, timeouts, and runtime behavior remain unresolved.
 
 ## 11. Validation and acceptance criteria
 

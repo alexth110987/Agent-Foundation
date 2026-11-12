@@ -40,7 +40,7 @@ These concerns belong to separately governed components.
 | Subcomponent | Responsibility | Primary record |
 | --- | --- | --- |
 | Identity | Stable identity and declared scope | `core/IDENTITY.md` |
-| Instruction governance | Authority, precedence, conflict handling | AGENT.md for project/repository instruction authority; core/OPERATING_RULES.md and this Core design record for designated agent-level policy; runtime precedence deferred |
+| Instruction governance | Authority, precedence, conflict handling | `AGENT.md` for project/repository instruction authority; `core/OPERATING_RULES.md` as the designated agent-level operating-policy record; `docs/CORE_SYSTEM.md` as a design/map document only; runtime precedence deferred |
 | Operating rules | General behavioral and safety constraints | `core/OPERATING_RULES.md` |
 | Configuration governance | Safe configuration rules | `core/CONFIGURATION.md` |
 | Change control | Approval and versioning of core changes | `AGENT.md`, decision log, changelog |

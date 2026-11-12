@@ -2,16 +2,21 @@
 
 All notable project changes are recorded here.
  
-## 0.39.0 — 2026-11-12
+## 0.40.0 — 2026-11-12
 
-### Added
-- Recorded a read-only follow-up Foundation Consistency Review (FCR-06 through FCR-11) covering the Core authority map, Foundation Completion Plan currency, WMS outcome/retry/registry requirements, and Error Handling validation terminology.
+### Corrected
+- Recorded the owner-approved documentation-only dispositions for FCR-06 through FCR-11.
+- Aligned the Core instruction-governance table with the approved FCR-04 authority/document map.
+- Refreshed the Foundation Completion Plan current-position snapshot to D-001–D-014 and changelog 0.39.0, distinguishing the approved D-014 Validation Strategy policy from absent validation execution capability.
+- Updated WMS run records to separate transaction outcome from process status, verification, and recovery; made Error Handling §7 retry/replay safety conditions normative; and added prohibited actions, restrictions, and scope exclusions to required workflow metadata.
+- Corrected Error Handling terminology to reference the D-014-approved Validation Strategy policy and explicitly state that no validation framework or execution capability is implemented.
 
 ### Updated
-- Updated Project Status and Foundation Completion Plan to identify the follow-up findings as pending owner disposition.
+- Aligned Project Status, Foundation Completion Plan, and Foundation Consistency Review with the approved dispositions.
 
 ### Clarifications
-- Findings are proposals for owner review only; no affected design document or approved baseline was changed. No D-015 was created. D-012 open questions, D-014 policy scope, Stage 1, and all implementation/testing/release safeguards remain unchanged. No tests or runtime checks were executed.
+- Documentation-only corrections. No D-005 through D-014 decision, R-01–R-07 principle, exact approved baseline, or D-012 open question was amended. No D-015 was created and no proposed architecture was approved.
+- Stage 1 remains active; purpose and runtime remain undefined. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed.
 
 
 ## 0.38.0 — 2026-11-12

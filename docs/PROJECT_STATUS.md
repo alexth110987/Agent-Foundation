@@ -37,7 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
-| Foundation consistency review | Static review completed; FCR-01–FCR-05 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
+| Foundation consistency review | Static review completed; FCR-01–FCR-11 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
 
 ## Approved baseline
 
@@ -82,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-05 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
+D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-11 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
 
 ## Evidence discipline
 
@@ -143,4 +143,4 @@ The owner approved the exact proposal source blobs for the Validation Strategy (
 
 ## Follow-up architecture review — 2026-11-12
 
-A read-only follow-up review of live `main` recorded FCR-06 through FCR-11 in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. The findings concern the Core authority map, stale Foundation Completion Plan summary, WMS transaction-outcome and retry traceability, explicit prohibited-action metadata, and an outdated Validation framework reference. All are pending owner disposition; no corrections or design approvals are implied. No approved baseline, D-014 policy, D-012 open question, or Stage 1 safeguard was changed.
+A read-only follow-up review of live `main` recorded FCR-06 through FCR-11. The owner approved all six documentation-only dispositions: the Core authority table was aligned with FCR-04; the Foundation Completion Plan snapshot was refreshed; WMS now records transaction outcome separately, applies shared retry-safety conditions, and requires prohibited-action metadata; and Error Handling now references the approved Validation Strategy policy while stating that no validation framework or execution capability exists. No approved baseline, D-014 policy scope, D-012 open question, or Stage 1 safeguard was changed. No tests or runtime checks were executed.

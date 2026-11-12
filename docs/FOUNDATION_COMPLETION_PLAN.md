@@ -19,7 +19,7 @@ Four review batches examined 20 logical review areas; a subsequent static Founda
 | 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Proposed designs reviewed; D-005 is approved but broader Core design remains open |
 | 2 | Core identity; configuration; workflow template/index; validation; error/recovery | Workflow template/index exist; validation layers are documented; standalone error/recovery proposal has now been added |
 | 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging and tool governance proposals added; D-006, D-007 and D-008 are approved logical baselines only |
-| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-012 are registered; changelog through 0.36.0; validation remains documentation-only |
+| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-014 are registered; changelog through 0.39.0 at this snapshot; Validation Strategy is an approved D-014 policy, while validation execution capability remains unimplemented |
 
 ### Confirmed approved baselines
 
@@ -50,7 +50,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Cross-document consistency review | FCR-01–FCR-05 dispositions approved; follow-up findings FCR-06–FCR-11 recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`, pending owner disposition | Review findings and decide approve/revise/defer; preserve exact approved baseline references |
+| P0 | Cross-document consistency review | FCR-01–FCR-11 documentation-only dispositions approved and recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md` | Owner dispositions FCR-01–FCR-11 recorded; preserve exact approved baseline references |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
 | P1 | Validation strategy | Approved under D-014 against exact source blob `69398a8416a9f2d138d399084aa9e6a31a913b66`; no automated validation exists | Keep policy aligned with future purpose/context; define deferred risk thresholds, independence, environments, evidence retention and release authority before implementation |
 | P1 | Documentation/version governance | Approved under D-014 against exact source blob `beb94648d9308fed79695ccb1d9184c0f0725c89`; no registry or automation implemented | Apply policy to future governed documents; decide deferred ID taxonomy, metadata, review roles/cadence, retention, tagging and automation as needed |
@@ -62,9 +62,9 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 ## 4. Recommended execution order
 
-1. The static foundation consistency review and owner disposition of FCR-01–FCR-05 are recorded; exact D-012 baseline blobs remain unchanged.
+1. The static foundation consistency review and owner dispositions of FCR-01–FCR-11 are recorded; exact approved baseline blobs remain unchanged.
 2. D-014 approval of the Validation Strategy and Documentation and Version Governance policies is recorded against the exact source blobs; retain their deferred choices and do not infer implementation.
-3. Obtain owner dispositions for FCR-06–FCR-11, then obtain separate decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions.
+3. Obtain separate decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions; the FCR-06–FCR-11 documentation dispositions are already recorded.
 4. Carry the PEP-at-each-protected-boundary requirement into future detailed interface design without selecting topology or implementation.
 5. Only after purpose and operating context are selected, prepare a bounded implementation proposal.
 6. Obtain separate explicit authorization for that exact implementation scope.
@@ -89,7 +89,7 @@ A successful smoke test is not feature verification, security validation, operat
 
 ## 6. Consistency review findings
 
-The static review and owner-approved dispositions are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; and FCR-05 records a future PEP boundary requirement. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
+The static review and owner-approved dispositions are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; FCR-05 records a future PEP boundary requirement; and FCR-06–FCR-11 correct Core authority mapping, plan currency, WMS transaction outcome/retry/metadata requirements, and Validation Strategy terminology. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
 
 ## 7. D-012 open questions — retained
 
@@ -136,4 +136,4 @@ The owner approved the exact source blobs of the Validation Strategy (`69398a841
 
 ## 12. Follow-up review handover — 2026-11-12
 
-FCR-06 through FCR-11 were recorded from a read-only review of live `main`. They are proposed findings, not approved changes. Obtain explicit owner dispositions before editing the affected Core, WMS, Error Handling, or plan wording. No implementation, runtime, test execution, validation execution, or release is authorized by this review.
+FCR-06 through FCR-11 were recorded from a read-only review of live `main`; the owner subsequently approved all six documentation-only corrections, which are recorded in §9 of the Foundation Consistency Review and reflected in the affected documents. No approved baseline, D-012 open question, or D-014 policy scope changed. No implementation, runtime, test execution, validation execution, or release is authorized.

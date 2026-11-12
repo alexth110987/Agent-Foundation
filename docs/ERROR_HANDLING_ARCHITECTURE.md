@@ -6,7 +6,7 @@
 
 ## 1. Purpose and boundaries
 
-Define a fail-safe approach to representing, containing, recovering from, and learning from failures across future components. This complements rather than replaces WMS, Identity and Authorization Contracts, Permission System, Provenance Contract, Lifecycle Contract, Logging Architecture, and Validation framework.
+Define a fail-safe approach to representing, containing, recovering from, and learning from failures across future components. This complements rather than replaces WMS, Identity and Authorization Contracts, Permission System, Provenance Contract, Lifecycle Contract, Logging Architecture, and the D-014-approved Validation Strategy policy. No validation framework or validation execution capability is implemented; validation, test execution, verification, and release remain separate gates.
 
 No technologies, providers, storage, transport, retry counts, timeout values, severity targets, retention periods, or service levels are selected. These depend on a future approved purpose and operating context.
 
