@@ -41,8 +41,8 @@ These approvals apply only to exact documentation baselines. They do not authori
 - docs/TOOL_GOVERNANCE.md — candidate registration, review, activation, suspension, and revocation lifecycle.
 - docs/IMPLEMENTATION_READINESS.md — readiness framework, pending owner review.
 - docs/JOINT_CONTRACT_REVIEW.md — proposed refinement register, pending owner review.
-- docs/VALIDATION_STRATEGY.md — proposed risk-based validation and evidence policy, pending owner review.
-- docs/DOCUMENTATION_VERSION_GOVERNANCE.md — proposed document identity, versioning, approval and baseline policy, pending owner review.
+- docs/VALIDATION_STRATEGY.md — approved purpose-neutral validation and evidence policy (D-014); no validation system implemented.
+- docs/DOCUMENTATION_VERSION_GOVERNANCE.md — approved document identity, versioning, approval and baseline policy (D-014); no registry or automation implemented.
 
 The Tool Registry remains empty. No tools are approved, configured, validated, active, or connected.
 
@@ -52,8 +52,8 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 | --- | --- | --- | --- |
 | P0 | Cross-document consistency review | Static review and owner dispositions FCR-01–FCR-05 recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`; documentation corrections prepared | Verify annotations/status language and preserve exact approved baseline references |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
-| P1 | Validation strategy | Proposed purpose-neutral strategy drafted in `docs/VALIDATION_STRATEGY.md`; pending owner review; no automated validation exists | Owner disposition of exact proposal; retain distinct evidence, feature, compatibility, security, smoke and release gates |
-| P1 | Documentation/version governance | Proposed policy drafted in `docs/DOCUMENTATION_VERSION_GOVERNANCE.md`; pending owner review | Owner disposition of document identity, versioning, immutable baselines, supersession, review and evidence conventions |
+| P1 | Validation strategy | Approved under D-014 against exact source blob `69398a8416a9f2d138d399084aa9e6a31a913b66`; no automated validation exists | Keep policy aligned with future purpose/context; define deferred risk thresholds, independence, environments, evidence retention and release authority before implementation |
+| P1 | Documentation/version governance | Approved under D-014 against exact source blob `beb94648d9308fed79695ccb1d9184c0f0725c89`; no registry or automation implemented | Apply policy to future governed documents; decide deferred ID taxonomy, metadata, review roles/cadence, retention, tagging and automation as needed |
 | P1 | Core and architecture review | Conceptual architecture, component model and broader Core design remain proposed | Authority/dependency/ownership review and explicit owner disposition |
 | P1 | Workflow framework review | Shared template/index exist; WMS remains proposed | Validate lifecycle, execution authority, cancellation, partial outcomes and recovery consistency |
 | P2 | D-012 unresolved questions | Five questions remain open | Explicit decisions or documented deferral; no assumptions |
@@ -63,7 +63,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 ## 4. Recommended execution order
 
 1. The static foundation consistency review and owner disposition of FCR-01–FCR-05 are recorded; exact D-012 baseline blobs remain unchanged.
-2. Obtain owner review of the proposed Validation Strategy and Documentation and Version Governance policy; record approval, revision, or deferral without assuming adoption.
+2. D-014 approval of the Validation Strategy and Documentation and Version Governance policies is recorded against the exact source blobs; retain their deferred choices and do not infer implementation.
 3. Obtain separate owner decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions.
 4. Carry the PEP-at-each-protected-boundary requirement into future detailed interface design without selecting topology or implementation.
 5. Only after purpose and operating context are selected, prepare a bounded implementation proposal.
@@ -127,3 +127,8 @@ A document may be implemented as documentation while its design remains Proposed
 ## 10. Owner disposition — FCR-01 through FCR-05 — 2026-11-12
 
 The owner approved all five dispositions in the Foundation Consistency Review. The three D-012 artifacts carry post-approval status annotations that preserve their exact approved source blob references. The Joint Contract Review remains Proposed and non-amending. The readiness framework distinguishes approved logical baselines from open implementation choices. The Core authority/document map is recorded, and the PEP owner/exact-context requirement is carried into future interface design. These are documentation-only changes; no implementation, runtime, integration, test execution, validation, or release is authorized.
+
+
+## 11. Owner approval — D-014 — 2026-11-12
+
+The owner approved the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as purpose-neutral foundation policies. Approval is documentation-only; neither validation execution capability nor a document registry/versioning automation has been implemented. Deferred choices and all five D-012 open questions remain open. No implementation, runtime, testing, production validation, or release is authorized.

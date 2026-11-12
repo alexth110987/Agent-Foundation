@@ -34,7 +34,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Object-Specific Lifecycle Tables | Approved logical design | D-009; exact approved source blob SHA `473598af630b44b78910ab1df3b7f53bbc1a0802`; documentation only; no state machines or lifecycle runtime |
 | Cross-System Interface & Ownership Matrix | Approved logical coordination baseline | D-012; exact approved source blob `98b4559d42a21bc769617a0cf2d0cce80f257d40`; documentation only; no interfaces or services implemented |
 | Tool registry and governance | Proposed governance design | No tools registered, approved, configured, validated, active, or connected; see docs/TOOL_GOVERNANCE.md |
-| Validation / tests | Proposed strategy documented; pending owner review | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
+| Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
 | Foundation consistency review | Static review completed; FCR-01–FCR-05 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
@@ -74,7 +74,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 - Resolve the remaining D-012 open questions: provenance requiredness by artifact/operation/risk; concrete lifecycle transitions and deletion/recovery criteria; delayed/duplicate/conflicting events; independent verification evidence; and tombstone/audit retention after deletion.
 - Owner review of proposed Error Handling and Recovery, Logging, and Tool Governance architectures.
 - Continue any follow-on review identified by FCR-04/FCR-05 during future Core/interface design; preserve exact approved baselines and the recorded PEP boundary requirement.
-- Owner review of proposed Validation Strategy and Documentation and Version Governance; decide whether to adopt their policy and document metadata/versioning conventions.
+- Deferred choices under D-014 remain open: validation risk thresholds, independence requirements, supported environments, evidence retention, release authority details, and documentation ID taxonomy/metadata/review/retention/tagging/automation specifics.
 - Implementing policy enforcement, workflow execution, memory, knowledge retrieval, tools, integrations, logging, or automation.
 - Creating domain-specific workflows.
 - Enabling workflow composition or concurrent execution.
@@ -82,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-The current next milestone is owner review of the proposed Validation Strategy (`docs/VALIDATION_STRATEGY.md`) and Documentation and Version Governance proposal (`docs/DOCUMENTATION_VERSION_GOVERNANCE.md`). Both are documentation-only proposals; neither is approved or implemented. The Foundation Consistency Review dispositions FCR-01–FCR-05 are approved and recorded. D-009 through D-013 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation, or release is authorized.
+D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-05 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
 
 ## Evidence discipline
 
@@ -134,3 +134,8 @@ Two purpose-neutral proposals have been added: `docs/VALIDATION_STRATEGY.md` and
 ## Owner disposition of Foundation Consistency Review — 2026-11-12
 
 The owner approved FCR-01–FCR-05. The three D-012 exact baselines retain their approved source blob SHAs and now carry non-substantive status annotations. The Joint Contract Review remains Proposed and non-amending. Implementation Readiness distinguishes approved logical baselines from open implementation-level choices. The Core authority/document boundary is mapped, and future interface design must identify each protected-boundary PEP and require exact-context enforcement immediately before side effects. The five D-012 open questions remain open. Stage 1, undefined purpose/runtime, and all implementation/testing/validation/release gates remain unchanged.
+
+
+## D-014 owner approval — 2026-11-12
+
+The owner approved the exact proposal source blobs for the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as purpose-neutral foundation policies. D-014 records the approval scope and deferred choices. The current documents carry approval annotations; their exact approved source baselines are preserved. No validation framework, test runner, automated validation, document registry, versioning automation, runtime, integration, or executable capability was implemented. No tests were run. Stage 1 and all implementation/testing/release safeguards remain unchanged.

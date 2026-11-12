@@ -33,8 +33,8 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 | `systems/memory/` | Approved logical Memory Management System architecture; not implemented |
 | `systems/knowledge/` | Approved logical Knowledge Management System architecture; not implemented |
 | `systems/permissions/` | Approved permission architecture and approved logical Identity and Authorization Contracts; documentation only, not implemented |
-| `systems/validation/` | Validation principles and future evidence requirements; proposed [Validation Strategy](docs/VALIDATION_STRATEGY.md) |
-| `docs/DOCUMENTATION_VERSION_GOVERNANCE.md` | Proposed document identity, approval, baseline, and version governance |
+| `systems/validation/` | Validation principles and future evidence requirements; approved [Validation Strategy](docs/VALIDATION_STRATEGY.md) (D-014), policy only |
+| `docs/DOCUMENTATION_VERSION_GOVERNANCE.md` | Approved document identity, approval, baseline, and version governance policy (D-014) |
 | `systems/logging/` | Proposed logging architecture and future audit requirements; no runtime implementation |
 | `tools/` | Tool registry and proposed governance controls; no tools approved or connected |
 | `tests/` | Testing policy and future test organization |
@@ -42,6 +42,6 @@ ChatGPT conversations are a workspace, not an alternative source of truth. A dec
 
 ## Current milestone
 
-**Stage 1 — Core foundation.** Establish governance, architecture, and reusable workflow standards. The owner-approved dispositions for FCR-01 through FCR-05 are recorded as documentation-only consistency corrections; exact D-012 baseline blobs remain unchanged. No agent runtime, integrations, automated actions, or domain-specific workflows are implemented in this stage.
+**Stage 1 — Core foundation.** Establish governance, architecture, and reusable workflow standards. D-014 approves the Validation Strategy and Documentation and Version Governance as documentation-only policies; FCR-01 through FCR-05 are also recorded as documentation-only consistency corrections. Exact approved source baselines remain preserved. No agent runtime, integrations, automated actions, or domain-specific workflows are implemented in this stage.
 
 See [Foundation Consistency Review](docs/FOUNDATION_CONSISTENCY_REVIEW.md), [Error Handling and Recovery Architecture](docs/ERROR_HANDLING_ARCHITECTURE.md), [Tool Governance](docs/TOOL_GOVERNANCE.md), [Logging Architecture](systems/logging/LOGGING_ARCHITECTURE.md), [Project Status](docs/PROJECT_STATUS.md), [Foundation Completion Plan](docs/FOUNDATION_COMPLETION_PLAN.md), [Architecture](docs/ARCHITECTURE.md), [Component Model](docs/COMPONENT_MODEL.md), [Provenance Contract](docs/PROVENANCE_CONTRACT.md), [Shared Lifecycle Contract](docs/LIFECYCLE_CONTRACT.md), [Object-Specific Lifecycle Tables](docs/OBJECT_LIFECYCLE_TABLES.md), [Cross-System Interface & Ownership Matrix](docs/CROSS_SYSTEM_INTERFACE_MATRIX.md), [Joint Contract Review](docs/JOINT_CONTRACT_REVIEW.md), [Permission Architecture](systems/permissions/PERMISSION_ARCHITECTURE.md), [Identity Contract](systems/permissions/IDENTITY_CONTRACT.md), [Authorization Contract](systems/permissions/AUTHORIZATION_CONTRACT.md), and [Workflow Index](workflows/WORKFLOW_INDEX.md).

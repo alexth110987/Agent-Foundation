@@ -1,6 +1,7 @@
-# Documentation and Version Governance — Proposed
+# Documentation and Version Governance — Approved
 
-**Status:** Proposed foundation policy; pending owner review.  
+**Status:** Approved under D-014 (2026-11-12).  
+**Approved source baseline blob SHA:** `beb94648d9308fed79695ccb1d9184c0f0725c89`  
 **Version:** 0.1.0  
 **Last updated:** 2026-11-12  
 **Scope:** Repository documentation and decision-record governance only. This proposal does not change the authority of AGENT.md or approve a runtime document hierarchy.
@@ -102,11 +103,11 @@ No one record substitutes for the others. Keep entries concise and cross-referen
 ## 10. Current limitations and open decisions
 
 - No stable document-ID registry or document-level versioning convention is currently implemented.
-- The proposed ID taxonomy, metadata format, version increments, review roles, review cadence, retention, tagging, and automation remain subject to owner review.
+- The approved policy leaves the ID taxonomy, metadata format, version increments, review roles, review cadence, retention, tagging, and automation open for later decisions where stated; approval does not silently finalize those deferred choices.
 - This proposal does not alter D-005 through D-013, any approved baseline, or the Core authority map recorded under FCR-04.
-- This proposal does not select a runtime, tool, repository automation, or document-management service.
+- This approved policy does not select a runtime, tool, repository automation, or document-management service.
 - The project remains Stage 1; no executable capability is authorized.
 
 ## 11. Review and change control
 
-Review this proposal alongside the Validation Strategy and before adopting a formal document registry or automated governance checks. Adoption requires explicit owner approval of the exact version and scope. Any substantive revision after approval requires a new owner decision and exact baseline reference.
+Review this proposal alongside the Validation Strategy and before adopting a formal document registry or automated governance checks. D-014 records owner approval of the exact source baseline blob and scope. Any substantive revision after approval requires a new owner decision and exact baseline reference.

@@ -110,3 +110,13 @@ The current MMS and KMS architecture files retain the exact approved blobs; thei
 - **Decision:** Approve the five owner dispositions FCR-01 through FCR-05 recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. This includes non-substantive post-approval status annotations for the three exact D-012 baseline artifacts; correction of Joint Contract Review status/scope wording; correction of Implementation Readiness blocker wording; the Core authority/document map; and the future protected-boundary PEP ownership and exact-context enforcement requirement.
 - **Rationale:** Resolve documented status and planning inconsistencies and make future governance/interface responsibilities explicit without expanding the project's operational scope.
 - **Impact:** The three exact D-012 approved source blob SHAs remain unchanged; annotations do not alter their approved design content or scope. The Joint Contract Review register remains Proposed and non-amending. D-006 through D-012 and R-01–R-07 are not amended. The five D-012 open questions remain unresolved. The Core/runtime instruction hierarchy remains deferred until a target runtime is selected. No process topology, service, PEP/PDP deployment, technology, implementation, integration, operational use, testing, validation, or release is approved. Stage 1 remains active.
+
+
+## D-014 — Validation and documentation governance policies approved
+- **Date:** 2026-11-12
+- **Status:** Approved
+- **Decision:** Approve the following exact proposal source blobs as purpose-neutral foundation policies:
+  - `docs/VALIDATION_STRATEGY.md` — `69398a8416a9f2d138d399084aa9e6a31a913b66`
+  - `docs/DOCUMENTATION_VERSION_GOVERNANCE.md` — `beb94648d9308fed79695ccb1d9184c0f0725c89`
+- **Rationale:** The owner explicitly approved both exact proposed documents as foundation policies.
+- **Impact:** Approval is limited to these exact documentation baselines and their stated policy scope. It does not authorize a validation framework, test runner, automated validation, test execution, document registry, versioning automation, runtime, integration, implementation, production/live-system testing, operational use, or release. Validation risk thresholds, independence requirements, supported environments, evidence retention, and release authority details remain open as specified. The documentation governance proposal's ID taxonomy, metadata format, review roles/cadence, retention, tagging, and automation remain open where specified. The five D-012 open questions remain unresolved. D-005 through D-013 and R-01–R-07 are not amended. Stage 1 remains active; operational purpose and runtime remain undefined.

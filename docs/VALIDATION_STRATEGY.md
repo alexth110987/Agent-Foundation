@@ -1,6 +1,7 @@
-# Validation Strategy — Proposed
+# Validation Strategy — Approved
 
-**Status:** Proposed foundation policy; pending owner review.  
+**Status:** Approved under D-014 (2026-11-12).  
+**Approved source baseline blob SHA:** `69398a8416a9f2d138d399084aa9e6a31a913b66`  
 **Version:** 0.1.0  
 **Last updated:** 2026-11-12  
 **Scope:** Purpose-neutral validation policy only. No validation framework, test runner, test suite, or runtime process is implemented or authorized by this document.
@@ -127,7 +128,7 @@ No gate is implied by another. Passing tests is not release approval.
 - No production or live-system testing is authorized.
 - Risk thresholds, independence requirements, supported environments, evidence retention periods, and release authority details remain to be selected after purpose and operating context are defined.
 - The five D-012 open questions remain open; this strategy does not resolve them.
-- This document remains Proposed pending explicit owner review.
+- This policy was approved under D-014 against the exact source baseline blob recorded above. Its approval is documentation-only and does not authorize a validation framework, test runner, runtime process, production testing, implementation, or release.
 
 ## 11. Review and change control
 

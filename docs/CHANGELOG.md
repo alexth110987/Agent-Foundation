@@ -2,6 +2,20 @@
 
 All notable project changes are recorded here.
 
+## 0.38.0 — 2026-11-12
+
+### Approved
+- Recorded D-014: owner approval of the exact Validation Strategy proposal blob `69398a8416a9f2d138d399084aa9e6a31a913b66` and Documentation and Version Governance proposal blob `beb94648d9308fed79695ccb1d9184c0f0725c89` as purpose-neutral foundation policies.
+- Updated both current policy documents with explicit D-014 approval annotations while preserving the exact approved source baselines.
+
+### Updated
+- Aligned Project Status, Foundation Completion Plan, and README with D-014 and the next foundation milestone.
+
+### Clarifications
+- Approval is documentation-only. No validation framework, test runner, automated validation, document registry, versioning automation, runtime, integration, or executable capability was implemented. No tests were run.
+- Deferred policy choices and all five D-012 open questions remain open. Stage 1 remains active; purpose and runtime remain undefined. No implementation, production testing, or release is authorized.
+
+
 ## 0.37.0 — 2026-11-12
 
 ### Added
