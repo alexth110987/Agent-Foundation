@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.47.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved documentation-only dispositions TG-01 through TG-03 in the Foundation Consistency Review.
+- Required independent authentication of the executing principal/component for every protected tool invocation, with current evidence validated at the protected-boundary PEP under D-010/D-011.
+- Added a proposed Tool Lifecycle Transition Matrix with explicit permitted transitions, transition conditions, and terminal/revocation safeguards.
+- Bound every Tool Governance lifecycle status, approval, and validation record to an exact provider/tool/API, version, configuration reference or not-yet-configured marker, environment, and permitted operation/resource/data scope.
+- Aligned the Tool Registry columns and scope rules with the exact governance-subject tuple.
+- Updated Project Status and README; Tool Governance remains Proposed and the Tool Registry remains empty.
+
+### Clarifications
+- Documentation-only corrections. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. The Tool Governance architecture was not approved.
+- No tool/provider, organizational role, configuration, environment, operation scope, credential, connection, activation, runtime, or integration was selected or created. No tests or validation were executed. No implementation, production activity, or release was authorized. Stage 1 remains active.
+
+
 ## 0.46.0 — 2026-11-12
 
 ### Corrected

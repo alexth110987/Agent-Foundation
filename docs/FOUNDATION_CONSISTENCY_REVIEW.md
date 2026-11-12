@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Static review completed; FCR-01 through FCR-15, AR-01 through AR-04, and ACR-05 through ACR-08 documentation-only dispositions approved.
+**Status:** Static review completed; FCR-01 through FCR-15, AR-01 through AR-04, ACR-05 through ACR-08, and TG-01 through TG-03 documentation-only dispositions approved.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `242c9f9caa9c2fb03cf3f4aa158ac848d9bc7cef`
 **Reviewed on:** 2026-11-12
@@ -11,7 +11,7 @@
 
 The foundation is broadly aligned on its principal safety boundaries: Core rules remain owner-controlled; identity, authentication and authorization are distinct; permission is checked at protected action boundaries; each system owns its canonical records; memory and knowledge do not create authority; uncertain side effects remain indeterminate; and validation, verification and release approval are separate.
 
-The initial review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. Subsequent follow-up reviews recorded FCR-06–FCR-15 and AR-01–AR-04; all owner-approved dispositions remain documentation-only. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
+The initial review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. Subsequent follow-up reviews recorded FCR-06–FCR-15, AR-01–AR-04, ACR-05–ACR-08, EH-01–EH-03, LOG-01–LOG-04, and TG-01–TG-03; all owner-approved dispositions remain documentation-only. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
 
 ## 2. Findings
 
@@ -388,3 +388,19 @@ The Logging Architecture now proposes a Retention and Deletion Governance Matrix
 The Logging Architecture now proposes a Logging Failure Policy Matrix distinguishing block/pending, bounded buffering with reconciliation, and policy-permitted controlled continuation for non-critical diagnostic events only. Required audit evidence must not be silently discarded. The matrix must align with EH-03's requirement for accountable event-class policy ownership. No universal shutdown rule, blanket continuation permission, or current event-class disposition is selected.
 
 These are documentation-only corrections. Logging remains Proposed; no event classification, retention duration, independent verification threshold, operational policy, technology, service, storage, runtime, or integration is approved or implemented. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and all five D-012 open questions remain unchanged. In particular, LOG-02 does not resolve D-012 open question 4, and LOG-03 does not resolve D-012 open question 5. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
+## 17. Owner disposition — Tool Governance review TG-01 through TG-03 — 2026-11-12
+
+The owner approved all three documentation-only dispositions. The corrections strengthen the Proposed Tool Governance design and its registry representation; they do not approve the architecture, select tools/providers, assign current organizational roles, or authorize configuration, connection, invocation, implementation, or operational use.
+
+### TG-01 — Executor authentication made unconditional at protected boundaries
+Tool Governance §5 now requires independent authentication of the initiating principal and executing principal/component for every protected invocation. The executor cannot inherit authentication from the initiator, workflow, or component association. The protected-boundary PEP must independently validate current executor authentication evidence and applicable freshness, audience, status, and revocation requirements under the approved D-010 Identity Contract and D-011 Authorization Contract. No identity provider or authentication technology is selected.
+
+### TG-02 — Explicit tool lifecycle transition matrix added
+Tool Governance §2.1 now specifies permitted lifecycle transitions and minimum conditions for each. Omitted transitions are prohibited; validation does not itself authorize activation; Active requires a separate explicit owner activation decision; Revoked cannot be restored through a direct state reversal; and Retired is terminal. Accountable owners and authorized actors must be identified for each candidate before implementation or operational use, but no current organizational role, emergency authority, or technical mechanism is assigned.
+
+### TG-03 — Lifecycle state bound to an exact governance subject
+Tool Governance §§2.1, 3, and 8 and the Tool Registry now bind every status, approval, and validation record to the exact provider/tool/API, version, configuration reference or explicit not-yet-configured marker, environment, and permitted operation/resource/data scope. A change to any element creates a distinct governance subject; approval, validation, and activation do not transfer automatically. The registry remains empty.
+
+These are documentation-only corrections. Tool Governance remains Proposed and the Tool Registry remains empty; no tool/provider, organizational role, configuration, environment, operation scope, validation evidence, credential, connection, activation, or runtime was selected or created. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and all five D-012 open questions remain unchanged. No implementation, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.

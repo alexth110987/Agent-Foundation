@@ -22,11 +22,45 @@ A registry entry, available connector, credential, or technical capability does 
 | Active | Explicit activation approval exists for exact scope/version/environment | Operate only within approved limits |
 | Suspended | Invocation temporarily disabled pending review/incident | No new invocation; contain/reconcile in-flight work |
 | Revoked | Approval withdrawn | Block invocation and revoke relevant access |
-| Retired | Permanently removed from active catalogue | Preserve required records and close dependencies |
+| Retired | Permanently removed from active catalogue; terminal state | Preserve required records and close dependencies |
 
-State changes record decision-maker, date, exact provider/tool/API/version, configuration reference (never secret values), approved scope, evidence, limitations, and review/expiry conditions. No state transition is inferred from availability or technical success.
+Every lifecycle status applies only to one exact governance subject: provider and tool/API identifier, exact version, configuration reference or non-secret configuration fingerprint (or an explicit not-yet-configured marker), named environment, and bounded permitted operation/resource/data scope. A change to any element creates a distinct governance subject and does not inherit approval, validation, or activation. Record each transition with prior/new state, decision-maker or authorized actor, date, exact subject tuple, rationale, approval/evidence references, limitations, and review/expiry conditions. No state transition is inferred from availability or technical success.
+
+### 2.1 Permitted lifecycle transitions
+
+Only the following transitions are defined. An omitted transition is prohibited; a status cannot be skipped because a technical check succeeded.
+
+| From | To | Minimum condition and authority |
+| --- | --- | --- |
+| Proposed | Under review | Candidate record is sufficiently complete to begin applicable reviews; record the review scope. |
+| Proposed | Retired | Candidate is withdrawn before approval; record the closure rationale. |
+| Under review | Proposed | Review is paused or required information is unavailable; preserve findings and outstanding evidence. |
+| Under review | Approved | All applicable independent review gates pass and the owner explicitly approves the exact governance subject and bounded scope. |
+| Under review | Retired | Candidate is withdrawn or rejected for further consideration; record the disposition and rationale. |
+| Approved | Configured inactive | Configuration is separately authorized and created for the exact approved subject; invocation remains disabled. |
+| Approved | Revoked | The owner withdraws the approval; block invocation and begin access-removal/containment actions. |
+| Approved | Retired | The approved candidate is withdrawn before configuration; preserve required records and close dependencies. |
+| Configured inactive | Validated | Required validation passes for the exact version, configuration, environment, and scope; validation evidence is recorded. |
+| Configured inactive | Suspended | A trigger in §6 requires invocation to remain disabled pending review or incident handling. |
+| Configured inactive | Revoked | Approval is withdrawn; block invocation and revoke relevant access through its authorized owner. |
+| Configured inactive | Retired | Owner-approved retirement; remove configuration and close dependencies. |
+| Validated | Active | Separate explicit owner activation approval names the exact validated subject, scope, environment, operations, limits, and review/expiry conditions. |
+| Validated | Configured inactive | Validation fails, expires, is invalidated, or no longer matches the exact subject; invocation remains disabled. |
+| Validated | Suspended | A trigger in §6 requires invocation to remain disabled pending review or incident handling. |
+| Validated | Revoked | Approval is withdrawn; block invocation and revoke relevant access through its authorized owner. |
+| Validated | Retired | Owner-approved retirement; remove configuration and close dependencies. |
+| Active | Suspended | An authorized suspension trigger or decision blocks new invocations; contain and reconcile in-flight work. |
+| Active | Revoked | The owner withdraws approval; block invocation and revoke relevant access through its authorized owner. |
+| Suspended | Under review | Containment is established and a new review is explicitly opened; this does not restore approval or invocation. |
+| Suspended | Revoked | The owner withdraws approval; complete revocation and access-removal handling. |
+| Suspended | Retired | Owner-approved retirement after containment, reconciliation, and dependency closure. |
+| Revoked | Retired | Required access-removal, evidence-preservation, and dependency-closure actions are complete. |
+
+Validated is evidence status, not activation authority. Active always requires a separate activation decision. Revoked cannot return to an earlier state; any future consideration requires a new candidate/governance record and a fresh approval lifecycle. Retired is terminal. The accountable owner and any authorized reviewer/suspending actor must be identified for the exact candidate before implementation or operational use; this matrix does not assign current organizational roles or create an emergency authority.
 
 ## 3. Registration requirements
+
+Each candidate's lifecycle state and every approval/validation record must be bound to the exact governance subject defined in §2.1. At minimum, identify the provider and tool/API, exact version, configuration reference/fingerprint (never secret values), environment, and permitted operation/resource/data scope. Use an explicit not-yet-configured marker before configuration exists; do not leave a scope dimension ambiguous. A materially changed version, configuration, environment, or scope is a different governance subject and requires its own applicable review, approval, and validation.
 
 A candidate record should include:
 
@@ -67,7 +101,7 @@ Passing a technical test does not approve the tool, its data access, or its exte
 For any future authorized invocation:
 
 - Resolve exact approved and active tool version; block version drift or unknown configuration.
-- Authenticate initiator and executor independently where required.
+- Independently authenticate the initiating principal and the executing principal/component for every protected invocation. The executor must never inherit authentication from the initiator, workflow, or component association. The PEP at the protected action boundary independently validates the executor's current authentication evidence and applicable freshness, audience, status, and revocation requirements under D-010 and D-011.
 - Validate input schema, target resource, owner, object version, lifecycle eligibility, and data classification.
 - Obtain fresh authorization bound to exact action, resource, scope, environment, purpose, and enforcement point.
 - Obtain explicit approval for consequential, external, destructive, irreversible, financial, communicative, or publication operations.
@@ -100,7 +134,7 @@ A PASS applies only to the tested version/configuration. It does not prove all f
 
 ## 8. Registry relationship
 
-The Tool Registry indexes candidates and their governance states. This document defines proposed review/lifecycle controls. A table row is not a substitute for a full candidate record or evidence. No tool is currently registered, approved, configured, validated, active, or connected.
+The Tool Registry indexes candidates and their governance states, with each state bound to the exact governance subject in §2.1. A table row is not a substitute for a full candidate record or evidence. No tool is currently registered, approved, configured, validated, active, or connected.
 
 ## 9. Unresolved decisions
 
