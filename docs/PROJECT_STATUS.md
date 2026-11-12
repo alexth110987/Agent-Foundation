@@ -56,9 +56,9 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Permission System: `systems/permissions/PERMISSION_ARCHITECTURE.md`, exact approved baseline blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305` (D-008). The current file includes post-approval status/readiness annotations; D-008 remains scoped to the exact baseline.
 - Approval is limited to those exact logical architecture documents. It does not authorize implementation, technology selection, runtime construction, data/source ingestion, operational use, or release.
 
-## Proposed for review
+| GitHub-native project environment | Proposed | Project storage/change-control direction, pre-upload privacy and secret screening, timestamp/event records, GitHub Actions defense-in-depth, and recovery requirements documented; no controls implemented; see `docs/GITHUB_NATIVE_ENVIRONMENT.md` |\n\n## Proposed for review
 
-- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
+- GitHub-native project environment in `docs/GITHUB_NATIVE_ENVIRONMENT.md`; proposed, pending owner review.\n- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
@@ -82,7 +82,7 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-15 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
+D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone includes owner review of the proposed GitHub-native project environment alongside the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, and unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-15 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
 
 ## Follow-up consistency review — FCR-12 through FCR-15 — 2026-11-12
 

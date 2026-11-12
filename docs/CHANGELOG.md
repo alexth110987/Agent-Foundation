@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.48.0 — 2026-11-12
+
+### Added
+- Recorded a proposed GitHub-native project-environment design for canonical information organization, change traceability, pre-upload privacy/secret screening, GitHub Actions defense-in-depth, UTC event timestamps, and independent recovery planning.
+- Clarified that GitHub Actions runs after content reaches GitHub and therefore cannot alone guarantee that prohibited data never enters a public repository; a trusted pre-upload gate and enforced write path are required.
+- Defined timestamp distinctions for event, effective, observed, recorded, and verification time, with source/trust metadata and exact commit/blob linkage.
+
+### Clarifications
+- Documentation-only proposal. It does not change repository visibility or permissions, enable branch/ruleset protection, add GitHub Actions workflows, install a scanner, create a timestamp service, configure backups, or authorize implementation or production use.
+- Detection cannot guarantee discovery of all personal data; supported coverage and false-negative limitations require validation. GitHub account attribution metadata is an explicit unresolved privacy consideration.
+- Stage 1 remains active. No tests or validation were executed.
+
 ## 0.47.0 — 2026-11-12
 
 ### Corrected
