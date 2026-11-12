@@ -9,7 +9,7 @@ The Memory Management System governs information deliberately retained across ta
 
 The approved logical architecture baseline is [Memory Architecture](MEMORY_ARCHITECTURE.md), exact approved Git blob SHA `197ac0974f5ceea357f6ad846a299304dd13da9c`. D-006 approves that exact document only. The approval does not authorize implementation, technology selection, runtime construction, data ingestion, operational use, or release.
 
-The shared [Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) is proposed and pending owner review. MMS remains responsible for provenance references and transformation lineage attached to its own durable memory records and derived data. Provenance completeness does not determine memory confidence or authorize retention.
+The shared [Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) is an approved logical contract baseline under D-012 (documentation only). MMS remains responsible for provenance references and transformation lineage attached to its own durable memory records and derived data. Provenance completeness does not determine memory confidence or authorize retention.
 
 ## Baseline categories
 

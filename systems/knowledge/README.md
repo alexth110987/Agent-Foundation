@@ -9,7 +9,7 @@ The Knowledge Management System governs curated reference information that an au
 
 The approved logical architecture baseline is [Knowledge Architecture](KNOWLEDGE_ARCHITECTURE.md), exact approved Git blob SHA `c1dda460a8d02939db9ca9b16611be79e12019b6`. D-007 approves that exact document only. The approval does not authorize implementation, technology selection, runtime construction, source ingestion, operational use, or release.
 
-The shared [Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) is proposed and pending owner review. It describes interoperable origin and transformation lineage; it does not replace KMS ownership of source records, versions, review/trust state, freshness, or retrieval eligibility.
+The shared [Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) is an approved logical contract baseline under D-012 (documentation only). It describes interoperable origin and transformation lineage; it does not replace KMS ownership of source records, versions, review/trust state, freshness, or retrieval eligibility.
 
 ## Responsibility boundary
 

@@ -1,6 +1,6 @@
 # Permissions and Authorization
 
-**Status:** Permission architecture approved (D-008); Identity Contract and Authorization Contract proposed — pending owner review.  
+**Status:** Permission architecture approved (D-008); Identity Contract approved (D-010); Authorization Contract approved (D-011). All are logical/documentation baselines only.  
 **Implementation:** Not implemented. No permission service, policy engine, identity provider, approval service, or enforcement adapter exists.
 
 ## Purpose
@@ -10,11 +10,11 @@ The Permission System defines how a future agent evaluates and enforces authoriz
 ## Architecture and contracts
 
 - [Permission System — Logical Architecture](PERMISSION_ARCHITECTURE.md) — approved logical architecture (D-008); implementation not authorized.
-- [Identity Contract](IDENTITY_CONTRACT.md) — proposed; pending owner review.
-- [Authorization Contract](AUTHORIZATION_CONTRACT.md) — proposed; pending owner review.
-- [Shared Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) — proposed; records origin and handling lineage only; it does not authenticate actors or grant permission.
+- [Identity Contract](IDENTITY_CONTRACT.md) — approved logical contract baseline (D-010); implementation not authorized.
+- [Authorization Contract](AUTHORIZATION_CONTRACT.md) — approved logical contract baseline (D-011); implementation not authorized.
+- [Shared Provenance Contract](../../docs/PROVENANCE_CONTRACT.md) — approved logical contract baseline (D-012); records origin and handling lineage only; it does not authenticate actors or grant permission.
 
-The contracts refine identity and authorization boundaries but do not amend D-008 or authorize implementation.
+The approved contracts refine identity, authorization, and provenance boundaries. Their exact approved scopes remain governed by D-008, D-010, D-011, and D-012; none authorizes implementation.
 
 ## Baseline safeguards
 

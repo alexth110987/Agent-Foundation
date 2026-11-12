@@ -4,11 +4,12 @@
 Use the ChatGPT Project for planning and review. Use this repository for approved, durable project records. There is no assumed automatic synchronization.
 
 ## Before a change
-1. Read `AGENT.md`, `docs/PROJECT_STATUS.md`, and relevant design or decision records.
-2. Identify the exact files and scope affected.
-3. Check current repository state rather than relying on memory or old conversation context.
-4. Separate proposals from approved changes.
-5. Identify permission, privacy, compatibility, and safety implications.
+1. Read the live files on `main` in this exact order: `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md`. If any required file is inaccessible, stop and report the exact failure before making repository changes.
+2. Read relevant design or decision records.
+3. Identify the exact files and scope affected.
+4. Check current repository state rather than relying on memory or old conversation context.
+5. Separate proposals from approved changes.
+6. Identify permission, privacy, compatibility, and safety implications.
 
 ## Making a change
 1. Keep the change focused and internally consistent.

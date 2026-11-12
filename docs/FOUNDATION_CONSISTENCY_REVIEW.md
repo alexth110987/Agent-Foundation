@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Static review completed; FCR-01 through FCR-11 dispositions approved for documentation-only correction.
+**Status:** Static review completed; FCR-01 through FCR-15 dispositions approved for documentation-only correction.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
 **Reviewed on:** 2026-11-12
@@ -11,7 +11,7 @@
 
 The foundation is broadly aligned on its principal safety boundaries: Core rules remain owner-controlled; identity, authentication and authorization are distinct; permission is checked at protected action boundaries; each system owns its canonical records; memory and knowledge do not create authority; uncertain side effects remain indeterminate; and validation, verification and release approval are separate.
 
-The review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
+The initial review found **three confirmed documentation-status inconsistencies** and **two design/governance ambiguities**. Subsequent follow-up reviews recorded FCR-06–FCR-15; all owner-approved dispositions remain documentation-only. These were documentation and governance findings, not defects in an implemented system. The owner-approved dispositions are recorded in §7. No runtime exists and no tests were run.
 
 ## 2. Findings
 
@@ -206,3 +206,62 @@ The WMS workflow-definition metadata now explicitly requires prohibited actions,
 Error Handling now refers to the D-014-approved Validation Strategy policy and explicitly states that no validation framework or execution capability is implemented. Test execution, validation, verification, and release gates remain distinct.
 
 These corrections do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; resolve any D-012 open question; approve the Core, WMS, Error Handling, Logging, Tool Governance, or conceptual architecture proposals; or authorize implementation, runtime, integration, testing, validation execution, production activity, or release. Stage 1 remains active; purpose and runtime remain undefined.
+
+
+## 10. Follow-up consistency review — 2026-11-12
+
+**Review type:** Read-only static review of live documentation on `main`.  
+**Reviewed branch head:** `081f694727f155b8a0c216f232d9b0419682cfc7`  
+**Scope:** Current approval-status references for D-010/D-011/D-012; README and Foundation Completion Plan currency; Information Systems Review next steps; and Development Guide repository read order.  
+**Disposition at review time:** Findings were proposed for owner review. The owner subsequently approved all four documentation-only dispositions recorded below.
+
+### FCR-12 — Stale approval status for D-010, D-011, and D-012 contracts
+- **Severity:** High — approved-baseline status accuracy.
+- **Classification:** Confirmed current-status inconsistency.
+- **Evidence:** `systems/permissions/README.md` described the Identity and Authorization Contracts as proposed/pending owner review despite D-010 and D-011 approval, and described the Provenance Contract similarly despite D-012 approval. The Memory and Knowledge READMEs also called the D-012 Provenance Contract proposed. The Cross-System Interface Matrix's authority statement called Provenance and Shared Lifecycle proposed, while §8 stated that the matrix did not approve any of four proposed contracts. The matrix's own post-approval annotation already identified it as an approved D-012 baseline and superseded legacy status wording generally, but did not explicitly clarify the four contract approvals.
+- **Risk:** Readers may mistake approved logical baselines for proposals or assume additional owner approval is required.
+- **Proposed disposition:** Correct current status in the Permissions, Memory, and Knowledge READMEs. Add an explicit post-approval status clarification to the Matrix covering Identity (D-010), Authorization (D-011), Provenance (D-012), and Shared Lifecycle (D-012), including that the legacy non-approval statement is historical. Preserve every exact approved source blob and scope; no implementation is authorized.
+
+### FCR-13 — Stale README and Foundation Completion Plan snapshots
+- **Severity:** Medium — project-status accuracy.
+- **Classification:** Confirmed stale current-state summary.
+- **Evidence:** The README milestone mentioned FCR-01 through FCR-05 only, omitting the approved FCR-06–FCR-11 dispositions. The Foundation Completion Plan Batch 4 snapshot cited changelog 0.39.0 while the live changelog was 0.40.0.
+- **Risk:** The project entry points and durable handover plan under-report the recorded correction history and contain stale version information.
+- **Proposed disposition:** Synchronize README and Foundation Completion Plan with FCR-01–FCR-15 and current changelog 0.41.0. Preserve the plan's historical review-count limitations and all approval boundaries.
+
+### FCR-14 — Information Systems Review retains completed approval tasks
+- **Severity:** Medium — planning accuracy.
+- **Classification:** Confirmed stale next steps.
+- **Evidence:** Sections 1, 7, and 8 record that the exact MMS and KMS logical architecture versions are approved under D-006 and D-007. Section 9 nevertheless asks for formal approval and registration of those same versions.
+- **Risk:** Future work may repeat completed approval steps or create uncertainty about the current D-006/D-007 status.
+- **Proposed disposition:** Replace the stale approval requests with remaining cross-system interface/design work and retention of the five D-012 open questions. Keep implementation deferred and preserve D-006/D-007 exact baselines.
+
+### FCR-15 — Development Guide omits mandatory repository instructions
+- **Severity:** Low — repository workflow consistency.
+- **Classification:** Confirmed workflow-documentation gap.
+- **Evidence:** The Development Guide's pre-change checklist omitted `AGENTS.md` and did not specify the mandatory order `AGENT.md`, `AGENTS.md`, `docs/PROJECT_STATUS.md`.
+- **Risk:** Contributors may begin repository work without reading repository-maintenance instructions or the current project status in the required order.
+- **Proposed disposition:** Align the Development Guide with the mandatory live-`main` read order and stop/report behavior in `AGENTS.md`. No architecture or operational policy change.
+
+All four findings concern documentation accuracy and repository process. They do not amend D-005 through D-014, R-01–R-07, any exact approved baseline, or the five D-012 open questions; approve any proposed architecture; create a decision record; or authorize implementation, runtime, integration, testing, validation, production activity, or release. Stage 1 remains active.
+
+## 11. Owner disposition — FCR-12 through FCR-15 — 2026-11-12
+
+The owner explicitly approved all four proposed dispositions. The following documentation corrections are authorized and recorded; they do not amend any approved decision or baseline.
+
+### FCR-12 — Contract approval status aligned
+- The Permissions README now identifies the Identity Contract as approved under D-010, the Authorization Contract as approved under D-011, and the Provenance Contract as approved under D-012.
+- The Memory and Knowledge READMEs now identify the Provenance Contract as an approved logical baseline under D-012.
+- The Cross-System Interface Matrix carries an explicit post-approval clarification that Identity (D-010), Authorization (D-011), Provenance (D-012), and Shared Lifecycle (D-012) are approved logical/documentation baselines within their exact recorded scopes. Its legacy non-approval wording is identified as historical.
+- Exact approved source blobs and scopes remain unchanged; no implementation is authorized.
+
+### FCR-13 — Project snapshots synchronized
+The README and Foundation Completion Plan now record FCR-01–FCR-15. The plan's current changelog snapshot is 0.41.0. The historical review count remains a documentation-review count, not a completion or verification metric.
+
+### FCR-14 — Information Systems Review next steps corrected
+The stale requests for formal D-006/D-007 approval have been replaced with remaining cross-system interface/design work and explicit preservation of the five D-012 open questions. The exact approved MMS/KMS logical architecture baselines remain unchanged.
+
+### FCR-15 — Development Guide read order corrected
+The pre-change instructions now require reading live `main` files in this exact order: `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md`. If any required file is inaccessible, repository changes must stop and the exact failure must be reported.
+
+These corrections are documentation-only. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. No new decision record was created; no proposed architecture was approved; and no implementation, runtime, integration, testing, validation execution, production activity, or release was authorized. Stage 1 remains active.

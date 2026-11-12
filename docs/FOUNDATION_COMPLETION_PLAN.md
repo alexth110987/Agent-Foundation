@@ -19,7 +19,7 @@ Four review batches examined 20 logical review areas; a subsequent static Founda
 | 1 | Conceptual architecture; component model; Core System; Workflow Management System; implementation readiness | Proposed designs reviewed; D-005 is approved but broader Core design remains open |
 | 2 | Core identity; configuration; workflow template/index; validation; error/recovery | Workflow template/index exist; validation layers are documented; standalone error/recovery proposal has now been added |
 | 3 | Logging; tool registry/governance; MMS; KMS; permissions | Logging and tool governance proposals added; D-006, D-007 and D-008 are approved logical baselines only |
-| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-014 are registered; changelog through 0.39.0 at this snapshot; Validation Strategy is an approved D-014 policy, while validation execution capability remains unimplemented |
+| 4 | Decision log; changelog/version history; README/documentation map; error handling; validation | D-001–D-014 are registered; changelog through 0.41.0 at this snapshot; Validation Strategy is an approved D-014 policy, while validation execution capability remains unimplemented |
 
 ### Confirmed approved baselines
 
@@ -50,7 +50,7 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Cross-document consistency review | FCR-01–FCR-11 documentation-only dispositions approved and recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md` | Owner dispositions FCR-01–FCR-11 recorded; preserve exact approved baseline references |
+| P0 | Cross-document consistency review | FCR-01–FCR-15 documentation-only dispositions approved and recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md` | Owner dispositions FCR-01–FCR-11 recorded; preserve exact approved baseline references |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
 | P1 | Validation strategy | Approved under D-014 against exact source blob `69398a8416a9f2d138d399084aa9e6a31a913b66`; no automated validation exists | Keep policy aligned with future purpose/context; define deferred risk thresholds, independence, environments, evidence retention and release authority before implementation |
 | P1 | Documentation/version governance | Approved under D-014 against exact source blob `beb94648d9308fed79695ccb1d9184c0f0725c89`; no registry or automation implemented | Apply policy to future governed documents; decide deferred ID taxonomy, metadata, review roles/cadence, retention, tagging and automation as needed |
@@ -89,7 +89,7 @@ A successful smoke test is not feature verification, security validation, operat
 
 ## 6. Consistency review findings
 
-The static review and owner-approved dispositions are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; FCR-05 records a future PEP boundary requirement; and FCR-06–FCR-11 correct Core authority mapping, plan currency, WMS transaction outcome/retry/metadata requirements, and Validation Strategy terminology. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
+The static review and owner-approved dispositions FCR-01–FCR-15 are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; FCR-05 records a future PEP boundary requirement; and FCR-06–FCR-11 correct Core authority mapping, plan currency, WMS transaction outcome/retry/metadata requirements, and Validation Strategy terminology; FCR-12–FCR-15 correct contract approval status, project snapshots, stale next steps, and repository read-order guidance. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
 
 ## 7. D-012 open questions — retained
 
@@ -137,3 +137,8 @@ The owner approved the exact source blobs of the Validation Strategy (`69398a841
 ## 12. Follow-up review handover — 2026-11-12
 
 FCR-06 through FCR-11 were recorded from a read-only review of live `main`; the owner subsequently approved all six documentation-only corrections, which are recorded in §9 of the Foundation Consistency Review and reflected in the affected documents. No approved baseline, D-012 open question, or D-014 policy scope changed. No implementation, runtime, test execution, validation execution, or release is authorized.
+
+
+## 13. Follow-up consistency review handover — FCR-12 through FCR-15 — 2026-11-12
+
+The owner approved four additional documentation-only corrections. FCR-12 aligns current status references with approved D-010, D-011, and D-012 logical baselines while preserving exact approved source content; FCR-13 synchronizes README and plan snapshots with FCR-01–FCR-15 and changelog 0.41.0; FCR-14 replaces stale requests for D-006/D-007 approval with remaining interface/design work; and FCR-15 aligns the Development Guide with the mandatory repository read order. No decision, approved baseline, D-012 open question, or D-014 policy scope changed. Stage 1 and all implementation/testing/validation/release safeguards remain unchanged.

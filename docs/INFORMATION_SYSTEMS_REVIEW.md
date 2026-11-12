@@ -152,8 +152,8 @@ On 2026-11-11, the owner accepted all seven recommendations in principle and aut
 
 ## 9. Next work
 
-1. Obtain the owner's separate formal decision on the exact MMS and KMS architecture versions now prepared on `main`.
-2. Record each architecture's approval, amendments, or deferral independently.
-3. Keep implementation deferred until purpose, operating context, and architecture are explicitly approved.
+1. Define the remaining MMS/KMS cross-system interface details only after purpose and operating context are approved, including provenance references, owner-local lifecycle reconciliation, withdrawal/deletion handling, and derived-index consistency.
+2. Preserve the five open D-012 questions and resolve them only through separate explicit owner decisions; do not infer answers from this review.
+3. Keep implementation deferred until purpose, operating context, and any bounded implementation architecture are explicitly approved. D-006 and D-007 already record approval of the exact logical architecture baselines; no further approval request for those same versions is outstanding.
 
 No operational workflow, data store, index, retrieval engine, integration, or domain-specific capability is authorized by this review.

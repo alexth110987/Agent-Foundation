@@ -1,7 +1,20 @@
 # Changelog
 
 All notable project changes are recorded here.
- 
+
+## 0.41.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved documentation-only dispositions for FCR-12 through FCR-15.
+- Aligned Permissions, Memory, Knowledge, and Cross-System Interface Matrix current-status wording with the approved D-010, D-011, and D-012 logical contract baselines while preserving exact approved baseline content and scope.
+- Updated the README and Foundation Completion Plan to reflect FCR-01–FCR-15 and the current changelog version.
+- Replaced stale Information Systems Review approval tasks with the remaining cross-system design work; D-006 and D-007 approvals remain unchanged.
+- Updated the Development Guide to require the live-main repository read order: `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md`.
+
+### Clarifications
+- Documentation-only corrections. No decision or exact approved baseline was amended; no D-012 open question was resolved; no new decision record was created; and no proposed architecture was approved.
+- Stage 1 remains active; purpose and runtime remain undefined. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed.
+
 ## 0.40.0 — 2026-11-12
 
 ### Corrected

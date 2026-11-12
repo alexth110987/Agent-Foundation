@@ -37,7 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
-| Foundation consistency review | Static review completed; FCR-01–FCR-11 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
+| Foundation consistency review | Static review completed; FCR-01–FCR-15 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
 
 ## Approved baseline
 
@@ -82,7 +82,11 @@ Cross-system principles R-01–R-07 are accepted in principle. MMS and KMS logic
 
 ## Next milestone
 
-D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-11 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
+D-014 approves the exact source blobs of the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as documentation-only foundation policies. Their current files carry approval annotations; the approved source baselines remain unchanged. The next milestone is owner review of the remaining proposed Error Handling, Logging, Tool Governance, Workflow Management, broader Core, and architecture designs, alongside unresolved cross-system questions. The Foundation Consistency Review dispositions FCR-01–FCR-15 are approved and recorded. D-009 through D-014 remain limited to their exact recorded documentation/design scopes. The five D-012 open questions remain unresolved. Stage 1 remains active; purpose and runtime remain undefined, and no implementation, testing, validation execution, or release is authorized.
+
+## Follow-up consistency review — FCR-12 through FCR-15 — 2026-11-12
+
+The owner approved four documentation-only corrections. FCR-12 aligns the Permissions, Memory, Knowledge, and Cross-System Interface Matrix status references with the approved D-010, D-011, and D-012 logical contract baselines; exact approved source blobs and scopes remain unchanged. FCR-13 synchronizes the README and Foundation Completion Plan with the recorded FCR-01–FCR-15 dispositions and changelog 0.41.0. FCR-14 updates the Information Systems Review next steps to reflect that D-006 and D-007 are already approved, while preserving remaining cross-system design work. FCR-15 aligns the Development Guide with the mandatory live-main read order. No decision or approved baseline was amended, no D-012 open question was resolved, and no implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized. Stage 1 remains active.
 
 ## Evidence discipline
 
