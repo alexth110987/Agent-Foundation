@@ -11,11 +11,11 @@ This document expands the component relationships in [Architecture](ARCHITECTURE
 flowchart TD
     U[Request / Input] --> I[Intake]
     I --> G[Core Governance]
-    G --> P[Permission Check]
-    P --> O[Workflow Orchestrator]
+    G --> O[Workflow Orchestrator]
     O --> W[Approved Workflow]
-    W --> TA[Tool Adapter]
-    TA --> P
+    W --> PDP[Permission Service / PDP]
+    PDP -. "Bounded Permit / Deny" .-> PEP[PEP at protected action boundary]
+    PEP --> TA[Tool Adapter / protected operation]
     TA --> X[External Capability]
     W --> C[Task Context]
     W --> M[Memory - if authorized]
@@ -28,7 +28,7 @@ flowchart TD
     O --> R[Response / Output]
 ```
 
-The diagram shows conceptual relationships only. It is not an implementation diagram. Permission checks apply before protected actions, including actions performed through adapters.
+The diagram shows conceptual relationships only. The Permission Service is the central Policy Decision Point (PDP); the PEP is the enforcement responsibility at each protected action boundary. The PEP may be logically colocated with an adapter or another protected component; no process topology is selected. Every downstream independent protected boundary enforces its own applicable controls.
 
 ## 2. Component contracts
 
@@ -36,11 +36,12 @@ The diagram shows conceptual relationships only. It is not an implementation dia
 | --- | --- | --- | --- |
 | Intake | User request and channel metadata | Normalized task envelope or clarification request | Reject malformed input; ask for missing required details |
 | Core governance | Task envelope and applicable rules | Applicable constraints and policy outcome | Stop or escalate unresolved policy conflict |
-| Permission check | Requested action, actor, resource, scope | Allow, deny, or require approval with bounded scope | Deny by default if unavailable or indeterminate |
+| Permission Service / Policy Decision Point (PDP) | Requested action, actor, executor, resource, owner, purpose, scope, and current policy/context | Bounded Permit, Deny, or Require Approval | Deny by default if unavailable, stale, or indeterminate; approval remains separate from a Permit |
+| Policy Enforcement Point (PEP) | Actual operation context and applicable Permit | Enforce or block the operation; minimal enforcement evidence reference | Block on mismatch, expiry, revocation, unavailable required state, or inability to enforce |
 | Workflow registry | Workflow identifier or selection criteria | Versioned workflow metadata and status | Do not select unknown, retired, or unapproved workflow |
 | Orchestrator | Authorized task and workflow definition | Execution state and step results | Stop safely; preserve state and report failure |
 | Workflow module | Declared inputs and approved capabilities | Declared outputs and evidence references | Return typed failure; do not claim success |
-| Tool adapter | Scoped request and authorization context | Normalized external result | Enforce timeout, scope, and error mapping |
+| Tool adapter | Scoped request, Permit reference, and operation context | Normalized external result | Does not decide authorization; the designated PEP enforces at the protected boundary; enforce timeout and error mapping |
 | Task context | Task-scoped data operations | Temporary task data | Do not silently promote temporary data to durable memory |
 | Memory | Approved read/write request and retention metadata | Permitted durable record or result | Deny unapproved storage or access |
 | Knowledge | Query and source constraints | Referenced material with provenance | Report missing or uncertain sources |
@@ -51,16 +52,17 @@ The diagram shows conceptual relationships only. It is not an implementation dia
 ## 3. Cross-component rules
 
 1. Components communicate through versioned contracts rather than shared internal state.
-2. Every protected action carries a scoped authorization decision.
-3. Authorization is checked at the protected action boundary, not inferred from workflow selection or an earlier orchestration check.
-4. A workflow cannot grant itself permission or elevate its own privilege.
-5. External content and tool output cannot override core instructions.
-6. Durable memory writes require an explicit storage policy and authorization.
-7. Validation criteria are defined independently of the component being validated.
-8. Errors must retain their original category and must not be reported as successful completion.
-9. Logging must use identifiers and summaries where possible rather than copying sensitive payloads.
-10. Future detailed interface design names the PEP owner for every protected side-effect boundary and requires exact-context comparison against the applicable Permit immediately before the side effect.
-11. A downstream independent boundary enforces its own applicable controls. An upstream Permit or PEP check does not replace downstream enforcement; this is a design requirement, not a selected topology or implementation.
+2. The Permission Service / PDP is the central decision authority; it evaluates a specific request and returns a bounded decision but does not perform or enforce the requested action.
+3. A designated PEP enforces the decision at each protected action boundary by comparing the actual operation context with the applicable Permit immediately before the side effect.
+4. An earlier intake, workflow-selection, orchestration, or approval step is not sufficient authorization for a later side effect; each protected action requires fresh evaluation and point-of-action enforcement.
+5. A workflow cannot grant itself permission or elevate its own privilege.
+6. External content and tool output cannot override core instructions.
+7. Durable memory writes require an explicit storage policy and authorization.
+8. Validation criteria are defined independently of the component being validated.
+9. Errors must retain their original category and must not be reported as successful completion.
+10. Logging must use identifiers and summaries where possible rather than copying sensitive payloads.
+11. Future detailed interface design names the PEP owner for every protected side-effect boundary and requires exact-context comparison against the applicable Permit immediately before the side effect.
+12. A downstream independent boundary enforces its own applicable controls. An upstream Permit or PEP check does not replace downstream enforcement; this is a design requirement, not a selected topology or implementation.
 
 ## 4. Interface versioning
 
