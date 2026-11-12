@@ -50,19 +50,19 @@ The Tool Registry remains empty. No tools are approved, configured, validated, a
 
 | Priority | Work item | Current finding | Completion evidence |
 | --- | --- | --- | --- |
-| P0 | Cross-document consistency review | FCR-01–FCR-15 documentation-only dispositions approved and recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md` | Owner dispositions FCR-01–FCR-15 recorded; preserve exact approved baseline references |
+| P0 | Cross-document consistency review | FCR-01–FCR-15 and AR-01–AR-04 documentation-only dispositions approved and recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md` | Owner dispositions recorded; preserve exact approved baseline references and keep proposed architectures unapproved |
 | P0 | Owner review of cross-cutting proposals | Error Handling, Logging, Tool Governance are Proposed | Explicit owner decisions with exact artifact/version scope; unresolved issues retained |
 | P1 | Validation strategy | Approved under D-014 against exact source blob `69398a8416a9f2d138d399084aa9e6a31a913b66`; no automated validation exists | Keep policy aligned with future purpose/context; define deferred risk thresholds, independence, environments, evidence retention and release authority before implementation |
 | P1 | Documentation/version governance | Approved under D-014 against exact source blob `beb94648d9308fed79695ccb1d9184c0f0725c89`; no registry or automation implemented | Apply policy to future governed documents; decide deferred ID taxonomy, metadata, review roles/cadence, retention, tagging and automation as needed |
-| P1 | Core and architecture review | Conceptual architecture, component model and broader Core design remain proposed | Authority/dependency/ownership review and explicit owner disposition |
-| P1 | Workflow framework review | Shared template/index exist; WMS remains proposed | Validate lifecycle, execution authority, cancellation, partial outcomes and recovery consistency |
+| P1 | Core and architecture review | Conceptual architecture, component model and broader Core design remain Proposed; AR-01–AR-04 consistency corrections are recorded | Owner disposition of the documentation corrections is recorded; separate review/approval of the proposed designs remains open |
+| P1 | Workflow framework review | Shared template/index exist; WMS remains Proposed; AR-04 transition-guard correction is recorded | Separate owner review of the WMS proposal and its transition/recovery design remains open |
 | P2 | D-012 unresolved questions | Five questions remain open | Explicit decisions or documented deferral; no assumptions |
 | Deferred | Purpose and operating context | Intentionally undefined | Owner selects purpose, intended users, prohibited uses and context before purpose-specific design |
 | Deferred | Implementation | No bounded implementation scope approved | Separate explicit authorization after readiness gates |
 
 ## 4. Recommended execution order
 
-1. The static foundation consistency review and owner dispositions of FCR-01–FCR-15 are recorded; exact approved baseline blobs remain unchanged.
+1. The static foundation consistency review and owner dispositions of FCR-01–FCR-15 and AR-01–AR-04 are recorded; exact approved baseline blobs remain unchanged.
 2. D-014 approval of the Validation Strategy and Documentation and Version Governance policies is recorded against the exact source blobs; retain their deferred choices and do not infer implementation.
 3. Obtain separate decisions on the proposed Error Handling, Logging, Tool Governance, WMS, broader Core, and architecture designs, and on unresolved cross-system questions; the FCR-06–FCR-15 documentation dispositions are already recorded.
 4. Carry the PEP-at-each-protected-boundary requirement into future detailed interface design without selecting topology or implementation.
@@ -89,7 +89,7 @@ A successful smoke test is not feature verification, security validation, operat
 
 ## 6. Consistency review findings
 
-The static review and owner-approved dispositions FCR-01–FCR-15 are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; FCR-05 records a future PEP boundary requirement; and FCR-06–FCR-11 correct Core authority mapping, plan currency, WMS transaction outcome/retry/metadata requirements, and Validation Strategy terminology; FCR-12–FCR-15 correct contract approval status, project snapshots, stale next steps, and repository read-order guidance. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
+The static review and owner-approved dispositions FCR-01–FCR-15 and AR-01–AR-04 are recorded in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. FCR-01–FCR-03 status/readiness corrections are documented; FCR-04 records the Core authority/document map; FCR-05 records a future PEP boundary requirement; and FCR-06–FCR-11 correct Core authority mapping, plan currency, WMS transaction outcome/retry/metadata requirements, and Validation Strategy terminology; FCR-12–FCR-15 correct contract approval status, project snapshots, stale next steps, and repository read-order guidance. AR-01–AR-04 distinguish initial screening from per-action authorization, separate PDP/PEP responsibilities, preserve the Proposed status of Error Handling, and add WMS transition guards. The three exact D-012 approved source blobs remain unchanged; current files carry only non-substantive post-approval status annotations where applicable. The Joint Contract Review register itself remains Proposed. No D-012 open question is closed.
 
 ## 7. D-012 open questions — retained
 
