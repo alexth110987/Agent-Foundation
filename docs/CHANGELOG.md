@@ -2,6 +2,20 @@
 
 All notable project changes are recorded here.
 
+## 0.43.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved documentation-only architecture consistency dispositions AR-01 through AR-04.
+- Distinguished initial policy/scope screening from fresh per-action PDP decisions and PEP enforcement in the conceptual Architecture lifecycle.
+- Separated PDP decision and PEP enforcement responsibilities in the Component Model diagram and component contracts.
+- Clarified that Error Handling remains Proposed and that its retry/replay safeguards are conservative design constraints for WMS, not an approved or normative policy by cross-reference.
+- Added explicit proposed WMS execution-transition guards for approval, pause/resume, blocked recovery, cancellation, and terminal states.
+- Updated the Foundation Consistency Review, Project Status, README, and Foundation Completion Plan to record the review and preserve current proposal/approval boundaries.
+
+### Clarifications
+- Documentation-only changes. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. No proposed architecture was approved.
+- Stage 1 remains active; purpose and runtime remain undefined. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed.
+
 ## 0.42.0 — 2026-11-12
 
 ### Corrected

@@ -138,11 +138,15 @@ stateDiagram-v2
     Validating --> Ready
     Validating --> Blocked
     Ready --> Running
+    Ready --> Blocked
     Running --> WaitingForApproval
     WaitingForApproval --> Running
     WaitingForApproval --> Blocked
     Running --> Paused
+    Running --> Blocked
     Paused --> Running
+    Paused --> Blocked
+    Paused --> Cancelled
     Running --> Succeeded
     Running --> Failed
     Running --> Cancelled
@@ -150,14 +154,39 @@ stateDiagram-v2
     Blocked --> Cancelled
 ```
 
-The diagram is illustrative. Exact transition guards, timeout rules, and authority to resume or cancel remain to be specified before implementation. The terminal states Succeeded, Failed, and Cancelled describe the run's process status only; they do not by themselves establish whether each external side effect was applied, absent, partial, or indeterminate. Record transaction outcome independently using the shared taxonomy in `docs/ERROR_HANDLING_ARCHITECTURE.md` §4, alongside verification result and recovery status.
+The diagram is illustrative. The following proposed transition guards make the required control points explicit without selecting an implementation, scheduler, concurrency mechanism, or runtime. The transition table is part of this proposed WMS design and requires owner review before implementation.
+
+| From | To | Minimum transition guards |
+| --- | --- | --- |
+| Queued | Validating | Run admission is recorded against an eligible, exact workflow version; required run identifiers and inputs are present. |
+| Validating | Ready | Required input, schema, precondition, dependency, workflow-version, and eligibility checks pass; no protected action is authorized merely by reaching Ready. |
+| Validating | Blocked | A required check fails, is unavailable, or remains indeterminate; record the blocking condition and preserve the run. |
+| Ready | Running | The pinned version remains eligible; preconditions and dependencies are current; execution is permitted to start. Each protected action still requires fresh PDP evaluation and PEP enforcement at its boundary. |
+| Ready | Blocked | A required precondition, dependency, version, or integrity condition changes or cannot be established before execution. |
+| Running | Waiting for approval | The next protected action requires explicit human/owner approval; pause before that action and bind the request to its exact scope. |
+| Waiting for approval | Running | Required approval is explicitly recorded, remains valid for the exact action, and fresh authorization is evaluated; the PEP must still compare the actual context immediately before the side effect. Approval alone is not a Permit. |
+| Waiting for approval | Blocked | Approval is denied, expires, is withdrawn, becomes ambiguous, or required identity/authorization context cannot be validated. |
+| Running | Paused | An authorized pause or governing safety condition suspends further execution; preserve the current step and known/unknown side effects. |
+| Paused | Running | Resume is authorized; rerun applicable precondition, dependency, version, lifecycle, and integrity checks. Do not reuse a stale Permit; reauthorize every protected action at its boundary. |
+| Paused | Blocked | Resume checks fail or a dependency, state, integrity, or authorization condition remains unresolved. |
+| Running | Blocked | A permission, dependency, lifecycle, integrity, or other required condition fails or becomes indeterminate; stop the affected action and preserve partial/unknown outcomes. |
+| Running | Succeeded | All required steps and acceptance criteria are complete; side effects and transaction outcomes are accounted for; required validation evidence is recorded. |
+| Running | Failed | Execution cannot continue safely or required validation fails; preserve the original failure and all known/unknown side effects. |
+| Running | Cancelled | An authorized cancellation or governing rule requires termination; stop safely and record partial or indeterminate side effects. |
+| Blocked | Ready | The blocking cause is demonstrably resolved; rerun affected validation and precondition checks. Any protected action requires fresh authorization at its boundary. |
+| Blocked | Cancelled | Cancellation is authorized or required by governing policy; preserve unresolved outcomes and recovery obligations. |
+
+**Global transition guards:** transitions must be based on the current run and pinned workflow version; the actor requesting a pause, resume, or cancellation must have the applicable authority; stale identity, approval, policy, resource, or lifecycle context must not be reused. If transition authority or current state is uncertain, remain Blocked and escalate. A terminal state (Succeeded, Failed, or Cancelled) has no outgoing transition; a retry or renewed attempt creates a new run linked to the prior run.
+
+The terminal states Succeeded, Failed, and Cancelled describe the run's process status only; they do not by themselves establish whether each external side effect was applied, absent, partial, or indeterminate. Record transaction outcome independently using the shared taxonomy in `docs/ERROR_HANDLING_ARCHITECTURE.md` §4, alongside verification result and recovery status.
 
 ## 8. Permissions and approval gates
 
 - Core instructions and approved global rules take precedence over workflow definitions.
 - A workflow may declare required permissions but cannot grant them.
-- The permission system must evaluate each protected action using least privilege.
-- Authorization must be scoped to the action, resource, purpose, and relevant time window.
+- The Permission Service / PDP must freshly evaluate each protected action using least privilege and the current authorization context.
+- The designated PEP at the protected boundary must compare the actual operation context with the applicable Permit immediately before the side effect; a prior workflow or orchestration check is insufficient.
+- Authorization must be scoped to the action, resource, owner, purpose, environment, constraints, intended PEP, and relevant validity window.
 - An approval request must describe the specific action, expected side effects, and relevant risks.
 - If approval is denied, unavailable, expired, or ambiguous, the protected action must not proceed.
 - A workflow must not reinterpret silence as approval.
@@ -194,13 +223,13 @@ The orchestrator must classify failures before taking recovery action.
 | Workflow inactive or version unavailable | Do not run; report registry state |
 | Permission denied or indeterminate | Do not perform the protected action |
 | Approval pending | Enter Waiting for approval; do not continue past the gated step |
-| Transient dependency failure | Retry only within an explicitly defined limit and only when all applicable retry/replay safety conditions in `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 are established |
+| Transient dependency failure | Retry only within an explicitly defined limit and only when the conservative retry/replay safeguards in proposed `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 are established; see the status boundary below |
 | Non-idempotent action with uncertain outcome | Do not blindly retry; reconcile outcome or escalate |
 | Validation failure | Mark run Failed or Blocked according to the defined recovery policy; retain evidence |
 | State or integrity failure | Stop affected execution and escalate; do not reconstruct authority by guesswork |
 | Cancellation request | Check caller authority, stop safely, and record partial side effects |
 
-Recovery must preserve the original failure and execution history. WMS coordinates retry, replay, and recovery but does not define an independent retry-safety policy; the conditions in `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 are normative. A retry is not a new success unless the new run independently passes validation. Retry counts, backoff, timeouts, and runtime behavior remain unresolved.
+Recovery must preserve the original failure and execution history. **Status boundary:** `docs/ERROR_HANDLING_ARCHITECTURE.md` remains Proposed. Its §7 conditions are referenced here as conservative, fail-closed design constraints for this proposed WMS, not as an approved or independently normative policy. This cross-reference does not approve the Error Handling proposal. Before implementation or operational use, the applicable retry/replay/recovery policy must receive separate owner approval within its governing design scope. WMS coordinates retry, replay, and recovery but does not establish an independent retry-safety policy. A retry is not a new success unless the new run independently passes validation. Retry counts, backoff, timeouts, and runtime behavior remain unresolved.
 
 ## 11. Validation and acceptance criteria
 

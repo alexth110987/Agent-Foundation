@@ -59,7 +59,7 @@ The following rules define the proposed dependency direction:
 2. Intake may request workflow selection; it cannot authorize execution.
 3. The orchestrator may invoke only workflows marked approved for the intended environment.
 4. Workflows request capabilities through tool adapters; they do not access credentials or bypass authorization directly.
-5. Tool adapters must receive a current authorization result and scoped parameters before any protected action; an upstream check alone is not sufficient to authorize a later side effect.
+5. The Permission Service acts as the Policy Decision Point (PDP) and evaluates each protected action against current policy and context. The designated Policy Enforcement Point (PEP) at that action boundary enforces the resulting decision; an upstream screening or authorization check alone is not sufficient for a later side effect.
 6. Memory and knowledge provide information; they do not grant authority.
 7. Validation evaluates results against criteria defined before execution where practical.
 8. Logging records outcomes and references without becoming a source of policy.
@@ -72,15 +72,16 @@ A component may depend on a narrower interface, but should not depend on another
 
 1. **Receive:** accept a request and create a task envelope.
 2. **Clarify and validate:** identify missing, malformed, ambiguous, or untrusted inputs.
-3. **Authorize:** check the request against global rules and required permissions.
-4. **Select:** resolve an approved workflow and its version.
+3. **Initial policy and scope screening:** identify applicable global constraints and whether the request may proceed to workflow selection. This screening is not a Permit and does not authorize future protected side effects.
+4. **Select:** resolve an eligible workflow and its exact version.
 5. **Prepare:** verify preconditions, dependencies, and scoped capability availability.
-6. **Execute:** run the workflow through approved component interfaces.
-7. **Validate:** evaluate outputs and side effects against acceptance criteria.
-8. **Record:** write permitted operational records and evidence references.
-9. **Respond:** report the outcome, limitations, and any pending or failed steps.
+6. **Authorize each protected action at its point of use:** for each protected side effect, the PDP performs a fresh evaluation using the current actor, executor, operation, resource, owner, purpose, environment, constraints, intended PEP, policy/context version, and validity. Any required human approval remains a prerequisite, not a Permit.
+7. **Enforce and execute:** the designated PEP compares the actual operation context with the applicable Permit immediately before the side effect and blocks on any mismatch, expiry, revocation, or inability to enforce. Each downstream independent protected boundary enforces its own applicable controls.
+8. **Validate:** evaluate outputs and side effects against acceptance criteria.
+9. **Record:** write permitted operational records and evidence references.
+10. **Respond:** report the outcome, limitations, and any pending or failed steps.
 
-This lifecycle is conceptual. It does not imply that all requests require the same workflow or that any stage is implemented.
+This lifecycle is conceptual. Initial screening does not replace fresh authorization and PEP enforcement for each protected side effect. It does not imply that all requests require the same workflow or that any stage is implemented.
 
 ## 7. Shared interface contract
 

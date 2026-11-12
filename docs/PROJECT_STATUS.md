@@ -37,7 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
-| Foundation consistency review | Static review completed; FCR-01–FCR-15 owner dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; documentation corrections only; no runtime/tests |
+| Foundation consistency review | Static review completed; FCR-01–FCR-15 and AR-01–AR-04 documentation-only dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; proposed designs remain Proposed; no runtime/tests |
 
 ## Approved baseline
 
@@ -148,3 +148,8 @@ The owner approved the exact proposal source blobs for the Validation Strategy (
 ## Follow-up architecture review — 2026-11-12
 
 A read-only follow-up review of live `main` recorded FCR-06 through FCR-11. The owner approved all six documentation-only dispositions: the Core authority table was aligned with FCR-04; the Foundation Completion Plan snapshot was refreshed; WMS now records transaction outcome separately, applies shared retry-safety conditions, and requires prohibited-action metadata; and Error Handling now references the approved Validation Strategy policy while stating that no validation framework or execution capability exists. No approved baseline, D-014 policy scope, D-012 open question, or Stage 1 safeguard was changed. No tests or runtime checks were executed.
+
+
+## Architecture consistency review — AR-01 through AR-04 — 2026-11-12
+
+The owner approved documentation-only corrections for four architecture consistency findings. AR-01 distinguishes initial policy/scope screening from fresh PDP evaluation and PEP enforcement immediately before each protected side effect. AR-02 separates PDP decision and PEP enforcement responsibilities in the Component Model. AR-03 clarifies that the Proposed Error Handling architecture's retry/replay conditions are conservative WMS design constraints, not an approved or normative policy by reference. AR-04 adds proposed WMS execution-transition guards for approval, pause/resume, blocked recovery, cancellation, and terminal states. Architecture, Component Model, WMS, and Error Handling remain Proposed; no affected architecture was approved. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and the five D-012 open questions remain unchanged. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
