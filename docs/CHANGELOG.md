@@ -2,6 +2,15 @@
 
 All notable project changes are recorded here.
 
+## 0.42.0 — 2026-11-12
+
+### Corrected
+- Updated the Foundation Completion Plan's remaining FCR-01–FCR-11 references to FCR-01–FCR-15, including the outstanding-work evidence, recommended execution order, and current changelog snapshot.
+
+### Clarifications
+- Documentation-only consistency correction. No decision, approved baseline, or D-012 open question was changed; no proposed architecture was approved.
+- Stage 1 remains active. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed.
+
 ## 0.41.0 — 2026-11-12
 
 ### Corrected
