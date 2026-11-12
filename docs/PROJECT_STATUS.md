@@ -37,6 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
+| GitHub-native project environment | Proposed | Project storage/change-control direction, pre-upload privacy and secret screening, timestamp/event records, GitHub Actions defense-in-depth, and recovery requirements documented; no controls implemented; see `docs/GITHUB_NATIVE_ENVIRONMENT.md` |
 | Foundation consistency review | Static review completed; FCR-01–FCR-15, AR-01–AR-04, ACR-05–ACR-08, EH-01–EH-03, LOG-01–LOG-04, and TG-01–TG-03 documentation-only dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; proposed designs remain Proposed; no runtime/tests |
 
 ## Approved baseline
@@ -56,9 +57,10 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 - Permission System: `systems/permissions/PERMISSION_ARCHITECTURE.md`, exact approved baseline blob SHA `9e754143c289fd1e454de6ee3f61bec0e90f3305` (D-008). The current file includes post-approval status/readiness annotations; D-008 remains scoped to the exact baseline.
 - Approval is limited to those exact logical architecture documents. It does not authorize implementation, technology selection, runtime construction, data/source ingestion, operational use, or release.
 
-| GitHub-native project environment | Proposed | Project storage/change-control direction, pre-upload privacy and secret screening, timestamp/event records, GitHub Actions defense-in-depth, and recovery requirements documented; no controls implemented; see `docs/GITHUB_NATIVE_ENVIRONMENT.md` |\n\n## Proposed for review
+## Proposed for review
 
-- GitHub-native project environment in `docs/GITHUB_NATIVE_ENVIRONMENT.md`; proposed, pending owner review.\n- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
+- GitHub-native project environment in `docs/GITHUB_NATIVE_ENVIRONMENT.md`; proposed, pending owner review.
+- Joint Contract Review refinement register in `docs/JOINT_CONTRACT_REVIEW.md`; proposed, pending owner review.
 - Conceptual layer model in `docs/ARCHITECTURE.md`.
 - Component responsibilities and boundaries in `docs/COMPONENT_MODEL.md`.
 - Remaining Core System design in `docs/CORE_SYSTEM.md` and related `core/` documents. D-005 is approved; the full Core design is not.
