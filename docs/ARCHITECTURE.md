@@ -36,7 +36,7 @@ These are logical groupings, not a mandated process, code layout, or deployment 
 
 | Component | Owns | Must not own |
 | --- | --- | --- |
-| Core instructions and identity | Global rules, instruction precedence, agent identity | Task-specific business logic or credentials |
+| Core instructions and identity | Global rules, instruction precedence, agent identity, prohibitions, and policy conditions | Task-specific business logic, credentials, or individual authorization decisions / Permits |
 | Configuration | Validated settings and environment references | Secret values committed to source control |
 | Intake | Request parsing, required-input checks, task envelope | Permission grants or unapproved actions |
 | Workflow registry | Workflow metadata, versions, lifecycle status | Workflow execution state or tool credentials |
@@ -55,7 +55,7 @@ These are logical groupings, not a mandated process, code layout, or deployment 
 
 The following rules define the proposed dependency direction:
 
-1. Core policy and permission boundaries constrain every other component.
+1. Core policy defines global constraints, prohibitions, and policy conditions that constrain every other component; it does not decide individual authorization requests or issue Permits. The Permission Service / PDP alone evaluates each concrete authorization request, and the designated PEP enforces the bounded result at the protected action boundary.
 2. Intake may request workflow selection; it cannot authorize execution.
 3. The orchestrator may invoke only workflows marked approved for the intended environment.
 4. Workflows request capabilities through tool adapters; they do not access credentials or bypass authorization directly.

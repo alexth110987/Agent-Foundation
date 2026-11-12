@@ -1,8 +1,8 @@
 # Foundation Consistency Review
 
-**Status:** Static review completed; FCR-01 through FCR-15 and AR-01 through AR-04 documentation-only dispositions approved.
+**Status:** Static review completed; FCR-01 through FCR-15, AR-01 through AR-04, and ACR-05 through ACR-08 documentation-only dispositions approved.
 **Review type:** Read-only assessment of the live `main` documentation set.
-**Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
+**Reviewed branch head:** `242c9f9caa9c2fb03cf3f4aa158ac848d9bc7cef`
 **Reviewed on:** 2026-11-12
 **Scope:** Purpose-neutral architecture, Core, workflow framework, MMS/KMS/Permissions, identity and authorization, provenance/lifecycle, cross-system coordination, error handling, logging, tools, validation, readiness, decisions, status, changelog and README.
 **Change boundary:** This report does not amend approved baseline artifacts, resolve owner-reserved questions, approve proposals, or authorize implementation.
@@ -322,3 +322,34 @@ The owner explicitly approved the following documentation-only corrections. This
 `workflows/WORKFLOW_MANAGEMENT.md` now includes transition-specific minimum guards for execution states, approval, pause/resume, blocked recovery, cancellation, and terminal states. The table is part of the proposed WMS design and does not authorize an execution engine or runtime.
 
 These corrections do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; close any D-012 open question; approve the Architecture, Component Model, WMS, Error Handling, or broader Core proposals; or authorize implementation, runtime, integrations, operational use, testing, validation execution, production activity, or release. No runtime or tests were executed. Stage 1 remains active.
+
+
+## 14. Follow-up architecture consistency review — ACR-02 — 2026-11-12
+
+**Review type:** Static consistency review of live documentation on `main`.  
+**Reviewed branch head:** `242c9f9caa9c2fb03cf3f4aa158ac848d9bc7cef`  
+**Scope:** Core/PDP authority separation, WMS transition completeness, timeout mapping between WMS and Error Handling, and historical retry-policy wording.  
+**Owner disposition:** The owner approved all four documentation-only corrections together. ACR-07 uses Option B: timeout is an event/condition mapped to existing process/execution states; no new `Timed out` WMS state is introduced.
+
+### ACR-05 — Core must not issue individual authorization decisions
+- **Severity:** High — authority-boundary separation.
+- **Evidence:** The Core design's Permission principles and expected outputs could be read to let Core governance return an individual policy outcome. The Component Model also described Core governance as returning a “policy outcome”. The approved D-011 Authorization Contract already assigns central authorization decisions to the PDP and enforcement to the PEP.
+- **Approved correction:** Core defines global rules, restrictions, prohibitions, and policy conditions only. It does not issue Permit, Deny, Require Approval, or any individual execution right. The Permission Service / PDP is the sole central decision authority for concrete authorization requests; the PEP enforces the bounded result at each protected action boundary. Human approval remains a prerequisite where required, not a Permit.
+- **Baseline handling:** The exact approved D-011 source blob `49e03d3d60f06ebf4b4ba8db92ac41349f09bc39` is not edited. Its §§3–6 already define the PDP/PEP authority boundary. D-005, D-008, D-010, and D-011 remain unchanged.
+
+### ACR-06 — WMS transition diagram and guard table aligned
+- **Severity:** Medium — workflow lifecycle/state integrity.
+- **Evidence:** The illustrative diagram included `Queued → Blocked` and `Paused → Cancelled`, but the guard table did not specify either transition.
+- **Approved correction:** Add both transitions to the proposed guard table. Queued-to-Blocked requires a record of the unresolved admission, integrity, eligibility, or dependency condition. Paused-to-Cancelled requires verified cancellation authority or a governing termination rule and preservation of known, partial, and unknown side effects. The table is authoritative; the diagram remains illustrative. Terminal states remain terminal and no runtime is authorized.
+
+### ACR-07 — Timeout mapped without a new WMS state (Option B)
+- **Severity:** Medium — failure classification and transaction-status integrity.
+- **Evidence:** Error Handling listed `timed out` as a process status while WMS had no corresponding execution state. Without an explicit mapping, timeout could be mistaken for proof that an external effect did not occur.
+- **Approved correction:** Treat timeout as an event/condition, not a new process or WMS state. Remove `timed out` from the suggested process-status values and map unresolved pre-execution or active-operation timeouts to existing WMS states (normally `Blocked`) under the existing transition guards. Preserve transaction outcome separately; an uncertain external effect remains `indeterminate` until established by its authoritative owner. A timeout alone does not authorize retry, cancellation, or a claim of no effect; reconcile before potentially duplicative action.
+
+### ACR-08 — Historical retry-policy wording clarified
+- **Severity:** Low — decision traceability and status interpretation.
+- **Evidence:** The historical FCR-09 heading “Shared retry-safety conditions made normative” could be read as approving Error Handling generally, despite the later AR-03 clarification.
+- **Approved correction:** Retain the historical FCR-09 heading and record its limited interpretation: it made the conservative retry/replay safeguards explicit within the Proposed WMS design only. AR-03 remains controlling: the cross-reference does not approve Error Handling or make it generally normative; Error Handling remains Proposed pending separate owner approval.
+
+These dispositions are documentation-only. The Architecture, Component Model, broader Core, WMS, and Error Handling designs remain Proposed. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and the five D-012 open questions remain unchanged. No technology, topology, runtime, service, implementation, integration, operational workflow, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.

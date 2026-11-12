@@ -47,7 +47,7 @@ Never collapse these dimensions into a single success/failure flag.
 
 | Dimension | Suggested values | Meaning |
 | --- | --- | --- |
-| Process status | not started; running; completed; failed; cancelled; timed out | Execution process state |
+| Process status | not started; running; completed; failed; cancelled | Execution process state. A timeout is recorded as a timeout event/condition, not as an additional process state; the coordinator maps it to an existing execution state under its own lifecycle contract. |
 | Transaction outcome | not attempted; rejected; accepted; applied; partial; failed; indeterminate | Known result of requested operation or side effect |
 | Verification result | not run; pass; fail; inconclusive; not applicable | Evidence-based assessment against criteria |
 | Recovery status | not required; pending; reconciling; recovered; unrecoverable; escalated | State of recovery work |
@@ -101,7 +101,8 @@ Do not blindly replay events, requests, or tool calls. Delayed, duplicate, reord
 
 ## 8. Timeouts, cancellation, partial effects, compensation
 
-- A timeout means the caller stopped waiting; it does not prove the remote action did not happen.
+- A timeout means the caller stopped waiting; it does not prove the remote action did not happen. Record the timeout as an event/condition and map the process to an existing lifecycle state (for WMS runs, see `workflows/WORKFLOW_MANAGEMENT.md` §7); do not create a separate `Timed out` state.
+- If an external effect may have occurred, preserve an `indeterminate` transaction outcome until the authoritative owner establishes it. A timeout alone never establishes retry eligibility; reconcile first and apply all retry/replay safety conditions.
 - Cancellation is a request to stop, not rollback.
 - A process can terminate after a side effect and before acknowledgement.
 - Represent partial effects explicitly, including confirmed, absent, and unknown effects.

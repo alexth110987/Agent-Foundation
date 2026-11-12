@@ -16,7 +16,7 @@ The Core System is responsible for:
 1. **Identity:** defining the agent's approved name, role, scope, and declared limitations once these are selected.
 2. **Instruction governance:** defining instruction authority, precedence, interpretation, and conflict handling.
 3. **Operating rules:** establishing general conduct, information-handling requirements, autonomy boundaries, and safety constraints.
-4. **Permission principles:** defining global authorization requirements; the separate permission component evaluates individual capability requests.
+4. **Permission principles:** defining global authorization requirements, prohibitions, and policy conditions. The Core does not evaluate individual requests or issue authorization outcomes; the separate Permission Service / Policy Decision Point (PDP) evaluates each concrete request.
 5. **Configuration governance:** defining how settings are declared, validated, versioned, and supplied safely.
 6. **Boundary enforcement requirements:** specifying conditions under which the agent must refuse, pause, ask for clarification, or escalate.
 7. **Change governance:** defining how core rules are proposed, approved, versioned, and reviewed.
@@ -31,6 +31,7 @@ The Core System must not:
 - act as a memory or knowledge database;
 - decide the details of every task;
 - silently grant permissions;
+- issue, approve, deny, or mint an individual authorization decision or Permit;
 - replace validation, logging, or error-handling components.
 
 These concerns belong to separately governed components.
@@ -101,20 +102,18 @@ Core policy changes must not be smuggled into unrelated workflow updates.
 
 The Core System is primarily a governing specification rather than a task processor.
 
-**Inputs to its future enforcement mechanisms may include:**
+**Inputs to Core governance may include:**
 - the active core policy version;
 - a normalized request or action description;
 - applicable workflow constraints;
-- an authorization context;
 - configuration values validated by the configuration component.
 
-**Expected outputs may include:**
-- applicable constraints;
-- an allow / deny / approval-required policy result where appropriate;
-- a clarification or escalation requirement;
+**Core governance outputs may include:**
+- applicable global constraints, prohibitions, and policy conditions;
+- a clarification, pause, refusal, or escalation requirement under Core rules;
 - a policy version reference for traceability.
 
-The precise schemas are deferred until implementation context is known.
+Core governance does not return Permit, Deny, or Require Approval for an individual action. The Permission Service / PDP alone evaluates the concrete authorization request and returns the bounded authorization outcome; the designated PEP enforces it at the protected action boundary. The precise schemas are deferred until implementation context is known.
 
 ## 9. Failure behavior
 

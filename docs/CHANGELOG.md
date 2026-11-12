@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.44.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved documentation-only architecture consistency dispositions ACR-05 through ACR-08.
+- Clarified that Core defines global policy constraints and prohibitions but never issues individual authorization decisions; the Permission Service/PDP remains the sole central decision authority and PEP enforcement remains local to each protected boundary.
+- Completed the proposed WMS transition guard table for Queued-to-Blocked and Paused-to-Cancelled.
+- Aligned timeout semantics across WMS and Error Handling: timeout is an event/condition mapped to existing states, not a new WMS/process state; uncertain external effects remain indeterminate and timeout alone does not authorize retry.
+- Clarified the historical, WMS-only scope of FCR-09 without rewriting the record or approving Error Handling.
+- Updated the Foundation Consistency Review, Project Status, README, and Foundation Completion Plan.
+
+### Clarifications
+- Documentation-only changes. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. The approved D-011 Authorization Contract was not edited. No proposed architecture was approved.
+- Stage 1 remains active; purpose and runtime remain undefined. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed.
+
+
 ## 0.43.0 — 2026-11-12
 
 ### Corrected

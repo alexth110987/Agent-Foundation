@@ -159,6 +159,7 @@ The diagram is illustrative. The following proposed transition guards make the r
 | From | To | Minimum transition guards |
 | --- | --- | --- |
 | Queued | Validating | Run admission is recorded against an eligible, exact workflow version; required run identifiers and inputs are present. |
+| Queued | Blocked | A required admission, integrity, eligibility, or dependency condition cannot be established; record the blocking reason, evidence references, and run identity without implying execution began. |
 | Validating | Ready | Required input, schema, precondition, dependency, workflow-version, and eligibility checks pass; no protected action is authorized merely by reaching Ready. |
 | Validating | Blocked | A required check fails, is unavailable, or remains indeterminate; record the blocking condition and preserve the run. |
 | Ready | Running | The pinned version remains eligible; preconditions and dependencies are current; execution is permitted to start. Each protected action still requires fresh PDP evaluation and PEP enforcement at its boundary. |
@@ -169,10 +170,13 @@ The diagram is illustrative. The following proposed transition guards make the r
 | Running | Paused | An authorized pause or governing safety condition suspends further execution; preserve the current step and known/unknown side effects. |
 | Paused | Running | Resume is authorized; rerun applicable precondition, dependency, version, lifecycle, and integrity checks. Do not reuse a stale Permit; reauthorize every protected action at its boundary. |
 | Paused | Blocked | Resume checks fail or a dependency, state, integrity, or authorization condition remains unresolved. |
+| Paused | Cancelled | An authorized cancellation is requested or a governing rule requires termination; verify the cancellation authority, preserve the checkpoint and all known/partial/unknown side effects, and do not imply rollback. |
 | Running | Blocked | A permission, dependency, lifecycle, integrity, or other required condition fails or becomes indeterminate; stop the affected action and preserve partial/unknown outcomes. |
 | Running | Succeeded | All required steps and acceptance criteria are complete; side effects and transaction outcomes are accounted for; required validation evidence is recorded. |
 | Running | Failed | Execution cannot continue safely or required validation fails; preserve the original failure and all known/unknown side effects. |
 | Running | Cancelled | An authorized cancellation or governing rule requires termination; stop safely and record partial or indeterminate side effects. |
+
+**Timeout mapping (proposed; no additional execution state):** A timeout is an event/condition, not a WMS execution state. If a required admission or pre-execution check times out and its result remains unavailable or indeterminate, map the run to `Blocked` using the applicable transition guard. If an active protected operation times out before its external outcome is established, map `Running` to `Blocked`, record the timeout event, and keep transaction outcome `indeterminate` unless the authoritative owner establishes otherwise. An approval wait that expires maps to `Blocked` under the existing approval guard. A timeout does not itself cancel a run, prove that no side effect occurred, or authorize retry. Preserve process status, transaction outcome, verification result, and recovery status as separate dimensions; reconcile with the authoritative owner before any potentially duplicative action.
 | Blocked | Ready | The blocking cause is demonstrably resolved; rerun affected validation and precondition checks. Any protected action requires fresh authorization at its boundary. |
 | Blocked | Cancelled | Cancellation is authorized or required by governing policy; preserve unresolved outcomes and recovery obligations. |
 

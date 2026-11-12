@@ -35,7 +35,7 @@ The diagram shows conceptual relationships only. The Permission Service is the c
 | Component | Receives | Returns | Failure behavior |
 | --- | --- | --- | --- |
 | Intake | User request and channel metadata | Normalized task envelope or clarification request | Reject malformed input; ask for missing required details |
-| Core governance | Task envelope and applicable rules | Applicable constraints and policy outcome | Stop or escalate unresolved policy conflict |
+| Core governance | Task envelope and applicable Core rules | Applicable global constraints, prohibitions, and policy conditions | Stop or escalate unresolved policy conflict; never issue an individual authorization outcome |
 | Permission Service / Policy Decision Point (PDP) | Requested action, actor, executor, resource, owner, purpose, scope, and current policy/context | Bounded Permit, Deny, or Require Approval | Deny by default if unavailable, stale, or indeterminate; approval remains separate from a Permit |
 | Policy Enforcement Point (PEP) | Actual operation context and applicable Permit | Enforce or block the operation; minimal enforcement evidence reference | Block on mismatch, expiry, revocation, unavailable required state, or inability to enforce |
 | Workflow registry | Workflow identifier or selection criteria | Versioned workflow metadata and status | Do not select unknown, retired, or unapproved workflow |
@@ -52,7 +52,7 @@ The diagram shows conceptual relationships only. The Permission Service is the c
 ## 3. Cross-component rules
 
 1. Components communicate through versioned contracts rather than shared internal state.
-2. The Permission Service / PDP is the central decision authority; it evaluates a specific request and returns a bounded decision but does not perform or enforce the requested action.
+2. Core governance defines global rules, restrictions, prohibitions, and policy conditions; it does not issue individual authorization decisions or Permits. The Permission Service / PDP is the sole central decision authority for a specific authorization request and returns a bounded decision but does not perform or enforce the requested action.
 3. A designated PEP enforces the decision at each protected action boundary by comparing the actual operation context with the applicable Permit immediately before the side effect.
 4. An earlier intake, workflow-selection, orchestration, or approval step is not sufficient authorization for a later side effect; each protected action requires fresh evaluation and point-of-action enforcement.
 5. A workflow cannot grant itself permission or elevate its own privilege.

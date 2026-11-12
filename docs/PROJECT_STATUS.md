@@ -37,7 +37,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 | Validation / tests | Validation policy Approved (D-014); execution capability not implemented | `docs/VALIDATION_STRATEGY.md`; no automated validation, runtime tests, or test evidence exist |
 | Logging | Proposed logical architecture | systems/logging/LOGGING_ARCHITECTURE.md; no framework, storage, or runtime implementation |
 | Error handling and recovery | Proposed logical architecture | docs/ERROR_HANDLING_ARCHITECTURE.md; no runtime implementation |
-| Foundation consistency review | Static review completed; FCR-01–FCR-15 and AR-01–AR-04 documentation-only dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; proposed designs remain Proposed; no runtime/tests |
+| Foundation consistency review | Static review completed; FCR-01–FCR-15, AR-01–AR-04, and ACR-05–ACR-08 documentation-only dispositions approved and documented | docs/FOUNDATION_CONSISTENCY_REVIEW.md; proposed designs remain Proposed; no runtime/tests |
 
 ## Approved baseline
 
@@ -153,3 +153,8 @@ A read-only follow-up review of live `main` recorded FCR-06 through FCR-11. The 
 ## Architecture consistency review — AR-01 through AR-04 — 2026-11-12
 
 The owner approved documentation-only corrections for four architecture consistency findings. AR-01 distinguishes initial policy/scope screening from fresh PDP evaluation and PEP enforcement immediately before each protected side effect. AR-02 separates PDP decision and PEP enforcement responsibilities in the Component Model. AR-03 clarifies that the Proposed Error Handling architecture's retry/replay conditions are conservative WMS design constraints, not an approved or normative policy by reference. AR-04 adds proposed WMS execution-transition guards for approval, pause/resume, blocked recovery, cancellation, and terminal states. Architecture, Component Model, WMS, and Error Handling remain Proposed; no affected architecture was approved. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and the five D-012 open questions remain unchanged. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
+## Architecture consistency review — ACR-05 through ACR-08 — 2026-11-12
+
+The owner approved four additional documentation-only corrections together. ACR-05 clarifies that Core defines global constraints and policy conditions but does not issue individual authorization outcomes; the central PDP decides and each protected-boundary PEP enforces. The approved D-011 Authorization Contract and its exact baseline remain unchanged. ACR-06 adds the missing Queued-to-Blocked and Paused-to-Cancelled WMS transition guards. ACR-07 adopts Option B: timeout is an event/condition mapped to existing states, not a new process/WMS state; uncertain external effects remain indeterminate and timeout alone does not authorize retry. ACR-08 clarifies that FCR-09's historical retry-safety wording applied only within the Proposed WMS design; AR-03 remains controlling and Error Handling remains Proposed. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. No proposed architecture was approved, and no implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
