@@ -2,6 +2,21 @@
 
 All notable project changes are recorded here.
 
+## 0.46.0 — 2026-11-12
+
+### Corrected
+- Recorded owner-approved documentation-only dispositions LOG-01 through LOG-04 in the Foundation Consistency Review.
+- Added a proposed Event Recording Obligation Matrix structure distinguishing mandatory, conditional, and optional obligations without classifying event types before purpose and risk context are approved.
+- Separated event production, logging management, and independent verification responsibilities while preserving D-012 open question 4.
+- Added a proposed Retention and Deletion Governance Matrix structure while preserving D-012 open question 5 on tombstone/audit retention after deletion.
+- Added a proposed Logging Failure Policy Matrix for block/pending, bounded buffering with reconciliation, and policy-permitted controlled continuation for non-critical diagnostic events only; aligned it with EH-03 event-class policy ownership.
+- Updated Project Status; Logging remains Proposed.
+
+### Clarifications
+- Documentation-only corrections. D-005 through D-014, R-01–R-07, exact approved baseline blobs, and all five D-012 open questions remain unchanged. No proposed architecture was approved.
+- No event classifications, retention periods, independent verification thresholds, technology, service, runtime, or integration were selected. No implementation, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
 ## 0.45.1 — 2026-11-12
 
 ### Corrected

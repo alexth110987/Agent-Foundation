@@ -369,3 +369,22 @@ The Error Handling architecture §9.1 now distinguishes canonical-state ownershi
 The Error Handling architecture §10.1 now requires an accountable policy owner to be designated for each event class before implementation or operational use. It distinguishes policy ownership, event production, and future logging-component handling. The event-class policy must determine blocking, pending/buffering, or controlled continuation when required logging evidence is unavailable. No current component, organizational role, topology, or blanket shutdown/continuation rule is selected.
 
 These are documentation-only refinements. Error Handling and Recovery remains Proposed. No retry values, escalation targets, cross-system approval authority, logging policy owner, event-class policy, runtime, service, integration, or operational procedure has been selected or implemented. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and all five D-012 open questions remain unchanged. In particular, EH-03 does not resolve D-012 open question 5 concerning tombstone and audit retention after deletion. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.
+
+
+## 16. Owner disposition — Logging review LOG-01 through LOG-04 — 2026-11-12
+
+The owner approved all four documentation-only corrections. They refine the Proposed Logging Architecture and record future governance requirements; they do not approve that architecture or select event-class policies, retention rules, verification standards, or operational behavior.
+
+### LOG-01 — Event recording obligations distinguished
+The Logging Architecture now proposes an Event Recording Obligation Matrix to distinguish mandatory, conditional, and optional recording, with applicability, minimum metadata, failure consequence, and accountable policy ownership. No event class is assigned a concrete obligation; classification remains dependent on an approved purpose, risk model, and operating context.
+
+### LOG-02 — Independent verification responsibilities separated
+The Logging Architecture now distinguishes event production, logging management/preservation, and independent verification. Future policy must determine when independent verification applies, the required independence, criteria/evidence, authorized verifier, and deviation/escalation handling. This disposition does not resolve D-012 open question 4; independent verification evidence and thresholds remain open.
+
+### LOG-03 — Retention and deletion governance made explicit
+The Logging Architecture now proposes a Retention and Deletion Governance Matrix covering purpose, classification, accountable policy owner, retention rule, deletion conditions/evidence, legal holds, backups/exports, exceptions, and escalation. No retention period or deletion exception is selected. D-012 open question 5 concerning tombstone and audit retention after deletion remains explicitly unresolved.
+
+### LOG-04 — Logging failure dispositions tied to event-class risk
+The Logging Architecture now proposes a Logging Failure Policy Matrix distinguishing block/pending, bounded buffering with reconciliation, and policy-permitted controlled continuation for non-critical diagnostic events only. Required audit evidence must not be silently discarded. The matrix must align with EH-03's requirement for accountable event-class policy ownership. No universal shutdown rule, blanket continuation permission, or current event-class disposition is selected.
+
+These are documentation-only corrections. Logging remains Proposed; no event classification, retention duration, independent verification threshold, operational policy, technology, service, storage, runtime, or integration is approved or implemented. D-005 through D-014, R-01–R-07, all exact approved baseline blobs, and all five D-012 open questions remain unchanged. In particular, LOG-02 does not resolve D-012 open question 4, and LOG-03 does not resolve D-012 open question 5. No implementation, runtime, integration, test execution, validation execution, production activity, or release was authorized or performed. Stage 1 remains active.

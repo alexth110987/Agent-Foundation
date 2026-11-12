@@ -31,6 +31,18 @@ Future event schemas should support:
 
 An event class is not a severity level. Handling requirements must be set per event class and future operating context.
 
+## 2.1 Event recording obligations
+
+A future **Event Recording Obligation Matrix** must classify each event class as mandatory, conditional, or optional only after the operational purpose, risk model, and applicable obligations are approved. The matrix must record:
+
+- Event class and recording obligation (mandatory, conditional, or optional).
+- Applicability conditions and the policy basis for the classification.
+- Minimum metadata required to establish attribution, correlation, outcome, and relevant evidence without collecting unnecessary payloads.
+- Consequence when recording, persistence, or verification is unavailable (for example, block, remain pending, bounded buffering with reconciliation, or policy-permitted controlled continuation).
+- The accountable policy owner for the event class, distinct from the event producer and logging operator.
+
+No event class is assigned a concrete obligation by this proposal. Classifications and consequences remain open until the purpose and operating context are approved. The matrix must be reviewed when those conditions or applicable obligations change.
+
 ## 3. Minimum logical event envelope
 
 A future versioned event contract should define applicable fields:
@@ -66,6 +78,16 @@ Future design must assess producer attribution, protection in transit/at rest, s
 
 No hash algorithm, signature scheme, storage engine, key service, transport, or immutability technology is selected. Integrity protection can support confidence that a record was not altered; it does not prove the assertion was true or the action authorized.
 
+## 5.1 Independent verification of audit data
+
+Where risk or policy requires independent verification, the design must distinguish three responsibilities:
+
+- **Producer:** creates the event and supplies its attribution and source context; production alone does not establish completeness or reliability.
+- **Logging management:** preserves, protects, and makes the recorded evidence available under the approved access and retention rules; operational control of the log is not independent verification.
+- **Independent verifier:** assesses the specified properties of the audit evidence, such as integrity, completeness, attribution, ordering, or reliability, using evidence and criteria defined by policy.
+
+Future policy must state when independent verification is required, the required degree of independence, the evidence and assessment criteria, who may perform the verification, how deviations are recorded, and how unresolved findings are escalated. No verifier, independence threshold, evidence standard, or verification frequency is selected here. This section does not resolve D-012 open question 4 concerning independent verification evidence and thresholds.
+
 ## 6. Access control and separation of duties
 
 - Apply least privilege and purpose-limited access.
@@ -88,6 +110,19 @@ No hash algorithm, signature scheme, storage engine, key service, transport, or 
 
 Tombstone and audit retention after deletion remains an explicit D-012 open question. This document does not resolve it.
 
+## 7.1 Retention and deletion governance
+
+A future **Retention and Deletion Governance Matrix** must be approved before persistent logging is enabled. For each event class and relevant evidence location, it must identify:
+
+- Purpose, classification, applicable jurisdiction/obligation, and accountable retention-policy owner.
+- Approved retention rule and the event or condition that starts its retention period.
+- Deletion eligibility, authorization, execution responsibility, and evidence required to establish completion.
+- Legal-hold authority, scope, review, release conditions, and handling of conflicting obligations.
+- Treatment of backups, replicas, exports, derived copies, and access/audit records.
+- Exceptions, unresolved deletion outcomes, escalation, and reconciliation requirements.
+
+No retention duration, deletion exception, legal-hold procedure, or ownership assignment is selected here. Source deletion and retention of audit or tombstone evidence remain separate governance decisions. In particular, D-012 open question 5—tombstone and audit retention after deletion—remains unresolved and must not be inferred or bypassed by this matrix.
+
 ## 8. Logging failure and durability
 
 - Distinguish event creation, transmission, acknowledgement, durable persistence, and integrity verification.
@@ -97,6 +132,16 @@ Tombstone and audit retention after deletion remains an explicit D-012 open ques
 - Never silently discard required audit events or claim they were recorded when persistence is unknown.
 - Avoid both blanket shutdown for every logging outage and blanket permission to ignore every outage.
 - Recovery must preserve original event IDs, ordering metadata, duplicate detection, and integrity evidence.
+
+## 8.1 Logging failure policy matrix
+
+A future **Logging Failure Policy Matrix** must define the disposition for each event class whose recording or evidence availability matters to a protected action. At minimum, it must distinguish:
+
+- **Block or remain pending:** when required evidence cannot be established before a consequential action, the action must not proceed unless an approved policy explicitly defines another safe disposition.
+- **Bounded buffer and reconciliation:** permitted only where policy defines buffer bounds, durability expectations, duplicate handling, ordering/identity preservation, reconciliation deadlines, and the response to overflow or unreconciled loss. Buffering is not proof of durable recording.
+- **Controlled continuation:** may be considered only for non-critical diagnostic events and only where the accountable event-class policy owner has explicitly permitted it under the approved risk context. Required audit evidence must never be silently discarded.
+
+The matrix must identify the event class, evidence requirement, applicable failure conditions, permitted disposition, buffer/reconciliation limits where applicable, accountable policy owner, and escalation path. This policy must align with the event-class ownership requirement in EH-03 of the Proposed Error Handling architecture. No universal shutdown rule, blanket continuation permission, or current event-class disposition is established here.
 
 ## 9. Retention, deletion, and lifecycle
 
