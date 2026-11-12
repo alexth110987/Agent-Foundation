@@ -1,6 +1,18 @@
 # Changelog
 
 All notable project changes are recorded here.
+ 
+## 0.39.0 — 2026-11-12
+
+### Added
+- Recorded a read-only follow-up Foundation Consistency Review (FCR-06 through FCR-11) covering the Core authority map, Foundation Completion Plan currency, WMS outcome/retry/registry requirements, and Error Handling validation terminology.
+
+### Updated
+- Updated Project Status and Foundation Completion Plan to identify the follow-up findings as pending owner disposition.
+
+### Clarifications
+- Findings are proposals for owner review only; no affected design document or approved baseline was changed. No D-015 was created. D-012 open questions, D-014 policy scope, Stage 1, and all implementation/testing/release safeguards remain unchanged. No tests or runtime checks were executed.
+
 
 ## 0.38.0 — 2026-11-12
 

@@ -1,6 +1,6 @@
 # Foundation Consistency Review
 
-**Status:** Completed static documentation review; owner dispositions for FCR-01 through FCR-05 approved and recorded below.
+**Status:** Static review completed; FCR-01 through FCR-05 dispositions approved; follow-up findings FCR-06 through FCR-11 are recorded pending owner disposition.
 **Review type:** Read-only assessment of the live `main` documentation set.
 **Reviewed branch head:** `b559b91773fa94306f471dc69e535d434086e385`
 **Reviewed on:** 2026-11-12
@@ -123,3 +123,55 @@ The readiness framework now recognizes the approved logical Permission (D-008), 
 Future detailed interface design must identify the PEP owner at every protected side-effect boundary and require exact-context comparison immediately before the side effect. Any downstream independent boundary enforces its own applicable controls. No process topology, service, or enforcement implementation is selected or authorized.
 
 These dispositions do not close the five D-012 open questions, approve the Joint Contract Review register or other proposed designs, select technology, or authorize runtime, implementation, integration, operational use, testing, validation, or release. The project remains Stage 1.
+
+
+## 8. Follow-up architecture and governance review — 2026-11-12
+
+**Review type:** Read-only static review of live documentation on `main`.  
+**Reviewed branch head:** `5002004f0e5a4724afee1b93ebad0b0874f2dfab`  
+**Scope:** Follow-up review of Core authority mapping, Foundation Completion Plan currency, WMS execution/retry/registry contracts, and Error Handling references to validation.  
+**Disposition:** Findings below are proposed for owner review only. No design document or approved baseline is amended by this review. No D-015 is created.
+
+### FCR-06 — Core authority table conflicts with the approved FCR-04 map
+- **Severity:** High — instruction-authority ambiguity.
+- **Classification:** Confirmed internal documentation inconsistency.
+- **Evidence:** `docs/CORE_SYSTEM.md` §4, line 43, assigns designated agent-level policy to `core/OPERATING_RULES.md` **and this Core design record**. Section 6, line 70, says `docs/CORE_SYSTEM.md` is a responsibilities/document map and is not a competing instruction authority. The approved FCR-04 disposition in this review says the same.
+- **Risk:** A future contributor could treat `docs/CORE_SYSTEM.md` as an additional source of agent-level instruction authority, contrary to the owner-approved document boundary.
+- **Proposed disposition:** Amend only the §4 table entry to identify `core/OPERATING_RULES.md` as the designated agent-level operating-policy record and `docs/CORE_SYSTEM.md` as a design/map document. Preserve the AGENT.md authority and deferred runtime hierarchy. No policy content or approved baseline needs to change.
+
+### FCR-07 — Foundation Completion Plan current-position snapshot is stale
+- **Severity:** Medium — project-status accuracy.
+- **Classification:** Confirmed stale current-state summary.
+- **Evidence:** `docs/FOUNDATION_COMPLETION_PLAN.md` §2, Batch 4, line 22, says only D-001–D-012 are registered, the changelog ends at 0.36.0, and validation remains documentation-only. Live `main` contains D-014 and changelog 0.38.0; the Validation Strategy is approved as a policy under D-014, while execution capability remains unimplemented.
+- **Risk:** The plan's current-position table understates the decision record and misstates the validation policy status.
+- **Proposed disposition:** Refresh the current-position row to D-001–D-014 and the current changelog version, and distinguish approved validation policy from absent validation implementation. Preserve the historical fact that no validation system exists.
+
+### FCR-08 — WMS run record does not explicitly retain transaction outcome
+- **Severity:** Medium — execution traceability and uncertain-side-effect handling.
+- **Classification:** Cross-document completeness gap.
+- **Evidence:** `docs/ERROR_HANDLING_ARCHITECTURE.md` §4 requires process status, transaction outcome, verification result, and recovery status to remain separate. `workflows/WORKFLOW_MANAGEMENT.md` §7 defines execution states and §9 lists run-record fields, but the run record does not explicitly include a distinct transaction-outcome field.
+- **Risk:** A run's process state could be mistaken for the result of an external side effect, especially after timeout, cancellation, or partial execution.
+- **Proposed disposition:** Add transaction outcome as a distinct run-record dimension and cross-reference the Error Handling taxonomy. State explicitly that Succeeded/Failed/Cancelled describes the run, not by itself whether every external effect was applied, absent, partial, or indeterminate.
+
+### FCR-09 — WMS retry rule lacks an explicit link to the shared retry-safety conditions
+- **Severity:** Medium — recovery-control consistency.
+- **Classification:** Cross-document traceability gap; no direct contradiction identified.
+- **Evidence:** `workflows/WORKFLOW_MANAGEMENT.md` §10, line 195, says a transient dependency failure may be retried within an explicit limit and only when safe. `docs/ERROR_HANDLING_ARCHITECTURE.md` §7 defines the conditions for retry, including known transaction outcome, idempotency or proven absence of side effect/deduplication, current target/lifecycle/authorization context, bounded budget, and attempt linkage.
+- **Risk:** The phrase “only when safe” may be interpreted without applying the full shared retry/replay contract.
+- **Proposed disposition:** Make the Error Handling §7 conditions normative for WMS retry/replay and recovery; preserve WMS as coordinator, not an independent source of retry policy. Do not select retry counts, backoff, or runtime behavior.
+
+### FCR-10 — WMS registry requirements omit an explicit prohibited-action field
+- **Severity:** Low — workflow-definition completeness.
+- **Classification:** Template/registry metadata alignment gap.
+- **Evidence:** `workflows/_template/WORKFLOW_TEMPLATE.md` §6 requires actions prohibited by the workflow to be declared. `workflows/WORKFLOW_MANAGEMENT.md` §4's required workflow metadata lists capabilities, permission scopes, side effects, and approval declarations, but does not explicitly list prohibited actions/restrictions.
+- **Risk:** A registry record could be considered complete without an explicit statement of what the workflow must not do.
+- **Proposed disposition:** Add explicit prohibited actions, restrictions, and scope exclusions to the WMS required definition metadata. This does not create or approve any operational workflow.
+
+### FCR-11 — Error Handling refers to a “Validation framework” that does not exist
+- **Severity:** Low — terminology and status accuracy.
+- **Classification:** Confirmed stale/ambiguous cross-reference.
+- **Evidence:** `docs/ERROR_HANDLING_ARCHITECTURE.md` §1, line 9, says it complements a “Validation framework”. D-014 approved `docs/VALIDATION_STRATEGY.md` as a documentation policy; the current project status explicitly says no automated validation or execution capability exists.
+- **Risk:** The wording could imply an implemented or separately defined framework rather than an approved policy and future requirements.
+- **Proposed disposition:** Refer to the approved Validation Strategy/policy and state that no validation framework or execution capability is implemented. Preserve the distinct test, validation, verification, and release gates.
+
+All six findings are documentation-level observations. They do not amend D-005 through D-014, R-01–R-07, or any exact approved baseline; resolve any D-012 open question; approve the proposed Core, WMS, Error Handling, Logging, Tool Governance, or conceptual architecture; or authorize implementation, runtime, integrations, tests, production activity, or release. Stage 1 remains active.

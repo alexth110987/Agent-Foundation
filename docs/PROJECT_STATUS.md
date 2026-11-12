@@ -139,3 +139,8 @@ The owner approved FCR-01–FCR-05. The three D-012 exact baselines retain their
 ## D-014 owner approval — 2026-11-12
 
 The owner approved the exact proposal source blobs for the Validation Strategy (`69398a8416a9f2d138d399084aa9e6a31a913b66`) and Documentation and Version Governance (`beb94648d9308fed79695ccb1d9184c0f0725c89`) as purpose-neutral foundation policies. D-014 records the approval scope and deferred choices. The current documents carry approval annotations; their exact approved source baselines are preserved. No validation framework, test runner, automated validation, document registry, versioning automation, runtime, integration, or executable capability was implemented. No tests were run. Stage 1 and all implementation/testing/release safeguards remain unchanged.
+
+
+## Follow-up architecture review — 2026-11-12
+
+A read-only follow-up review of live `main` recorded FCR-06 through FCR-11 in `docs/FOUNDATION_CONSISTENCY_REVIEW.md`. The findings concern the Core authority map, stale Foundation Completion Plan summary, WMS transaction-outcome and retry traceability, explicit prohibited-action metadata, and an outdated Validation framework reference. All are pending owner disposition; no corrections or design approvals are implied. No approved baseline, D-014 policy, D-012 open question, or Stage 1 safeguard was changed.
