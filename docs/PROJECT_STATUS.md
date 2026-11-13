@@ -16,9 +16,6 @@ The owner authorized creation of the initial documentation baseline. This does n
 
 ## Recorded design decisions
 - **AF-01 — Approved design decision:** The Master Control System may propose additional policy rules, but proposals remain non-operative until the owner explicitly approves them and the approved policy source is updated through the authorized process. The system may not approve or activate its own proposals. This decision does not approve the Master Prompt draft or authorize implementation.
-
-## Recorded design decisions
-- **AF-01 — Approved design decision:** The Master Control System may propose additional policy rules, but proposals remain non-operative until the owner explicitly approves them and the approved policy source is updated through the authorized process. The system may not approve or activate its own proposals. This decision does not approve the Master Prompt draft or authorize implementation.
 - **AF-02 — Approved design decision:** Integrity verification failure, uncertainty, or unavailable trust material blocks all protected operations (Fail Closed). No automatic fallback to older, alternate, cached, or unverified policy is permitted. Recovery requires owner-directed manual restoration and independent re-verification. This decision does not approve the Master Prompt draft or authorize implementation.
 
 ## Implementation state
