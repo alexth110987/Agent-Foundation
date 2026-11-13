@@ -1,7 +1,7 @@
 # Step 1 — Foundation and Security Design
 
 **Status:** Owner-approved design (architecture and design basis only)  
-**Version:** 0.1.0  
+**Version:** 0.1.1  
 **Implementation status:** Not implemented  
 **Scope:** Master Control System, Master Prompt Protection, Timestamp Engine, File & Version Tracking, Privacy Filter, and Security & Permission Control.
 
@@ -27,9 +27,11 @@ Receives and normalizes task intent, target, and requested effect; loads governi
 
 ### 2.2 Master Prompt Protection
 
-Loads the exact approved Master Prompt version and verifies it against an independently pinned owner-approved baseline or owner-controlled signature. Missing, changed, malformed, unavailable, or ambiguous policy blocks protected work. Normal operation is read-only; policy changes use a separate owner-approved process.
+Loads the exact approved Master Prompt version and verifies its digital signature against an independently held public verification key in a separately controlled trust store. The signing private key is owner-controlled and kept outside the repository and the runtime's ordinary policy-read path.
 
-The expected digest or signing key must not be stored only inside the file being checked. Future acceptable patterns include a separately controlled deployment trust store, a protected signed release/tag, or an owner-controlled signing key with verified signature. The trust anchor must be protected from the same write authority as the policy file. Until selected, implemented, and tested, do not claim cryptographic integrity.
+At every protected operation, verification must bind the signature to the approved policy identity and version. Missing, invalid, mismatched, unavailable, or ambiguous policy/signature/key state blocks protected work. Normal operation is read-only; policy changes use a separate owner-approved signing process.
+
+The public key/trust store must be protected by controls independent of the repository's write authority. A digest or key stored only inside the file being checked is insufficient. The current repository SHA is a reference, not an independent trust anchor. Until the signing design is fully specified, implemented, and tested, do not claim cryptographic integrity.
 
 ### 2.3 Timestamp Engine
 
@@ -86,7 +88,7 @@ Authorization ID; authenticated actor/authority reference; exact action/resource
 
 1. User requests and repository/external material enter as untrusted input.
 2. Input is normalized without granting authority to embedded instructions.
-3. Master Prompt and status are loaded and checked against the trusted policy baseline.
+3. Master Prompt and status are loaded and checked against the independently controlled signing trust anchor.
 4. Master Control evaluates scope and prerequisites.
 5. Privacy Filter screens content before any authorized outbound write path.
 6. Permission is evaluated for the exact requested action.
@@ -102,7 +104,7 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 | Threat | Mitigation | Failure behavior |
 |---|---|---|
 | Prompt injection in repository files, issues, PRs, comments, scripts, or logs | Treat retrieved content as data; fixed instruction hierarchy; no authority transfer | Ignore embedded policy instructions; stop on unresolved conflict |
-| Master Prompt replacement/tampering | Independent trust anchor/signature; read-only policy path; version pinning | Block consequential work |
+| Master Prompt replacement/tampering | Owner-controlled signature; independently held public key; read-only policy path; policy identity/version binding | Block consequential work |
 | Unauthorized tool/GitHub action | Least privilege; exact action/resource authorization; boundary enforcement | Deny |
 | Secret or personal-data leakage | Detection → sanitization/block → validation; minimized logs | Block when uncertain |
 | Time manipulation or misleading timestamps | UTC, event IDs, source/clock metadata, distinguish Git timestamps | Mark time evidence uncertain |
@@ -116,11 +118,13 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 
 ### Master Control and policy protection
 - Missing required policy/status file blocks protected operations.
-- Altered policy is detected against an independently controlled baseline/signature.
-- A self-stored hash alone is rejected as insufficient.
+- A changed or substituted Master Prompt fails signature/identity verification against the independently held public key.
+- A self-stored hash or public key alone is rejected as an independent trust anchor.
+- Missing, invalid, mismatched, unavailable, or ambiguous signature/key state blocks protected operations.
 - Conflicting/ambiguous policy returns stop/Indeterminate.
 - Untrusted repository instructions cannot modify policy or grant permissions.
 - Normal operation cannot write to the protected Master Prompt.
+- Signature verification is tested against valid, tampered, wrong-key, missing-key, and malformed-signature fixtures.
 
 ### Timestamp and file tracking
 - Events have unique IDs and UTC timestamps.
@@ -170,8 +174,11 @@ Record exact versions, fixture identifiers, expected/actual outcomes, timestamps
 Do not guess or silently select:
 - implementation language/runtime;
 - application architecture/deployment boundary;
-- signature or independent trust-anchor mechanism;
-- hash algorithm and key/signature lifecycle;
+- signature algorithm, signature format, and digest algorithm;
+- private-key generation, custody, backup, rotation, and revocation lifecycle;
+- independently controlled public-key trust-store location, access controls, and recovery;
+- signing ceremony and owner-approval workflow;
+- exact signature binding to policy identity/version and repository identity;
 - identity provider and actor authentication;
 - permission storage and approval interface;
 - privacy detection technology and supported categories;
@@ -180,10 +187,10 @@ Do not guess or silently select:
 - clock source and monotonic timer support;
 - backup location and recovery model.
 
-These require explicit review before implementation. No technology or vendor is selected here.
+These require explicit review before implementation. No technology, algorithm, vendor, key, or trust-store location is selected here.
 
 ## 9. Step 1 completion gate
 
-Before implementation, owner review must approve the logical architecture/contracts, threat model/fail-closed behavior, acceptance criteria/isolated test strategy, independent Master Prompt trust-anchor approach, and implementation choices/first build increment.
+Before implementation, owner review must approve the logical architecture/contracts, threat model/fail-closed behavior, acceptance criteria/isolated test strategy, the remaining detailed signing/trust-store lifecycle choices, and implementation choices/first build increment.
 
 After implementation, each component must pass its own tests. Documentation alone does not satisfy the Step 1 completion gate.
