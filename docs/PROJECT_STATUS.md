@@ -49,7 +49,7 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 ## Approved baseline
 
 - This is a standalone project, separate from all other projects.
-- GitHub repository `main` is the sole official project-management environment and canonical source of truth. ChatGPT is an assisting interface, not a second project database or authority. Prefer one central ChatGPT conversation where practical, but context is limited; any handover must rely on current GitHub records and re-read the required live-main files.
+- **D-015:** GitHub repository `main` is the sole official project-management environment and canonical source of truth. ChatGPT is an assisting interface, not a second project database or authority. Prefer one central ChatGPT conversation where practical, but context is limited; any handover must rely on current GitHub records and re-read the required live-main files. D-015 clarifies and supersedes D-002 only where D-002 designated ChatGPT as a separate workspace; D-003 is reaffirmed.
 - Approved project records are maintained only in this GitHub repository.
 - The agent's future purpose remains intentionally undefined.
 - Build the foundation before adding capabilities.

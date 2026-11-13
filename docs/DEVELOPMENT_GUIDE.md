@@ -1,7 +1,7 @@
 # Development Guide
 
 ## Working model
-Use the ChatGPT Project for planning and review. Use this repository for approved, durable project records. There is no assumed automatic synchronization.
+Use this GitHub repository on `main` as the sole official project-management environment and canonical source of truth for all approved project records, decisions, status, and durable evidence. ChatGPT is an assisting interface for discussion, research, drafting, review, and authorized repository work; it is not a parallel project workspace or authoritative record. Prefer one central ChatGPT conversation where practical, but do not rely on chat history for continuity. If a handover is needed, point to the relevant GitHub records and re-read the required live-main files. There is no assumed automatic synchronization.
 
 ## Before a change
 1. Read the live files on `main` in this exact order: `AGENT.md`, `AGENTS.md`, then `docs/PROJECT_STATUS.md`. If any required file is inaccessible, stop and report the exact failure before making repository changes.

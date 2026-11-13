@@ -2,6 +2,18 @@
 
 All notable project changes are recorded here.
 
+## 0.51.0 — 2026-11-13
+
+### Approved
+- Recorded D-015: GitHub `main` is the sole official project-management environment and canonical source of truth; ChatGPT is an assisting interface, not a parallel project workspace or record store.
+- Clarified D-002's continuing scope and reaffirmed D-003 without altering unrelated decisions or approved architecture baselines.
+
+### Updated
+- Aligned the Development Guide and Project Status with D-015 and the GitHub-only official workspace boundary.
+
+### Clarifications
+- Documentation-only governance update. No hosted runtime, integration, automation, Actions workflow, scanner, timestamp service, branch ruleset, backup system, or executable capability was added or authorized. No tests or validation were executed.
+
 ## 0.50.0 — 2026-11-13
 
 ### Updated
