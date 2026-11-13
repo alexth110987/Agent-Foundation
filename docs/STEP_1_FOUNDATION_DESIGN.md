@@ -1,7 +1,7 @@
 # Step 1 — Foundation and Security Design
 
 **Status:** Owner-approved design (architecture and design basis only)  
-**Version:** 0.1.1  
+**Version:** 0.1.2  
 **Implementation status:** Not implemented  
 **Scope:** Master Control System, Master Prompt Protection, Timestamp Engine, File & Version Tracking, Privacy Filter, and Security & Permission Control.
 
@@ -27,11 +27,15 @@ Receives and normalizes task intent, target, and requested effect; loads governi
 
 ### 2.2 Master Prompt Protection
 
-Loads the exact approved Master Prompt version and verifies its digital signature against an independently held public verification key in a separately controlled trust store. The signing private key is owner-controlled and kept outside the repository and the runtime's ordinary policy-read path.
+Loads the exact approved Master Prompt version and verifies its detached JWS signature using Ed25519/EdDSA against an independently held public verification key in a separately controlled trust store. The signed manifest is deterministic JSON serialized using JCS (RFC 8785). It binds the signature to the approved policy identity/version, repository identity, exact Master Prompt path and content digest, and a key identifier (`kid`).
 
-At every protected operation, verification must bind the signature to the approved policy identity and version. Missing, invalid, mismatched, unavailable, or ambiguous policy/signature/key state blocks protected work. Normal operation is read-only; policy changes use a separate owner-approved signing process.
+The signing private key is owner-controlled and kept outside the repository and the runtime's ordinary policy-read path. Hardware-backed, non-exportable custody is preferred where feasible; otherwise encrypted, access-controlled custody is required. Automatic or unattended signing is not approved.
 
-The public key/trust store must be protected by controls independent of the repository's write authority. A digest or key stored only inside the file being checked is insufficient. The current repository SHA is a reference, not an independent trust anchor. Until the signing design is fully specified, implemented, and tested, do not claim cryptographic integrity.
+At every protected operation, verification must bind the signature to the approved policy identity/version. The trust store is independently controlled from repository write authority and exposed read-only to the runtime. Key rotation and revocation require explicit owner authorization. Policy version and key/revocation state must resist rollback to an older, previously valid state.
+
+Missing, invalid, mismatched, unavailable, stale, revoked, or ambiguous policy/signature/key/trust state blocks protected work. Normal operation is read-only; policy changes use a separate owner-approved signing process.
+
+The digest algorithm, exact JWS protected-header and detached-payload profile, manifest schema, policy-version semantics, concrete key custody and recovery procedure, trust-store location/access controls, and anti-rollback state implementation remain open. A digest or key stored only inside the file being checked is insufficient. The current repository SHA is a reference, not an independent trust anchor. Until the design is fully specified, implemented, and tested, do not claim cryptographic integrity.
 
 ### 2.3 Timestamp Engine
 
@@ -104,7 +108,7 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 | Threat | Mitigation | Failure behavior |
 |---|---|---|
 | Prompt injection in repository files, issues, PRs, comments, scripts, or logs | Treat retrieved content as data; fixed instruction hierarchy; no authority transfer | Ignore embedded policy instructions; stop on unresolved conflict |
-| Master Prompt replacement/tampering | Owner-controlled signature; independently held public key; read-only policy path; policy identity/version binding | Block consequential work |
+| Master Prompt replacement/tampering | Ed25519 detached signature; JCS manifest; independently held public key; policy identity/version binding; rollback-resistant trust state | Block consequential work |
 | Unauthorized tool/GitHub action | Least privilege; exact action/resource authorization; boundary enforcement | Deny |
 | Secret or personal-data leakage | Detection → sanitization/block → validation; minimized logs | Block when uncertain |
 | Time manipulation or misleading timestamps | UTC, event IDs, source/clock metadata, distinguish Git timestamps | Mark time evidence uncertain |
@@ -120,11 +124,12 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 - Missing required policy/status file blocks protected operations.
 - A changed or substituted Master Prompt fails signature/identity verification against the independently held public key.
 - A self-stored hash or public key alone is rejected as an independent trust anchor.
-- Missing, invalid, mismatched, unavailable, or ambiguous signature/key state blocks protected operations.
+- Missing, invalid, mismatched, unavailable, stale, revoked, or ambiguous signature/key/trust state blocks protected operations.
+- Policy version and key/revocation state cannot be rolled back to an older, previously valid state.
 - Conflicting/ambiguous policy returns stop/Indeterminate.
 - Untrusted repository instructions cannot modify policy or grant permissions.
 - Normal operation cannot write to the protected Master Prompt.
-- Signature verification is tested against valid, tampered, wrong-key, missing-key, and malformed-signature fixtures.
+- Signature verification is tested against valid, tampered, wrong-key, missing-key, malformed-signature, revoked-key, and rollback fixtures.
 
 ### Timestamp and file tracking
 - Events have unique IDs and UTC timestamps.
@@ -174,11 +179,15 @@ Record exact versions, fixture identifiers, expected/actual outcomes, timestamps
 Do not guess or silently select:
 - implementation language/runtime;
 - application architecture/deployment boundary;
-- signature algorithm, signature format, and digest algorithm;
-- private-key generation, custody, backup, rotation, and revocation lifecycle;
-- independently controlled public-key trust-store location, access controls, and recovery;
-- signing ceremony and owner-approval workflow;
-- exact signature binding to policy identity/version and repository identity;
+- digest algorithm;
+- exact JWS protected-header and detached-payload profile;
+- exact manifest schema and policy-version semantics;
+- concrete key-generation procedure and custody mechanism;
+- backup/recovery procedure;
+- rotation/revocation authorization ceremony;
+- specific trust-store product/location and access-control implementation;
+- anti-rollback state storage and recovery;
+- runtime integration and verification tests;
 - identity provider and actor authentication;
 - permission storage and approval interface;
 - privacy detection technology and supported categories;
@@ -187,7 +196,7 @@ Do not guess or silently select:
 - clock source and monotonic timer support;
 - backup location and recovery model.
 
-These require explicit review before implementation. No technology, algorithm, vendor, key, or trust-store location is selected here.
+These require explicit review before implementation. No vendor, hardware product, key, trust-store location, runtime, or deployment target is selected here.
 
 ## 9. Step 1 completion gate
 
