@@ -2,6 +2,22 @@
 
 All notable project changes are recorded here.
 
+## 0.49.0 — 2026-11-13
+
+### Added
+- Added a file-by-file inventory for all 44 tracked repository files, recording their continuing purpose and disposition before cleanup.
+- Clarified the separate authority and responsibilities of `AGENT.md` and `AGENTS.md` in the public repository entry point.
+
+### Updated
+- Reorganized the README around source of truth, governing instructions, repository map, status/decision navigation, and change discipline.
+- Updated Project Status to record the repository organization review and current GitHub-environment implementation boundary.
+
+### Clarifications
+- No files were deleted, renamed, or moved because no removal was established as safe without further dependency and owner review.
+- Approved decisions, exact baseline blob identities, historical reviews, changelog evidence, holds, and the five open D-012 questions remain unchanged.
+- The GitHub-native environment remains Proposed. No scanner, pre-upload gate, Actions workflow, timestamp service, branch ruleset, backup, runtime, integration, test, or validation execution was implemented or authorized.
+
+
 ## 0.48.0 — 2026-11-12
 
 ### Added
