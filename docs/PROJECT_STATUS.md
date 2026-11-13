@@ -49,8 +49,8 @@ Establish a clear, safe, purpose-neutral repository and workflow framework befor
 ## Approved baseline
 
 - This is a standalone project, separate from all other projects.
-- The ChatGPT Project **Agent Foundation** is the development workspace.
-- This GitHub repository is the canonical source for approved project records.
+- GitHub repository `main` is the sole official project-management environment and canonical source of truth. ChatGPT is an assisting interface, not a second project database or authority. Prefer one central ChatGPT conversation where practical, but context is limited; any handover must rely on current GitHub records and re-read the required live-main files.
+- Approved project records are maintained only in this GitHub repository.
 - The agent's future purpose remains intentionally undefined.
 - Build the foundation before adding capabilities.
 - Apply least privilege and require authorization for consequential actions.

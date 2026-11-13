@@ -2,6 +2,17 @@
 
 All notable project changes are recorded here.
 
+## 0.50.0 — 2026-11-13
+
+### Updated
+- Established GitHub `main` as the sole official project-management environment and canonical source of truth; ChatGPT is an assisting interface, not a parallel project database.
+- Set a preference for one central ChatGPT conversation where practical, while documenting context limits and the GitHub-based handover/re-read requirement.
+- Aligned the master instructions, repository-maintenance instructions, README, and Project Status with the same workspace boundary.
+
+### Clarifications
+- This is a documentation-only governance clarification. It does not add runtime, integrations, Actions workflows, scanners, timestamp services, branch rulesets, backups, or other automation.
+- No approved decisions, exact baseline blobs, holds, exclusions, or open questions were changed. No tests or validation were executed.
+
 ## 0.49.0 — 2026-11-13
 
 ### Added

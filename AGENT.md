@@ -6,10 +6,12 @@
 Agent Foundation is an independent project to establish a reliable, modular, extensible foundation for a future AI agent. Its operational purpose is intentionally undefined. Do not infer one from examples, folder names, or other projects.
 
 ## Source of truth and workspace boundaries
-- This repository's `main` branch is the canonical source for approved project files and recorded decisions.
-- The dedicated ChatGPT Project **Agent Foundation** is the planning and collaboration workspace.
-- Do not assume automatic synchronization between ChatGPT and GitHub.
-- Record approved decisions and material changes in this repository.
+- This repository's `main` branch is the sole official and canonical source of truth for project instructions, approved records, decisions, status, and durable evidence.
+- GitHub is the project's official management and record-keeping environment. Official project administration must not be split across a separate ChatGPT knowledge base, parallel status register, or unrecorded conversation history.
+- ChatGPT is an assisting interface for repository inspection, discussion, research, drafting, review, and authorized GitHub changes. It is not an independent project repository or authoritative record.
+- Prefer carrying out the project's work in one central ChatGPT conversation where practical. This is a convenience, not a storage or continuity guarantee; chat context and length are limited and may not persist completely.
+- When a conversation approaches its context limits or work must continue elsewhere, preserve a concise handover by pointing to the relevant current GitHub records. The next conversation must re-read the required live files from `main`; it must not treat a chat summary as a substitute for repository records.
+- Do not assume automatic synchronization between ChatGPT and GitHub. A decision becomes authoritative only when properly approved and recorded in this repository.
 - Keep this project independent from all other projects. Do not import their instructions, files, memories, workflows, assumptions, or decisions unless the owner explicitly authorizes a specific import.
 - When sources conflict, follow this file first, then approved decision records and current project status. Raise unresolved conflicts instead of silently choosing.
 

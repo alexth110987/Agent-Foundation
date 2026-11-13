@@ -4,11 +4,12 @@ A purpose-neutral foundation for designing and developing a modular AI agent and
 
 > **Current state:** Stage 1 — foundation only. The operational purpose, target environment, runtime, and capabilities have not been selected.
 
-## Source of truth and workspace
+## Official project environment
 
-- **GitHub repository (`main`):** canonical source for approved project records, decisions, and status.
-- **ChatGPT Project — Agent Foundation:** planning, discussion, drafting, and review workspace.
-- These workspaces are not assumed to synchronize automatically. A decision becomes authoritative only when recorded in this repository.
+- **GitHub repository (`main`):** the sole official project-management environment and canonical source of truth for instructions, decisions, status, documentation, and durable evidence.
+- **ChatGPT:** an assisting interface for discussion, research, drafting, review, and authorized repository work. It is not a second project database or an independent authority.
+- **Working conversation:** prefer one central ChatGPT conversation for continuity where practical. Chat context is limited; if a handover becomes necessary, GitHub records remain authoritative and the next conversation must re-read the required live-main instructions.
+- GitHub and ChatGPT do not automatically synchronize. Only approved information recorded in the repository becomes an official project record.
 
 ## Governing instructions
 
