@@ -32,15 +32,30 @@ Path identity must be based on the exact path representation supplied by the aut
 
 Integrity verification must rely on an independently protected reference or trust anchor; a digest stored only beside the file or in the same mutable trust domain is insufficient to establish integrity. The authoritative anchor location, protection model, verification protocol, and recovery process remain subject to separate design approval. Any digest-algorithm migration must be explicit and versioned, retain the algorithm identifier and historical digest, and establish a verifiable link between old and new digests for the same exact file version. Never silently replace, reinterpret, or discard historical digest evidence. If the independent anchor or migration linkage cannot be verified, mark integrity as unverified and block integrity-dependent protected operations.
 
+### Rename-continuity assessment
+A rename may be linked to an existing file lineage only when evidence supports continuity; a matching name, directory, or file size alone is insufficient. An identical cryptographic digest is strong evidence of content equality, but does not by itself prove that two paths represent the same file identity.
+
+The assessment must:
+- preserve the prior and new exact path identities as separate path observations and record the proposed lineage relationship between them;
+- use authoritative repository history or event metadata where available, and record the specific evidence supporting the relationship;
+- treat an unchanged digest as corroborating content evidence, not conclusive identity evidence;
+- require additional reliable evidence when content changes as part of the rename; absent such evidence, do not automatically link the lineage;
+- reject automatic linkage when multiple plausible source or destination candidates make the relationship ambiguous;
+- record the actor or authoritative repository event responsible for the rename observation and retain a verifiable evidence reference without unnecessary personal data;
+- mark the relationship unverified when evidence is insufficient, ambiguous, unavailable, or cannot be validated, and fail closed for protected operations that depend on that identity relationship.
+
+An unverified relationship must not be silently promoted to verified or used to rewrite historical identity. Any later reassessment must retain the original assessment and add a separately attributable evidence-backed event.
+
 ## Approved design decisions
 - **AF-06:** SHA-256 is the initial supported content-digest algorithm, with the algorithm identifier stored alongside each digest. Repository-relative paths use forward-slash separators and preserve case; paths escaping the repository root or ambiguous under repository path rules are rejected rather than silently normalized into another identity. Renames are represented as lineage relationships when continuity can be established. Binary files are tracked by digest and metadata without unnecessary content duplication. Actor references use stable internal identifiers and minimize personal data. This approval supplements AF-06's durable tombstone decision.
 - **AF-12:** File identity is based on the exact path representation from the authoritative repository source, without case folding, Unicode normalization, or lossy rewriting. Preserve original path bytes when exposed by the source; where only decoded text is available, retain the exact source string and encoding context. If lossless identity or round-trip equivalence cannot be established, treat the path as ambiguous and block identity-sensitive changes. Non-UTF-8 paths, where supported, remain opaque identities with safe reversible display encoding. A platform unable to distinguish or faithfully represent paths must block potentially colliding writes, renames, and deletions.
 - **AF-13:** File integrity requires an independently protected reference or trust anchor; a digest stored only beside the file or in the same mutable trust domain is insufficient. Digest-algorithm migration must be explicit and versioned, preserve historical algorithm identifiers and digests, and establish a verifiable link between old and new digests for the same exact file version. Unverifiable anchors or migration linkage result in an unverified integrity state and block integrity-dependent protected operations.
+- **AF-14:** A rename is linked to an existing file lineage only when evidence supports continuity. Names, directory locations, and file sizes alone are insufficient. An identical cryptographic digest is strong evidence of content equality but not conclusive proof of identity. Changed-content renames require additional reliable evidence; ambiguous multiple-candidate matches are not automatically linked. The prior and new exact path identities remain separately recorded. Evidence, actor or authoritative repository event, and assessment outcome are retained. Insufficient, ambiguous, unavailable, or unverifiable evidence results in an unverified relationship; protected operations depending on that identity relationship fail closed. Reassessment adds a new attributable event and does not erase the prior assessment.
 
 These approvals do not approve the Master Prompt draft or authorize implementation.
 
 ## Open design decisions
-Define the independent anchor's authoritative location and protection model, verification protocol, and recovery process. Specify digest-migration evidence format and transition procedure. Rename-continuity criteria, tombstone schema, actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure remain open. Platform-specific path capability detection and the exact reversible display encoding also remain to be specified and tested.
+Define the independent anchor's authoritative location and protection model, verification protocol, and recovery process. Specify digest-migration evidence format and transition procedure. Tombstone schema, actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure remain open. Platform-specific path capability detection and the exact reversible display encoding also remain to be specified and tested. Rename evidence-source precedence, confidence/acceptance thresholds, and the precise event/evidence schema remain open for detailed design; AF-14 establishes the fail-closed decision criteria but does not select an implementation.
 
 ## Acceptance criteria before implementation
 - Interfaces, state transitions, failure modes and permissions are approved.
@@ -48,7 +63,7 @@ Define the independent anchor's authoritative location and protection model, ver
 - Digest algorithm identifiers and historical digests are retained; path traversal and ambiguous identity cases are rejected.
 - Independent integrity anchors and digest-migration linkage are verifiable; missing or invalid evidence fails closed for integrity-dependent actions.
 - Path identity preserves source representation; cross-platform collisions and non-round-trippable paths are safely blocked.
-- Rename lineage and binary-file handling are defined and tested.
+- Rename continuity is evidence-backed; name/location/size-only matches are rejected; changed-content and multiple-candidate cases fail closed absent sufficient evidence; prior assessments remain auditable.
 - Positive and negative tests are defined, including unauthorized and invalid inputs.
 - Privacy/security controls and evidence requirements are specified.
 - Tests use isolated environments, synthetic data and no production credentials.
