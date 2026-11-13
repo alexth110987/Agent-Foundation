@@ -1,7 +1,7 @@
 # Step 1 — Foundation and Security Design
 
 **Status:** Owner-approved design (architecture and design basis only)  
-**Version:** 0.1.1  
+**Version:** 0.1.2  
 **Implementation status:** Not implemented  
 **Scope:** Master Control System, Master Prompt Protection, Timestamp Engine, File & Version Tracking, Privacy Filter, and Security & Permission Control.
 
@@ -104,7 +104,7 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 | Threat | Mitigation | Failure behavior |
 |---|---|---|
 | Prompt injection in repository files, issues, PRs, comments, scripts, or logs | Treat retrieved content as data; fixed instruction hierarchy; no authority transfer | Ignore embedded policy instructions; stop on unresolved conflict |
-| Master Prompt replacement/tampering | Owner-controlled signature; independently held public key; read-only policy path; policy identity/version binding | Block consequential work |
+| Master Prompt replacement/tampering | Owner-controlled signature; independently held public key; read-only policy path; policy identity/version binding; rollback-resistant policy/key state | Block consequential work |
 | Unauthorized tool/GitHub action | Least privilege; exact action/resource authorization; boundary enforcement | Deny |
 | Secret or personal-data leakage | Detection → sanitization/block → validation; minimized logs | Block when uncertain |
 | Time manipulation or misleading timestamps | UTC, event IDs, source/clock metadata, distinguish Git timestamps | Mark time evidence uncertain |
@@ -125,6 +125,7 @@ If any mandatory step is unavailable or indeterminate, the protected action is b
 - Untrusted repository instructions cannot modify policy or grant permissions.
 - Normal operation cannot write to the protected Master Prompt.
 - Signature verification is tested against valid, tampered, wrong-key, missing-key, and malformed-signature fixtures.
+- Rollback/replay tests demonstrate that an older policy version or key state cannot silently replace a newer accepted state; exact storage and recovery mechanics remain an open design choice.
 
 ### Timestamp and file tracking
 - Events have unique IDs and UTC timestamps.
@@ -174,10 +175,14 @@ Record exact versions, fixture identifiers, expected/actual outcomes, timestamps
 Do not guess or silently select:
 - implementation language/runtime;
 - application architecture/deployment boundary;
-- signature algorithm, signature format, and digest algorithm;
-- private-key generation, custody, backup, rotation, and revocation lifecycle;
-- independently controlled public-key trust-store location, access controls, and recovery;
-- signing ceremony and owner-approval workflow;
+- manifest schema and required claims;
+- exact JWS protected-header and payload profile;
+- content-digest algorithm and digest coverage;
+- private-key generation and signing ceremony;
+- concrete hardware/key custody provider and recovery process;
+- key rotation overlap, revocation propagation, and recovery details;
+- independently controlled trust-store location, access controls, and recovery;
+- anti-rollback state storage and recovery mechanism;
 - exact signature binding to policy identity/version and repository identity;
 - identity provider and actor authentication;
 - permission storage and approval interface;
@@ -187,7 +192,7 @@ Do not guess or silently select:
 - clock source and monotonic timer support;
 - backup location and recovery model.
 
-These require explicit review before implementation. No technology, algorithm, vendor, key, or trust-store location is selected here.
+The following directions are approved by D-004 only: Ed25519; detached JWS using EdDSA; JCS canonicalization for the manifest; owner-controlled private-key custody with hardware-backed non-exportable storage preferred; explicit key lifecycle controls; an independently controlled read-only runtime trust store; and rollback-resistant policy/key state. These directions do not select the remaining profiles, providers, storage mechanisms, or implementation details listed above.
 
 ## 9. Step 1 completion gate
 

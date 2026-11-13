@@ -20,18 +20,19 @@
 
 - Governance bootstrap documentation: `docs/MASTER_PROMPT.md`, `AGENTS.md`, and this status record.
 - Step 1 architecture, logical contracts, threat model, acceptance criteria, and isolated test strategy are documented in `docs/STEP_1_FOUNDATION_DESIGN.md`.
-- The approved signature/trust-store design choices are documented in `docs/DECISIONS.md` and `docs/STEP_1_FOUNDATION_DESIGN.md`.
+- The D-004 approved design directions and remaining open decisions are recorded in `docs/DECISIONS.md` and `docs/STEP_1_FOUNDATION_DESIGN.md`.
 - Copy-ready ChatGPT Project Settings instructions are documented in `docs/CHATGPT_PROJECT_INSTRUCTIONS.md`. These are subordinate to the Master Prompt and do not change project scope or authorize implementation.
 
 ## Not implemented
 
-No executable agent, runtime, Master Control enforcement, cryptographic policy-integrity verifier, timestamp service, file tracker, privacy scanner, permission enforcement, or other runtime capability has been implemented. No signing keys, signed manifest, trust store, or anti-rollback mechanism have been created or deployed.
+No executable agent, runtime, Master Control enforcement, cryptographic policy-integrity verifier, timestamp service, file tracker, privacy scanner, permission enforcement, or other runtime capability has been implemented. No signing keys, signed manifest, trust store, verifier, or anti-rollback mechanism have been created or deployed.
 
 ## Verification
 
-- Required live files were read from `main` in the prescribed order.
+- Required live files were read from `main` in the prescribed order before this task.
 - The current approved Master Prompt blob SHA was confirmed.
-- The current Step 1 design and decision register were inspected before this documentation task.
+- The decision register, Step 1 design, and ChatGPT Project Settings instructions were inspected.
+- This documentation reconciliation records only D-004 directions explicitly approved by the owner; unapproved implementation details remain open.
 - Documentation changes require post-commit re-fetch and content verification.
 - GitHub Actions and commit checks must be inspected after commit; absent checks are not a pass.
 - No feature, compatibility, security, smoke, or release tests have been run.
@@ -41,10 +42,10 @@ No executable agent, runtime, Master Control enforcement, cryptographic policy-i
 - No production access or production changes.
 - No external integrations, scheduled execution, or autonomous write permissions enabled.
 - No technology stack, runtime, hosting, deployment, identity provider, or secret manager selected.
-- Master Prompt signature/trust-store architecture and the listed technical design directions are approved, but the digest algorithm, exact JWS/manifest profile, concrete key custody and recovery, trust-store implementation, and anti-rollback storage remain open. Nothing has been implemented or tested. Do not claim cryptographic verification.
-- Runtime implementation remains blocked until the remaining Step 1 design choices and implementation choices/first build increment are explicitly approved.
+- The D-003 trust-anchor architecture and D-004 cryptographic design directions are approved at design level only. Manifest schema/profile, content-digest algorithm and coverage, concrete key custody and recovery, trust-store implementation, anti-rollback storage, and runtime integration remain open. Nothing has been implemented or tested. Do not claim cryptographic verification.
+- Runtime implementation remains blocked until the remaining Step 1 design choices and first implementation choices are explicitly approved.
 - No feature may be added beyond the agreed scope without explicit owner approval.
 
 ## Next action
 
-Resolve the remaining signing details (digest algorithm, JWS/manifest profile, key custody and recovery, trust-store implementation, anti-rollback storage), then approve the minimum implementation choices and first build increment. No runtime implementation is authorized by the design approvals alone.
+Complete and review the full Master Prompt specification for all 18 approved scope areas as a separate draft, without replacing the owner-approved v0.1.0 baseline. Keep implementation at 0% until the applicable design and implementation gates are approved.
