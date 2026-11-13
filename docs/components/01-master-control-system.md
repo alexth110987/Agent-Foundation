@@ -20,8 +20,11 @@ Decision record: ID, outcome, reasons, resource, approvals, timestamp.
 ## Security and operational boundaries
 Default deny. Missing, stale, conflicting, or unverifiable policy blocks protected work. Cannot rewrite policy or grant itself authority.
 
+## Approved design decision
+The Master Control System may identify and propose additional policy rules when it detects a gap or recurring need. A proposed rule is non-operative: it must not influence authorization, workflow execution, or other protected decisions until the owner explicitly approves it and the approved policy source is updated through the authorized process. The system cannot approve, activate, or grant authority to its own proposals. This approval applies only to this design decision; it does not approve the Master Prompt draft or authorize implementation.
+
 ## Open design decisions
-Policy source, actor identity, reason-code taxonomy, conflict handling.
+Policy source and update process, actor identity, reason-code taxonomy, conflict handling, proposal format and review evidence.
 
 ## Acceptance criteria before implementation
 - Interfaces, state transitions, failure modes and permissions are approved.

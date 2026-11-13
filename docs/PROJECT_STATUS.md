@@ -1,6 +1,6 @@
 # Agent Foundation — Project Status
 
-**Status:** Initial documentation bootstrap  
+**Status:** Initial documentation bootstrap; Step 1 design review in progress  
 **Master Prompt:** 0.1.0-draft — pending owner approval  
 **Implementation:** 0%  
 **Release:** Not approved
@@ -14,6 +14,9 @@ Exactly 18 component specification files are established under `docs/components/
 ## Approval state
 The owner authorized creation of the initial documentation baseline. This does not approve the exact Master Prompt version/content, authorize implementation, or approve release.
 
+## Recorded design decisions
+- **AF-01 — Approved design decision:** The Master Control System may propose additional policy rules, but proposals remain non-operative until the owner explicitly approves them and the approved policy source is updated through the authorized process. The system may not approve or activate its own proposals. This decision does not approve the Master Prompt draft or authorize implementation.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
@@ -26,4 +29,4 @@ All 18 items are specifications only. No executable component, runtime, workflow
 - No scope expansion beyond the exact 18 components without explicit owner approval.
 
 ## Next gate
-Review all 18 component specifications and the Master Prompt draft. Record approval against exact contents/version before implementation planning.
+Continue the Step 1 design review for components 02, 05, 06, 07 and 08. Resolve and record open decisions before implementation planning.
