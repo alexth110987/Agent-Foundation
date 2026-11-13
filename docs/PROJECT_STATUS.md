@@ -17,6 +17,10 @@ The owner authorized creation of the initial documentation baseline. This does n
 ## Recorded design decisions
 - **AF-01 — Approved design decision:** The Master Control System may propose additional policy rules, but proposals remain non-operative until the owner explicitly approves them and the approved policy source is updated through the authorized process. The system may not approve or activate its own proposals. This decision does not approve the Master Prompt draft or authorize implementation.
 
+## Recorded design decisions
+- **AF-01 — Approved design decision:** The Master Control System may propose additional policy rules, but proposals remain non-operative until the owner explicitly approves them and the approved policy source is updated through the authorized process. The system may not approve or activate its own proposals. This decision does not approve the Master Prompt draft or authorize implementation.
+- **AF-02 — Approved design decision:** Integrity verification failure, uncertainty, or unavailable trust material blocks all protected operations (Fail Closed). No automatic fallback to older, alternate, cached, or unverified policy is permitted. Recovery requires owner-directed manual restoration and independent re-verification. This decision does not approve the Master Prompt draft or authorize implementation.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
@@ -29,4 +33,4 @@ All 18 items are specifications only. No executable component, runtime, workflow
 - No scope expansion beyond the exact 18 components without explicit owner approval.
 
 ## Next gate
-Continue the Step 1 design review for components 02, 05, 06, 07 and 08. Resolve and record open decisions before implementation planning.
+Continue the Step 1 design review for components 05, 06, 07 and 08. Resolve and record open decisions before implementation planning.
