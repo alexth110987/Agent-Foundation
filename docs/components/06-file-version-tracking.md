@@ -32,6 +32,31 @@ Path identity must be based on the exact path representation supplied by the aut
 
 Integrity verification must rely on an independently protected reference or trust anchor; a digest stored only beside the file or in the same mutable trust domain is insufficient to establish integrity. The authoritative anchor location, protection model, verification protocol, and recovery process remain subject to separate design approval. Any digest-algorithm migration must be explicit and versioned, retain the algorithm identifier and historical digest, and establish a verifiable link between old and new digests for the same exact file version. Never silently replace, reinterpret, or discard historical digest evidence. If the independent anchor or migration linkage cannot be verified, mark integrity as unverified and block integrity-dependent protected operations.
 
+### Tombstone record structure
+
+Each confirmed deletion creates a distinct historical tombstone record. The following logical fields define the approved minimum record structure; they do not prescribe a storage technology or serialization format:
+
+| Field | Requirement |
+|---|---|
+| `tombstone_id` | Unique, non-semantic identifier for this tombstone. |
+| `repository_id` | Stable identifier of the repository in which deletion occurred. |
+| `file_identity` | Exact file identity as established by the authoritative repository source; never reconstructed from a lossy display path. |
+| `last_known_path` | Exact last-known repository-relative path representation, subject to AF-12. |
+| `deleted_at` | Deletion event timestamp in canonical UTC, subject to AF-05; preserve source precision and clock-quality metadata. |
+| `actor_reference` | Stable internal actor identifier, with no unnecessary personal data. |
+| `action_reference` | Verifiable reference to the specific authorized deletion action and its approval/evidence. |
+| `last_known_version` | Last-known version reference, when available; otherwise explicitly unknown/not available. |
+| `digest_algorithm` | Explicit algorithm identifier for the associated digest, when a digest exists. |
+| `last_known_digest` | Last-known content digest, when available; never fabricate or silently recompute a historical value. |
+| `integrity_reference` | Reference to independently protected integrity evidence for the tombstone/record history; the exact anchor mechanism remains open under AF-13. |
+| `record_version` | Version of the logical tombstone schema, so later schema evolution is explicit. |
+
+A field that cannot be established must be represented as explicitly unknown or unavailable according to the eventual schema; it must not be guessed, silently omitted where that would imply certainty, or populated with fabricated data. The tombstone stores metadata and references only; it does not copy the deleted file contents.
+
+Tombstones are append-only historical records. Corrections, supplemental evidence, reassessments, or schema-migration observations are added as separately attributable events/records that reference the original tombstone. They must not overwrite the original values or erase prior assessments. Automatic expiry and silent deletion remain prohibited. Any exceptional redaction or purge requires a separately reviewed and approved policy addressing privacy, legal, security, and audit obligations.
+
+Creation of a tombstone is permitted only as part of a specifically authorized deletion action. Its actor and action references must be verifiable. If file identity, authorization, or the integrity of the tombstone record cannot be established, the affected protected deletion/recording operation is denied or remains unverified as appropriate; no false success state may be reported. Independent anchor location/protection, exact integrity construction, access-control details, actor-reference lifecycle, and exceptional redaction/purge procedure remain open design items.
+
 ### Rename-continuity assessment
 A rename may be linked to an existing file lineage only when evidence supports continuity; a matching name, directory, or file size alone is insufficient. An identical cryptographic digest is strong evidence of content equality, but does not by itself prove that two paths represent the same file identity.
 
@@ -55,11 +80,11 @@ An unverified relationship must not be silently promoted to verified or used to 
 These approvals do not approve the Master Prompt draft or authorize implementation.
 
 ## Open design decisions
-Define the independent anchor's authoritative location and protection model, verification protocol, and recovery process. Specify digest-migration evidence format and transition procedure. Tombstone schema, actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure remain open. Platform-specific path capability detection and the exact reversible display encoding also remain to be specified and tested. Rename evidence-source precedence, confidence/acceptance thresholds, and the precise event/evidence schema remain open for detailed design; AF-14 establishes the fail-closed decision criteria but does not select an implementation.
+Define the independent anchor's authoritative location and protection model, verification protocol, and recovery process. Specify digest-migration evidence format and transition procedure. Actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure remain open. AF-15 defines the approved logical tombstone fields but does not select storage, serialization, or integrity-anchor implementation. Platform-specific path capability detection and the exact reversible display encoding also remain to be specified and tested. Rename evidence-source precedence, confidence/acceptance thresholds, and the precise event/evidence schema remain open for detailed design; AF-14 establishes the fail-closed decision criteria but does not select an implementation.
 
 ## Acceptance criteria before implementation
 - Interfaces, state transitions, failure modes and permissions are approved.
-- Tombstones capture what was deleted, when it was deleted, and which authorized action caused the deletion.
+- Tombstones use the approved AF-15 logical field set, explicitly mark unavailable information, retain no deleted content, and preserve original records through append-only corrections or supplemental events.
 - Digest algorithm identifiers and historical digests are retained; path traversal and ambiguous identity cases are rejected.
 - Independent integrity anchors and digest-migration linkage are verifiable; missing or invalid evidence fails closed for integrity-dependent actions.
 - Path identity preserves source representation; cross-platform collisions and non-round-trippable paths are safely blocked.
