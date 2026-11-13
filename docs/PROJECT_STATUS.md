@@ -2,40 +2,42 @@
 
 **As of:** 2026-11-13  
 **Branch:** `main`  
-**Baseline:** Fresh-start bootstrap  
+**Baseline:** Owner-confirmed Master Prompt v0.1.0  
 **Overall implementation:** 0%  
-**Current stage:** Phase 0 — Governance bootstrap
+**Current stage:** Step 1 — Foundation and Security (design)
 
 ## Confirmed
 
 - The owner authorized a fresh start in this repository.
-- The agreed product direction is a workflow-driven agent foundation, not an unrestricted full-AI agent.
-- The 18 scope areas and eight development phases are recorded in `docs/MASTER_PROMPT.md`.
-- The repository was empty at the current `main` tree before this bootstrap commit.
+- The product direction is a controlled, workflow-driven agent foundation, not an unrestricted full-AI agent.
+- The 18 agreed scope areas and safeguards are recorded in `docs/MASTER_PROMPT.md`.
+- The owner confirmed blob SHA `6eae90336a810794a8b58c02c5f5d2797aa30856` as the approved governing Master Prompt baseline. See D-001 in `docs/DECISIONS.md`.
 
 ## Implemented
 
-- Initial governance documents are being established in this bootstrap commit only.
+- Governance bootstrap documentation: `docs/MASTER_PROMPT.md`, `AGENTS.md`, and this status record.
+- Step 1 architecture, logical contracts, threat model, acceptance criteria, and isolated test strategy are documented in `docs/STEP_1_FOUNDATION_DESIGN.md`.
 
 ## Not implemented
 
-No executable agent, runtime, workflow engine, execution engine, timestamp service, file tracker, privacy scanner, permission enforcement, validator, GitHub integration, repository intelligence, audit service, backup/recovery service, monitoring, dependency manager, queue/transaction manager, or module manager exists as a result of this bootstrap.
+No executable agent, runtime, Master Control enforcement, cryptographic policy-integrity verifier, timestamp service, file tracker, privacy scanner, permission enforcement, or other runtime capability has been implemented.
 
 ## Verification
 
-- Pre-change repository metadata and empty root tree inspected.
-- Bootstrap files require post-commit re-fetch and content verification.
-- GitHub Actions status must be checked after the commit; absence of a run is not a pass.
+- Required live files were read from `main` in the prescribed order.
+- The current approved Master Prompt blob SHA was confirmed.
+- Documentation changes require post-commit re-fetch and content verification.
+- GitHub Actions and commit checks must be inspected after commit; absent checks are not a pass.
 - No feature, compatibility, security, smoke, or release tests have been run.
 
 ## Holds and safeguards
 
 - No production access or production changes.
 - No external integrations, scheduled execution, or autonomous write permissions enabled.
-- No technology stack, runtime, hosting, deployment, or secret manager selected.
-- Master Prompt integrity still requires an independently trusted baseline/signature or verified repository protection. A self-stored hash is insufficient.
+- No technology stack, runtime, hosting, deployment, identity provider, or secret manager selected.
+- Master Prompt integrity has an owner-confirmed baseline reference, but independent runtime trust-anchor enforcement is not implemented. Do not claim cryptographic verification.
 - No feature may be added beyond the agreed scope without explicit owner approval.
 
-## Next phase
+## Next action
 
-Phase 1: Master Control System + Core Engine. Before implementation, define the minimum architecture, interfaces, threat model, acceptance criteria, isolated test strategy, and independent Master Prompt integrity anchor. No implementation is implied by this plan.
+Owner review of `docs/STEP_1_FOUNDATION_DESIGN.md`, especially the trust-anchor approach and open implementation decisions. Implementation remains blocked until the design and first implementation increment are explicitly approved.
