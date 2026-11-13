@@ -24,20 +24,26 @@ Inventory, version lineage, change record, versioned digest, deletion tombstone,
 ## Security and operational boundaries
 SHA-256 is the initial supported content-digest algorithm. Store the algorithm identifier with each digest so future algorithm migration is explicit and verifiable; do not silently reinterpret old digests. A digest is only as trustworthy as its reference. A colocated hash is not an independent trust anchor.
 
-Repository-relative paths use a canonical forward-slash separator and preserve case. Reject paths that escape the repository root or are ambiguous under the repository's path rules; do not silently merge distinct paths through case folding or lossy Unicode normalization. A rename is recorded as a relationship between the prior and new path/identity and is not automatically classified as deletion plus unrelated creation when continuity can be established.
+Repository-relative paths use forward-slash separators and preserve case. Reject paths that escape the repository root or are ambiguous under the repository's path rules; do not silently merge distinct paths through case folding or lossy Unicode normalization. A rename is recorded as a relationship between the prior and new path/identity and is not automatically classified as deletion plus unrelated creation when continuity can be established.
 
 For binary files, track digest and metadata without duplicating file contents solely for tracking. Do not infer device creation time from Git. Tombstones must not copy deleted file contents or unnecessarily retain personal data. Actor references should use stable internal identifiers and avoid unnecessary personal information. Only authorized actions may create or alter tracking records; historical records must not be silently rewritten.
 
-## Approved design decision
-SHA-256 is the initial supported content-digest algorithm, with the algorithm identifier stored alongside each digest. Repository-relative paths use forward-slash separators and preserve case; paths escaping the repository root or ambiguous under repository path rules are rejected rather than silently normalized into another identity. Renames are represented as lineage relationships when continuity can be established. Binary files are tracked by digest and metadata without unnecessary content duplication. Actor references use stable internal identifiers and minimize personal data. This approval supplements AF-06's durable tombstone decision; it does not approve the Master Prompt draft or authorize implementation.
+Path identity must be based on the exact path representation supplied by the authoritative repository source, not on a display string. Do not case-fold, Unicode-normalize, or otherwise rewrite the identity. Preserve original path bytes when the source interface exposes them. If an interface exposes only decoded text, retain that exact source string and encoding context; if lossless identity or round-trip equivalence cannot be established, treat the path as ambiguous and block identity-sensitive changes. Non-UTF-8 paths, where supported by the source, remain opaque identities and must be rendered only through a safe reversible encoding. A platform that cannot distinguish or faithfully represent two repository paths must not perform a potentially colliding write, rename, or delete.
+
+## Approved design decisions
+- **AF-06:** SHA-256 is the initial supported content-digest algorithm, with the algorithm identifier stored alongside each digest. Repository-relative paths use forward-slash separators and preserve case; paths escaping the repository root or ambiguous under repository path rules are rejected rather than silently normalized into another identity. Renames are represented as lineage relationships when continuity can be established. Binary files are tracked by digest and metadata without unnecessary content duplication. Actor references use stable internal identifiers and minimize personal data. This approval supplements AF-06's durable tombstone decision.
+- **AF-12:** File identity is based on the exact path representation from the authoritative repository source, without case folding, Unicode normalization, or lossy rewriting. Preserve original path bytes when exposed by the source; where only decoded text is available, retain the exact source string and encoding context. If lossless identity or round-trip equivalence cannot be established, treat the path as ambiguous and block identity-sensitive changes. Non-UTF-8 paths, where supported, remain opaque identities with safe reversible display encoding. A platform unable to distinguish or faithfully represent paths must block potentially colliding writes, renames, and deletions.
+
+These approvals do not approve the Master Prompt draft or authorize implementation.
 
 ## Open design decisions
-Exact path normalization and Unicode equivalence rules across supported Git platforms, digest migration and independent integrity-anchor design, rename-continuity criteria, tombstone schema, actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure.
+Digest migration and independent integrity-anchor design, rename-continuity criteria, tombstone schema, actor-reference lifecycle, access controls, and any exceptional redaction or purge procedure. Platform-specific path capability detection and the exact reversible display encoding remain to be specified and tested.
 
 ## Acceptance criteria before implementation
 - Interfaces, state transitions, failure modes and permissions are approved.
 - Tombstones capture what was deleted, when it was deleted, and which authorized action caused the deletion.
 - Digest algorithm identifiers are retained; path traversal and ambiguous identity cases are rejected.
+- Path identity preserves source representation; cross-platform collisions and non-round-trippable paths are safely blocked.
 - Rename lineage and binary-file handling are defined and tested.
 - Positive and negative tests are defined, including unauthorized and invalid inputs.
 - Privacy/security controls and evidence requirements are specified.
