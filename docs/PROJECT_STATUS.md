@@ -21,6 +21,7 @@
 - Governance bootstrap documentation: `docs/MASTER_PROMPT.md`, `AGENTS.md`, and this status record.
 - Step 1 architecture, logical contracts, threat model, acceptance criteria, and isolated test strategy are documented in `docs/STEP_1_FOUNDATION_DESIGN.md`.
 - The approved signature/trust-store design choices are documented in `docs/DECISIONS.md` and `docs/STEP_1_FOUNDATION_DESIGN.md`.
+- Copy-ready ChatGPT Project Settings instructions are documented in `docs/CHATGPT_PROJECT_INSTRUCTIONS.md`. These are subordinate to the Master Prompt and do not change project scope or authorize implementation.
 
 ## Not implemented
 
@@ -28,9 +29,9 @@ No executable agent, runtime, Master Control enforcement, cryptographic policy-i
 
 ## Verification
 
-- Required live files were read from `main` in the prescribed order before this task.
+- Required live files were read from `main` in the prescribed order.
 - The current approved Master Prompt blob SHA was confirmed.
-- The current Step 1 design and decision register were inspected before recording this decision.
+- The current Step 1 design and decision register were inspected before this documentation task.
 - Documentation changes require post-commit re-fetch and content verification.
 - GitHub Actions and commit checks must be inspected after commit; absent checks are not a pass.
 - No feature, compatibility, security, smoke, or release tests have been run.
