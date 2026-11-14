@@ -1,6 +1,6 @@
 # Agent Foundation — Project Status
 
-**Status:** Initial documentation bootstrap; Step 1 design review in progress  
+**Status:** Initial documentation bootstrap; Step 1 design review remains in progress; Step 2 design review started (component 09)  
 **Master Prompt:** 0.1.0-draft — pending owner approval  
 **Implementation:** 0%  
 **Release:** Not approved
@@ -134,6 +134,17 @@ The owner approved the following five refinements on 2026-11-14. These are desig
 - **AF-75 — Approved design decision:** Read access is independently scoped by actor, resource, data category, purpose, and permitted read operation. Access to one resource or data category does not imply access to related resources, metadata, search results, exports, or other representations. Read, search, inspect, and export remain distinguishable where their exposure differs. Ambiguous or excessive scope is denied. This does not approve implementation.
 - **AF-76 — Approved design decision:** A single-use approval must be consumed atomically with its successful authorization at the protected action boundary, so concurrent or replayed requests cannot both use the same approval. If the system cannot establish whether an approval was already consumed, or cannot guarantee one-time use for the action, it must deny the protected operation rather than risk duplicate execution. This does not select a nonce/token mechanism or transaction technology, or approve implementation.
 
+
+## Additional approved design decisions — Validation Engine
+
+The owner approved the following five design decisions on 2026-11-14. These decisions refine component 09 only; they do not approve the Master Prompt 0.1.0-draft, authorize implementation, production access, external integrations, technology selection, or release.
+
+- **AF-77 — Approved design decision:** Every validation run must identify and use an explicit, versioned validation contract bound to its validation target and scope. The contract defines applicable schema/rule versions, required inputs, preconditions, expected outputs, acceptance criteria, and explicitly permitted tolerances. Results apply only to the exact contract and target versions assessed; a relevant change requires new validation. Missing, ambiguous, incompatible, or unverifiable contract information produces BLOCKED or INDETERMINATE, never PASS.
+- **AF-78 — Approved design decision:** Test execution is permitted only in an explicitly authorized, isolated non-production environment using synthetic test data and no production credentials. Environment identity, isolation boundary, permitted resources, and explicitly authorized network access must be established before execution. Production systems, live services, production configuration, and installed production components are out of scope. Loss of isolation, unexpected external side effects, or inability to verify the environment blocks execution; no automatic retry in another environment is permitted.
+- **AF-79 — Approved design decision:** Test fixtures and expected-result oracles must be explicitly identified, versioned, and traceable to the validation contract and test case. Fixtures must use synthetic or separately authorized data, and their integrity and provenance must be verifiable before use. Fixture or oracle changes create a new version and invalidate results that depend on the prior version where applicability changes. Missing, modified, untrusted, or inconsistent fixtures/oracles produce BLOCKED or INDETERMINATE, not PASS.
+- **AF-80 — Approved design decision:** Each validation run must produce a traceable evidence record bound to the exact target, contract, test case, fixture/oracle versions, environment, relevant tool/rule versions, and result. PASS, FAIL, BLOCKED, and INDETERMINATE remain distinct outcomes; unavailable or incomplete evidence cannot support PASS. Evidence must exclude secrets and unnecessary personal data and retain only minimum necessary diagnostic detail. Evidence retention, access, redaction, and deletion follow a separately reviewed and owner-approved audit/privacy policy; this decision creates no blanket retention period.
+- **AF-81 — Approved design decision:** Validation gates must declare their prerequisites and dependencies explicitly, and each gate category must retain an independent result. A failed, blocked, indeterminate, or missing required prerequisite prevents dependent gates from passing. Coverage must identify applicable test categories and portions actually exercised; untested or unobservable areas remain explicitly uncovered or unknown. Feature, integration, security/privacy, compatibility, smoke, and release gates are not interchangeable. Smoke PASS applies only to the exact tested version and environment and is never release approval.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
@@ -146,4 +157,4 @@ All 18 items are specifications only. No executable component, runtime, workflow
 - No scope expansion beyond the exact 18 components without explicit owner approval.
 
 ## Next gate
-Step 1 design review remains in progress. Approved design decisions are recorded for components 01, 02, 05, 06, 07 and 08, but the detailed acceptance and implementation prerequisites are not yet fully resolved. Continue closing the remaining technical and operational design questions before implementation planning.
+Step 1 design review remains in progress. Approved design decisions are recorded for components 01, 02, 05, 06, 07 and 08. Step 2 design review has started with component 09; AF-77 through AF-81 are approved design decisions, while the remaining technical and operational details and acceptance prerequisites remain open. Continue design review before implementation planning.
