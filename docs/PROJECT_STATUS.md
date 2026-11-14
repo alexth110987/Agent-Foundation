@@ -65,6 +65,16 @@ The owner authorized creation of the initial documentation baseline. This does n
 - **AF-41 — Approved design decision:** Naming and folder proposals follow existing or separately approved conventions; no mandatory convention is imposed by inference. This does not approve implementation.
 - **AF-42 — Approved design decision:** Every executed action receives post-execution verification; recovery is preplanned, separately authorized when invoked, and preserves history. This does not approve implementation.
 
+## Additional approved design decisions — Timestamp Engine
+
+The owner approved the following five proposals on 2026-11-14. These refine AF-05 and AF-11; they do not approve the Master Prompt 0.1.0-draft, authorize implementation, or approve release.
+
+- **AF-53 — Approved design decision:** Every time observation used by the system carries an explicit clock-quality state: TRUSTED, DEGRADED, UNKNOWN, or UNTRUSTED. The state reflects available source, synchronization, and uncertainty evidence and must never be overstated. Time-dependent protected actions require TRUSTED time and are denied otherwise.
+- **AF-54 — Approved design decision:** Only explicitly approved and identifiable time sources may support security-sensitive time decisions. Source identity and relevant synchronization/uncertainty metadata are recorded. Conflicting or unverifiable source evidence results in UNKNOWN or UNTRUSTED status and cannot be silently resolved by choosing an arbitrary system clock. Approved source list and measurable trust criteria remain open.
+- **AF-55 — Approved design decision:** Monotonic clocks are used only for elapsed-duration measurement and never substitute for canonical UTC event time. Loss of monotonic continuity, including across reboot or suspend where continuity cannot be established, invalidates or marks the affected duration measurement uncertain. No security-sensitive duration may silently fall back to wall-clock time. Supported platform behavior remains open.
+- **AF-56 — Approved design decision:** Event metadata records, at minimum, event ID, event type, event time, recording time, time source, source precision, clock-quality state, originating component, and a reference to the associated action where applicable. Unknown or unavailable values are explicitly represented rather than inferred. Unnecessary personal data is excluded. Exact schema and field encoding remain open.
+- **AF-57 — Approved design decision:** Event metadata retention is governed by a separately reviewed, owner-approved audit/privacy policy with retention periods defined by data category and appropriate least-privilege access. No blanket indefinite retention is introduced. Deletion, redaction, or retention exceptions must preserve applicable approved integrity, audit, legal, and privacy requirements and be separately authorized where required. Detailed periods and procedures remain open.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
