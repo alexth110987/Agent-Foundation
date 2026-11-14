@@ -65,6 +65,26 @@ The owner authorized creation of the initial documentation baseline. This does n
 - **AF-41 — Approved design decision:** Naming and folder proposals follow existing or separately approved conventions; no mandatory convention is imposed by inference. This does not approve implementation.
 - **AF-42 — Approved design decision:** Every executed action receives post-execution verification; recovery is preplanned, separately authorized when invoked, and preserves history. This does not approve implementation.
 
+## Step 1 — approved general acceptance conditions
+
+**Approval state:** Approved by the owner on 2026-11-14.  
+**Scope:** These are mandatory design/acceptance gates for Step 1 (components 01, 02, 05, 06, 07 and 08). Approval of the gates does not mean that any gate has already been satisfied. Each item requires evidence during design review. This approval does not approve the Master Prompt 0.1.0-draft, authorize implementation, select architecture or technology, change security policy, or approve release.
+
+All of the following conditions must be evidenced before Step 1 can pass its design/acceptance gate:
+
+1. All interfaces and data structures have been reviewed.
+2. All security boundaries have been documented.
+3. Every failure scenario has a defined outcome.
+4. Fail-closed behavior is described for all protected actions.
+5. Privacy and data-retention policy has been reviewed.
+6. Positive and negative test scenarios have been established.
+7. Compatibility requirements have been established.
+8. Recovery procedures have been documented.
+9. Tests have no dependency on production credentials.
+10. No unapproved architecture or technology choices are introduced.
+
+The conditions supplement, and do not replace, the component-specific acceptance criteria and existing approved decisions. Existing exclusions, holds, least-privilege requirements, deny-by-default behavior, isolated-test requirements, and production restrictions remain unchanged.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
