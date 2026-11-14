@@ -65,6 +65,16 @@ The owner authorized creation of the initial documentation baseline. This does n
 - **AF-41 — Approved design decision:** Naming and folder proposals follow existing or separately approved conventions; no mandatory convention is imposed by inference. This does not approve implementation.
 - **AF-42 — Approved design decision:** Every executed action receives post-execution verification; recovery is preplanned, separately authorized when invoked, and preserves history. This does not approve implementation.
 
+## Additional approved design decisions — Master Control System
+
+The owner approved the following five proposals on 2026-11-14. These are design decisions only; they do not approve the Master Prompt 0.1.0-draft, authorize implementation, select technology, or approve release.
+
+- **AF-43 — Approved design decision:** Policy changes remain proposals until explicitly approved by the owner. An approved change receives a new policy version; publication is permitted only after an integrity check, and the previous version remains available as historical evidence. Automatic policy changes and self-approval are prohibited. Detailed version syntax and publication mechanics remain open.
+- **AF-44 — Approved design decision:** The owner is represented by a unique internal identity that is independently verified. A login name or email address alone is insufficient proof of identity. Changes to owner identity require verification; uncertainty blocks protected actions. Detailed identity lifecycle, recovery, and verification mechanisms remain open.
+- **AF-45 — Approved design decision:** The initial versioned authorization reason-code catalogue includes: PERMIT-001 (all required checks passed); DENY-001 (authorization absent); DENY-002 (policy conflict); DENY-003 (integrity check failed); DENY-004 (approval expired); DENY-005 (actor identity untrusted); INDET-001 (insufficient information); and INDET-002 (verification unavailable). Codes are not silently reused or redefined; catalogue changes require explicit versioning. Compatibility and migration rules remain open.
+- **AF-46 — Approved design decision:** Policy conflicts are recorded explicitly and block the affected protected action until the owner resolves the conflict. The system must not choose a winning rule or policy source autonomously. Resolution must be owner-authorized and supported by a traceable decision/evidence record. This supplements AF-09 and does not weaken its single-authoritative-policy-source or deny-on-conflict requirements.
+- **AF-47 — Approved design decision:** Every policy proposal records a unique proposal ID, trigger/problem statement, proposed change, rationale/evidence, expected effects, security/privacy impact, approval state, and final decision/evidence reference. A proposal is non-operative until owner approval and authorized publication into the approved policy source. Detailed review/audit record format remains open.
+
 ## Implementation state
 All 18 items are specifications only. No executable component, runtime, workflow, integration, scanner, permission enforcement, backup, monitor, queue, or module manager is implemented.
 
