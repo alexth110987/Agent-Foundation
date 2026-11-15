@@ -13,6 +13,19 @@ Before every new task and every workflow, run, file, or GitHub operation, read l
 
 If any required file is missing, inaccessible, invalid, or inconsistent, stop and report the exact blocker, except during an explicitly owner-authorized bootstrap.
 
+### Mandatory preflight gate — no-read, no-action
+The preflight is a blocking gate, not a reminder or optional checklist.
+
+- Start each new task with a fresh preflight. Do not rely on prior chat context, summaries, cached copies, earlier tool results, or remembered repository state.
+- Repeat the complete three-file read, in the exact order above, immediately before each separate workflow, run, file, or GitHub operation. A preflight performed for one operation does not authorize the next operation.
+- Confirm that all three reads came from the current `main` branch and completed successfully. Record the observed `main` commit SHA and each required file's blob SHA for the task's working evidence.
+- Check that the files are readable, internally consistent, and mutually consistent. Then verify scope, approval state, holds, required permissions, and whether the requested action is authorized.
+- If `main` moves during the task, or any required file/approval/permission cannot be verified, discard the earlier preflight as authorization and restart it from step 1. Do not continue using a mixed snapshot.
+- If any check fails or is uncertain, stop before the protected operation. Do not try another repository, branch, cached copy, or fallback source. Report the exact failed check and what remains blocked.
+- Before a write, additionally verify the expected branch head and current target-file blob SHA. Abort on a mismatch; never overwrite concurrent changes.
+
+A task is not ready to proceed until this gate has passed. Do not claim that preflight passed unless the three live reads and the checks above were actually completed.
+
 ## Repository procedure
 - Inspect current files and branch head before editing.
 - Preserve approved scope, decisions, exclusions, holds, compatibility rules, safeguards, and evidence.
